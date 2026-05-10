@@ -1,0 +1,206 @@
+﻿1. Designator Codes and Descriptions,,,,
+a. Unrestricted Line,,,,
+Billet Code,Billet,Officer Code,Officer,Officer Community Manager (OCM)
+,Description,,Description,
+1000,Billet which may be filled by any appropriately skilled and experienced Unrestricted Line Officer or Special Duty Officer ,N/A,N/A,DCNO (Manpower)
+1020,Billet which may be filled by any appropriately skilled and experienced Special Duty Officer (IP) or Unrestricted Line Officer ,N/A,N/A,"DCNO (Manpower) (Space, Information Warfare Command and Control)"
+1050,Unrestricted Line Officer billet requiring an officer qualified in any one of the warfare specialties (LT and above),N/A,N/A,DCNO (Manpower)
+1100,Unrestricted Line Officer billet requiring Fleet Support specialty,110X,An Unrestricted Line Officer who is not qualified in any warfare specialty or in training for any warfare specialty,DCNO (Manpower)
+1110,Unrestricted Line Officer billet requiring Surface Warfare qualification or afloat billets leading to such qualification,111X,An Unrestricted Line Officer who is qualified in Surface Warfare,ACNO (Surface warfare)
+1120,Unrestricted Line Officer billet requiring Submarine Warfare qualification or afloat billets leading to such qualification,112X,An Unrestricted Line Officer who is qualified in Submarine Warfare,ACNO (Undersea Warfare)
+1130,Unrestricted Line Officer billet requiring Special Warfare (SEAL) qualification,113X,An Unrestricted Line Officer who is qualified in Special Warfare,ACNO (Expeditionary Warfare
+1140,Unrestricted Line Officer billet requiring Explosive Ordnance Disposal (EOD) Warfare Qualification ,114X,An Unrestricted Line Officer who is qualified in Explosive Ordnance Disposal (EOD) Warfare,ACNO (Expeditionary Warfare
+1160,Unrestricted Line Officer billet for an officer in training for Surface Warfare qualification,116X,Unrestricted Line Officer who is in training for Surface Warfare qualification,ACNO (Surface warfare)
+1170,Unrestricted Line Officer billet for an officer in training for Submarine Warfare qualification,117X,Unrestricted Line Officer who is in training for Submarine Warfare qualification,ACNO (Undersea Warfare)
+1180,Unrestricted Line Officer billet for a student in training for Special Warfare qualification,118X,Unrestricted Line Officer who is in training for Special Warfare qualification,ACNO (Expeditionary Warfare)
+1190,Unrestricted Line Officer billet for an officer in training for Explosive Ordnance Disposal (EOD) qualification,119X,Unrestricted Line Officer who is in training for Explosive Ordnance Disposal qualification,ACNO (Expeditionary Warfare)
+,,,,
+b. Restricted Line (Human Resources),,,,
+1200,"Special Duty Officer - Restricted Line Officer Billet requiring Human Resources specialty - Plan, program, and execute life-cycle management of our Navy's most important resource - people.",120X,"Special Duty Officer - Human Resource Officer A Restricted Line Officer of the Human Resources Community who will plan, program and execute life-cycle management of our Navy's most important resource - people.",DCNO (Manpower)
+1210,"Restricted Line Officer Billet (Nuclear Power School Instructor) regulated by Program Authorization 100B attached to Nuclear Power School, Charleston, SC. ",121X,Restricted Line Officer (Nuclear Power School Instructor) regulated by Program Authorization 100B.  ,"DCNO (M&P), N133C"
+1230,Restricted Line Officer Billet (Permanent Military Professor) regulated by OPNAVINST 1520.40,1230,Restricted Line Officer (Permanent Military Professor) regulated by OPNAVINST 1520.40,"DCNO (Manpower), BUPERS 311-HR"
+1280,Special Duty Officer-Restricted Line Officer Billet Requiring Recruiting Specialty of a permanent Recruiter (LT and LCDR),128X,Special Duty Officer-Permanent Professional Recruiter Officer (Reserve Recruiting) (LT and LCDR),BUPERS-315
+,,,,
+c. Unrestricted Line (Aviation),,,,
+*1300,"Unrestricted Line Officer billet, Code 0 - Other Than Operational Flying, requiring Air Warfare specialty of, or previous designation as, a pilot or NFO (LT and above)",130X,"An Unrestricted Line Officer who is a member of the aeronautical community and whose rating as a pilot or NFO has been terminated.  (These officers may be assigned to 1000, 1050, 1300, 1310 or 1320 designated billets, if otherwise qualified.)",Billets: ACNO (Air Warfare)       Officers: CHNAVPERS (PERS-43)
+*1301,"Unrestricted Line Officer billet, Code 1 - Operational Flying, requiring Air Warfare specialty of a pilot or NFO (LT and above)",N/A,N/A,ACNO (Air Warfare)
+*1302,"Unrestricted Line Officer billet, Code 2 - Operational Flying, requiring Air Warfare specialty of a pilot or NFO",N/A,N/A,ACNO (Air Warfare)
+*1310,"Unrestricted Line Officer billet, Code 0 - Other Than Operational Flying, requiring Aviation Warfare specialty of a pilot",131X,"An Unrestricted Line Officer who is qualified for duty involving flying heavier-than-air, or heavier and lighter-than-air type of aircraft as a pilot",ACNO (Air Warfare)
+*1311,"Unrestricted Line Officer billet, Code 1 - Operational Flying, requiring Aviation Warfare specialty of a pilot",NA,N/A,ACNO (Air Warfare)
+*1312,"Unrestricted Line Officer billet, Code 2 - Operational Flying, requiring Aviation Warfare specialty of a pilot",NA,N/A,ACNO (Air Warfare)
+*1320,"Unrestricted Line Officer billet, Code 0 - Other Than Operational Flying, requiring Aviation Warfare specialty of a Naval Flight Officer",132X,An Unrestricted Line Officer who is qualified for duty involving flying heavier-than-air or heavier and lighter-than-air type aircraft as a Naval Flight Officer,ACNO (Air Warfare)
+*1321,"Unrestricted Line Officer billet, Code 1 - Operational Flying, requiring Aviation Warfare specialty of a Naval Flight Officer",N/A,N/A,ACNO (Air Warfare)
+*1322,"Unrestricted Line Officer billet, Code 2 - Operational Flying, requiring Aviation Warfare specialty of a Naval Flight Officer",N/A,N/A,ACNO (Air Warfare)
+*1372,"Unrestricted Line Officer billet, Code 2 - Operational Flying, for a student in training for Aviation Warfare (NFO) qualification",137X,An Unrestricted Line Officer who is in training for duty involving flying as a Naval Flight Officer,ACNO (Air Warfare)
+*1392,"Unrestricted Line Officer billet, Code 2 - Operational Flying, for a student in training for Aviation Warfare (pilot) qualification",139X,An Unrestricted Line Officer who is in training for duty involving flying as a pilot,ACNO (Air Warfare)
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+d. Restricted Line (Engineering Duty),,,,
+1440,"Engineering Duty Officer billet requiring specialists in Ship Engineering, including Ship and Ship Systems Engineering, Electronic Systems Engineering, Combat/Weapons Systems Engineering, and Ordnance Systems Engineering. NOTE below applies.",144X,"Engineering Duty Officer who is qualified as a Ship Engineering specialist IAW MILPERSMAN 1210-190.  They include specialists in Ship and Ship systems Engineering, Electronic Systems Engineering, Combat/Weapons Systems Engineering, and Ordnance Systems Engineering","COMNAVSEA-SYSCOM, COMNAVWAR-SYSCOM"
+1460,Engineering Duty Officer billet for an officer actively pursuing a prescribed program leading to designation as 144X,146X,Engineering Duty Officer who is in the process of completing the prescribed program leading to designation as 144X,"COMNAVSEA-SYSCOM, COMNAVWAR-SYSCOM"
+NOTE:  Subspecialty coding and justification must accompany requests for new 1440 billets.,,,,
+,,,,
+e. Restricted Line (Aerospace Engineering Duty),,,,
+1500,Aerospace Engineering Duty Officer billet requiring Aerospace Engineering (AED) or Aerospace maintenance (AMD) specialties (CAPT and above),150X,A Restricted Line AED Flag Officer or Captain who was formerly either an AED officer (Aerospace Engineering--designator 151X) or an AMD officer (Aviation Maintenance--designator 152X),COMNAVAIR-SYSCOM
+1510,Aerospace Engineering Duty Officer billet requiring Aerospace Engineering (AED) specialty. NOTE below applies,151X,Aerospace Engineering Duty Officer (Aerospace Engineering),COMNAVAIR-SYSCOM
+*1511,"Aerospace Engineering Duty Officer billet, Code 1 - Operational Flying, requiring the specialty of an Aerospace Engineering Duty (AED) officer who is a designated Pilot or Naval Flight Officer. NOTE below applies",N/A,N/A,COMNAVAIR-SYSCOM
+*1512,"Aerospace Engineering Duty Officer billet, Code 2 - Operational Flying, requiring the specialty of an Aerospace Engineering Duty (AED) Officer who is a designated Pilot or Naval Flight Officer. NOTE below applies",N/A,N/A,COMNAVAIR-SYSCOM
+*1540,"Aviation Duty Officer billet, Code 0 - Other Than Operational Flying, requiring Aviation Warfare specialty of a pilot (LT thru CAPT)",154X,Aviation Duty Officer,ACNO (Air Warfare)
+*1541,"Aviation Duty Officer billet, Code 1 - Operational Flying, requiring Aviation Warfare specialty of a pilot (LT thru CAPT)",N/A,N/A,ACNO (Air Warfare)
+*1542,"Aviation Duty Officer billet, Code 2 - Operational Flying, requiring Aviation Warfare specialty of a pilot (LT thru CAPT)",N/A,N/A,ACNO (Air Warfare)
+NOTE:  Subspecialty coding and justification must accompany requests for new 151X billets.,,,,
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+f.  Restricted Line (Strategic Sealift and Public Affairs),,,,
+1650,Special Duty Officer billet requiring Public Affairs specialty,165X,Special Duty Officer - Public Affairs,CHINFO
+1660,Special Duty Officer billet requiring a Strategic Sealift Officer,166X,Special Duty Officer – Strategic Sealift Officer (SSO),MSC
+N/A,N/A,168X,Special Duty Officer (Reserve Recruiting),CHNAVPERS (PERS-921)
+,,,,
+g. Restricted Line (Foreign Area Officer),,,,
+1710,Special Duty Officer billet requiring a qualified Foreign Area Officer or a Foreign Area Officer Under Instruction,171X,Special Duty Officer qualified as a Foreign Area Officer,CNO (N131)
+1712,"Special Duty Officer billet requiring a Foreign Area Officer Code 2 – Operational Flying Involved, a qualified Foreign Area Officer or a Foreign Area Officer Under Instruction",N/A,N/A,CNO (N131)
+,,,,
+h. Restricted Line (Information Warfare Community),,,,
+1800,Information Warfare Line Officer - Oceanography,180X,Information Warfare Line Officer - Oceanography,BUPERS-311-METOC
+*1802,"Information Warfare Line Officer billet Code 2 - Operational Flying, requiring Meteorology specialty of a Geophysicist who is a designated Pilot or Naval Flight Officer",N/A,N/A,OCEANAV
+1810,Information Warfare Line Officer – Cryptologic Warfare Officer,181X,Information Warfare Line Officer – Cryptologic Warfare Officer,BUPERS-311-CW
+1820,"Information Warfare Line Officer –
+Communications Systems Warfare Officer (CSWO)",182X,"Information Warfare Line Officer –
+Communications Systems Warfare Officer (CSWO)",BUPERS-311-IP
+1830,Information Warfare Line Officer – Intelligence Officer,183X,Information Warfare Line Officer– Intelligence Officer,BUPERS-311-INT
+1840,Information Warfare Line Officer – Cyber Warfare Engineer,184X,Information Warfare Line Officer– Cyber Warfare Engineer,BUPERS-311-CYBER
+1850,Billets which may be filled by any appropriately skilled and experienced IWC Officer,N/A,N/A,BUPERS-311
+1860,Information Warfare Line Officer – IWC Flag Officer,186X,Information Warfare Line Officer – IWC Flag Officer,BUPERS-311
+1870,"Information Warfare Line Officer  – Maritime Space Officer
+Warfare –qualified URL/RL officers at O3, O4, O5 and O6 level
+Reserve Grades URL/RL O2 to O6",187X,"Information Warfare Line Officer  - Maritime Space Officer
+Reserve Grades URL/RL O2 to O6",BUPERS-311-MSO
+1880,Information Warfare Line Officer -Maritime Cyber Warfare Officer (O1 to O6),188X,Information Warfare Line Officer -Maritime Cyber Warfare Officer (O1 to O6),BUPERS-311-CYBER
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+i. Unrestricted Line - Prospective Staff Corps,,,,
+1900,Unrestricted Line Officer student billet for a prospective Nurse Corps officer,190X,An Unrestricted Line Officer under instruction as a prospective Nurse Corps officer,BUMED-15
+1910,Unrestricted Line Officer student billet for a prospective Medical Corps officer (Senior Medical Student Program),191X,An Unrestricted Line Officer under instruction as a prospective Medical Corps officer (Senior Medical Student),BUMED-15
+1920,Unrestricted Line Officer student billet for a prospective Dental Corps officer,192X,An Unrestricted Line Officer under instruction as a prospective Dental Corps officer,BUMED-15
+1930,Unrestricted Line Officer student billet for a prospective Medical Service officer (Optometry),193X,An Unrestricted Line Officer under instruction as a prospective Medical Service officer (Optometry),BUMED-15
+N/A,N/A,**194X,An Unrestricted Line Officer under instruction as a prospective Chaplain Corps officer,CHIEF OF CHAPLAINS
+1950,Unrestricted Line Officer student billet for a prospective Judge Advocate General’s Corps Officer Law Education Program (LEP),195X,An Unrestricted Line Officer under instruction as a prospective Judge Advocate General's Corps officer,JAG
+1960,Unrestricted Line Officer student billet for a prospective Medical Corps officer (Medical /Osteopathic Scholarship Program),196X,An Unrestricted Line Officer under instruction as a prospective Medical Corps officer (Medical /Osteopathic Scholarship Program),BUMED-15
+N/A,N/A,**197X,An Unrestricted Line Officer under instruction in the Armed Forces Health Professions Scholarship Program (Medical/Osteopathic),BUMED-15
+N/A,N/A,**198X,An Unrestricted Line Officer under instruction in the Armed Forces Health Professions Scholarship Program (Dental),BUMED-15
+N/A,N/A,**199X,An Unrestricted Line Officer under instruction in the Armed Forces Health Professions Scholarship Program (Medical Service Corps),BUMED-15
+** Authorized for Naval Reserve Officers only.,,,,
+,,,,
+j. Staff Corps,,,,
+2000,Medical Department (Medical Admin) Officer billet which may be filled by an appropriately skilled and experienced individual of one of the Medical Department officer communities (LCDR and above),N/A,N/A,BUMED-15
+2100,Staff Corps Officer billet requiring Medical specialty,210X,A Medical Corps Officer,BUMED-15
+*2102,"Staff Corps Officer billet Code 2 - Operational Flying, requiring Medical specialty of a qualified Flight Surgeon",N/A,N/A,BUMED-15
+2200,Staff Corps Officer billet requiring Dental specialty,220X,A Dental Corps Officer,BUMED-15
+2300,"Staff Corps Officer billet requiring Medical Service (Health Care Administration, Medical Allied Science, Optometry, Pharmacy, or Medical Specialist) specialty",230X,A Medical Service Corps Officer,BUMED-15
+*2302,"Staff Corps Officer billet, Code 2 - Operational Flying, requiring specialty of a qualified Aviation Physiologist, Aviation Experimental Psychologist, or Flight Physician Assistant",N/A,N/A,BUMED-15
+2500,Staff Corps Officer billet requiring Law specialty,250X,A Judge Advocate General Corps Officer ,JAG
+N/A,N/A,270X,"Active duty Nurse Corps, Medical Service Corps, Medical Corps, and Dental Corps officer in rank of O7",BUMED-15
+2900,Staff Corps Officer billet requiring Nursing specialty,290X,A Nurse Corps Officer,BUMED-15
+3100,Staff Corps Officer billet requiring Supply specialty,310X,A Supply Corps Officer,COMNAVSUP-SYSCOM
+N/A,N/A,316X,A direct commissioned Supply Corps Officer in training for qualification ,COMNAVSUP-SYSCOM
+4100,Staff Corps Officer billet requiring Chaplain specialty,410X,A Chaplain Corps Officer,Chief of Chaplains
+5100,Staff Corps Officer billet requiring Civil Engineering specialty,510X,A Civil Engineer Corps Officer,COMNAVFAC-SYSCOM
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+k. Limited Duty Officer - Line (Surface),,,,
+6000,Billet which may be filled by any appropriately skilled and experienced Limited Duty Officer Line (CDR and above),N/A,N/A,BUPERS-311-LDO
+6110,Limited Duty Officer (Line) billet requiring management in Deck specialty (Surface),611X,A Limited Duty Officer (Deck - Surface),ACNO (Surface Warfare)
+6120,Limited Duty Officer (Line) billet requiring management in Operations specialty (Surface),612X,A Limited Duty Officer (Operations - Surface),ACNO (Surface Warfare)
+6130,Limited Duty Officer (Line) billet requiring management in Engineering/Repair specialty (Surface),613X,A Limited Duty Officer (Engineering/Repair - Surface),ACNO (Surface Warfare)
+6180,Limited Duty Officer (Line) billet requiring management in Electronics specialty (Surface),618X,A Limited Duty Officer (Electronics - Surface),ACNO (Surface Warfare)
+,,,,
+l. LIMITED DUTY OFFICER - LINE (SUBMARINE),,,,
+6200,Limited Duty Officer (Line) billet requiring management in Nuclear Power specialty ,620X,A Limited Duty Officer (Nuclear Power); Formerly DESIG 640X,ACNO (Undersea Warfare)
+6230,Limited Duty Officer (Line) billet requiring management in Engineering/Repair specialty (Submarine),623X,A Limited Duty Officer (Engineering/Repair - Submarine),ACNO (Undersea Warfare)
+6260,Limited Duty Officer (Line) billet requiring management in Ordnance specialty (Submarine),626X,A Limited Duty Officer (Ordnance - Submarine),ACNO (Undersea Warfare)
+6280,Limited Duty Officer (Line) billet requiring management in Electronics specialty (Submarine),628X,A Limited Duty Officer (Electronics - Submarine),ACNO (Undersea Warfare)
+6290,Limited Duty Officer (Line) billet requiring management in Communications specialty (Submarine),629X,A Limited Duty Officer (Communications - Submarine),ACNO (Undersea Warfare)
+,,,,
+m. LIMITED DUTY OFFICER -- LLINE (AVIATION),,,,
+6310,Limited Duty Officer (Line) billet requiring management in Aviation Deck specialty,631X,A Limited Duty Officer (Aviation Deck),ACNO (Air Warfare)
+6320,Limited Duty Officer (Line) billet requiring management in Aviation Operations specialty,632X,A Limited Duty Officer (Aviation Operations),ACNO (Air Warfare)
+*6321,"Limited Duty Officer (Line) billet, Code 1 - Operational Flying, requiring the specialty of an Aviation Operations (ASW) officer who is aeronautically designated",N/A,N/A,ACNO (Air Warfare)
+6330,Limited Duty Officer (Line) billet requiring management in Aviation Maintenance specialty,633X,A Limited Duty Officer (Aviation Maintenance),ACNO (Air Warfare)
+6360,Limited Duty Officer (Line) billet requiring management in Aviation Ordnance specialty,636X,A Limited Duty Officer (Aviation Ordnance),ACNO (Air Warfare)
+6390,Limited Duty Officer (Line) billet requiring management in Air Traffic Control specialty,639X,A Limited Duty Officer (Air Traffic Control),ACNO (Air Warfare)
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+n. LIMITED DUTY OFFICER-LINE (GENERAL),,,,
+6410,Limited Duty Officer (Line) billet requiring management in Administration specialty,641X,A Limited Duty Officer (Administration),ACNO (Surface Warfare); NOTE below applies
+6430,Limited Duty Officer (Line) billet requiring Bandmaster specialty,643X,A Limited Duty Officer (Bandmaster),CHNAVPERS (PERS-654)
+6480,Limited Duty Officer (Line) billet requiring management in Explosive Ordnance Disposal specialty,648X,A Limited Duty Officer (Explosive Ordnance Disposal),ACNO (Surface Warfare)
+6490,Limited Duty Officer (Line) billet requiring management in Security specialty,649X,A Limited Duty Officer (Security),USFF N1SF
+NOTE: ACNO (Undersea Warfare) is the Officer Community Manager (OCM) for those 641X designators with AQD SV1.,,,,
+,,,,
+o. LIMITED DUTY OFFICER-STAFF CORPS,,,,
+6510,Staff Corps Limited Duty Officer billet requiring Supply specialty,651X,A Limited Duty Officer of the Supply Corps,COMNAVSUP-SYSCOM
+6530,Staff Corps Limited Duty Officer billet requiring Civil Engineering specialty,653X,A Limited Duty Officer of the Civil Engineer Corps,COMNAVFAC-SYSCOM
+,,,,
+P. LIMITED DUTY OFFICER-LINE (INFORMATION WARFARE COMMUNITY),,,,
+6800,Limited Duty Officer (Line) billet requiring management in Meteorology/Oceanography specialty,680X,A Limited Duty Officer (Meteorology/Oceanography) Formerly DESIG 646X,BUPERS-311-LDO
+6810,Limited Duty Officer (Line) billet requiring management in Cryptologic Warfare specialty,681X,A Limited Duty Officer (Cryptologic Warfare) Formerly DESIG 644X,BUPERS-311-LDO
+6820,Limited Duty Officer (Line) billet requiring management in Information Professional,682X,A Limited Duty Officer (Information Professional) Formerly DESIG 642X,BUPERS-311-LDO
+6830,Limited Duty Officer (Line) billet requiring management in Intelligence specialty,683X,A Limited Duty Officer (Intelligence) Formerly DESIG 645X,BUPERS-311-LDO
+NOTE: 68XX designators to be assigned to O3 and below requirements only.  LCDR and above billets are assigned the appropriate 18XX designator.,,,,
+,,,,
+q. CHIEF WARRANT OFFICER-LINE (SURFACE),,,,
+7110,Warrant Officer (Line) billet requiring supervision in Boatswain specialty (Surface),711X,Boatswain (Surface),ACNO (Surface Warfare)
+7120,Warrant Officer (Line) billet requiring supervision in Operations Technician specialty (Surface),712X,Operations Technician (Surface),ACNO (Surface Warfare)
+7130,Warrant Officer (Line) billet requiring supervision in Engineering specialty (Surface),713X,Engineering Technician (Surface),ACNO (Surface Warfare)
+7150,Warrant Officer (Line) billet requiring supervision in Special Warfare Technician specialty,715X,Special Warfare Technician,ACNO (Expeditionary Warfare)
+7170,Warrant Officer (Line) billet requiring supervision in Naval Special Warfare Combat Crewman,717X,"A Chief Warrant Officer with sophisticated, technical knowledge in all aspects of the Naval Special Warfare Combat Crewman",ACNO (Expeditionary Warfare)
+7180,Warrant Officer (Line) billet requiring supervision in Electronics Technician specialty,718X,Electronics Technician (Surface),ACNO (Surface Warfare)
+,,,,
+r. CHIEF WARRANT OFFICER-LINE (SUBMARINE),,,,
+7200,Warrant Officer (Line) billet requiring specialty of a Diving Officer,720X,Diving Officer,ACNO (Undersea Warfare)
+7260,Warrant Officer (Line) billet requiring supervision in Ordnance Technician specialty (Submarine),726X,Ordnance Technician (Submarine),ACNO (Undersea Warfare)
+7280,Warrant Officer (Line) billet requiring specialty of an Acoustic Technician,728X,Acoustic Technician,ACNO (Undersea Warfare)
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+s. CHIEF WARRANT OFFICER-LINE (AVIATION),,,,
+7310,Warrant Officer (Line) billet requiring supervision in Aviation Boatswain specialty,731X,Aviation Boatswain,ACNO (Air Warfare)
+7320,Warrant Officer (Line) billet requiring supervision in Aviation Operations Technician specialty,732X,Aviation Operations Technician,ACNO (Air Warfare)
+*7321,"Warrant Officer (Line) billet, Code 1 - Operational Flying, requiring the specialty of an Aviation Operations (ASW) Technician who is aeronautically designated",N/A,N/A,ACNO (Air Warfare)
+7330,Warrant Officer (Line) billet requiring supervision in Aviation Maintenance Technician specialty,733X,Aviation Maintenance Technician,ACNO (Air Warfare)
+7360,Warrant Officer (Line) billet requiring supervision in Aviation Ordnance Technician specialty,736X,Aviation Ordnance Technician,ACNO (Air Warfare)
+7371,"Warrant Officer (Line) billet, Code 1 – Operational Flying, requiring the specialty of piloting Unmanned Aerial Vehicles who is aeronautically designated.",737X,Air Vehicle Pilot,ACNO (Air Warfare)
+"*See definitions in Section 1, paragraph 2.b.",,,,
+,,,,
+t. CHIEF WARRANT OFFICER-LINE (GENERAL),,,,
+7400,Warrant Officer (Line) billet requiring supervision in Nuclear Power Technician specialty. NOTE (2) below applies,740X,Nuclear Power Technician,ACNO (Undersea Warfare); NOTE (4) below applies
+7410,Warrant Officer (Line) billet requiring supervision in Ship's Clerk specialty,741X,Ship's Clerk,ACNO (Surface Warfare); NOTE (1) below applies
+7490,Warrant Officer (Line) billet requiring supervision in Security Technician specialty,749X,Security Technician,USFF N1SF
+"NOTES: (1) ACNO (Undersea Warfare) is the Officer Community Manager (OCM) for those 741X designators with AQD SV1.
+              (2) The 740X designator was approved for deletion on 9 may 13.  The FY-14 LDO-CWO in service procurement board will be the final board which accesses nuclear CWOs.  Nuclear CWOs may continue their service by converting to nuclear LDO (640X) or continue their service as warrant officers and compete for promotions through CWO5.  All billets will be recoded to 640X and 740X will not be deleted until the inventory naturally attrites.  NAVADMIN 124/13 refers.
+",,,,
+u. CHIEF WARRANT OFFICER-STAFF CORPS,,,,
+*7520,Warrant Officer (Staff Corps) billet requiring supervision in Food Service specialty,752X,Food Service Warrant,COMNAVSUP-SYSCOM
+7530,Warrant Officer (Staff Corps) billet requiring supervision in Civil Engineering specialty,753X,Civil Engineering Warrant,COMNAVFAC-SYSCOM
+7560,Warrant Officer (Staff Corps) billet requiring Technical Nurse specialty,756X,Technical Nurse,BUMED-53
+*Authorized for active duty billets/personnel only.,,,,
+,,,,
+v. CHIEF WARRANT OFFICER-LINE (INFORMATION WARFARE COMMUNITY),,,,
+7800,Warrant Officer (Line) billet requiring supervision Oceanography,780X,Oceanography Warrant Officer,BUPERS-311-CWO
+7810,Warrant Officer (Line) billet requiring supervision in Cryptologic Warfare Technician specialty,781X,Cryptologic Warfare Technician Formerly DESIG 744X,BUPERS-311-CWO
+7820,Warrant Officer (Line) billet requiring supervision in Information Systems Technician specialty,782X,Information Systems Technician Formerly DESIG 742X,BUPERS-311-CWO
+7830,Warrant Officer (Line) billet requiring supervision in Intelligence Technician specialty,783X,Intelligence Technician Formerly DESIG 745X,BUPERS-311-CWO
+7840,Warrant Officer (Line) billet requiring supervision in Cyber Warfare specialty,784X,Cyber Warrant Officer Formerly DESIG 743X,BUPERS-311-CWO
+,,,,
+2. Translation of Fourth Digit of Officer Designator Code,,,,
+Fourth Digit,Translation,,,
+0,An officer of the Regular Navy whose permanent grade is Ensign or above,,,
+1,An officer of the Regular Navy whose permanent status is Warrant Officer,,,
+2,A temporary officer of the Regular Navy whose permanent status is enlisted,,,
+3,An Officer of the Regular Navy who is on the retired list,,,
+4,A probationary Warrant Officer of the Regular Navy whose permanent status is enlisted until advanced to CWO3 (see NOTE 1),,,
+5,An officer of the Naval Reserve (exceptions:  Note 4th digit 7 and 8),,,
+7,An officer of the Naval Reserve on active duty in the TAR Program (Training and Administration of the Reserve) [Includes officers of the TAR Program rotated to other than TAR billets] (See NOTE 2),,,
+8,An officer of the Naval Reserve who was appointed in the Naval Reserve Integration Program from enlisted status or whose permanent status is Warrant Officer or enlisted,,,
+9,An officer of the Naval Reserve who is on the retired list,,,
+"NOTE 1:   Does not apply to probationary Warrant Officer appointed/commissioned via Officer Candidate School (OCS).
+NOTE 2: CNO (NO95) is the XXX7 Officer Community Manager (OCM)",,,,
