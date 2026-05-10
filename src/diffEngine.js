@@ -1,34 +1,35 @@
-import { MasterDatabase, SSN, DateString, SquadronExport } from './schema';
+/**
+ * src/diffEngine.js
+ * 
+ * Core Diff Engine logic in Vanilla JS.
+ */
 
-// Represents the parsed data from the mainframe (SUPPLY_sYNTH.txt)
-export interface OAISOfficerData {
-  ssn: SSN;
-  oaisPRD: DateString;
-  currentUIC: string;
-  // Other fields can be added as the parser expands
-}
+/**
+ * @typedef {Object} OAISOfficerData
+ * @property {import('./schema.js').SSN} ssn
+ * @property {import('./schema.js').DateString} oaisPRD
+ * @property {string} currentUIC
+ */
 
-export interface SyncAlert {
-  ssn: SSN;
-  officerName: string;
-  type: 'PRD_MISMATCH' | 'UIC_MISMATCH' | 'MISSING_IN_OAIS' | 'CO_INTENT_CONFLICT';
-  message: string;
-  oaisValue: string | null;
-  intentValue: string | null;
-}
+/**
+ * @typedef {Object} SyncAlert
+ * @property {import('./schema.js').SSN} ssn
+ * @property {string} officerName
+ * @property {'PRD_MISMATCH' | 'UIC_MISMATCH' | 'MISSING_IN_OAIS' | 'CO_INTENT_CONFLICT'} type
+ * @property {string} message
+ * @property {string|null} oaisValue
+ * @property {string|null} intentValue
+ */
 
 /**
  * Core Diff Engine: Compares Legal Status (OAIS) against the Detailer/Placement Intent.
  * 
- * @param oaisData A dictionary of parsed OAIS records, keyed by SSN.
- * @param intentDb The Master Database (Intent of Record).
- * @returns An array of SyncAlert objects highlighting discrepancies.
+ * @param {Record<string, OAISOfficerData>} oaisData A dictionary of parsed OAIS records, keyed by SSN.
+ * @param {import('./schema.js').MasterDatabase} intentDb The Master Database (Intent of Record).
+ * @returns {SyncAlert[]} An array of SyncAlert objects highlighting discrepancies.
  */
-export function generateSyncAlerts(
-  oaisData: Record<SSN, OAISOfficerData>,
-  intentDb: MasterDatabase
-): SyncAlert[] {
-  const alerts: SyncAlert[] = [];
+export function generateSyncAlerts(oaisData, intentDb) {
+  const alerts = [];
 
   for (const ssn in intentDb.officers) {
     const officer = intentDb.officers[ssn];
@@ -48,7 +49,6 @@ export function generateSyncAlerts(
     }
 
     // Case 2: PRD Mismatch
-    // We compare the Placement Intent PRD against the OAIS legal PRD
     const intentPRD = officer.placementIntent.intentPRD;
     if (intentPRD && intentPRD !== oaisRecord.oaisPRD) {
       alerts.push({
@@ -60,8 +60,6 @@ export function generateSyncAlerts(
         intentValue: intentPRD,
       });
     }
-
-    // Future cases: UIC mismatches, Designator mismatches, etc. can be added here.
   }
 
   return alerts;
@@ -70,34 +68,29 @@ export function generateSyncAlerts(
 /**
  * Compares a Squadron Export (returned by a CO with their requests) against the Master Database Intent.
  * 
- * @param coExport The JSON export object modified by the CO.
- * @param intentDb The Master Database.
- * @returns An array of SyncAlert objects highlighting conflicts.
+ * @param {import('./schema.js').SquadronExport} coExport The JSON export object modified by the CO.
+ * @param {import('./schema.js').MasterDatabase} intentDb The Master Database.
+ * @returns {SyncAlert[]} An array of SyncAlert objects highlighting conflicts.
  */
-export function generateCOIntentAlerts(
-  coExport: SquadronExport,
-  intentDb: MasterDatabase
-): SyncAlert[] {
-  const alerts: SyncAlert[] = [];
+export function generateCOIntentAlerts(coExport, intentDb) {
+  const alerts = [];
 
   for (const coOfficer of coExport.officers) {
     const dbOfficer = intentDb.officers[coOfficer.ssn];
     
     if (!dbOfficer) {
-      // The CO is referencing an officer not in our DB.
       continue; 
     }
 
     const intentPRD = dbOfficer.placementIntent.intentPRD || dbOfficer.oaisPRD;
     
-    // Flag if the CO requested a PRD that differs from our current Intent
     if (coOfficer.coIntentPRD && coOfficer.coIntentPRD !== intentPRD) {
       alerts.push({
         ssn: coOfficer.ssn,
         officerName: dbOfficer.name,
         type: 'CO_INTENT_CONFLICT',
         message: `CO requested PRD change for ${dbOfficer.name}. Requested: ${coOfficer.coIntentPRD}. Current Intent: ${intentPRD}. Notes: ${coOfficer.coNotes || 'None'}`,
-        oaisValue: coOfficer.coIntentPRD, // using oaisValue to hold the external request
+        oaisValue: coOfficer.coIntentPRD,
         intentValue: intentPRD,
       });
     }
@@ -105,4 +98,3 @@ export function generateCOIntentAlerts(
 
   return alerts;
 }
-

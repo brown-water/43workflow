@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Planner - Reconciliation Engine</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 20px; background: #f4f6f8; color: #333; }
+    .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1, h2 { color: #005288; }
+    .file-drop { border: 2px dashed #ccc; padding: 20px; text-align: center; margin-bottom: 20px; border-radius: 4px; background: #fafafa; }
+    .alert { padding: 10px; margin-bottom: 10px; border-left: 4px solid; border-radius: 4px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
+    .alert.PRD_MISMATCH { border-color: #f39c12; }
+    .alert.CO_INTENT_CONFLICT { border-color: #e74c3c; }
+    .alert.MISSING_IN_OAIS { border-color: #e74c3c; }
+    .btn { background: #005288; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+    .btn:hover { background: #003d66; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>43workflow - Reconciliation Engine</h1>
+    <p>Zero-Install File loader. Load your Master Database and the OAIS/CO Export files to diff intent vs reality.</p>
+    
+    <div class="file-drop">
+      <label><strong>1. Load Master Intent (JSON): </strong></label>
+      <input type="file" id="intentFile" accept=".json">
+    </div>
+
+    <div class="file-drop">
+      <label><strong>2. Load OAIS State or CO Export (JSON): </strong></label>
+      <input type="file" id="oaisFile" accept=".json">
+    </div>
+
+    <button class="btn" id="runDiffBtn" style="width: 100%; margin-bottom: 20px;">Run Diff Engine</button>
+
+    <h2>Sync Alerts (Gotcha Moments)</h2>
+    <div id="alertsContainer">
+      <p style="color: #666; font-style: italic;">Load files to see discrepancies.</p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { generateSyncAlerts, generateCOIntentAlerts } from './src/diffEngine.js';
+
+    let intentDb = null;
+    let externalData = null;
+    let externalDataType = null; // 'OAIS' or 'CO_EXPORT'
+
+    // Helper to read file as JSON
+    const readJSON = (file) => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try { resolve(JSON.parse(e.target.result)); } 
+        catch (err) { reject(err); }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById('intentFile').addEventListener('change', async (e) => {
+      if(e.target.files[0]) {
+        try {
+          intentDb = await readJSON(e.target.files[0]);
+          console.log('Loaded Intent DB:', intentDb);
+        } catch(err) { alert('Invalid Intent JSON format'); }
+      }
+    });
+
+    document.getElementById('oaisFile').addEventListener('change', async (e) => {
+      if(e.target.files[0]) {
+        try {
+          externalData = await readJSON(e.target.files[0]);
+          // Simple heuristic to detect type
+          if (externalData.uic && externalData.officers && Array.isArray(externalData.officers)) {
+            externalDataType = 'CO_EXPORT';
+            console.log('Loaded CO Squadron Export:', externalData);
+          } else {
+            externalDataType = 'OAIS';
+            console.log('Loaded OAIS Data:', externalData);
+          }
+        } catch(err) { alert('Invalid External JSON format'); }
+      }
+    });
+
+    document.getElementById('runDiffBtn').addEventListener('click', () => {
+      if (!intentDb) { alert('Please load Master Intent first.'); return; }
+      if (!externalData) { alert('Please load OAIS or CO Export first.'); return; }
+
+      const alertsContainer = document.getElementById('alertsContainer');
+      alertsContainer.innerHTML = ''; // clear
+
+      let alerts = [];
+      if (externalDataType === 'OAIS') {
+        alerts = generateSyncAlerts(externalData, intentDb);
+      } else if (externalDataType === 'CO_EXPORT') {
+        alerts = generateCOIntentAlerts(externalData, intentDb);
+      }
+
+      if (alerts.length === 0) {
+        alertsContainer.innerHTML = '<p style="color: green;"><strong>All clear! No discrepancies found.</strong></p>';
+        return;
+      }
+
+      alerts.forEach(alert => {
+        const div = document.createElement('div');
+        div.className = `alert ${alert.type}`;
+        
+        const textDiv = document.createElement('div');
+        textDiv.innerHTML = `<strong>${alert.type}</strong><br/>${alert.message}`;
+        div.appendChild(textDiv);
+
+        if (alert.type === 'CO_INTENT_CONFLICT') {
+          const ackBtn = document.createElement('button');
+          ackBtn.className = 'btn';
+          ackBtn.innerText = 'Acknowledge (Edit Intent)';
+          ackBtn.onclick = () => window.prompt(`Enter PRD Change Note for ${alert.officerName} to accept the new PRD: ${alert.oaisValue}`);
+          div.appendChild(ackBtn);
+        }
+
+        alertsContainer.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>
