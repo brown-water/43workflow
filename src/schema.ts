@@ -106,6 +106,18 @@ export interface CommandRecord {
   assignedOfficers: SSN[]; // List of SSNs currently mapped to this UIC
 }
 
+// --- Squadron Export / CO Intent ---
+export interface SquadronExportOfficer {
+  ssn: SSN;
+  coIntentPRD?: DateString; // CO requested PRD (e.g. extension)
+  coNotes?: string; // Any context the CO provided
+}
+
+export interface SquadronExport {
+  uic: UIC;
+  officers: SquadronExportOfficer[];
+}
+
 // --- Master Database Root ---
 export interface MasterDatabase {
   officers: Record<SSN, OfficerRecord>;

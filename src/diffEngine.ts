@@ -1,4 +1,4 @@
-import { MasterDatabase, SSN, DateString } from './schema';
+import { MasterDatabase, SSN, DateString, SquadronExport } from './schema';
 
 // Represents the parsed data from the mainframe (SUPPLY_sYNTH.txt)
 export interface OAISOfficerData {
@@ -11,7 +11,7 @@ export interface OAISOfficerData {
 export interface SyncAlert {
   ssn: SSN;
   officerName: string;
-  type: 'PRD_MISMATCH' | 'UIC_MISMATCH' | 'MISSING_IN_OAIS';
+  type: 'PRD_MISMATCH' | 'UIC_MISMATCH' | 'MISSING_IN_OAIS' | 'CO_INTENT_CONFLICT';
   message: string;
   oaisValue: string | null;
   intentValue: string | null;
@@ -66,3 +66,43 @@ export function generateSyncAlerts(
 
   return alerts;
 }
+
+/**
+ * Compares a Squadron Export (returned by a CO with their requests) against the Master Database Intent.
+ * 
+ * @param coExport The JSON export object modified by the CO.
+ * @param intentDb The Master Database.
+ * @returns An array of SyncAlert objects highlighting conflicts.
+ */
+export function generateCOIntentAlerts(
+  coExport: SquadronExport,
+  intentDb: MasterDatabase
+): SyncAlert[] {
+  const alerts: SyncAlert[] = [];
+
+  for (const coOfficer of coExport.officers) {
+    const dbOfficer = intentDb.officers[coOfficer.ssn];
+    
+    if (!dbOfficer) {
+      // The CO is referencing an officer not in our DB.
+      continue; 
+    }
+
+    const intentPRD = dbOfficer.placementIntent.intentPRD || dbOfficer.oaisPRD;
+    
+    // Flag if the CO requested a PRD that differs from our current Intent
+    if (coOfficer.coIntentPRD && coOfficer.coIntentPRD !== intentPRD) {
+      alerts.push({
+        ssn: coOfficer.ssn,
+        officerName: dbOfficer.name,
+        type: 'CO_INTENT_CONFLICT',
+        message: `CO requested PRD change for ${dbOfficer.name}. Requested: ${coOfficer.coIntentPRD}. Current Intent: ${intentPRD}. Notes: ${coOfficer.coNotes || 'None'}`,
+        oaisValue: coOfficer.coIntentPRD, // using oaisValue to hold the external request
+        intentValue: intentPRD,
+      });
+    }
+  }
+
+  return alerts;
+}
+
