@@ -40,14 +40,66 @@
     </div>
   </div>
 
-  <script type="module">
-    import { generateSyncAlerts, generateCOIntentAlerts } from './src/diffEngine.js';
+  <script>
+    // --- CORE LOGIC ---
+
+    function generateSyncAlerts(oaisData, intentDb) {
+      const alerts = [];
+      for (const ssn in intentDb.officers) {
+        const officer = intentDb.officers[ssn];
+        const oaisRecord = oaisData[ssn];
+        if (!oaisRecord) {
+           alerts.push({
+             ssn,
+             officerName: officer.name,
+             type: 'MISSING_IN_OAIS',
+             message: `Officer ${officer.name} is in the Master Planner but missing from the OAIS data drop.`,
+             oaisValue: null,
+             intentValue: 'Exists in DB',
+           });
+           continue;
+        }
+        const intentPRD = officer.placementIntent.intentPRD;
+        if (intentPRD && intentPRD !== oaisRecord.oaisPRD) {
+          alerts.push({
+            ssn,
+            officerName: officer.name,
+            type: 'PRD_MISMATCH',
+            message: `PRD Mismatch for ${officer.name}. Intent: ${intentPRD}, OAIS: ${oaisRecord.oaisPRD}`,
+            oaisValue: oaisRecord.oaisPRD,
+            intentValue: intentPRD,
+          });
+        }
+      }
+      return alerts;
+    }
+
+    function generateCOIntentAlerts(coExport, intentDb) {
+      const alerts = [];
+      for (const coOfficer of coExport.officers) {
+        const dbOfficer = intentDb.officers[coOfficer.ssn];
+        if (!dbOfficer) continue;
+        const intentPRD = dbOfficer.placementIntent.intentPRD || dbOfficer.oaisPRD;
+        if (coOfficer.coIntentPRD && coOfficer.coIntentPRD !== intentPRD) {
+          alerts.push({
+            ssn: coOfficer.ssn,
+            officerName: dbOfficer.name,
+            type: 'CO_INTENT_CONFLICT',
+            message: `CO requested PRD change for ${dbOfficer.name}. Requested: ${coOfficer.coIntentPRD}. Current Intent: ${intentPRD}. Notes: ${coOfficer.coNotes || 'None'}`,
+            oaisValue: coOfficer.coIntentPRD,
+            intentValue: intentPRD,
+          });
+        }
+      }
+      return alerts;
+    }
+
+    // --- UI LOGIC ---
 
     let intentDb = null;
     let externalData = null;
-    let externalDataType = null; // 'OAIS' or 'CO_EXPORT'
+    let externalDataType = null;
 
-    // Helper to read file as JSON
     const readJSON = (file) => new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -61,7 +113,7 @@
       if(e.target.files[0]) {
         try {
           intentDb = await readJSON(e.target.files[0]);
-          console.log('Loaded Intent DB:', intentDb);
+          console.log('Loaded Intent DB');
         } catch(err) { alert('Invalid Intent JSON format'); }
       }
     });
@@ -70,13 +122,10 @@
       if(e.target.files[0]) {
         try {
           externalData = await readJSON(e.target.files[0]);
-          // Simple heuristic to detect type
           if (externalData.uic && externalData.officers && Array.isArray(externalData.officers)) {
             externalDataType = 'CO_EXPORT';
-            console.log('Loaded CO Squadron Export:', externalData);
           } else {
             externalDataType = 'OAIS';
-            console.log('Loaded OAIS Data:', externalData);
           }
         } catch(err) { alert('Invalid External JSON format'); }
       }
@@ -87,7 +136,7 @@
       if (!externalData) { alert('Please load OAIS or CO Export first.'); return; }
 
       const alertsContainer = document.getElementById('alertsContainer');
-      alertsContainer.innerHTML = ''; // clear
+      alertsContainer.innerHTML = '';
 
       let alerts = [];
       if (externalDataType === 'OAIS') {
@@ -104,19 +153,16 @@
       alerts.forEach(alert => {
         const div = document.createElement('div');
         div.className = `alert ${alert.type}`;
-        
         const textDiv = document.createElement('div');
         textDiv.innerHTML = `<strong>${alert.type}</strong><br/>${alert.message}`;
         div.appendChild(textDiv);
-
         if (alert.type === 'CO_INTENT_CONFLICT') {
           const ackBtn = document.createElement('button');
           ackBtn.className = 'btn';
-          ackBtn.innerText = 'Acknowledge (Edit Intent)';
-          ackBtn.onclick = () => window.prompt(`Enter PRD Change Note for ${alert.officerName} to accept the new PRD: ${alert.oaisValue}`);
+          ackBtn.innerText = 'Acknowledge';
+          ackBtn.onclick = () => window.prompt(`Enter PRD Change Note for ${alert.officerName}`);
           div.appendChild(ackBtn);
         }
-
         alertsContainer.appendChild(div);
       });
     });
