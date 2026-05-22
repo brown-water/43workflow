@@ -3,169 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Planner - Reconciliation Engine</title>
+  <meta http-equiv="refresh" content="0; url=src/index.html">
+  <title>Redirecting to Master Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 20px; background: #f4f6f8; color: #333; }
-    .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    h1, h2 { color: #005288; }
-    .file-drop { border: 2px dashed #ccc; padding: 20px; text-align: center; margin-bottom: 20px; border-radius: 4px; background: #fafafa; }
-    .alert { padding: 10px; margin-bottom: 10px; border-left: 4px solid; border-radius: 4px; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; }
-    .alert.PRD_MISMATCH { border-color: #f39c12; }
-    .alert.CO_INTENT_CONFLICT { border-color: #e74c3c; }
-    .alert.MISSING_IN_OAIS { border-color: #e74c3c; }
-    .btn { background: #005288; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
-    .btn:hover { background: #003d66; }
+    :root {
+      --bg-base: #060913;
+      --bg-surface: #0f172a;
+      --accent-primary: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
+    }
+
+    .redirect-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      max-width: 450px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #f8fafc 30%, #3b82f6 70%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--accent-primary);
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>43workflow - Reconciliation Engine</h1>
-    <p>Zero-Install File loader. Load your Master Database and the OAIS/CO Export files to diff intent vs reality.</p>
-    
-    <div class="file-drop">
-      <label><strong>1. Load Master Intent (JSON): </strong></label>
-      <input type="file" id="intentFile" accept=".json">
-    </div>
-
-    <div class="file-drop">
-      <label><strong>2. Load OAIS State or CO Export (JSON): </strong></label>
-      <input type="file" id="oaisFile" accept=".json">
-    </div>
-
-    <button class="btn" id="runDiffBtn" style="width: 100%; margin-bottom: 20px;">Run Diff Engine</button>
-
-    <h2>Sync Alerts (Gotcha Moments)</h2>
-    <div id="alertsContainer">
-      <p style="color: #666; font-style: italic;">Load files to see discrepancies.</p>
-    </div>
+  <div class="redirect-card">
+    <div class="loader"></div>
+    <h1>Master Planner</h1>
+    <p>Redirecting you to the Reconciliation Engine workspace. If you are not redirected automatically in a moment, please click the button below.</p>
+    <a href="src/index.html" class="btn">Launch Master Planner</a>
   </div>
-
-  <script>
-    // --- CORE LOGIC ---
-
-    function generateSyncAlerts(oaisData, intentDb) {
-      const alerts = [];
-      for (const ssn in intentDb.officers) {
-        const officer = intentDb.officers[ssn];
-        const oaisRecord = oaisData[ssn];
-        if (!oaisRecord) {
-           alerts.push({
-             ssn,
-             officerName: officer.name,
-             type: 'MISSING_IN_OAIS',
-             message: `Officer ${officer.name} is in the Master Planner but missing from the OAIS data drop.`,
-             oaisValue: null,
-             intentValue: 'Exists in DB',
-           });
-           continue;
-        }
-        const intentPRD = officer.placementIntent.intentPRD;
-        if (intentPRD && intentPRD !== oaisRecord.oaisPRD) {
-          alerts.push({
-            ssn,
-            officerName: officer.name,
-            type: 'PRD_MISMATCH',
-            message: `PRD Mismatch for ${officer.name}. Intent: ${intentPRD}, OAIS: ${oaisRecord.oaisPRD}`,
-            oaisValue: oaisRecord.oaisPRD,
-            intentValue: intentPRD,
-          });
-        }
-      }
-      return alerts;
-    }
-
-    function generateCOIntentAlerts(coExport, intentDb) {
-      const alerts = [];
-      for (const coOfficer of coExport.officers) {
-        const dbOfficer = intentDb.officers[coOfficer.ssn];
-        if (!dbOfficer) continue;
-        const intentPRD = dbOfficer.placementIntent.intentPRD || dbOfficer.oaisPRD;
-        if (coOfficer.coIntentPRD && coOfficer.coIntentPRD !== intentPRD) {
-          alerts.push({
-            ssn: coOfficer.ssn,
-            officerName: dbOfficer.name,
-            type: 'CO_INTENT_CONFLICT',
-            message: `CO requested PRD change for ${dbOfficer.name}. Requested: ${coOfficer.coIntentPRD}. Current Intent: ${intentPRD}. Notes: ${coOfficer.coNotes || 'None'}`,
-            oaisValue: coOfficer.coIntentPRD,
-            intentValue: intentPRD,
-          });
-        }
-      }
-      return alerts;
-    }
-
-    // --- UI LOGIC ---
-
-    let intentDb = null;
-    let externalData = null;
-    let externalDataType = null;
-
-    const readJSON = (file) => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        try { resolve(JSON.parse(e.target.result)); } 
-        catch (err) { reject(err); }
-      };
-      reader.readAsText(file);
-    });
-
-    document.getElementById('intentFile').addEventListener('change', async (e) => {
-      if(e.target.files[0]) {
-        try {
-          intentDb = await readJSON(e.target.files[0]);
-          console.log('Loaded Intent DB');
-        } catch(err) { alert('Invalid Intent JSON format'); }
-      }
-    });
-
-    document.getElementById('oaisFile').addEventListener('change', async (e) => {
-      if(e.target.files[0]) {
-        try {
-          externalData = await readJSON(e.target.files[0]);
-          if (externalData.uic && externalData.officers && Array.isArray(externalData.officers)) {
-            externalDataType = 'CO_EXPORT';
-          } else {
-            externalDataType = 'OAIS';
-          }
-        } catch(err) { alert('Invalid External JSON format'); }
-      }
-    });
-
-    document.getElementById('runDiffBtn').addEventListener('click', () => {
-      if (!intentDb) { alert('Please load Master Intent first.'); return; }
-      if (!externalData) { alert('Please load OAIS or CO Export first.'); return; }
-
-      const alertsContainer = document.getElementById('alertsContainer');
-      alertsContainer.innerHTML = '';
-
-      let alerts = [];
-      if (externalDataType === 'OAIS') {
-        alerts = generateSyncAlerts(externalData, intentDb);
-      } else if (externalDataType === 'CO_EXPORT') {
-        alerts = generateCOIntentAlerts(externalData, intentDb);
-      }
-
-      if (alerts.length === 0) {
-        alertsContainer.innerHTML = '<p style="color: green;"><strong>All clear! No discrepancies found.</strong></p>';
-        return;
-      }
-
-      alerts.forEach(alert => {
-        const div = document.createElement('div');
-        div.className = `alert ${alert.type}`;
-        const textDiv = document.createElement('div');
-        textDiv.innerHTML = `<strong>${alert.type}</strong><br/>${alert.message}`;
-        div.appendChild(textDiv);
-        if (alert.type === 'CO_INTENT_CONFLICT') {
-          const ackBtn = document.createElement('button');
-          ackBtn.className = 'btn';
-          ackBtn.innerText = 'Acknowledge';
-          ackBtn.onclick = () => window.prompt(`Enter PRD Change Note for ${alert.officerName}`);
-          div.appendChild(ackBtn);
-        }
-        alertsContainer.appendChild(div);
-      });
-    });
-  </script>
 </body>
 </html>

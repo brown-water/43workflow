@@ -25,3 +25,7 @@ SUBEVAL_*.csv
 SUPPLY_*.txt
 watch_folder/
 *_Export.json
+
+# Internal Antigravity CLI files
+.antigravitycli/
+

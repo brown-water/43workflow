@@ -1,0 +1,65 @@
+{
+  "officers": {
+    "123-45-678": {
+      "ssn": "123-45-678",
+      "name": "LCDR Maverick Mitchell",
+      "rank": "LCDR",
+      "designator": "1310",
+      "currentUIC": "VFA-122",
+      "oaisPRD": "2026-06-30",
+      "fitrepHistory": [],
+      "detailerIntent": { "isCompleteSlate": true },
+      "placementIntent": {
+        "intentPRD": "2026-06-30",
+        "historicalPRDLog": []
+      }
+    },
+    "987-65-432": {
+      "ssn": "987-65-432",
+      "name": "LT Iceman Kazansky",
+      "rank": "LT",
+      "designator": "1310",
+      "currentUIC": "VFA-122",
+      "oaisPRD": "2025-12-31",
+      "fitrepHistory": [],
+      "detailerIntent": { "isCompleteSlate": true },
+      "placementIntent": {
+        "intentPRD": "2026-03-31",
+        "historicalPRDLog": [
+          {
+            "date": "2024-05-01",
+            "oldPRD": "2025-12-31",
+            "newPRD": "2026-03-31",
+            "source": "Detailer Update",
+            "user": "CZ",
+            "changeNote": "Extended for instructor turnover."
+          }
+        ]
+      }
+    },
+    "555-44-333": {
+      "ssn": "555-44-333",
+      "name": "LT Goose Bradshaw",
+      "rank": "LT",
+      "designator": "1320",
+      "currentUIC": "VFA-122",
+      "oaisPRD": "2026-01-01",
+      "fitrepHistory": [],
+      "detailerIntent": { "isCompleteSlate": false },
+      "placementIntent": {
+        "intentPRD": "2026-01-01",
+        "historicalPRDLog": []
+      }
+    }
+  },
+  "billets": {},
+  "commands": {
+    "VFA-122": {
+      "uic": "VFA-122",
+      "name": "FIGHTING FALCONS",
+      "billetsAuthorized": 45,
+      "billets": [],
+      "assignedOfficers": ["123-45-678", "987-65-432", "555-44-333"]
+    }
+  }
+}
