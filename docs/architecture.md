@@ -79,3 +79,33 @@ graph TD
 ### Phase 4 (Post-MVP): The OAIS Text Interpolator
 *   **Objective:** Automate order-writing translation steps.
 *   **Execution:** Combine the slating database with standardized text formats to auto-generate ready-to-paste, multi-page text blocks, eliminating manual typing into the mainframe terminal emulator.
+
+---
+
+## 3. Front-End Component & Compilation Architecture
+
+To support the modular evolution of the Master Planner while adhering strictly to NMCI security requirements, the front-end layout utilizes a specialized local compilation structure:
+
+### A. Directory Layout (Feature-First)
+Development is conducted modularly within the `src/` directory. Each primary functional module (Officer, Command, Board, Slating) owns a dedicated component folder containing its HTML template, scoped CSS, and JS controller:
+- `src/core/` — Common database reconciliation, diff engines, and local state management.
+- `src/components/` — Shared reusable widgets (menus, modals, form inputs).
+- `src/modules/` — Monolithic functional pages (e.g., `modules/officer/` for Officer View, `modules/command/` for the Waterfall/Manning View).
+
+### B. Offline Routing (Hash-Based)
+Since browser history path routing is blocked when executing files directly from local storage, the Master Planner implements a vanilla JavaScript hash router (`window.location.hash` changes):
+- Format: `#module-name/parameter` (e.g., `#officer/DoDID` or `#slating/frs-2026`).
+- Enables natural browser Back/Forward history navigation and direct deep-linking to specific records or workspaces without network dependencies.
+
+### C. State Engine (Transactional Cloning)
+To separate long-lead slating dry-runs from core personnel data, the slating module uses an isolated "What-If" state container:
+- Upon entering the Slating Workspace, the module generates a full deep clone of the Master Database in-memory via `structuredClone()`.
+- Real-time Manning Health calculations and gaps are computed against this cloned state.
+- Unsaved slates can be instantly discarded (`Reset Slate`), restoring the original state, or committed (`Commit Slate`), merging the cloned changes back to the persistent store.
+
+### D. Compilation Engine (Vanilla Node Stitcher)
+A custom, zero-dependency Node.js script (`build.js`) executes locally on the developer's workstation to bundle the feature-first files into a single deployable asset:
+- **Build Target:** A single, monolithic, highly optimized HTML file (`dist/index.html`).
+- **Mechanism:** Automatically inlines all scoped CSS files into `<style>` headers, stitches JS classes together under a modular execution scope, and wraps HTML snippets in standard `<template>` elements.
+- **Outcome:** Guarantees absolute offline compatibility and zero-install execution (double-click to launch) over the NMCI `file://` protocol.
+

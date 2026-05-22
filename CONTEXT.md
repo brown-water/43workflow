@@ -66,3 +66,6 @@
 | **Slating Module** | A complex decision-support engine for batch-assigning officers to billets (e.g., FRS grads, DH Slate), requiring ruleset configuration and .json retention. |
 | **Slate History** | Persistent .json records of finalized or in-progress slates, allowing for historical audit and emergency re-slating (e.g., injury/attrition). |
 | **Detailer Workflow** | Detailed in [DETAILER_WORKFLOW.md](./DETAILER_WORKFLOW.md). |
+| **NMCI Deployment** | The delivery of software onto the highly restricted Navy Marine Corps Intranet desktop environment where command-line tools, local node servers, or custom software installations are blocked. |
+| **Monolithic HTML Target** | A single, fully compiled and self-contained `.html` file merging all CSS, JS, and HTML templates to bypass `file://` CORS moats on secure NMCI workstations. |
+
