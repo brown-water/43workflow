@@ -1,5 +1,5 @@
 /**
- * src/schema.js
+ * src/core/schema.js
  * 
  * JSDoc definitions for the Master Database schema.
  * Using JSDoc instead of TypeScript to maintain strict "Zero-Install" browser compatibility.

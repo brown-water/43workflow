@@ -16,7 +16,7 @@ const path = require('path');
 async function runTests() {
   console.log('🧪 Starting Ingestion Engine Automated Tests...\n');
   
-  const Ingestion = await import('./ingestion.js');
+  const Ingestion = await import('./core/ingestion.js');
   
   // Test 1: SSN Normalization
   console.log('Test 1: SSN Normalization');

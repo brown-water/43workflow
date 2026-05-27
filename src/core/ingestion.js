@@ -1,5 +1,5 @@
 /**
- * src/ingestion.js
+ * src/core/ingestion.js
  * 
  * Browser-compatible ES Module for robust, client-side parsing, cleaning,
  * and linking of SUPPLY and SUBEVAL data drops.

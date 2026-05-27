@@ -1,0 +1,136 @@
+<div class="profile-container">
+  <!-- ZONE 1: TACTICAL HERO NAVIGATION BAR -->
+  <div class="officer-hero-nav">
+    <button class="hero-nav-btn active" data-tab="overview">
+      <span class="hero-nav-icon">📁</span> Dossier Overview
+    </button>
+    <button class="hero-nav-btn" data-tab="performance">
+      <span class="hero-nav-icon">📊</span> Comprehensive Performance
+    </button>
+    <button class="hero-nav-btn" data-tab="prd">
+      <span class="hero-nav-icon">🛡️</span> PRD Governance & Logs
+    </button>
+  </div>
+
+  <!-- ZONE 2: TAB PANELS -->
+
+  <!-- TAB A: DOSSIER OVERVIEW (DASHBOARD) -->
+  <div class="officer-tab-panel" id="officer-tab-overview">
+    <div class="officer-dashboard-grid">
+      <!-- Left Column: Dossier Highlights -->
+      <div class="dashboard-col-left">
+        
+        <!-- Card 1: Administrative Persona Card -->
+        <div class="officer-card officer-card--accented">
+          <div class="card-header-row">
+            <h3 class="officer-card-title">Administrative Dossier</h3>
+            <span class="badge badge--green" id="opt-status-badge">ACTIVE DUTY</span>
+          </div>
+          <div class="admin-data-list">
+            <div class="admin-data-row">
+              <span class="admin-data-label">Full Name</span>
+              <span class="admin-data-value" id="opt-full-name">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">Rank / Grade</span>
+              <span class="admin-data-value" id="opt-rank">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">Designator</span>
+              <span class="admin-data-value" id="opt-designator">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">SSN / DoD ID</span>
+              <span class="admin-data-value" id="opt-ssn">N/A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Active Orders & Rotations -->
+        <div class="officer-card" style="margin-top: var(--space-4);">
+          <h3 class="officer-card-title">Orders & Assignments</h3>
+          <div class="admin-data-list">
+            <div class="admin-data-row">
+              <span class="admin-data-label">Assigned Station</span>
+              <span class="admin-data-value" id="opt-current-uic">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">OAIS Legal PRD</span>
+              <span class="admin-data-value" id="opt-oais-prd">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">Planner Intent PRD</span>
+              <span class="admin-data-value" id="opt-intent-prd">N/A</span>
+            </div>
+            <div class="admin-data-row" id="prd-discrepancy-row" style="display: none;">
+              <span class="admin-data-label" style="color: var(--color-status-red-text); font-weight: 600;">PRD Status Alert</span>
+              <span class="badge badge--red">DISCREPANCY</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Top 3 Performance Highlight -->
+      <div class="dashboard-col-right">
+        <div class="officer-card officer-card--accented">
+          <div class="card-header-row">
+            <h3 class="officer-card-title">Top 3 Competitive FITREPs</h3>
+            <span class="badge badge--green" id="overview-record-grade">Grade: N/A</span>
+          </div>
+          <div class="top-fitreps-list" id="overview-top-fitreps">
+            <!-- Filtered Top 3 FITREPs render here dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB B: COMPREHENSIVE PERFORMANCE (LONGITUDINAL) -->
+  <div class="officer-tab-panel" id="officer-tab-performance" style="display: none;">
+    <div class="officer-card">
+      <div class="card-header-row">
+        <h3 class="officer-card-title">Performance Continuity Bridge</h3>
+        <div class="badge-group">
+          <span class="badge badge--gray" id="prof-total-count">0 Reports Ingested</span>
+          <span class="badge badge--green" id="prof-grade-badge">Record Grade: N/A</span>
+        </div>
+      </div>
+      <div class="fitrep-continuity-container" id="fitrep-timeline-list">
+        <!-- FITREP chronological timeline renders here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB C: PRD GOVERNANCE & AUDITS -->
+  <div class="officer-tab-panel" id="officer-tab-prd" style="display: none;">
+    <div class="profile-grid-layout">
+      <!-- Left Card: Override Form -->
+      <div class="officer-card officer-card--accented">
+        <h3 class="officer-card-title">Expert-in-the-Loop PRD Shift</h3>
+        <div class="prd-override-form" style="margin-top: 0;">
+          <h4 class="prd-override-title">Covenant Governance Validation</h4>
+          <div class="prd-override-grid">
+            <div class="form-group">
+              <span class="form-label">New Target Date</span>
+              <input type="text" class="text-input" id="form-new-prd" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group">
+              <span class="form-label">Justification Note (Required)</span>
+              <input type="text" class="text-input" id="form-prd-reason" placeholder="e.g., CO requested shift / school delay...">
+            </div>
+            <button class="btn-covenant" id="btn-submit-prd">Update & Sync</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Card: Audit Trail -->
+      <div class="officer-card">
+        <h3 class="officer-card-title officer-card-title--secondary">Historical PRD Shift Log</h3>
+        <div class="audit-log-container" id="prd-audit-logs">
+          <!-- Audit log items render here dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
