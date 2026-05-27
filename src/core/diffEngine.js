@@ -1,14 +1,7 @@
 /**
- * src/diffEngine.js
+ * src/core/diffEngine.js
  * 
  * Core Diff Engine logic in Vanilla JS.
- */
-
-/**
- * @typedef {Object} OAISOfficerData
- * @property {import('./schema.js').SSN} ssn
- * @property {import('./schema.js').DateString} oaisPRD
- * @property {string} currentUIC
  */
 
 /**
@@ -24,7 +17,7 @@
 /**
  * Core Diff Engine: Compares Legal Status (OAIS) against the Detailer/Placement Intent.
  * 
- * @param {Record<string, OAISOfficerData>} oaisData A dictionary of parsed OAIS records, keyed by SSN.
+ * @param {Record<string, Object>} oaisData A dictionary of parsed OAIS records, keyed by SSN.
  * @param {import('./schema.js').MasterDatabase} intentDb The Master Database (Intent of Record).
  * @returns {SyncAlert[]} An array of SyncAlert objects highlighting discrepancies.
  */

@@ -3,28 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Planner - Zero-Install Read Bridge</title>
-  <!-- Modern Typography -->
+  <title>PERS-43 Master Planner - Reconciled Intent of Record</title>
+  <!-- Typography Link Fallbacks -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <style>
-    /* Premium Visual Design System - Cinematic Dark Theme */
+    /* 
+     * PERS-43 Covenant Design System - Light Mode / Warm-Linen
+     * Non-negotiable visual standards block
+     */
     :root {
-      --bg-base: #060913;
-      --bg-surface: #0f172a;
-      --bg-surface-trans: rgba(15, 23, 42, 0.6);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --accent-primary: #3b82f6;
-      --accent-primary-glow: rgba(59, 130, 246, 0.15);
-      --accent-secondary: #6366f1;
-      --accent-cyan: #06b6d4;
-      --color-success: #10b981;
-      --color-warning: #f59e0b;
-      --color-danger: #f43f5e;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      /* BACKGROUNDS (Warm Linen - Light Mode) */
+      --color-bg-void:        #F5F0E8;   /* Absolute floor body background */
+      --color-bg-base:        #F0EBE1;   /* Primary app floor background */
+      --color-bg-surface:     #EAE4D8;   /* Card panel structures */
+      --color-bg-elevated:    #E2DBCC;   /* Active tables/modals background */
+      --color-bg-overlay:     #D8D0C0;   /* Row hovers and active outlines */
+      --color-bg-dark:        #1A2332;   /* Topbar Navy */
+
+      /* GOLD Accent signals */
+      --color-gold-primary:   #B8923A;   /* Primary solid signal lines */
+      --color-gold-bright:    #C5A059;   /* High-emphasis text values */
+      --color-gold-dim:       #8A6E3E;   /* Inactive status lines */
+      --color-gold-glow:      rgba(184, 146, 58, 0.10);
+
+      /* NAVY */
+      --color-navy:           #3E5C76;
+      --color-navy-bright:    #5B82A6;
+
+      /* TEXT */
+      --color-text-primary:   #1C1A16;   /* Dark high-contrast primary text */
+      --color-text-secondary: #4A4540;   /* Supporting details copy */
+      --color-text-muted:     #7A7268;   /* Headers and de-emphasized fields */
+      --color-text-dim:       #A8A098;   /* Inactive states */
+      --color-text-inverse:   #F0EBE1;   /* Text on navy dark topbar */
+
+      /* BORDERS */
+      --color-border-subtle:  #D4CCB8;   /* Internal table borders */
+      --color-border-default: #C4BAA4;   /* Standard card borders */
+      --color-border-strong:  #A89880;   /* Focused inputs outline */
+      --color-border-gold:    #B8923A;   /* 2px permanent rule line background */
+
+      /* STATUS (Manning readiness flags) */
+      --color-status-green:       #D4EDDA;  --color-status-green-text:  #1E6B35;
+      --color-status-amber:       #FFF3CD;  --color-status-amber-text:  #856404;
+      --color-status-red:         #F8D7DA;  --color-status-red-text:    #842029;
+      --color-status-gray:        #E8E4DC;  --color-status-gray-text:   #5A5650;
+
+      /* TYPOGRAPHY stacks and scale */
+      --font-body:    'Verdana', Arial, sans-serif;
+      --font-display: 'Verdana', Arial, sans-serif;
+      --font-data:    'DM Mono', 'Consolas', 'Courier New', monospace;
+
+      --type-display-xl: 48px;  --type-display-lg: 36px;
+      --type-display-md: 28px;  --type-display-sm: 24px;
+      --type-body-lg:    20px;  --type-body-md:    18px;  --type-body-sm: 16px;
+      --type-data-xl:    20px;  --type-data-md:    18px;
+      --type-data-sm:    16px;  --type-data-xs:    16px;
+
+      --leading-tight:  1.1;   --leading-normal:  1.5;   --leading-data:   1.5;
+      --tracking-display: 0.04em; --tracking-caps: 0.12em; --tracking-data: 0.06em;
+
+      /* SPACING grid */
+      --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+      --space-5: 24px;  --space-6: 32px;  --space-7: 48px;  --space-8: 64px;
+
+      /* BORDER RADIUS hardcapped at 10px */
+      --radius-none: 0px;  --radius-xs: 2px;   --radius-sm: 4px;
+      --radius-md:   6px;  --radius-lg: 8px;   --radius-pill: 100px;
+
+      /* MOTION constraints */
+      --duration-instant: 80ms;   --duration-fast:   150ms;
+      --duration-normal:  250ms;  --duration-slow:   400ms;
+      --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in:    cubic-bezier(0.4,  0, 1,   1);
+      --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
     }
 
     * {
@@ -34,658 +89,429 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-base);
-      color: var(--text-main);
-      padding: 30px 20px;
+      font-family: var(--font-body);
+      background-color: var(--color-bg-void);
+      color: var(--color-text-primary);
       min-height: 100vh;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
+      display: flex;
+      flex-direction: column;
     }
 
-    h1, h2, h3, h4 {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
+    /* Accessibility focus ring standard */
+    *:focus-visible {
+      outline: 2px solid var(--color-border-gold);
+      outline-offset: 2px;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
+    /* Fixed Three Structural Zones */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background-color: var(--color-bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--space-6);
+      z-index: 1000;
     }
 
-    /* Header Design */
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 0.8s ease-out;
+    .topbar-branding {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
     }
 
-    header h1 {
-      font-size: 2.8rem;
-      background: linear-gradient(135deg, #f8fafc 30%, #3b82f6 70%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
+    .topbar-title {
+      font-family: var(--font-display);
+      font-size: var(--type-body-lg);
+      font-weight: 700;
+      color: var(--color-text-inverse);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-display);
     }
 
-    header p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      font-weight: 300;
-      max-width: 600px;
-      margin: 0 auto;
+    .topbar-nav {
+      display: flex;
+      gap: var(--space-4);
     }
 
-    /* File Drag & Drop Grid */
+    .topbar-nav-link {
+      font-family: var(--font-data);
+      font-size: var(--type-data-xs);
+      color: var(--color-text-dim);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-caps);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      transition: all var(--duration-fast) ease;
+    }
+
+    .topbar-nav-link:hover {
+      color: var(--color-text-inverse);
+    }
+
+    .topbar-nav-link.active {
+      color: var(--color-gold-bright);
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .topbar-freshness {
+      font-family: var(--font-data);
+      font-size: var(--type-data-xs);
+      color: var(--color-text-dim);
+    }
+
+    .gold-rule {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--color-border-gold);
+      z-index: 1001;
+    }
+
+    .content-area {
+      margin-top: 58px;
+      padding: var(--space-6) var(--space-6) var(--space-8) var(--space-6);
+      max-width: 1440px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Covenant Layout Cards */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
     }
 
     .file-card {
-      background: var(--bg-surface-trans);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px dashed var(--border-color);
-      border-radius: 16px;
-      padding: 30px 20px;
+      background-color: var(--color-bg-surface);
+      border: 1px dashed var(--color-border-default);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
       text-align: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all var(--duration-fast) ease;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
-
-    .file-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: transparent;
-      transition: background 0.3s ease;
+      min-height: 180px;
     }
 
     .file-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(99, 102, 241, 0.4);
-      background: rgba(15, 23, 42, 0.85);
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.1);
+      border-color: var(--color-border-strong);
+      background-color: var(--color-bg-overlay);
     }
 
     .file-card.loaded {
       border-style: solid;
-      border-color: var(--color-success);
-      background: rgba(16, 185, 129, 0.03);
-    }
-
-    .file-card.loaded::before {
-      background: var(--color-success);
+      border-color: var(--color-status-green-text);
+      background-color: var(--color-status-green);
     }
 
     .file-card.dragover {
-      border-color: var(--accent-cyan);
-      background: rgba(6, 182, 212, 0.05);
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+      border-color: var(--color-border-gold);
+      background-color: var(--color-bg-overlay);
     }
 
     .card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .file-card:hover .card-icon {
-      transform: scale(1.1);
+      font-size: 2rem;
+      margin-bottom: var(--space-2);
     }
 
     .card-title {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      margin-bottom: 5px;
-      font-weight: 500;
+      font-family: var(--font-display);
+      font-size: var(--type-body-md);
+      color: var(--color-text-primary);
+      font-weight: 600;
+      margin-bottom: var(--space-1);
     }
 
     .card-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 15px;
-      font-weight: 300;
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-3);
     }
 
     .card-status {
-      font-size: 0.8rem;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
+      font-family: var(--font-data);
+      font-size: var(--type-data-xs);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-pill);
+      background-color: var(--color-bg-elevated);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border-subtle);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-weight: 400;
-      transition: all 0.3s ease;
+      gap: var(--space-2);
     }
 
     .file-card.loaded .card-status {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border-color: rgba(16, 185, 129, 0.25);
+      background-color: var(--color-bg-void);
+      color: var(--color-status-green-text);
+      border-color: var(--color-status-green-text);
     }
 
     .file-input {
       display: none;
     }
 
-    /* Primary Actions */
+    /* Actions Toolbar */
     .action-bar {
       display: flex;
-      gap: 15px;
-      margin-bottom: 30px;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
       justify-content: center;
     }
 
     .btn {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: white;
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
+      font-weight: 600;
+      color: var(--color-text-inverse);
       border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-sm);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease-out;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      gap: var(--space-2);
+      transition: all var(--duration-fast) ease;
+      box-shadow: none; /* Covenant flat rule */
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+      background-color: var(--color-bg-dark);
+      border: 1px solid var(--color-bg-dark);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
-      filter: brightness(1.1);
+      background-color: var(--color-navy);
+      border-color: var(--color-navy);
     }
 
     .btn-success {
-      background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
+      background-color: var(--color-status-green-text);
+      border: 1px solid var(--color-status-green-text);
     }
 
     .btn-success:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
-      filter: brightness(1.1);
+      filter: brightness(1.15);
     }
 
     .btn:disabled {
       opacity: 0.4;
       cursor: not-allowed;
-      transform: none !important;
-      box-shadow: none !important;
     }
 
-    /* Layout Split */
-    .dashboard-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    @media (min-width: 1024px) {
-      .dashboard-layout {
-        grid-template-columns: 350px 1fr;
-      }
-    }
-
-    /* Left Sidebar: Officer list */
-    .sidebar {
-      background: var(--bg-surface-trans);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 20px;
+    /* Centered Search Bar Header (Covenant-Compliant) */
+    .search-bar-header {
       display: flex;
-      flex-direction: column;
-      max-height: 800px;
-    }
-
-    .search-container {
-      margin-bottom: 15px;
-    }
-
-    .search-input {
+      justify-content: center;
+      margin-bottom: var(--space-5);
+      position: relative;
       width: 100%;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 0.9rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-input-centered {
+      width: 100%;
+      background-color: var(--color-bg-surface);
+      border: 2px solid var(--color-border-default);
+      color: var(--color-text-primary);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: var(--type-body-md); /* Ensure >= 16px */
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: all var(--duration-fast) ease;
+      text-align: center;
     }
 
-    .search-input:focus {
-      border-color: var(--accent-primary);
+    .search-input-centered:focus {
+      border-color: var(--color-gold-primary); /* Emphasized brass focus border */
+      background-color: var(--color-bg-void);
     }
 
-    .filter-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .filter-select {
-      flex: 1;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 8px 10px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .officer-list {
+    /* Suggestions Dropdown Overlay */
+    .search-suggestions-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-strong);
+      border-radius: var(--radius-sm);
+      max-height: 300px;
       overflow-y: auto;
-      flex-grow: 1;
-      padding-right: 5px;
+      z-index: 1000;
+      box-shadow: none; /* Covenant rule: flat surface depth */
+      margin-top: 4px;
+      display: none;
     }
 
-    .officer-list::-webkit-scrollbar {
-      width: 6px;
-    }
-    .officer-list::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-    }
-
-    .officer-item {
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      margin-bottom: 8px;
+    .suggestion-item {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--color-border-subtle);
       cursor: pointer;
-      transition: all 0.2s ease;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background-color var(--duration-fast) ease;
     }
 
-    .officer-item:hover {
-      background: rgba(255, 255, 255, 0.03);
+    .suggestion-item:last-child {
+      border-bottom: none;
     }
 
-    .officer-item.active {
-      background: var(--accent-primary-glow);
-      border-color: rgba(59, 130, 246, 0.2);
+    .suggestion-item:hover,
+    .suggestion-item.focused {
+      background-color: var(--color-bg-overlay);
     }
 
-    .officer-item-info h4 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .officer-item-info p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .rank-badge {
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      border-radius: 6px;
+    .suggestion-name {
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm); /* Ensure >= 16px */
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-main);
+      color: var(--color-text-primary);
     }
 
-    /* Right Main Panel */
+    .suggestion-meta {
+      font-family: var(--font-data);
+      font-size: var(--type-data-xs); /* Ensure >= 16px for readability or standard data */
+      color: var(--color-text-secondary);
+    }
+
+    /* Right Main Panel & Cards */
     .main-panel {
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: var(--space-5);
+      width: 100%;
     }
 
     .panel-card {
-      background: var(--bg-surface-trans);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px;
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-default);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
     }
 
     .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 15px;
-      margin-bottom: 20px;
+      border-bottom: 2px solid var(--color-border-subtle);
+      padding-bottom: var(--space-3);
+      margin-bottom: var(--space-4);
     }
 
     .panel-header h2 {
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
+      font-family: var(--font-display);
+      font-size: var(--type-display-sm);
+      color: var(--color-text-primary);
+      font-weight: 600;
     }
 
     /* Sync Alerts Panel */
     .alert-container {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--space-3);
     }
 
     .alert-card {
-      padding: 16px 20px;
-      border-radius: 12px;
-      border-left: 4px solid;
-      background: rgba(15, 23, 42, 0.4);
+      padding: var(--space-4);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border-default);
+      background-color: var(--color-bg-base);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      animation: fadeIn 0.4s ease-out;
-      border: 1px solid var(--border-color);
+      animation: reveal-enter var(--duration-fast) var(--ease-out) forwards;
       border-left-width: 4px;
     }
 
     .alert-card.MISSING_IN_OAIS {
-      border-left-color: var(--color-danger);
+      border-left-color: var(--color-status-red-text);
     }
 
     .alert-card.PRD_MISMATCH {
-      border-left-color: var(--color-warning);
+      border-left-color: var(--color-status-amber-text);
     }
 
     .alert-card.CO_INTENT_CONFLICT {
-      border-left-color: var(--accent-cyan);
+      border-left-color: var(--color-navy-bright);
     }
 
     .alert-content {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: var(--space-4);
     }
 
     .alert-icon {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
     }
 
     .alert-text h4 {
-      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
       font-weight: 600;
-      margin-bottom: 2px;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-1);
     }
 
     .alert-text p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
+      color: var(--color-text-secondary);
     }
 
     .alert-actions {
       display: flex;
-      gap: 10px;
+      gap: var(--space-2);
     }
 
     .btn-sm {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem;
+      font-size: var(--type-body-sm);
       padding: 6px 12px;
-      border-radius: 6px;
-      font-weight: 500;
-      box-shadow: none;
-    }
-
-    /* Officer Profile Detail layout */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-
-    @media (min-width: 768px) {
-      .profile-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .profile-meta-block {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .meta-row {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      padding-bottom: 8px;
-    }
-
-    .meta-label {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 300;
-    }
-
-    .meta-val {
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .meta-val.highlight-cyan {
-      color: var(--accent-cyan);
+      border-radius: var(--radius-sm);
       font-weight: 600;
-    }
-
-    .meta-val.highlight-yellow {
-      color: var(--color-warning);
-      font-weight: 600;
-    }
-
-    /* Manual PRD Form */
-    .prd-edit-form {
-      margin-top: 15px;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 10px;
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .prd-edit-form h4 {
-      font-size: 0.85rem;
-      margin-bottom: 5px;
-      color: var(--text-muted);
-    }
-
-    .form-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .form-input {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      outline: none;
-    }
-
-    .form-input:focus {
-      border-color: var(--accent-primary);
-    }
-
-    /* FITREP Continuity Timeline */
-    .fitrep-timeline {
-      margin-top: 25px;
-    }
-
-    .timeline-title {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .fitrep-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      transition: border-color 0.2s ease;
-    }
-
-    .fitrep-card:hover {
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .fitrep-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      align-items: center;
-    }
-
-    .fitrep-dates {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .fitrep-rec {
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .fitrep-rec.EP { background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); }
-    .fitrep-rec.MP { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
-    .fitrep-rec.P { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
-    .fitrep-rec.PR { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-    .fitrep-rec.SP { background: rgba(244, 63, 94, 0.2); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.4); }
-
-    .fitrep-metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 12px;
-      background: rgba(0, 0, 0, 0.15);
-      padding: 10px;
-      border-radius: 8px;
-    }
-
-    .metric-item {
-      text-align: center;
-    }
-
-    .metric-lbl {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-    }
-
-    .metric-val {
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .metric-val.pos { color: var(--color-success); }
-    .metric-val.neg { color: var(--color-danger); }
-
-    .breakout-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .breakout-input {
-      flex-grow: 1;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      outline: none;
-    }
-
-    .breakout-input:focus {
-      border-color: var(--accent-cyan);
-    }
-
-    /* Historical Log list */
-    .history-log-list {
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .history-log-item {
-      padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 0.75rem;
-    }
-
-    .log-meta {
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      font-size: 0.7rem;
-    }
-
-    .log-desc {
-      color: var(--text-main);
-      line-height: 1.3;
     }
 
     /* Command Health Dashboard */
     .command-health-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-4);
     }
 
     .command-health-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px;
+      background-color: var(--color-bg-base);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: var(--space-3);
     }
 
     .command-h-header {
@@ -695,36 +521,40 @@
     }
 
     .command-h-title {
-      font-size: 0.95rem;
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
       font-weight: 600;
+      color: var(--color-text-primary);
     }
 
     .command-percentage {
-      font-size: 1.1rem;
-      font-family: 'Outfit', sans-serif;
+      font-family: var(--font-data);
+      font-size: var(--type-data-md);
       font-weight: 700;
-      color: var(--accent-cyan);
+      color: var(--color-navy);
     }
 
     .command-health-bar-container {
       width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 3px;
+      height: 8px;
+      background-color: var(--color-bg-elevated);
+      border-radius: var(--radius-xs);
       overflow: hidden;
+      border: 1px solid var(--color-border-subtle);
     }
 
     .command-health-bar {
       height: 100%;
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-primary));
-      border-radius: 3px;
+      background-color: var(--color-navy);
+      border-radius: var(--radius-xs);
     }
 
     .command-details {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      font-family: var(--font-data);
+      font-size: var(--type-data-xs);
+      color: var(--color-text-muted);
     }
 
     /* Modal dialog */
@@ -734,15 +564,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
-      z-index: 100;
+      background-color: rgba(26, 35, 50, 0.6); /* Semi-transparent navy backdrop without blur */
+      z-index: 10000;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity var(--duration-normal) var(--ease-inout);
     }
 
     .modal.active {
@@ -751,201 +580,612 @@
     }
 
     .modal-content {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px;
+      background-color: var(--color-bg-surface);
+      border: 1px solid var(--color-border-strong);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
       width: 90%;
       max-width: 500px;
-      animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      animation: reveal-enter var(--duration-normal) var(--ease-out) forwards;
     }
 
     .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
+      border-bottom: 1px solid var(--color-border-subtle);
+      padding-bottom: var(--space-2);
+      margin-bottom: var(--space-4);
     }
 
     .modal-header h3 {
-      font-size: 1.2rem;
+      font-family: var(--font-display);
+      font-size: var(--type-body-lg);
+      color: var(--color-text-primary);
     }
 
     .modal-close {
       cursor: pointer;
-      color: var(--text-muted);
-      font-size: 1.2rem;
+      color: var(--color-text-muted);
+      font-size: 1.5rem;
       background: none;
       border: none;
+    }
+
+    .modal-close:hover {
+      color: var(--color-text-primary);
     }
 
     .modal-body {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: var(--space-4);
     }
 
     .modal-footer {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
-      margin-top: 20px;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
     }
 
     /* Keyframes */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes reveal-enter {
+      from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
     }
 
     /* Empty state */
     .empty-placeholder {
       text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      font-style: italic;
-      font-weight: 300;
+      padding: var(--space-6) var(--space-4);
+      font-family: var(--font-body);
+      font-size: var(--type-body-sm);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      background-color: var(--color-bg-base);
+      border: 1px dashed var(--color-border-default);
+      border-radius: var(--radius-sm);
     }
-  </style>
+
+    /* Typographic fallback active */
+    .font-fallback {
+      --font-body: Arial, sans-serif;
+      --font-display: Arial, sans-serif;
+      --font-data: 'Consolas', 'Courier New', Courier, monospace;
+    }
+  
+
+/* Scoped style from: src/modules/officer/officer.css */
+/* 
+ * src/modules/officer/officer.css
+ * 
+ * Scoped styles for the Officer View Module.
+ * Fully compliant with PERS-43 Covenant Design System (Light Mode / Warm-Linen).
+ */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: reveal-enter var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* ZONE 1: TACTICAL HERO NAVIGATION BAR */
+.officer-hero-nav {
+  display: flex;
+  background-color: var(--color-bg-dark); /* Deep navy */
+  border-bottom: 2px solid var(--color-gold-primary); /* Covenant permanent brass divider */
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  padding: 0 var(--space-2);
+}
+
+.hero-nav-btn {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm); /* Enforce >= 16px */
+  font-weight: 600;
+  color: var(--color-text-dim);
+  background: none;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--duration-fast) ease;
+  height: 48px;
+}
+
+.hero-nav-btn:hover {
+  color: var(--color-text-inverse);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.hero-nav-btn.active {
+  color: var(--color-text-inverse);
+  border-bottom-color: var(--color-gold-bright); /* High emphasis active gold */
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.hero-nav-icon {
+  font-size: 1.1rem;
+}
+
+/* ZONE 2: TAB PANELS LAYOUTS */
+.officer-tab-panel {
+  animation: reveal-enter var(--duration-medium) var(--ease-out) forwards;
+}
+
+/* Dashboard Grid System */
+.officer-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .officer-dashboard-grid {
+    grid-template-columns: 1fr 1.2fr; /* Balanced 2-column layout */
+  }
+}
+
+.dashboard-col-left,
+.dashboard-col-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Styling: Flat warm-linen panels */
+.officer-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md); /* Strict cap <= 10px */
+  padding: var(--space-4);
+  box-shadow: none; /* Covenant rule: no drop shadows */
+}
+
+.officer-card--accented {
+  border-top: 3px solid var(--color-gold-primary); /* Covenant Brass accent header */
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-border-subtle);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.officer-card-title {
+  font-family: var(--font-display);
+  font-size: var(--type-display-sm); /* Enforce >= 16px */
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.officer-card-title--secondary {
+  color: var(--color-text-primary);
+}
+
+/* Administrative Rows */
+.admin-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.admin-data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-2);
+}
+
+.admin-data-label {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm); /* Enforce >= 16px */
+  color: var(--color-text-secondary);
+}
+
+.admin-data-value {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm); /* Enforce >= 16px */
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.admin-data-value--highlight {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  background-color: rgba(184, 146, 58, 0.08); /* Accent gold glow background */
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-gold-primary);
+}
+
+.admin-data-value--warning {
+  color: var(--color-status-red-text);
+  font-weight: 600;
+  background-color: var(--color-status-red);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(132, 32, 41, 0.2);
+}
+
+/* Form Styling */
+.prd-override-form {
+  padding: var(--space-4);
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+}
+
+.prd-override-title {
+  font-family: var(--font-display);
+  font-size: var(--type-body-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+.prd-override-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex-grow: 1;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-muted);
+}
+
+.text-input {
+  background-color: var(--color-bg-void);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text-primary);
+  font-family: var(--font-data);
+  font-size: var(--type-data-md);
+  outline: none;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.text-input:focus {
+  border-color: var(--color-border-strong);
+}
+
+.btn-covenant {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  font-weight: 600;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-bg-dark);
+  padding: 10px var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--duration-fast) ease;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-covenant:hover {
+  background-color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+/* PRD Audit Logs */
+.audit-log-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: var(--space-1);
+}
+
+.audit-log-card {
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.audit-log-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-data);
+  font-size: var(--type-data-xs);
+  color: var(--color-text-muted);
+}
+
+.audit-log-shift {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.audit-log-note {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* Performance Timelines & Cards */
+.top-fitreps-list,
+.fitrep-continuity-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fitrep-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: relative;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.fitrep-card--EP { border-left: 4px solid var(--color-status-green-text); }
+.fitrep-card--MP { border-left: 4px solid var(--color-status-amber-text); }
+.fitrep-card--P  { border-left: 4px solid var(--color-status-gray-text); }
+.fitrep-card--PR { border-left: 4px solid var(--color-status-amber-text); }
+.fitrep-card--SP { border-left: 4px solid var(--color-status-red-text); }
+
+.fitrep-card:hover {
+  background-color: var(--color-bg-overlay);
+}
+
+.fitrep-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fitrep-card-dates {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Metrics Row table style */
+.fitrep-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-1);
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+.fitrep-metric-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.fitrep-metric-label {
+  font-family: var(--font-body);
+  font-size: 10px; /* Monospace sub-label */
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  margin-bottom: 2px;
+}
+
+.fitrep-metric-value {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.fitrep-metric-value--positive {
+  color: var(--color-status-green-text);
+}
+
+.fitrep-metric-value--negative {
+  color: var(--color-status-red-text);
+}
+
+.fitrep-card-narrative {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.fitrep-breakout-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: 2px;
+}
+
+.fitrep-breakout-label {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.fitrep-breakout-input {
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  color: var(--color-text-primary);
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  flex-grow: 1;
+  outline: none;
+  transition: all var(--duration-fast) ease;
+}
+
+.fitrep-breakout-input:focus {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-bg-void);
+}
+
+.badge-group {
+  display: flex;
+  gap: var(--space-2);
+}
+
+</style>
 </head>
-<body>
+<body class="reveal">
 
-  <div class="container">
-    <header>
-      <h1>43workflow - Reconciliation Bridge</h1>
-      <p>Zero-Install client-side engine to reconcile Master Planner intent against legacy OAIS and SUBEVAL mainframe data drops.</p>
-    </header>
-
-    <!-- File Load Cards -->
-    <div class="card-grid">
-      <!-- Card 1: Master Intent JSON -->
-      <div class="file-card" id="card-intent" onclick="document.getElementById('input-intent').click()">
-        <input type="file" id="input-intent" class="file-input" accept=".json">
-        <div class="card-icon">📁</div>
-        <div class="card-title">Master Intent</div>
-        <div class="card-subtitle">Upload planner intent JSON file</div>
-        <div class="card-status" id="status-intent">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
-        </div>
-      </div>
-
-      <!-- Card 2: SUPPLY Raw Text -->
-      <div class="file-card" id="card-supply" onclick="document.getElementById('input-supply').click()">
-        <input type="file" id="input-supply" class="file-input" accept=".txt,.csv">
-        <div class="card-icon">🖥️</div>
-        <div class="card-title">Raw SUPPLY Extract</div>
-        <div class="card-subtitle">Upload percent (%) delimited txt roster</div>
-        <div class="card-status" id="status-supply">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
-        </div>
-      </div>
-
-      <!-- Card 3: SUBEVAL CSV -->
-      <div class="file-card" id="card-subeval" onclick="document.getElementById('input-subeval').click()">
-        <input type="file" id="input-subeval" class="file-input" accept=".csv">
-        <div class="card-icon">📊</div>
-        <div class="card-title">SUBEVAL FITREP Data</div>
-        <div class="card-subtitle">Upload comma (,) delimited CSV evaluations</div>
-        <div class="card-status" id="status-subeval">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
-        </div>
-      </div>
-
-      <!-- Card 4: Command CO Export JSON -->
-      <div class="file-card" id="card-coexport" onclick="document.getElementById('input-coexport').click()">
-        <input type="file" id="input-coexport" class="file-input" accept=".json">
-        <div class="card-icon">🎖️</div>
-        <div class="card-title">Command CO Export</div>
-        <div class="card-subtitle">Upload CO requested PRD changes JSON</div>
-        <div class="card-status" id="status-coexport">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
-        </div>
-      </div>
+  <!-- ZONE 1: TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-branding">
+      <span class="topbar-title">PERS-43 Master Planner</span>
+      <nav class="topbar-nav" id="router-nav" style="display: none;">
+        <a href="#ingestion" class="topbar-nav-link" id="nav-ingestion-link">Data Ingestion</a>
+        <a href="#alerts" class="topbar-nav-link" id="nav-alerts-link">Reconciliation</a>
+        <a href="#commands" class="topbar-nav-link" id="nav-commands-link">Command Health</a>
+      </nav>
     </div>
+    <span class="topbar-freshness" id="topbar-freshness">Freshness: Not Ingested</span>
+  </div>
 
-    <!-- Toolbar / Actions -->
-    <div class="action-bar">
-      <button class="btn btn-primary" id="btn-run-diff" disabled>
-        ⚡ Run Diff Engine
-      </button>
-      <button class="btn btn-success" id="btn-export-db" disabled>
-        📥 Export Master Database
-      </button>
-    </div>
+  <!-- ZONE 2: SOLID GOLD RULE -->
+  <div class="gold-rule"></div>
 
-    <!-- Split view Dashboard -->
-    <div class="dashboard-layout">
-      <!-- Left: Roster List -->
-      <div class="sidebar">
-        <div class="search-container">
-          <input type="text" class="search-input" id="search-box" placeholder="Search officer by name or SSN...">
-        </div>
-        <div class="filter-row">
-          <select class="filter-select" id="filter-rank">
-            <option value="">All Ranks</option>
-            <option value="CDR">CDR</option>
-            <option value="LCDR">LCDR</option>
-            <option value="LT">LT</option>
-            <option value="LTJG">LTJG</option>
-            <option value="ENS">ENS</option>
-          </select>
-          <select class="filter-select" id="filter-desig">
-            <option value="">All Designators</option>
-            <option value="1310">1310 (Pilot)</option>
-            <option value="1320">1320 (NFO)</option>
-          </select>
-        </div>
-        <div class="officer-list" id="sidebar-officer-list">
-          <div class="empty-placeholder">No active roster loaded yet.</div>
+  <!-- ZONE 3: CONTENT AREA -->
+  <div class="content-area">
+    <div class="main-panel">
+
+      <!-- Centered Officer Search Header -->
+      <div class="search-bar-header" id="centered-search-header" style="display: none;">
+        <div class="search-input-wrapper">
+          <input type="text" class="search-input-centered" id="search-box" autocomplete="off" placeholder="Search officer by name or SSN...">
+          <div class="search-suggestions-dropdown" id="search-suggestions"></div>
         </div>
       </div>
 
-      <!-- Right: Main content tabs (Alerts, Profile details, Command view) -->
-      <div class="main-panel">
+      <!-- View 0: Ingestion Panel (Landing View / Tab) -->
+      <div class="panel-card" id="panel-ingestion">
+        <div class="panel-header">
+          <h2>System Ingestion Dossier Drops</h2>
+        </div>
         
-        <!-- Alerts Card -->
-        <div class="panel-card" id="panel-alerts" style="display: none;">
-          <div class="panel-header">
-            <h2>Sync Alerts ("Gotcha Moments")</h2>
-            <div class="rank-badge" style="background: rgba(244, 63, 94, 0.1); color: var(--color-danger);" id="alerts-count">0 Detected</div>
+        <!-- File Load Cards -->
+        <div class="card-grid">
+          <!-- Card 1: Master Intent JSON -->
+          <div class="file-card" id="card-intent" onclick="document.getElementById('input-intent').click()">
+            <input type="file" id="input-intent" class="file-input" accept=".json" onclick="event.stopPropagation()">
+            <div class="card-icon">📁</div>
+            <div class="card-title">Master Intent</div>
+            <div class="card-subtitle">Upload planner intent JSON file</div>
+            <div class="card-status" id="status-intent">
+              <span>●</span> <span>Not Loaded</span>
+            </div>
           </div>
-          <div class="alert-container" id="alerts-list">
-            <!-- Alert items render here -->
+
+          <!-- Card 2: SUPPLY Raw Text -->
+          <div class="file-card" id="card-supply" onclick="document.getElementById('input-supply').click()">
+            <input type="file" id="input-supply" class="file-input" accept=".txt,.csv" onclick="event.stopPropagation()">
+            <div class="card-icon">🖥️</div>
+            <div class="card-title">Raw SUPPLY Extract</div>
+            <div class="card-subtitle">Upload percent (%) delimited txt roster</div>
+            <div class="card-status" id="status-supply">
+              <span>●</span> <span>Not Loaded</span>
+            </div>
+          </div>
+
+          <!-- Card 3: SUBEVAL CSV -->
+          <div class="file-card" id="card-subeval" onclick="document.getElementById('input-subeval').click()">
+            <input type="file" id="input-subeval" class="file-input" accept=".csv" onclick="event.stopPropagation()">
+            <div class="card-icon">📊</div>
+            <div class="card-title">SUBEVAL FITREP Data</div>
+            <div class="card-subtitle">Upload comma (,) delimited CSV evaluations</div>
+            <div class="card-status" id="status-subeval">
+              <span>●</span> <span>Not Loaded</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Command CO Export JSON -->
+          <div class="file-card" id="card-coexport" onclick="document.getElementById('input-coexport').click()">
+            <input type="file" id="input-coexport" class="file-input" accept=".json" onclick="event.stopPropagation()">
+            <div class="card-icon">🎖️</div>
+            <div class="card-title">Command CO Export</div>
+            <div class="card-subtitle">Upload CO requested PRD changes JSON</div>
+            <div class="card-status" id="status-coexport">
+              <span>●</span> <span>Not Loaded</span>
+            </div>
           </div>
         </div>
 
-        <!-- Selected Officer Detailed Profile -->
-        <div class="panel-card" id="panel-profile">
-          <div class="panel-header">
-            <h2>Officer Record Dashboard</h2>
-            <span class="rank-badge" id="prof-grade-badge">Grade: N/A</span>
-          </div>
-          <div id="profile-content">
-            <div class="empty-placeholder">Select an officer from the list to view their deep profile, historical PRD audit log, and parsed performance timeline.</div>
-          </div>
+        <!-- Toolbar / Actions -->
+        <div class="action-bar" style="margin-top: var(--space-5);">
+          <button class="btn btn-primary" id="btn-run-diff" disabled>
+            ⚡ Run Diff Engine
+          </button>
+          <button class="btn btn-success" id="btn-export-db" disabled>
+            📥 Export Master Database
+          </button>
         </div>
-
-        <!-- Command Health Panel -->
-        <div class="panel-card" id="panel-commands" style="display: none;">
-          <div class="panel-header">
-            <h2>Command Manning Health</h2>
-          </div>
-          <div class="command-health-grid" id="command-list-container">
-            <!-- Command items render here -->
-          </div>
-        </div>
-
       </div>
+      
+      <!-- View 1: Sync Alerts -->
+      <div class="panel-card" id="panel-alerts" style="display: none;">
+        <div class="panel-header">
+          <h2>Sync Alerts ("Gotcha Moments")</h2>
+          <div class="rank-badge" style="background-color: var(--color-status-red); color: var(--color-status-red-text);" id="alerts-count">0 Detected</div>
+        </div>
+        <div class="alert-container" id="alerts-list">
+          <!-- Alert items render here -->
+        </div>
+      </div>
+
+      <!-- View 2: Selected Officer Detailed Profile (Mount target) -->
+      <div id="panel-profile-container" style="display: none;">
+        <div class="empty-placeholder">Select an officer using the search bar at the top to view their deep profile, historical PRD audit log, and parsed performance timeline.</div>
+      </div>
+
+      <!-- View 3: Command Health Panel -->
+      <div class="panel-card" id="panel-commands" style="display: none;">
+        <div class="panel-header">
+          <h2>Command Manning Health</h2>
+        </div>
+        <div class="command-health-grid" id="command-list-container">
+          <!-- Command items render here -->
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -957,29 +1197,67 @@
         <button class="modal-close" onclick="closeAckModal()">×</button>
       </div>
       <div class="modal-body">
-        <p id="modal-officer-info" style="font-size: 0.9rem; margin-bottom: 10px;"></p>
-        <div style="display: flex; flex-direction: column; gap: 5px;">
-          <label class="meta-label">Requested PRD</label>
-          <input type="text" class="form-input" id="modal-new-prd" disabled>
+        <p id="modal-officer-info" style="font-size: var(--type-body-sm); margin-bottom: var(--space-2); font-weight: 600;"></p>
+        <div style="display: flex; flex-direction: column; gap: var(--space-1);">
+          <label class="form-label">Requested PRD</label>
+          <input type="text" class="text-input" id="modal-new-prd" disabled>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 5px;">
-          <label class="meta-label">Expert PRD Change Note (Required justification)</label>
-          <textarea class="form-input" id="modal-change-note" rows="3" placeholder="Enter reason for matching/updating Intent PRD to CO's request..." style="font-family: inherit; resize: vertical;"></textarea>
+        <div style="display: flex; flex-direction: column; gap: var(--space-1);">
+          <label class="form-label">Expert PRD Change Note (Required justification)</label>
+          <textarea class="text-input" id="modal-change-note" rows="3" placeholder="Enter reason for matching/updating Intent PRD to CO's request..." style="font-family: inherit; resize: vertical;"></textarea>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-sm" style="background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--border-color);" onclick="closeAckModal()">Cancel</button>
+        <button class="btn btn-sm" style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border: 1px solid var(--color-border-default);" onclick="closeAckModal()">Cancel</button>
         <button class="btn btn-sm btn-primary" id="modal-btn-confirm">Acknowledge & Sync</button>
       </div>
     </div>
   </div>
 
+  <!-- NMCI-Hardened Font Fallback and Staggered Page Load scripts -->
+  <script>
+    (function () {
+      'use strict';
+      var TIMEOUT = 2500; // NMCI proxy latency check
+
+      function fallback(reason) {
+        document.documentElement.classList.add('font-fallback');
+        console.warn('[PERS43] Font fallback active:', reason);
+      }
+
+      if (!document.fonts || typeof document.fonts.check !== 'function') {
+        fallback('FontFace API unavailable'); return;
+      }
+
+      var timeout = new Promise(function (resolve) {
+        setTimeout(function () { resolve('timeout'); }, TIMEOUT);
+      });
+
+      Promise.race([document.fonts.ready, timeout]).then(function () {
+        var ok = document.fonts.check('1em "Verdana"') &&
+                 document.fonts.check('1em "DM Mono"');
+        if (!ok) fallback('Primary fonts failed to load');
+      });
+      
+      // Staggered page load sequence
+      document.addEventListener('DOMContentLoaded', function () {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            document.querySelectorAll('.reveal').forEach(function (el) {
+              el.classList.add('is-visible');
+            });
+          });
+        });
+      });
+    }());
+  </script>
+
   <!-- Core ESM Parser and Interface Glue -->
   <script>
 
-// --- Compiled Module: src/schema.js ---
+// --- Compiled Module: src/core/schema.js ---
 /**
- * src/schema.js
+ * src/core/schema.js
  * 
  * JSDoc definitions for the Master Database schema.
  * Using JSDoc instead of TypeScript to maintain strict "Zero-Install" browser compatibility.
@@ -1105,9 +1383,10 @@
  */
 
  // Ensure it's treated as a module
-// --- Compiled Module: src/ingestion.js ---
+
+// --- Compiled Module: src/core/ingestion.js ---
 /**
- * src/ingestion.js
+ * src/core/ingestion.js
  * 
  * Browser-compatible ES Module for robust, client-side parsing, cleaning,
  * and linking of SUPPLY and SUBEVAL data drops.
@@ -1581,18 +1860,11 @@ function linkAndReconcile(supplyRoster, subevalHistory) {
   return masterDb;
 }
 
-// --- Compiled Module: src/diffEngine.js ---
+// --- Compiled Module: src/core/diffEngine.js ---
 /**
- * src/diffEngine.js
+ * src/core/diffEngine.js
  * 
  * Core Diff Engine logic in Vanilla JS.
- */
-
-/**
- * @typedef {Object} OAISOfficerData
- * @property {import('./schema.js').SSN} ssn
- * @property {import('./schema.js').DateString} oaisPRD
- * @property {string} currentUIC
  */
 
 /**
@@ -1608,7 +1880,7 @@ function linkAndReconcile(supplyRoster, subevalHistory) {
 /**
  * Core Diff Engine: Compares Legal Status (OAIS) against the Detailer/Placement Intent.
  * 
- * @param {Record<string, OAISOfficerData>} oaisData A dictionary of parsed OAIS records, keyed by SSN.
+ * @param {Record<string, Object>} oaisData A dictionary of parsed OAIS records, keyed by SSN.
  * @param {import('./schema.js').MasterDatabase} intentDb The Master Database (Intent of Record).
  * @returns {SyncAlert[]} An array of SyncAlert objects highlighting discrepancies.
  */
@@ -1683,985 +1955,326 @@ function generateCOIntentAlerts(coExport, intentDb) {
   return alerts;
 }
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Planner - Zero-Install Read Bridge</title>
-  <!-- Modern Typography -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <style>
-    /* Premium Visual Design System - Cinematic Dark Theme */
-    :root {
-      --bg-base: #060913;
-      --bg-surface: #0f172a;
-      --bg-surface-trans: rgba(15, 23, 42, 0.6);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --accent-primary: #3b82f6;
-      --accent-primary-glow: rgba(59, 130, 246, 0.15);
-      --accent-secondary: #6366f1;
-      --accent-cyan: #06b6d4;
-      --color-success: #10b981;
-      --color-warning: #f59e0b;
-      --color-danger: #f43f5e;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-base);
-      color: var(--text-main);
-      padding: 30px 20px;
-      min-height: 100vh;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    /* Header Design */
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      background: linear-gradient(135deg, #f8fafc 30%, #3b82f6 70%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.03em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      font-weight: 300;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* File Drag & Drop Grid */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .file-card {
-      background: var(--bg-surface-trans);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px dashed var(--border-color);
-      border-radius: 16px;
-      padding: 30px 20px;
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .file-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: transparent;
-      transition: background 0.3s ease;
-    }
-
-    .file-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(99, 102, 241, 0.4);
-      background: rgba(15, 23, 42, 0.85);
-      box-shadow: 0 12px 30px rgba(99, 102, 241, 0.1);
-    }
-
-    .file-card.loaded {
-      border-style: solid;
-      border-color: var(--color-success);
-      background: rgba(16, 185, 129, 0.03);
-    }
-
-    .file-card.loaded::before {
-      background: var(--color-success);
-    }
-
-    .file-card.dragover {
-      border-color: var(--accent-cyan);
-      background: rgba(6, 182, 212, 0.05);
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
-    }
-
-    .card-icon {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      transition: transform 0.3s ease;
-    }
-
-    .file-card:hover .card-icon {
-      transform: scale(1.1);
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      color: var(--text-main);
-      margin-bottom: 5px;
-      font-weight: 500;
-    }
-
-    .card-subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 15px;
-      font-weight: 300;
-    }
-
-    .card-status {
-      font-size: 0.8rem;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 400;
-      transition: all 0.3s ease;
-    }
-
-    .file-card.loaded .card-status {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border-color: rgba(16, 185, 129, 0.25);
-    }
-
-    .file-input {
-      display: none;
-    }
-
-    /* Primary Actions */
-    .action-bar {
-      display: flex;
-      gap: 15px;
-      margin-bottom: 30px;
-      justify-content: center;
-    }
-
-    .btn {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 10px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s ease-out;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
-      filter: brightness(1.1);
-    }
-
-    .btn-success {
-      background: linear-gradient(135deg, var(--color-success) 0%, #059669 100%);
-    }
-
-    .btn-success:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
-      filter: brightness(1.1);
-    }
-
-    .btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      transform: none !important;
-      box-shadow: none !important;
-    }
-
-    /* Layout Split */
-    .dashboard-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    @media (min-width: 1024px) {
-      .dashboard-layout {
-        grid-template-columns: 350px 1fr;
-      }
-    }
-
-    /* Left Sidebar: Officer list */
-    .sidebar {
-      background: var(--bg-surface-trans);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      max-height: 800px;
-    }
-
-    .search-container {
-      margin-bottom: 15px;
-    }
-
-    .search-input {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-
-    .search-input:focus {
-      border-color: var(--accent-primary);
-    }
-
-    .filter-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .filter-select {
-      flex: 1;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 8px 10px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .officer-list {
-      overflow-y: auto;
-      flex-grow: 1;
-      padding-right: 5px;
-    }
-
-    .officer-list::-webkit-scrollbar {
-      width: 6px;
-    }
-    .officer-list::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-    }
-
-    .officer-item {
-      padding: 12px 16px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .officer-item:hover {
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .officer-item.active {
-      background: var(--accent-primary-glow);
-      border-color: rgba(59, 130, 246, 0.2);
-    }
-
-    .officer-item-info h4 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-
-    .officer-item-info p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .rank-badge {
-      font-size: 0.7rem;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-main);
-    }
-
-    /* Right Main Panel */
-    .main-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .panel-card {
-      background: var(--bg-surface-trans);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 15px;
-      margin-bottom: 20px;
-    }
-
-    .panel-header h2 {
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
-    }
-
-    /* Sync Alerts Panel */
-    .alert-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .alert-card {
-      padding: 16px 20px;
-      border-radius: 12px;
-      border-left: 4px solid;
-      background: rgba(15, 23, 42, 0.4);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      animation: fadeIn 0.4s ease-out;
-      border: 1px solid var(--border-color);
-      border-left-width: 4px;
-    }
-
-    .alert-card.MISSING_IN_OAIS {
-      border-left-color: var(--color-danger);
-    }
-
-    .alert-card.PRD_MISMATCH {
-      border-left-color: var(--color-warning);
-    }
-
-    .alert-card.CO_INTENT_CONFLICT {
-      border-left-color: var(--accent-cyan);
-    }
-
-    .alert-content {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .alert-icon {
-      font-size: 1.4rem;
-    }
-
-    .alert-text h4 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .alert-text p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .alert-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn-sm {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-weight: 500;
-      box-shadow: none;
-    }
-
-    /* Officer Profile Detail layout */
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-    }
-
-    @media (min-width: 768px) {
-      .profile-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .profile-meta-block {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .meta-row {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      padding-bottom: 8px;
-    }
-
-    .meta-label {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 300;
-    }
-
-    .meta-val {
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .meta-val.highlight-cyan {
-      color: var(--accent-cyan);
-      font-weight: 600;
-    }
-
-    .meta-val.highlight-yellow {
-      color: var(--color-warning);
-      font-weight: 600;
-    }
-
-    /* Manual PRD Form */
-    .prd-edit-form {
-      margin-top: 15px;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 10px;
-      border: 1px solid var(--border-color);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .prd-edit-form h4 {
-      font-size: 0.85rem;
-      margin-bottom: 5px;
-      color: var(--text-muted);
-    }
-
-    .form-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .form-input {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      outline: none;
-    }
-
-    .form-input:focus {
-      border-color: var(--accent-primary);
-    }
-
-    /* FITREP Continuity Timeline */
-    .fitrep-timeline {
-      margin-top: 25px;
-    }
-
-    .timeline-title {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .fitrep-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-      transition: border-color 0.2s ease;
-    }
-
-    .fitrep-card:hover {
-      border-color: rgba(255, 255, 255, 0.15);
-    }
-
-    .fitrep-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      align-items: center;
-    }
-
-    .fitrep-dates {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .fitrep-rec {
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-
-    .fitrep-rec.EP { background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); }
-    .fitrep-rec.MP { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); }
-    .fitrep-rec.P { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.4); }
-    .fitrep-rec.PR { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-    .fitrep-rec.SP { background: rgba(244, 63, 94, 0.2); color: #f87171; border: 1px solid rgba(244, 63, 94, 0.4); }
-
-    .fitrep-metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-bottom: 12px;
-      background: rgba(0, 0, 0, 0.15);
-      padding: 10px;
-      border-radius: 8px;
-    }
-
-    .metric-item {
-      text-align: center;
-    }
-
-    .metric-lbl {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-bottom: 2px;
-    }
-
-    .metric-val {
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .metric-val.pos { color: var(--color-success); }
-    .metric-val.neg { color: var(--color-danger); }
-
-    .breakout-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .breakout-input {
-      flex-grow: 1;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: white;
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      outline: none;
-    }
-
-    .breakout-input:focus {
-      border-color: var(--accent-cyan);
-    }
-
-    /* Historical Log list */
-    .history-log-list {
-      margin-top: 15px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .history-log-item {
-      padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      font-size: 0.75rem;
-    }
-
-    .log-meta {
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-      font-size: 0.7rem;
-    }
-
-    .log-desc {
-      color: var(--text-main);
-      line-height: 1.3;
-    }
-
-    /* Command Health Dashboard */
-    .command-health-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-    }
-
-    .command-health-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .command-h-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .command-h-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .command-percentage {
-      font-size: 1.1rem;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 700;
-      color: var(--accent-cyan);
-    }
-
-    .command-health-bar-container {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-
-    .command-health-bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-primary));
-      border-radius: 3px;
-    }
-
-    .command-details {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    /* Modal dialog */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-content {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px;
-      width: 90%;
-      max-width: 500px;
-      animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-
-    .modal-header h3 {
-      font-size: 1.2rem;
-    }
-
-    .modal-close {
-      cursor: pointer;
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      background: none;
-      border: none;
-    }
-
-    .modal-body {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .modal-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    /* Keyframes */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes zoomIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    /* Empty state */
-    .empty-placeholder {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      font-style: italic;
-      font-weight: 300;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <h1>43workflow - Reconciliation Bridge</h1>
-      <p>Zero-Install client-side engine to reconcile Master Planner intent against legacy OAIS and SUBEVAL mainframe data drops.</p>
-    </header>
-
-    <!-- File Load Cards -->
-    <div class="card-grid">
-      <!-- Card 1: Master Intent JSON -->
-      <div class="file-card" id="card-intent" onclick="document.getElementById('input-intent').click()">
-        <input type="file" id="input-intent" class="file-input" accept=".json">
-        <div class="card-icon">📁</div>
-        <div class="card-title">Master Intent</div>
-        <div class="card-subtitle">Upload planner intent JSON file</div>
-        <div class="card-status" id="status-intent">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
+// --- Compiled Module: src/modules/officer/officer.js ---
+/**
+ * src/modules/officer/officer.js
+ * 
+ * Modular JavaScript controller for the Officer View Module.
+ * Adheres strictly to the PERS-43 Light Mode Covenant Design System.
+ */
+
+class OfficerModule {
+  /**
+   * Calculates the Record Grade (A/B/C) of an officer based on continuous FITREP history.
+   * 
+   * @param {Object[]} history Fitrep history records
+   * @returns {'A' | 'B' | 'C'}
+   */
+  static calculateRecordGrade(history) {
+    if (!history || history.length === 0) return 'C';
+    
+    const rvs = history.map(f => f.relativeValue || 0);
+    const avgRV = rvs.reduce((a, b) => a + b, 0) / rvs.length;
+    const eps = history.filter(f => f.recommendation === 'EP').length;
+    const epRatio = eps / history.length;
+
+    if (avgRV > 0.4 && epRatio > 0.25) {
+      return 'A';
+    } else if (avgRV >= 0 || epRatio > 0.1) {
+      return 'B';
+    }
+    return 'C';
+  }
+
+  /**
+   * Filter and retrieve the Top 3 competitive FITREPs sorted by Relative Value descending.
+   * 
+   * @param {Object[]} history Complete Fitrep history
+   * @returns {Object[]} Top 3 Fitreps
+   */
+  static getTop3FITREPs(history) {
+    if (!history || history.length === 0) return [];
+    
+    // Sort a copy of the history by Relative Value (descending), then chronologically (descending)
+    return [...history]
+      .sort((a, b) => {
+        if (b.relativeValue !== a.relativeValue) {
+          return b.relativeValue - a.relativeValue;
+        }
+        return new Date(b.fromDate) - new Date(a.fromDate);
+      })
+      .slice(0, 3);
+  }
+
+  /**
+   * Renders a custom list of FITREPs to a specified target container in the DOM.
+   * 
+   * @param {HTMLElement} container DOM element target
+   * @param {Object[]} list Array of FITREP objects to render
+   * @param {string} ssn Officer SSN
+   * @param {string} prefix Element ID prefix ('top' or 'full') to avoid DOM ID collisions
+   * @param {Function} onStateChange Callback triggered on user inputs
+   */
+  static renderFitrepTimeline(container, list, ssn, prefix, onStateChange) {
+    container.innerHTML = '';
+    
+    if (list.length === 0) {
+      container.innerHTML = '<div class="empty-placeholder" style="padding: var(--space-4);">No evaluations ingested for this timeline.</div>';
+      return;
+    }
+
+    list.forEach((fit, idx) => {
+      // Find original index in full history to keep qualitative overlays in sync
+      const originalIdx = fit.originalHistoryIndex !== undefined ? fit.originalHistoryIndex : idx;
+      
+      const card = document.createElement('div');
+      card.className = `fitrep-card fitrep-card--${fit.recommendation}`;
+      
+      const rvClass = fit.relativeValue > 0 ? 'fitrep-metric-value--positive' : (fit.relativeValue < 0 ? 'fitrep-metric-value--negative' : '');
+      const rvSign = fit.relativeValue > 0 ? '+' : '';
+
+      card.innerHTML = `
+        <div class="fitrep-card-header">
+          <span class="fitrep-card-dates">📅 ${fit.fromDate} to ${fit.toDate}</span>
+          <span class="badge badge--${fit.recommendation === 'EP' ? 'green' : (fit.recommendation === 'MP' ? 'amber' : (fit.recommendation === 'SP' ? 'red' : 'gray'))}">
+            ${fit.recommendation}
+          </span>
         </div>
-      </div>
-
-      <!-- Card 2: SUPPLY Raw Text -->
-      <div class="file-card" id="card-supply" onclick="document.getElementById('input-supply').click()">
-        <input type="file" id="input-supply" class="file-input" accept=".txt,.csv">
-        <div class="card-icon">🖥️</div>
-        <div class="card-title">Raw SUPPLY Extract</div>
-        <div class="card-subtitle">Upload percent (%) delimited txt roster</div>
-        <div class="card-status" id="status-supply">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
+        <div class="fitrep-metrics-row">
+          <div class="fitrep-metric-block">
+            <span class="fitrep-metric-label">Duration</span>
+            <span class="fitrep-metric-value">${fit.durationMonths} m</span>
+          </div>
+          <div class="fitrep-metric-block">
+            <span class="fitrep-metric-label">ITA</span>
+            <span class="fitrep-metric-value">${fit.ita.toFixed(2)}</span>
+          </div>
+          <div class="fitrep-metric-block">
+            <span class="fitrep-metric-label">RSCA</span>
+            <span class="fitrep-metric-value">${fit.rsca.toFixed(2)}</span>
+          </div>
+          <div class="fitrep-metric-block">
+            <span class="fitrep-metric-label">Rel Value</span>
+            <span class="fitrep-metric-value ${rvClass}">${rvSign}${fit.relativeValue.toFixed(2)}</span>
+          </div>
         </div>
-      </div>
-
-      <!-- Card 3: SUBEVAL CSV -->
-      <div class="file-card" id="card-subeval" onclick="document.getElementById('input-subeval').click()">
-        <input type="file" id="input-subeval" class="file-input" accept=".csv">
-        <div class="card-icon">📊</div>
-        <div class="card-title">SUBEVAL FITREP Data</div>
-        <div class="card-subtitle">Upload comma (,) delimited CSV evaluations</div>
-        <div class="card-status" id="status-subeval">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
+        <div class="fitrep-card-narrative">
+          Senior: <strong>${fit.reportingSeniorName}</strong> | Group Size: <strong>${fit.summaryGroupSize}</strong> (EPs: <strong>${fit.totalEPs}</strong>)
         </div>
-      </div>
-
-      <!-- Card 4: Command CO Export JSON -->
-      <div class="file-card" id="card-coexport" onclick="document.getElementById('input-coexport').click()">
-        <input type="file" id="input-coexport" class="file-input" accept=".json">
-        <div class="card-icon">🎖️</div>
-        <div class="card-title">Command CO Export</div>
-        <div class="card-subtitle">Upload CO requested PRD changes JSON</div>
-        <div class="card-status" id="status-coexport">
-          <span class="status-indicator">●</span> <span class="status-lbl">Not Loaded</span>
+        <div class="fitrep-breakout-group">
+          <span class="fitrep-breakout-label">Hard Breakout:</span>
+          <input type="text" class="fitrep-breakout-input" 
+                 placeholder="e.g., #1 of 5 EP or Top 10%..." 
+                 value="${fit.hardBreakout || ''}" 
+                 id="breakout-input-${prefix}-${ssn}-${originalIdx}">
         </div>
-      </div>
-    </div>
+      `;
+      
+      container.appendChild(card);
 
-    <!-- Toolbar / Actions -->
-    <div class="action-bar">
-      <button class="btn btn-primary" id="btn-run-diff" disabled>
-        ⚡ Run Diff Engine
-      </button>
-      <button class="btn btn-success" id="btn-export-db" disabled>
-        📥 Export Master Database
-      </button>
-    </div>
+      // Bind breakout text overlays
+      const breakoutInput = card.querySelector(`#breakout-input-${prefix}-${ssn}-${originalIdx}`);
+      breakoutInput.addEventListener('change', (e) => {
+        fit.hardBreakout = e.target.value.trim();
+        if (onStateChange) {
+          onStateChange(ssn, true); // true to signal localized update
+        }
+      });
+    });
+  }
 
-    <!-- Split view Dashboard -->
-    <div class="dashboard-layout">
-      <!-- Left: Roster List -->
-      <div class="sidebar">
-        <div class="search-container">
-          <input type="text" class="search-input" id="search-box" placeholder="Search officer by name or SSN...">
-        </div>
-        <div class="filter-row">
-          <select class="filter-select" id="filter-rank">
-            <option value="">All Ranks</option>
-            <option value="CDR">CDR</option>
-            <option value="LCDR">LCDR</option>
-            <option value="LT">LT</option>
-            <option value="LTJG">LTJG</option>
-            <option value="ENS">ENS</option>
-          </select>
-          <select class="filter-select" id="filter-desig">
-            <option value="">All Designators</option>
-            <option value="1310">1310 (Pilot)</option>
-            <option value="1320">1320 (NFO)</option>
-          </select>
-        </div>
-        <div class="officer-list" id="sidebar-officer-list">
-          <div class="empty-placeholder">No active roster loaded yet.</div>
-        </div>
-      </div>
+  /**
+   * Mounts and renders the Officer View module.
+   * 
+   * @param {string} containerSelector Target DOM element
+   * @param {string} ssn Officer SSN
+   * @param {Object} masterDb In-memory Master Database state
+   * @param {Function} onStateChange Callback triggered when state mutations occur
+   */
+  static mount(containerSelector, ssn, masterDb, onStateChange) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
 
-      <!-- Right: Main content tabs (Alerts, Profile details, Command view) -->
-      <div class="main-panel">
+    if (!masterDb || !masterDb.officers || !masterDb.officers[ssn]) {
+      container.innerHTML = '<div class="empty-placeholder">Select an officer to view details.</div>';
+      return;
+    }
+
+    const officer = masterDb.officers[ssn];
+    const template = document.getElementById('template-officer');
+    if (!template) {
+      container.innerHTML = '<div class="empty-placeholder">Error: Template template-officer not found.</div>';
+      return;
+    }
+
+    // 1. Clone and mount template content
+    const clone = template.content.cloneNode(true);
+    container.innerHTML = '';
+    container.appendChild(clone);
+
+    // 2. Tab Navigation Routing Engine
+    const tabBtns = container.querySelectorAll('.hero-nav-btn');
+    const panels = container.querySelectorAll('.officer-tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabName = btn.getAttribute('data-tab');
         
-        <!-- Alerts Card -->
-        <div class="panel-card" id="panel-alerts" style="display: none;">
-          <div class="panel-header">
-            <h2>Sync Alerts ("Gotcha Moments")</h2>
-            <div class="rank-badge" style="background: rgba(244, 63, 94, 0.1); color: var(--color-danger);" id="alerts-count">0 Detected</div>
-          </div>
-          <div class="alert-container" id="alerts-list">
-            <!-- Alert items render here -->
-          </div>
-        </div>
+        // Toggle button active classes
+        tabBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Show/hide sub-view tab panels
+        panels.forEach(p => {
+          if (p.id === `officer-tab-${tabName}`) {
+            p.style.display = 'block';
+          } else {
+            p.style.display = 'none';
+          }
+        });
+      });
+    });
 
-        <!-- Selected Officer Detailed Profile -->
-        <div class="panel-card" id="panel-profile">
-          <div class="panel-header">
-            <h2>Officer Record Dashboard</h2>
-            <span class="rank-badge" id="prof-grade-badge">Grade: N/A</span>
-          </div>
-          <div id="profile-content">
-            <div class="empty-placeholder">Select an officer from the list to view their deep profile, historical PRD audit log, and parsed performance timeline.</div>
-          </div>
-        </div>
+    // 3. Perform career grade mathematics
+    const history = officer.fitrepHistory || [];
+    // Inject original order index to each FITREP record before mathematical sort
+    history.forEach((f, idx) => {
+      f.originalHistoryIndex = idx;
+    });
 
-        <!-- Command Health Panel -->
-        <div class="panel-card" id="panel-commands" style="display: none;">
-          <div class="panel-header">
-            <h2>Command Manning Health</h2>
+    const calculatedGrade = this.calculateRecordGrade(history);
+    officer.recordGrade = calculatedGrade;
+
+    const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+    const isMismatch = officer.oaisPRD && currentIntentPRD !== officer.oaisPRD;
+
+    // 4. Bind Career Dossier text fields
+    document.getElementById('opt-full-name').innerText = officer.name || 'Unknown';
+    document.getElementById('opt-rank').innerText = officer.rank || 'N/A';
+    document.getElementById('opt-designator').innerText = officer.designator || 'N/A';
+    document.getElementById('opt-ssn').innerText = officer.ssn || 'N/A';
+    
+    // Status Badge customization
+    const statusBadge = document.getElementById('opt-status-badge');
+    if (officer.ineligibilityTriggers && officer.ineligibilityTriggers.length > 0) {
+      statusBadge.innerText = 'INELIGIBLE';
+      statusBadge.className = 'badge badge--red';
+      statusBadge.setAttribute('title', officer.ineligibilityTriggers.join(', '));
+    } else {
+      statusBadge.innerText = 'ACTIVE STATUS';
+      statusBadge.className = 'badge badge--green';
+      statusBadge.removeAttribute('title');
+    }
+
+    // 5. Bind Active Orders & Rotations card
+    document.getElementById('opt-current-uic').innerText = officer.currentUIC ? `Command UIC ${officer.currentUIC}` : 'N/A';
+    document.getElementById('opt-oais-prd').innerText = officer.oaisPRD || 'N/A';
+    
+    const intentPrdNode = document.getElementById('opt-intent-prd');
+    intentPrdNode.innerText = currentIntentPRD || 'N/A';
+    
+    // Display discrepancy row and alert state if legal and intent disagree
+    const discrepancyRow = document.getElementById('prd-discrepancy-row');
+    if (isMismatch) {
+      intentPrdNode.className = 'admin-data-value admin-data-value--warning';
+      intentPrdNode.setAttribute('title', `OAIS legal status PRD (${officer.oaisPRD}) differs from Planner intent date`);
+      if (discrepancyRow) discrepancyRow.style.display = 'flex';
+    } else {
+      intentPrdNode.className = 'admin-data-value admin-data-value--highlight';
+      intentPrdNode.removeAttribute('title');
+      if (discrepancyRow) discrepancyRow.style.display = 'none';
+    }
+
+    // 6. Draw Top 3 FITREPs view (mathematically-sorted)
+    const top3List = this.getTop3FITREPs(history);
+    const top3Container = document.getElementById('overview-top-fitreps');
+    
+    const recordGradeBadge = document.getElementById('overview-record-grade');
+    recordGradeBadge.innerText = `Record Grade: ${calculatedGrade}`;
+    recordGradeBadge.className = `badge badge--${calculatedGrade === 'A' ? 'green' : (calculatedGrade === 'B' ? 'amber' : 'gray')}`;
+
+    this.renderFitrepTimeline(top3Container, top3List, ssn, 'top', onStateChange);
+
+    // 7. Draw Comprehensive Performance tab
+    const fullTimelineContainer = document.getElementById('fitrep-timeline-list');
+    const totalCountBadge = document.getElementById('prof-total-count');
+    totalCountBadge.innerText = `${history.length} Reports Ingested`;
+    
+    const fullGradeBadge = document.getElementById('prof-grade-badge');
+    fullGradeBadge.innerText = `Record Grade: ${calculatedGrade}`;
+    fullGradeBadge.className = `badge badge--${calculatedGrade === 'A' ? 'green' : (calculatedGrade === 'B' ? 'amber' : 'gray')}`;
+
+    this.renderFitrepTimeline(fullTimelineContainer, history, ssn, 'full', onStateChange);
+
+    // 8. Bind PRD Shift Overrides card
+    const prdDateInput = document.getElementById('form-new-prd');
+    const prdReasonInput = document.getElementById('form-prd-reason');
+    const submitBtn = document.getElementById('btn-submit-prd');
+
+    prdDateInput.value = currentIntentPRD || '';
+    
+    submitBtn.addEventListener('click', () => {
+      const newPRD = prdDateInput.value.trim();
+      const reason = prdReasonInput.value.trim();
+
+      if (!newPRD || !reason) {
+        alert('Covenant Governance: Both a target PRD and a change justification note are required.');
+        return;
+      }
+
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(newPRD)) {
+        alert('Covenant Governance: Date must match YYYY-MM-DD format.');
+        return;
+      }
+
+      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+      
+      officer.placementIntent.intentPRD = newPRD;
+      officer.placementIntent.historicalPRDLog.push({
+        date: new Date().toISOString().split('T')[0],
+        oldPRD: oldPRD,
+        newPRD: newPRD,
+        source: 'Detailer Update',
+        user: 'Detailer',
+        changeNote: reason
+      });
+
+      if (onStateChange) {
+        onStateChange(ssn);
+      }
+    });
+
+    // 9. Draw PRD Governance Audit logs
+    const auditLogsContainer = document.getElementById('prd-audit-logs');
+    auditLogsContainer.innerHTML = '';
+    const logEntries = officer.placementIntent.historicalPRDLog || [];
+    
+    if (logEntries.length === 0) {
+      auditLogsContainer.innerHTML = '<div class="empty-placeholder" style="padding: var(--space-3); font-size: var(--type-data-xs);">No historical changes logged.</div>';
+    } else {
+      logEntries.forEach(log => {
+        const div = document.createElement('div');
+        div.className = 'audit-log-card';
+        div.innerHTML = `
+          <div class="audit-log-meta">
+            <span>👤 ${log.user} (${log.source})</span>
+            <span>📅 ${log.date}</span>
           </div>
-          <div class="command-health-grid" id="command-list-container">
-            <!-- Command items render here -->
+          <div class="audit-log-shift">
+            ${log.oldPRD} ➔ ${log.newPRD}
           </div>
-        </div>
+          <div class="audit-log-note">
+            ${log.changeNote}
+          </div>
+        `;
+        auditLogsContainer.appendChild(div);
+      });
+    }
+  }
+}
 
-      </div>
-    </div>
-  </div>
 
-  <!-- Acknowledge CO Conflict Modal Dialog -->
-  <div class="modal" id="modal-ack">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Acknowledge CO PRD Request</h3>
-        <button class="modal-close" onclick="closeAckModal()">×</button>
-      </div>
-      <div class="modal-body">
-        <p id="modal-officer-info" style="font-size: 0.9rem; margin-bottom: 10px;"></p>
-        <div style="display: flex; flex-direction: column; gap: 5px;">
-          <label class="meta-label">Requested PRD</label>
-          <input type="text" class="form-input" id="modal-new-prd" disabled>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 5px;">
-          <label class="meta-label">Expert PRD Change Note (Required justification)</label>
-          <textarea class="form-input" id="modal-change-note" rows="3" placeholder="Enter reason for matching/updating Intent PRD to CO's request..." style="font-family: inherit; resize: vertical;"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-sm" style="background: rgba(255,255,255,0.05); color: white; border: 1px solid var(--border-color);" onclick="closeAckModal()">Cancel</button>
-        <button class="btn btn-sm btn-primary" id="modal-btn-confirm">Acknowledge & Sync</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Core ESM Parser and Interface Glue -->
-  <script type="module">
+    
     
     
 
@@ -2684,10 +2297,141 @@ function generateCOIntentAlerts(coExport, intentDb) {
       document.getElementById('btn-run-diff').addEventListener('click', runDiffEngine);
       document.getElementById('btn-export-db').addEventListener('click', exportDatabase);
 
-      document.getElementById('search-box').addEventListener('input', renderRosterList);
-      document.getElementById('filter-rank').addEventListener('change', renderRosterList);
-      document.getElementById('filter-desig').addEventListener('change', renderRosterList);
+      // Setup centered search box event listeners
+      const searchBox = document.getElementById('search-box');
+      const suggestionsContainer = document.getElementById('search-suggestions');
+
+      searchBox.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        if (!query || !masterDb) {
+          suggestionsContainer.style.display = 'none';
+          return;
+        }
+
+        const matches = [];
+        for (const ssn in masterDb.officers) {
+          const officer = masterDb.officers[ssn];
+          const name = officer.name || '';
+          if (name.toLowerCase().includes(query) || ssn.includes(query)) {
+            matches.push(officer);
+          }
+        }
+
+        if (matches.length === 0) {
+          suggestionsContainer.innerHTML = '<div style="padding: var(--space-3); color: var(--color-text-muted); font-family: var(--font-body); font-size: var(--type-body-sm); text-align: center;">No matching officers found</div>';
+          suggestionsContainer.style.display = 'block';
+          return;
+        }
+
+        suggestionsContainer.innerHTML = '';
+        matches.slice(0, 10).forEach((officer, idx) => {
+          const div = document.createElement('div');
+          div.className = 'suggestion-item';
+          if (idx === 0) div.classList.add('focused');
+          div.innerHTML = `
+            <span class="suggestion-name">${officer.name}</span>
+            <span class="suggestion-meta">${officer.rank} | Desig ${officer.designator} | SSN ${officer.ssn}</span>
+          `;
+          
+          div.addEventListener('click', () => {
+            window.location.hash = `#officer/${officer.ssn}`;
+            searchBox.value = '';
+            suggestionsContainer.style.display = 'none';
+          });
+          
+          suggestionsContainer.appendChild(div);
+        });
+        
+        suggestionsContainer.style.display = 'block';
+      });
+
+      searchBox.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const focused = suggestionsContainer.querySelector('.suggestion-item.focused');
+          if (focused) {
+            focused.click();
+          } else {
+            const first = suggestionsContainer.querySelector('.suggestion-item');
+            if (first) first.click();
+          }
+        } else if (e.key === 'Escape') {
+          suggestionsContainer.style.display = 'none';
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (e.target !== searchBox && e.target !== suggestionsContainer && !suggestionsContainer.contains(e.target)) {
+          suggestionsContainer.style.display = 'none';
+        }
+      });
+
+      // Router Initialization
+      window.addEventListener('hashchange', handleRouting);
+      handleRouting();
     });
+
+    // Hash-Based Routing Engine for Offline Navigation
+    function handleRouting() {
+      const dataIngested = masterDb || oaisRoster;
+      let hash = window.location.hash || '#ingestion';
+
+      // Intercept and force data ingestion landing page if no data loaded
+      if (!dataIngested) {
+        hash = '#ingestion';
+        if (window.location.hash !== '#ingestion') {
+          window.location.hash = '#ingestion';
+          return;
+        }
+      } else if (hash === '#ingestion' && window.location.hash === '') {
+        hash = '#alerts';
+        window.location.hash = '#alerts';
+        return;
+      }
+
+      activeOfficerSsn = null;
+
+      // Reset active indicators in Topbar
+      document.getElementById('nav-ingestion-link').classList.remove('active');
+      document.getElementById('nav-alerts-link').classList.remove('active');
+      document.getElementById('nav-commands-link').classList.remove('active');
+
+      // Hide all panels
+      document.getElementById('panel-ingestion').style.display = 'none';
+      document.getElementById('panel-alerts').style.display = 'none';
+      document.getElementById('panel-commands').style.display = 'none';
+      document.getElementById('panel-profile-container').style.display = 'none';
+
+      // Toggle centered search bar and top nav visibility depending on data status
+      const searchHeader = document.getElementById('centered-search-header');
+      const routerNav = document.getElementById('router-nav');
+      
+      if (dataIngested) {
+        searchHeader.style.display = 'flex';
+        routerNav.style.display = 'flex';
+      } else {
+        searchHeader.style.display = 'none';
+        routerNav.style.display = 'none';
+      }
+
+      if (hash.startsWith('#officer/')) {
+        const ssn = hash.substring('#officer/'.length);
+        activeOfficerSsn = ssn;
+        document.getElementById('panel-profile-container').style.display = 'block';
+        renderOfficerProfile(ssn);
+      } else if (hash === '#commands') {
+        document.getElementById('nav-commands-link').classList.add('active');
+        document.getElementById('panel-commands').style.display = 'block';
+        renderCommandsPanel();
+      } else if (hash === '#ingestion') {
+        document.getElementById('nav-ingestion-link').classList.add('active');
+        document.getElementById('panel-ingestion').style.display = 'block';
+      } else {
+        // Fallback to Reconciliation Sync Alerts
+        document.getElementById('nav-alerts-link').classList.add('active');
+        document.getElementById('panel-alerts').style.display = 'block';
+        renderAlerts();
+      }
+    }
 
     // Helper: Setup unified drag-and-drop
     function setupDragAndDrop(cardId, inputId, handler) {
@@ -2741,6 +2485,7 @@ function generateCOIntentAlerts(coExport, intentDb) {
         }
         
         updateCardLoaded('card-intent', 'status-intent', file.name, `${Object.keys(intentDb.officers).length} Records`);
+        updateFreshnessIndicator();
         onStateUpdated();
       } catch (err) {
         alert('Failed to parse Master Intent JSON: ' + err.message);
@@ -2754,6 +2499,7 @@ function generateCOIntentAlerts(coExport, intentDb) {
         const count = Object.keys(oaisRoster).length;
         
         updateCardLoaded('card-supply', 'status-supply', file.name, `${count} Officers`);
+        updateFreshnessIndicator();
         rebuildMasterDb();
       } catch (err) {
         alert('Failed to parse SUPPLY txt drop: ' + err.message);
@@ -2767,6 +2513,7 @@ function generateCOIntentAlerts(coExport, intentDb) {
         const count = Object.values(subevalHistory).reduce((acc, val) => acc + val.length, 0);
         
         updateCardLoaded('card-subeval', 'status-subeval', file.name, `${count} FITREPs`);
+        updateFreshnessIndicator();
         rebuildMasterDb();
       } catch (err) {
         alert('Failed to parse SUBEVAL CSV: ' + err.message);
@@ -2778,6 +2525,7 @@ function generateCOIntentAlerts(coExport, intentDb) {
         const text = await file.text();
         coExport = JSON.parse(text);
         updateCardLoaded('card-coexport', 'status-coexport', file.name, `${coExport.officers.length} Requests`);
+        updateFreshnessIndicator();
         onStateUpdated();
       } catch (err) {
         alert('Failed to parse CO Export JSON: ' + err.message);
@@ -2790,7 +2538,13 @@ function generateCOIntentAlerts(coExport, intentDb) {
       const statusBlock = document.getElementById(statusId);
       
       card.classList.add('loaded');
-      statusBlock.innerHTML = `<span class="status-indicator" style="color: var(--color-success);">✔</span> <span>${filename.substring(0, 16)}... (${recordInfo})</span>`;
+      statusBlock.innerHTML = `<span>✔</span> <span>${filename.substring(0, 16)}... (${recordInfo})</span>`;
+    }
+
+    // Update Data Freshness Clock inside topbar
+    function updateFreshnessIndicator() {
+      const dateStr = new Date().toISOString().replace('T', ' ').substring(0, 16);
+      document.getElementById('topbar-freshness').innerText = `Data Last Refreshed: ${dateStr}`;
     }
 
     // Rebuild masterDb dynamically when SUPPLY or SUBEVAL changes
@@ -2842,7 +2596,14 @@ function generateCOIntentAlerts(coExport, intentDb) {
       document.getElementById('btn-run-diff').disabled = !canRunDiff;
       document.getElementById('btn-export-db').disabled = !masterDb;
 
-      renderRosterList();
+      // Transition from #ingestion landing to #alerts tab automatically on first data ingestion
+      const dataIngested = masterDb || oaisRoster;
+      if (dataIngested && (window.location.hash === '#ingestion' || window.location.hash === '')) {
+        window.location.hash = '#alerts';
+        return;
+      }
+
+      renderAlerts();
       renderCommandsPanel();
       if (activeOfficerSsn) {
         renderOfficerProfile(activeOfficerSsn);
@@ -2932,7 +2693,7 @@ function generateCOIntentAlerts(coExport, intentDb) {
       document.getElementById('modal-btn-confirm').onclick = () => {
         const note = document.getElementById('modal-change-note').value.trim();
         if (!note) {
-          alert('PRD Change Note is required for audit integrity.');
+          alert('Covenant Governance: PRD Change Note is required for audit integrity.');
           return;
         }
 
@@ -2988,256 +2749,30 @@ function generateCOIntentAlerts(coExport, intentDb) {
       onStateUpdated();
     };
 
-    // --- ROSTER LIST VIEW ---
 
-    function renderRosterList() {
-      const listEl = document.getElementById('sidebar-officer-list');
-      listEl.innerHTML = '';
 
-      if (!masterDb || Object.keys(masterDb.officers).length === 0) {
-        listEl.innerHTML = '<div class="empty-placeholder">No active roster loaded yet.</div>';
-        return;
-      }
-
-      const searchQuery = document.getElementById('search-box').value.toLowerCase().trim();
-      const rankFilter = document.getElementById('filter-rank').value;
-      const desigFilter = document.getElementById('filter-desig').value;
-
-      const filteredOfficers = Object.values(masterDb.officers).filter(officer => {
-        const matchesSearch = officer.name.toLowerCase().includes(searchQuery) || officer.ssn.includes(searchQuery);
-        const matchesRank = !rankFilter || officer.rank.trim() === rankFilter;
-        const matchesDesig = !desigFilter || officer.designator.trim() === desigFilter;
-        return matchesSearch && matchesRank && matchesDesig;
-      });
-
-      if (filteredOfficers.length === 0) {
-        listEl.innerHTML = '<div class="empty-placeholder">No matching officers found.</div>';
-        return;
-      }
-
-      filteredOfficers.forEach(officer => {
-        const div = document.createElement('div');
-        div.className = `officer-item ${officer.ssn === activeOfficerSsn ? 'active' : ''}`;
-        div.onclick = () => {
-          activeOfficerSsn = officer.ssn;
-          renderRosterList();
-          renderOfficerProfile(officer.ssn);
-        };
-
-        div.innerHTML = `
-          <div class="officer-item-info">
-            <h4>${officer.name}</h4>
-            <p>DESIG: ${officer.designator} | UIC: ${officer.currentUIC}</p>
-          </div>
-          <span class="rank-badge">${officer.rank}</span>
-        `;
-        listEl.appendChild(div);
-      });
-    }
-
-    // --- OFFICER DETAILED PROFILE VIEW ---
+    // --- OFFICER DETAILED PROFILE RENDER (Via OfficerModule) ---
 
     function renderOfficerProfile(ssn) {
-      const officer = masterDb.officers[ssn];
-      const panel = document.getElementById('panel-profile');
-      const content = document.getElementById('profile-content');
-      const gradeBadge = document.getElementById('prof-grade-badge');
-
-      if (!officer) {
-        content.innerHTML = '<div class="empty-placeholder">Select an officer to view details.</div>';
-        gradeBadge.innerText = 'Grade: N/A';
-        return;
-      }
-
-      // Record grade logic
-      const history = officer.fitrepHistory || [];
-      let calculatedGrade = 'C';
-      if (history.length > 0) {
-        const rvs = history.map(f => f.relativeValue);
-        const avgRV = rvs.reduce((a, b) => a + b, 0) / rvs.length;
-        const eps = history.filter(f => f.recommendation === 'EP').length;
-        const epRatio = eps / history.length;
-
-        if (avgRV > 0.4 && epRatio > 0.25) {
-          calculatedGrade = 'A';
-        } else if (avgRV >= 0 || epRatio > 0.1) {
-          calculatedGrade = 'B';
+      OfficerModule.mount('#panel-profile-container', ssn, masterDb, (updatedSsn, isBreakoutOnly) => {
+        // Callback handles PRD updates or Hard Breakout overrides
+        if (!isBreakoutOnly) {
+          // Sync local intent db copy
+          if (intentDb && intentDb.officers[updatedSsn]) {
+            intentDb.officers[updatedSsn].placementIntent = masterDb.officers[updatedSsn].placementIntent;
+          }
+          if (oaisRoster) {
+            runDiffEngine();
+          }
+          onStateUpdated();
+        } else {
+          // Breakout change does not affect diffs, sync and soft update
+          if (intentDb && intentDb.officers[updatedSsn]) {
+            intentDb.officers[updatedSsn].fitrepHistory = masterDb.officers[updatedSsn].fitrepHistory;
+          }
         }
-      }
-      officer.recordGrade = calculatedGrade;
-      gradeBadge.innerText = `Record Grade: ${calculatedGrade}`;
-      gradeBadge.style.background = calculatedGrade === 'A' ? 'rgba(16, 185, 129, 0.15)' : (calculatedGrade === 'B' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(148, 163, 184, 0.15)');
-      gradeBadge.style.color = calculatedGrade === 'A' ? '#34d399' : (calculatedGrade === 'B' ? '#60a5fa' : '#cbd5e1');
-
-      // Check for PRD discrepancies
-      const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-      const isMismatch = officer.oaisPRD && currentIntentPRD !== officer.oaisPRD;
-
-      // PRD log html
-      let logHtml = '<div class="empty-placeholder" style="padding: 10px; font-size: 0.75rem;">No historical changes logged.</div>';
-      if (officer.placementIntent.historicalPRDLog && officer.placementIntent.historicalPRDLog.length > 0) {
-        logHtml = officer.placementIntent.historicalPRDLog.map(log => `
-          <div class="history-log-item">
-            <div class="log-meta">
-              <span>👤 ${log.user} (${log.source})</span>
-              <span>📅 ${log.date}</span>
-            </div>
-            <div class="log-desc">
-              <strong>${log.oldPRD} ➔ ${log.newPRD}</strong>: ${log.changeNote}
-            </div>
-          </div>
-        `).join('');
-      }
-
-      // FITREPs Timeline html
-      let fitrepHtml = '<div class="empty-placeholder" style="padding: 20px;">No longitudinal FITREPs ingested yet. Drag in a SUBEVAL file to bind performance history.</div>';
-      if (history.length > 0) {
-        fitrepHtml = history.map((fit, idx) => {
-          const rvClass = fit.relativeValue > 0 ? 'pos' : (fit.relativeValue < 0 ? 'neg' : '');
-          const rvSign = fit.relativeValue > 0 ? '+' : '';
-          return `
-            <div class="fitrep-card">
-              <div class="fitrep-header">
-                <span class="fitrep-dates">📅 ${fit.fromDate} to ${fit.toDate}</span>
-                <span class="fitrep-rec ${fit.recommendation}">${fit.recommendation}</span>
-              </div>
-              <div class="fitrep-metrics-grid">
-                <div class="metric-item">
-                  <div class="metric-lbl">Duration</div>
-                  <div class="metric-val">${fit.durationMonths} m</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-lbl">ITA</div>
-                  <div class="metric-val">${fit.ita.toFixed(2)}</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-lbl">RSCA</div>
-                  <div class="metric-val">${fit.rsca.toFixed(2)}</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-lbl">Rel Value</div>
-                  <div class="metric-val ${rvClass}">${rvSign}${fit.relativeValue.toFixed(2)}</div>
-                </div>
-              </div>
-              <div style="font-size: 0.75rem; margin-bottom: 10px; color: var(--text-muted);">
-                Senior: <strong>${fit.reportingSeniorName}</strong> | Group Size: <strong>${fit.summaryGroupSize}</strong> (EPs: <strong>${fit.totalEPs}</strong>)
-              </div>
-              <div class="breakout-row">
-                <span class="metric-lbl" style="width: auto;">Hard Breakout:</span>
-                <input type="text" class="breakout-input" 
-                       placeholder="e.g. #1 of 5 EP or Top 10%..." 
-                       value="${fit.hardBreakout || ''}" 
-                       onchange="updateHardBreakout('${ssn}', ${idx}, this.value)">
-              </div>
-            </div>
-          `;
-        }).join('');
-      }
-
-      content.innerHTML = `
-        <div class="profile-grid">
-          <!-- Column 1: Career Details -->
-          <div class="profile-meta-block">
-            <h3 style="font-size: 1.1rem; color: var(--accent-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 5px;">Administrative Details</h3>
-            <div class="meta-row"><span class="meta-label">Full Name</span><span class="meta-val" style="font-weight:600;">${officer.name}</span></div>
-            <div class="meta-row"><span class="meta-label">Designator</span><span class="meta-val">${officer.designator}</span></div>
-            <div class="meta-row"><span class="meta-label">Current UIC</span><span class="meta-val">${officer.currentUIC}</span></div>
-            <div class="meta-row"><span class="meta-label">SSN (PK)</span><span class="meta-val">${officer.ssn}</span></div>
-            <div class="meta-row">
-              <span class="meta-label">OAIS PRD (Legal Status)</span>
-              <span class="meta-val">${officer.oaisPRD || 'N/A'}</span>
-            </div>
-            <div class="meta-row">
-              <span class="meta-label">Intent PRD (Planned Rotation)</span>
-              <span class="meta-val ${isMismatch ? 'highlight-yellow' : 'highlight-cyan'}">${currentIntentPRD}</span>
-            </div>
-            
-            <!-- Manual PRD Override Form -->
-            <div class="prd-edit-form">
-              <h4>Expert-in-the-Loop PRD Override</h4>
-              <div class="form-row">
-                <input type="text" class="form-input" id="new-intent-prd" placeholder="YYYY-MM-DD" style="flex-grow: 1;" value="${currentIntentPRD}">
-                <input type="text" class="form-input" id="prd-note" placeholder="PRD shift reason..." style="flex-grow: 2;">
-                <button class="btn btn-sm btn-primary" onclick="submitPRDOverride('${ssn}')">Update</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 2: Historical PRD Audit Log -->
-          <div>
-            <h3 style="font-size: 1.1rem; color: var(--accent-secondary); border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 10px;">PRD Historical Audit Trail</h3>
-            <div class="history-log-list">
-              ${logHtml}
-            </div>
-          </div>
-        </div>
-
-        <!-- Performance Continuity Section -->
-        <div class="fitrep-continuity">
-          <div class="timeline-title">
-            <span>Performance Continuity Bridge (Ingested FITREPs)</span>
-            <span class="rank-badge" style="background: var(--accent-primary-glow); color: var(--accent-cyan); font-size: 0.75rem;">Total Reports: ${history.length}</span>
-          </div>
-          <div class="fitrep-timeline">
-            ${fitrepHtml}
-          </div>
-        </div>
-      `;
-    }
-
-    // PRD update submission
-    window.submitPRDOverride = function(ssn) {
-      const officer = masterDb.officers[ssn];
-      const newPRD = document.getElementById('new-intent-prd').value.trim();
-      const note = document.getElementById('prd-note').value.trim();
-
-      if (!newPRD || !note) {
-        alert('Both a new target PRD and a change justification note are required.');
-        return;
-      }
-
-      // Basic date check
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(newPRD)) {
-        alert('Date must match YYYY-MM-DD format.');
-        return;
-      }
-
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-
-      officer.placementIntent.intentPRD = newPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: newPRD,
-        source: 'Detailer Update',
-        user: 'Detailer',
-        changeNote: note
       });
-
-      if (intentDb && intentDb.officers[ssn]) {
-        intentDb.officers[ssn].placementIntent = officer.placementIntent;
-      }
-
-      // Re-run diffs to auto-clear mismatch alerts
-      if (oaisRoster) {
-        runDiffEngine();
-      }
-      
-      onStateUpdated();
-      renderOfficerProfile(ssn);
-    };
-
-    // Persistent qualitative overlay input
-    window.updateHardBreakout = function(ssn, index, val) {
-      if (masterDb && masterDb.officers[ssn]) {
-        masterDb.officers[ssn].fitrepHistory[index].hardBreakout = val;
-        
-        // Keep in sync with intent copy
-        if (intentDb && intentDb.officers[ssn]) {
-          intentDb.officers[ssn].fitrepHistory[index].hardBreakout = val;
-        }
-      }
-    };
+    }
 
     // --- COMMAND MANNING HEALTH VIEW ---
 
@@ -3295,647 +2830,150 @@ function generateCOIntentAlerts(coExport, intentDb) {
       downloadAnchor.click();
       downloadAnchor.remove();
     }
-
-  </script>
-</body>
-</html>
-
-
-    
-    
-
-    // Roster states
-    let intentDb = null;
-    let oaisRoster = null;
-    let subevalHistory = null;
-    let coExport = null;
-    let masterDb = null;
-    let activeOfficerSsn = null;
-    let currentAlerts = [];
-
-    // Initialize UI Handlers
-    window.addEventListener('DOMContentLoaded', () => {
-      setupDragAndDrop('card-intent', 'input-intent', handleIntentFile);
-      setupDragAndDrop('card-supply', 'input-supply', handleSupplyFile);
-      setupDragAndDrop('card-subeval', 'input-subeval', handleSubevalFile);
-      setupDragAndDrop('card-coexport', 'input-coexport', handleCoExportFile);
-
-      document.getElementById('btn-run-diff').addEventListener('click', runDiffEngine);
-      document.getElementById('btn-export-db').addEventListener('click', exportDatabase);
-
-      document.getElementById('search-box').addEventListener('input', renderRosterList);
-      document.getElementById('filter-rank').addEventListener('change', renderRosterList);
-      document.getElementById('filter-desig').addEventListener('change', renderRosterList);
-    });
-
-    // Helper: Setup unified drag-and-drop
-    function setupDragAndDrop(cardId, inputId, handler) {
-      const card = document.getElementById(cardId);
-      const input = document.getElementById(inputId);
-
-      input.addEventListener('change', (e) => {
-        if (e.target.files.length > 0) {
-          handler(e.target.files[0]);
-        }
-      });
-
-      card.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        card.classList.add('dragover');
-      });
-
-      card.addEventListener('dragleave', () => {
-        card.classList.remove('dragover');
-      });
-
-      card.addEventListener('drop', (e) => {
-        e.preventDefault();
-        card.classList.remove('dragover');
-        if (e.dataTransfer.files.length > 0) {
-          handler(e.dataTransfer.files[0]);
-        }
-      });
-    }
-
-    // --- UPLOAD HANDLERS ---
-
-    async function handleIntentFile(file) {
-      try {
-        const text = await file.text();
-        intentDb = JSON.parse(text);
-        
-        // Populate masterDb if not loaded
-        if (!masterDb) {
-          masterDb = JSON.parse(JSON.stringify(intentDb));
-        } else {
-          // Merge in intent information
-          for (const ssn in intentDb.officers) {
-            if (masterDb.officers[ssn]) {
-              masterDb.officers[ssn].placementIntent = intentDb.officers[ssn].placementIntent;
-              masterDb.officers[ssn].detailerIntent = intentDb.officers[ssn].detailerIntent;
-            } else {
-              masterDb.officers[ssn] = intentDb.officers[ssn];
-            }
-          }
-        }
-        
-        updateCardLoaded('card-intent', 'status-intent', file.name, `${Object.keys(intentDb.officers).length} Records`);
-        onStateUpdated();
-      } catch (err) {
-        alert('Failed to parse Master Intent JSON: ' + err.message);
-      }
-    }
-
-    async function handleSupplyFile(file) {
-      try {
-        const text = await file.text();
-        oaisRoster = parseSupplyData(text);
-        const count = Object.keys(oaisRoster).length;
-        
-        updateCardLoaded('card-supply', 'status-supply', file.name, `${count} Officers`);
-        rebuildMasterDb();
-      } catch (err) {
-        alert('Failed to parse SUPPLY txt drop: ' + err.message);
-      }
-    }
-
-    async function handleSubevalFile(file) {
-      try {
-        const text = await file.text();
-        subevalHistory = parseSubevalData(text);
-        const count = Object.values(subevalHistory).reduce((acc, val) => acc + val.length, 0);
-        
-        updateCardLoaded('card-subeval', 'status-subeval', file.name, `${count} FITREPs`);
-        rebuildMasterDb();
-      } catch (err) {
-        alert('Failed to parse SUBEVAL CSV: ' + err.message);
-      }
-    }
-
-    async function handleCoExportFile(file) {
-      try {
-        const text = await file.text();
-        coExport = JSON.parse(text);
-        updateCardLoaded('card-coexport', 'status-coexport', file.name, `${coExport.officers.length} Requests`);
-        onStateUpdated();
-      } catch (err) {
-        alert('Failed to parse CO Export JSON: ' + err.message);
-      }
-    }
-
-    // Updates a card status indicator
-    function updateCardLoaded(cardId, statusId, filename, recordInfo) {
-      const card = document.getElementById(cardId);
-      const statusBlock = document.getElementById(statusId);
-      
-      card.classList.add('loaded');
-      statusBlock.innerHTML = `<span class="status-indicator" style="color: var(--color-success);">✔</span> <span>${filename.substring(0, 16)}... (${recordInfo})</span>`;
-    }
-
-    // Rebuild masterDb dynamically when SUPPLY or SUBEVAL changes
-    function rebuildMasterDb() {
-      if (oaisRoster) {
-        const history = subevalHistory || {};
-        const compiled = linkAndReconcile(oaisRoster, history);
-        
-        if (!masterDb) {
-          masterDb = compiled;
-        } else {
-          // Merge oais details but preserve placement/detailer intent
-          for (const ssn in compiled.officers) {
-            if (masterDb.officers[ssn]) {
-              const oldIntent = masterDb.officers[ssn].placementIntent;
-              const oldDet = masterDb.officers[ssn].detailerIntent;
-              const oldBreakout = masterDb.officers[ssn].fitrepHistory.reduce((acc, f) => {
-                if (f.hardBreakout) acc[f.reportId] = f.hardBreakout;
-                return acc;
-              }, {});
-
-              masterDb.officers[ssn] = compiled.officers[ssn];
-              masterDb.officers[ssn].placementIntent = oldIntent;
-              masterDb.officers[ssn].detailerIntent = oldDet;
-              
-              // Restore qualitative overlays
-              masterDb.officers[ssn].fitrepHistory.forEach(f => {
-                if (oldBreakout[f.reportId]) f.hardBreakout = oldBreakout[f.reportId];
-              });
-            } else {
-              masterDb.officers[ssn] = compiled.officers[ssn];
-            }
-          }
-          masterDb.commands = compiled.commands;
-          masterDb.billets = compiled.billets;
-        }
-
-        // Initialize intentDb if none loaded yet
-        if (!intentDb) {
-          intentDb = JSON.parse(JSON.stringify(masterDb));
-        }
-      }
-      onStateUpdated();
-    }
-
-    function onStateUpdated() {
-      // Toggle button states
-      const canRunDiff = intentDb && (oaisRoster || coExport);
-      document.getElementById('btn-run-diff').disabled = !canRunDiff;
-      document.getElementById('btn-export-db').disabled = !masterDb;
-
-      renderRosterList();
-      renderCommandsPanel();
-      if (activeOfficerSsn) {
-        renderOfficerProfile(activeOfficerSsn);
-      }
-    }
-
-    // --- RECONCILIATION DIFF ENGINE ---
-
-    function runDiffEngine() {
-      if (!intentDb) return;
-      
-      currentAlerts = [];
-
-      // Case A: Compare against OAIS supply roster
-      if (oaisRoster) {
-        const supplyAlerts = generateSyncAlerts(oaisRoster, intentDb);
-        currentAlerts = currentAlerts.concat(supplyAlerts);
-      }
-
-      // Case B: Compare against CO Export
-      if (coExport) {
-        const coAlerts = generateCOIntentAlerts(coExport, intentDb);
-        currentAlerts = currentAlerts.concat(coAlerts);
-      }
-
-      renderAlerts();
-    }
-
-    function renderAlerts() {
-      const panel = document.getElementById('panel-alerts');
-      const list = document.getElementById('alerts-list');
-      const countBadge = document.getElementById('alerts-count');
-
-      list.innerHTML = '';
-      
-      if (currentAlerts.length === 0) {
-        panel.style.display = 'none';
-        return;
-      }
-
-      panel.style.display = 'block';
-      countBadge.innerText = `${currentAlerts.length} Detected`;
-
-      currentAlerts.forEach((alert, index) => {
-        const div = document.createElement('div');
-        div.className = `alert-card ${alert.type}`;
-        
-        let icon = '🔔';
-        if (alert.type === 'MISSING_IN_OAIS') icon = '⚠️';
-        if (alert.type === 'PRD_MISMATCH') icon = '🔄';
-        if (alert.type === 'CO_INTENT_CONFLICT') icon = '🎖️';
-
-        let actionHtml = '';
-        if (alert.type === 'CO_INTENT_CONFLICT') {
-          actionHtml = `<button class="btn btn-sm btn-primary" onclick="triggerAckCO('${alert.ssn}', '${alert.oaisValue}', ${index})">Ack Request</button>`;
-        } else if (alert.type === 'PRD_MISMATCH') {
-          actionHtml = `<button class="btn btn-sm btn-success" onclick="syncPRDToOAIS('${alert.ssn}', '${alert.oaisValue}', ${index})">Sync to OAIS</button>`;
-        }
-
-        div.innerHTML = `
-          <div class="alert-content">
-            <div class="alert-icon">${icon}</div>
-            <div class="alert-text">
-              <h4>${alert.type.replace(/_/g, ' ')}: ${alert.officerName}</h4>
-              <p>${alert.message}</p>
-            </div>
-          </div>
-          <div class="alert-actions">
-            ${actionHtml}
-          </div>
-        `;
-        list.appendChild(div);
-      });
-    }
-
-    // Acknowledge CO Conflict Actions
-    window.triggerAckCO = function(ssn, requestedPRD, alertIdx) {
-      const officer = masterDb.officers[ssn];
-      document.getElementById('modal-officer-info').innerText = `Syncing Intent PRD for ${officer.name} (${officer.rank})`;
-      document.getElementById('modal-new-prd').value = requestedPRD;
-      document.getElementById('modal-change-note').value = `Acknowledged CO extension request for ${requestedPRD}.`;
-      
-      const modal = document.getElementById('modal-ack');
-      modal.classList.add('active');
-
-      // Bind confirm action
-      document.getElementById('modal-btn-confirm').onclick = () => {
-        const note = document.getElementById('modal-change-note').value.trim();
-        if (!note) {
-          alert('PRD Change Note is required for audit integrity.');
-          return;
-        }
-
-        const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-        
-        // Update model
-        officer.placementIntent.intentPRD = requestedPRD;
-        officer.placementIntent.historicalPRDLog.push({
-          date: new Date().toISOString().split('T')[0],
-          oldPRD: oldPRD,
-          newPRD: requestedPRD,
-          source: 'CO Intent Acknowledge',
-          user: 'Detailer',
-          changeNote: note
-        });
-
-        // Sync local intent db copy
-        if (intentDb && intentDb.officers[ssn]) {
-          intentDb.officers[ssn].placementIntent = officer.placementIntent;
-        }
-
-        closeAckModal();
-        currentAlerts.splice(alertIdx, 1);
-        renderAlerts();
-        onStateUpdated();
-      };
-    };
-
-    window.closeAckModal = function() {
-      document.getElementById('modal-ack').classList.remove('active');
-    };
-
-    window.syncPRDToOAIS = function(ssn, oaisPRD, alertIdx) {
-      const officer = masterDb.officers[ssn];
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-
-      officer.placementIntent.intentPRD = oaisPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: oaisPRD,
-        source: 'Detailer Update (OAIS Sync)',
-        user: 'Detailer',
-        changeNote: 'Synced with OAIS Legal Ground Truth.'
-      });
-
-      if (intentDb && intentDb.officers[ssn]) {
-        intentDb.officers[ssn].placementIntent = officer.placementIntent;
-      }
-
-      currentAlerts.splice(alertIdx, 1);
-      renderAlerts();
-      onStateUpdated();
-    };
-
-    // --- ROSTER LIST VIEW ---
-
-    function renderRosterList() {
-      const listEl = document.getElementById('sidebar-officer-list');
-      listEl.innerHTML = '';
-
-      if (!masterDb || Object.keys(masterDb.officers).length === 0) {
-        listEl.innerHTML = '<div class="empty-placeholder">No active roster loaded yet.</div>';
-        return;
-      }
-
-      const searchQuery = document.getElementById('search-box').value.toLowerCase().trim();
-      const rankFilter = document.getElementById('filter-rank').value;
-      const desigFilter = document.getElementById('filter-desig').value;
-
-      const filteredOfficers = Object.values(masterDb.officers).filter(officer => {
-        const matchesSearch = officer.name.toLowerCase().includes(searchQuery) || officer.ssn.includes(searchQuery);
-        const matchesRank = !rankFilter || officer.rank.trim() === rankFilter;
-        const matchesDesig = !desigFilter || officer.designator.trim() === desigFilter;
-        return matchesSearch && matchesRank && matchesDesig;
-      });
-
-      if (filteredOfficers.length === 0) {
-        listEl.innerHTML = '<div class="empty-placeholder">No matching officers found.</div>';
-        return;
-      }
-
-      filteredOfficers.forEach(officer => {
-        const div = document.createElement('div');
-        div.className = `officer-item ${officer.ssn === activeOfficerSsn ? 'active' : ''}`;
-        div.onclick = () => {
-          activeOfficerSsn = officer.ssn;
-          renderRosterList();
-          renderOfficerProfile(officer.ssn);
-        };
-
-        div.innerHTML = `
-          <div class="officer-item-info">
-            <h4>${officer.name}</h4>
-            <p>DESIG: ${officer.designator} | UIC: ${officer.currentUIC}</p>
-          </div>
-          <span class="rank-badge">${officer.rank}</span>
-        `;
-        listEl.appendChild(div);
-      });
-    }
-
-    // --- OFFICER DETAILED PROFILE VIEW ---
-
-    function renderOfficerProfile(ssn) {
-      const officer = masterDb.officers[ssn];
-      const panel = document.getElementById('panel-profile');
-      const content = document.getElementById('profile-content');
-      const gradeBadge = document.getElementById('prof-grade-badge');
-
-      if (!officer) {
-        content.innerHTML = '<div class="empty-placeholder">Select an officer to view details.</div>';
-        gradeBadge.innerText = 'Grade: N/A';
-        return;
-      }
-
-      // Record grade logic
-      const history = officer.fitrepHistory || [];
-      let calculatedGrade = 'C';
-      if (history.length > 0) {
-        const rvs = history.map(f => f.relativeValue);
-        const avgRV = rvs.reduce((a, b) => a + b, 0) / rvs.length;
-        const eps = history.filter(f => f.recommendation === 'EP').length;
-        const epRatio = eps / history.length;
-
-        if (avgRV > 0.4 && epRatio > 0.25) {
-          calculatedGrade = 'A';
-        } else if (avgRV >= 0 || epRatio > 0.1) {
-          calculatedGrade = 'B';
-        }
-      }
-      officer.recordGrade = calculatedGrade;
-      gradeBadge.innerText = `Record Grade: ${calculatedGrade}`;
-      gradeBadge.style.background = calculatedGrade === 'A' ? 'rgba(16, 185, 129, 0.15)' : (calculatedGrade === 'B' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(148, 163, 184, 0.15)');
-      gradeBadge.style.color = calculatedGrade === 'A' ? '#34d399' : (calculatedGrade === 'B' ? '#60a5fa' : '#cbd5e1');
-
-      // Check for PRD discrepancies
-      const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-      const isMismatch = officer.oaisPRD && currentIntentPRD !== officer.oaisPRD;
-
-      // PRD log html
-      let logHtml = '<div class="empty-placeholder" style="padding: 10px; font-size: 0.75rem;">No historical changes logged.</div>';
-      if (officer.placementIntent.historicalPRDLog && officer.placementIntent.historicalPRDLog.length > 0) {
-        logHtml = officer.placementIntent.historicalPRDLog.map(log => `
-          <div class="history-log-item">
-            <div class="log-meta">
-              <span>👤 ${log.user} (${log.source})</span>
-              <span>📅 ${log.date}</span>
-            </div>
-            <div class="log-desc">
-              <strong>${log.oldPRD} ➔ ${log.newPRD}</strong>: ${log.changeNote}
-            </div>
-          </div>
-        `).join('');
-      }
-
-      // FITREPs Timeline html
-      let fitrepHtml = '<div class="empty-placeholder" style="padding: 20px;">No longitudinal FITREPs ingested yet. Drag in a SUBEVAL file to bind performance history.</div>';
-      if (history.length > 0) {
-        fitrepHtml = history.map((fit, idx) => {
-          const rvClass = fit.relativeValue > 0 ? 'pos' : (fit.relativeValue < 0 ? 'neg' : '');
-          const rvSign = fit.relativeValue > 0 ? '+' : '';
-          return `
-            <div class="fitrep-card">
-              <div class="fitrep-header">
-                <span class="fitrep-dates">📅 ${fit.fromDate} to ${fit.toDate}</span>
-                <span class="fitrep-rec ${fit.recommendation}">${fit.recommendation}</span>
-              </div>
-              <div class="fitrep-metrics-grid">
-                <div class="metric-item">
-                  <div class="metric-lbl">Duration</div>
-                  <div class="metric-val">${fit.durationMonths} m</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-lbl">ITA</div>
-                  <div class="metric-val">${fit.ita.toFixed(2)}</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-lbl">RSCA</div>
-                  <div class="metric-val">${fit.rsca.toFixed(2)}</div>
-                </div>
-                <div class="metric-item">
-                  <div class="metric-lbl">Rel Value</div>
-                  <div class="metric-val ${rvClass}">${rvSign}${fit.relativeValue.toFixed(2)}</div>
-                </div>
-              </div>
-              <div style="font-size: 0.75rem; margin-bottom: 10px; color: var(--text-muted);">
-                Senior: <strong>${fit.reportingSeniorName}</strong> | Group Size: <strong>${fit.summaryGroupSize}</strong> (EPs: <strong>${fit.totalEPs}</strong>)
-              </div>
-              <div class="breakout-row">
-                <span class="metric-lbl" style="width: auto;">Hard Breakout:</span>
-                <input type="text" class="breakout-input" 
-                       placeholder="e.g. #1 of 5 EP or Top 10%..." 
-                       value="${fit.hardBreakout || ''}" 
-                       onchange="updateHardBreakout('${ssn}', ${idx}, this.value)">
-              </div>
-            </div>
-          `;
-        }).join('');
-      }
-
-      content.innerHTML = `
-        <div class="profile-grid">
-          <!-- Column 1: Career Details -->
-          <div class="profile-meta-block">
-            <h3 style="font-size: 1.1rem; color: var(--accent-primary); border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 5px;">Administrative Details</h3>
-            <div class="meta-row"><span class="meta-label">Full Name</span><span class="meta-val" style="font-weight:600;">${officer.name}</span></div>
-            <div class="meta-row"><span class="meta-label">Designator</span><span class="meta-val">${officer.designator}</span></div>
-            <div class="meta-row"><span class="meta-label">Current UIC</span><span class="meta-val">${officer.currentUIC}</span></div>
-            <div class="meta-row"><span class="meta-label">SSN (PK)</span><span class="meta-val">${officer.ssn}</span></div>
-            <div class="meta-row">
-              <span class="meta-label">OAIS PRD (Legal Status)</span>
-              <span class="meta-val">${officer.oaisPRD || 'N/A'}</span>
-            </div>
-            <div class="meta-row">
-              <span class="meta-label">Intent PRD (Planned Rotation)</span>
-              <span class="meta-val ${isMismatch ? 'highlight-yellow' : 'highlight-cyan'}">${currentIntentPRD}</span>
-            </div>
-            
-            <!-- Manual PRD Override Form -->
-            <div class="prd-edit-form">
-              <h4>Expert-in-the-Loop PRD Override</h4>
-              <div class="form-row">
-                <input type="text" class="form-input" id="new-intent-prd" placeholder="YYYY-MM-DD" style="flex-grow: 1;" value="${currentIntentPRD}">
-                <input type="text" class="form-input" id="prd-note" placeholder="PRD shift reason..." style="flex-grow: 2;">
-                <button class="btn btn-sm btn-primary" onclick="submitPRDOverride('${ssn}')">Update</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 2: Historical PRD Audit Log -->
-          <div>
-            <h3 style="font-size: 1.1rem; color: var(--accent-secondary); border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 10px;">PRD Historical Audit Trail</h3>
-            <div class="history-log-list">
-              ${logHtml}
-            </div>
-          </div>
-        </div>
-
-        <!-- Performance Continuity Section -->
-        <div class="fitrep-continuity">
-          <div class="timeline-title">
-            <span>Performance Continuity Bridge (Ingested FITREPs)</span>
-            <span class="rank-badge" style="background: var(--accent-primary-glow); color: var(--accent-cyan); font-size: 0.75rem;">Total Reports: ${history.length}</span>
-          </div>
-          <div class="fitrep-timeline">
-            ${fitrepHtml}
-          </div>
-        </div>
-      `;
-    }
-
-    // PRD update submission
-    window.submitPRDOverride = function(ssn) {
-      const officer = masterDb.officers[ssn];
-      const newPRD = document.getElementById('new-intent-prd').value.trim();
-      const note = document.getElementById('prd-note').value.trim();
-
-      if (!newPRD || !note) {
-        alert('Both a new target PRD and a change justification note are required.');
-        return;
-      }
-
-      // Basic date check
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(newPRD)) {
-        alert('Date must match YYYY-MM-DD format.');
-        return;
-      }
-
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-
-      officer.placementIntent.intentPRD = newPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: newPRD,
-        source: 'Detailer Update',
-        user: 'Detailer',
-        changeNote: note
-      });
-
-      if (intentDb && intentDb.officers[ssn]) {
-        intentDb.officers[ssn].placementIntent = officer.placementIntent;
-      }
-
-      // Re-run diffs to auto-clear mismatch alerts
-      if (oaisRoster) {
-        runDiffEngine();
-      }
-      
-      onStateUpdated();
-      renderOfficerProfile(ssn);
-    };
-
-    // Persistent qualitative overlay input
-    window.updateHardBreakout = function(ssn, index, val) {
-      if (masterDb && masterDb.officers[ssn]) {
-        masterDb.officers[ssn].fitrepHistory[index].hardBreakout = val;
-        
-        // Keep in sync with intent copy
-        if (intentDb && intentDb.officers[ssn]) {
-          intentDb.officers[ssn].fitrepHistory[index].hardBreakout = val;
-        }
-      }
-    };
-
-    // --- COMMAND MANNING HEALTH VIEW ---
-
-    function renderCommandsPanel() {
-      const container = document.getElementById('panel-commands');
-      const list = document.getElementById('command-list-container');
-      
-      list.innerHTML = '';
-      
-      if (!masterDb || Object.keys(masterDb.commands).length === 0) {
-        container.style.display = 'none';
-        return;
-      }
-
-      container.style.display = 'block';
-
-      // Gather manning numbers
-      for (const uic in masterDb.commands) {
-        const cmd = masterDb.commands[uic];
-        
-        // Assigned officers
-        const assignedCount = cmd.assignedOfficers.length;
-        const ba = cmd.billetsAuthorized || 45;
-        const percentage = Math.round((assignedCount / ba) * 100);
-
-        const card = document.createElement('div');
-        card.className = 'command-health-card';
-        card.innerHTML = `
-          <div class="command-h-header">
-            <span class="command-h-title">${cmd.name}</span>
-            <span class="command-percentage">${percentage}%</span>
-          </div>
-          <div class="command-health-bar-container">
-            <div class="command-health-bar" style="width: ${Math.min(percentage, 100)}%;"></div>
-          </div>
-          <div class="command-details">
-            <span>UIC: <strong>${uic}</strong></span>
-            <span>Assigned: <strong>${assignedCount} / ${ba} BA</strong></span>
-          </div>
-        `;
-        list.appendChild(card);
-      }
-    }
-
-    // --- EXPORT MASTER DATABASE ---
-
-    function exportDatabase() {
-      if (!masterDb) return;
-
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterDb, null, 2));
-      const downloadAnchor = document.createElement('a');
-      downloadAnchor.setAttribute("href", dataStr);
-      downloadAnchor.setAttribute("download", "master_database_reconciled.json");
-      document.body.appendChild(downloadAnchor);
-      downloadAnchor.click();
-      downloadAnchor.remove();
-    }
-
   
 </script>
+
+<!-- --- Compiled Component Templates --- -->
+<template id="template-officer">
+<div class="profile-container">
+  <!-- ZONE 1: TACTICAL HERO NAVIGATION BAR -->
+  <div class="officer-hero-nav">
+    <button class="hero-nav-btn active" data-tab="overview">
+      <span class="hero-nav-icon">📁</span> Dossier Overview
+    </button>
+    <button class="hero-nav-btn" data-tab="performance">
+      <span class="hero-nav-icon">📊</span> Comprehensive Performance
+    </button>
+    <button class="hero-nav-btn" data-tab="prd">
+      <span class="hero-nav-icon">🛡️</span> PRD Governance & Logs
+    </button>
+  </div>
+
+  <!-- ZONE 2: TAB PANELS -->
+
+  <!-- TAB A: DOSSIER OVERVIEW (DASHBOARD) -->
+  <div class="officer-tab-panel" id="officer-tab-overview">
+    <div class="officer-dashboard-grid">
+      <!-- Left Column: Dossier Highlights -->
+      <div class="dashboard-col-left">
+        
+        <!-- Card 1: Administrative Persona Card -->
+        <div class="officer-card officer-card--accented">
+          <div class="card-header-row">
+            <h3 class="officer-card-title">Administrative Dossier</h3>
+            <span class="badge badge--green" id="opt-status-badge">ACTIVE DUTY</span>
+          </div>
+          <div class="admin-data-list">
+            <div class="admin-data-row">
+              <span class="admin-data-label">Full Name</span>
+              <span class="admin-data-value" id="opt-full-name">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">Rank / Grade</span>
+              <span class="admin-data-value" id="opt-rank">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">Designator</span>
+              <span class="admin-data-value" id="opt-designator">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">SSN / DoD ID</span>
+              <span class="admin-data-value" id="opt-ssn">N/A</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Active Orders & Rotations -->
+        <div class="officer-card" style="margin-top: var(--space-4);">
+          <h3 class="officer-card-title">Orders & Assignments</h3>
+          <div class="admin-data-list">
+            <div class="admin-data-row">
+              <span class="admin-data-label">Assigned Station</span>
+              <span class="admin-data-value" id="opt-current-uic">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">OAIS Legal PRD</span>
+              <span class="admin-data-value" id="opt-oais-prd">N/A</span>
+            </div>
+            <div class="admin-data-row">
+              <span class="admin-data-label">Planner Intent PRD</span>
+              <span class="admin-data-value" id="opt-intent-prd">N/A</span>
+            </div>
+            <div class="admin-data-row" id="prd-discrepancy-row" style="display: none;">
+              <span class="admin-data-label" style="color: var(--color-status-red-text); font-weight: 600;">PRD Status Alert</span>
+              <span class="badge badge--red">DISCREPANCY</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Top 3 Performance Highlight -->
+      <div class="dashboard-col-right">
+        <div class="officer-card officer-card--accented">
+          <div class="card-header-row">
+            <h3 class="officer-card-title">Top 3 Competitive FITREPs</h3>
+            <span class="badge badge--green" id="overview-record-grade">Grade: N/A</span>
+          </div>
+          <div class="top-fitreps-list" id="overview-top-fitreps">
+            <!-- Filtered Top 3 FITREPs render here dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB B: COMPREHENSIVE PERFORMANCE (LONGITUDINAL) -->
+  <div class="officer-tab-panel" id="officer-tab-performance" style="display: none;">
+    <div class="officer-card">
+      <div class="card-header-row">
+        <h3 class="officer-card-title">Performance Continuity Bridge</h3>
+        <div class="badge-group">
+          <span class="badge badge--gray" id="prof-total-count">0 Reports Ingested</span>
+          <span class="badge badge--green" id="prof-grade-badge">Record Grade: N/A</span>
+        </div>
+      </div>
+      <div class="fitrep-continuity-container" id="fitrep-timeline-list">
+        <!-- FITREP chronological timeline renders here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB C: PRD GOVERNANCE & AUDITS -->
+  <div class="officer-tab-panel" id="officer-tab-prd" style="display: none;">
+    <div class="profile-grid-layout">
+      <!-- Left Card: Override Form -->
+      <div class="officer-card officer-card--accented">
+        <h3 class="officer-card-title">Expert-in-the-Loop PRD Shift</h3>
+        <div class="prd-override-form" style="margin-top: 0;">
+          <h4 class="prd-override-title">Covenant Governance Validation</h4>
+          <div class="prd-override-grid">
+            <div class="form-group">
+              <span class="form-label">New Target Date</span>
+              <input type="text" class="text-input" id="form-new-prd" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group">
+              <span class="form-label">Justification Note (Required)</span>
+              <input type="text" class="text-input" id="form-prd-reason" placeholder="e.g., CO requested shift / school delay...">
+            </div>
+            <button class="btn-covenant" id="btn-submit-prd">Update & Sync</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Card: Audit Trail -->
+      <div class="officer-card">
+        <h3 class="officer-card-title officer-card-title--secondary">Historical PRD Shift Log</h3>
+        <div class="audit-log-container" id="prd-audit-logs">
+          <!-- Audit log items render here dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
+
+
 </body>
 </html>

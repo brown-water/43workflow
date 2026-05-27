@@ -163,10 +163,11 @@ function compile() {
         const scriptContent = fullScriptBlock.replace(scriptStartRegex, '');
         
         // Strip imports and exports from main block
-        const processedMainScript = processJSContent(BASE_TEMPLATE)
-          .replace(/\/\/ --- Compiled Module: [\s\S]*? ---\n/, '') // remove fake header
-          .replace(scriptContent, '') // clear double matching
-          + '\n' + scriptContent.replace(/import\s+[\s\S]*?\s+from\s+['"].*?['"];?/g, '');
+        const processedMainScript = scriptContent
+          .replace(/import\s+[\s\S]*?\s+from\s+['"].*?['"];?/g, '')
+          .replace(/\bexport\s+(async\s+)?(function|class|const|let|var)\b/g, '$1$2')
+          .replace(/\bexport\s*\{[\s\S]*?\}\s*;?/g, '')
+          .replace(/\bexport\s+default\s+.*?;?/g, '');
           
         const unifiedCode = stitchedJS + '\n' + processedMainScript;
         

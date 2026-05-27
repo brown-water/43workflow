@@ -1,0 +1,406 @@
+/* 
+ * src/modules/officer/officer.css
+ * 
+ * Scoped styles for the Officer View Module.
+ * Fully compliant with PERS-43 Covenant Design System (Light Mode / Warm-Linen).
+ */
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  animation: reveal-enter var(--duration-slow) var(--ease-out) forwards;
+}
+
+/* ZONE 1: TACTICAL HERO NAVIGATION BAR */
+.officer-hero-nav {
+  display: flex;
+  background-color: var(--color-bg-dark); /* Deep navy */
+  border-bottom: 2px solid var(--color-gold-primary); /* Covenant permanent brass divider */
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  padding: 0 var(--space-2);
+}
+
+.hero-nav-btn {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm); /* Enforce >= 16px */
+  font-weight: 600;
+  color: var(--color-text-dim);
+  background: none;
+  border: none;
+  border-bottom: 4px solid transparent;
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--duration-fast) ease;
+  height: 48px;
+}
+
+.hero-nav-btn:hover {
+  color: var(--color-text-inverse);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.hero-nav-btn.active {
+  color: var(--color-text-inverse);
+  border-bottom-color: var(--color-gold-bright); /* High emphasis active gold */
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.hero-nav-icon {
+  font-size: 1.1rem;
+}
+
+/* ZONE 2: TAB PANELS LAYOUTS */
+.officer-tab-panel {
+  animation: reveal-enter var(--duration-medium) var(--ease-out) forwards;
+}
+
+/* Dashboard Grid System */
+.officer-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .officer-dashboard-grid {
+    grid-template-columns: 1fr 1.2fr; /* Balanced 2-column layout */
+  }
+}
+
+.dashboard-col-left,
+.dashboard-col-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Styling: Flat warm-linen panels */
+.officer-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md); /* Strict cap <= 10px */
+  padding: var(--space-4);
+  box-shadow: none; /* Covenant rule: no drop shadows */
+}
+
+.officer-card--accented {
+  border-top: 3px solid var(--color-gold-primary); /* Covenant Brass accent header */
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-border-subtle);
+  padding-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.officer-card-title {
+  font-family: var(--font-display);
+  font-size: var(--type-display-sm); /* Enforce >= 16px */
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.officer-card-title--secondary {
+  color: var(--color-text-primary);
+}
+
+/* Administrative Rows */
+.admin-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.admin-data-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--space-2);
+}
+
+.admin-data-label {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm); /* Enforce >= 16px */
+  color: var(--color-text-secondary);
+}
+
+.admin-data-value {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm); /* Enforce >= 16px */
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+.admin-data-value--highlight {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  background-color: rgba(184, 146, 58, 0.08); /* Accent gold glow background */
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-gold-primary);
+}
+
+.admin-data-value--warning {
+  color: var(--color-status-red-text);
+  font-weight: 600;
+  background-color: var(--color-status-red);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(132, 32, 41, 0.2);
+}
+
+/* Form Styling */
+.prd-override-form {
+  padding: var(--space-4);
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+}
+
+.prd-override-title {
+  font-family: var(--font-display);
+  font-size: var(--type-body-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+.prd-override-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex-grow: 1;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-muted);
+}
+
+.text-input {
+  background-color: var(--color-bg-void);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-text-primary);
+  font-family: var(--font-data);
+  font-size: var(--type-data-md);
+  outline: none;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.text-input:focus {
+  border-color: var(--color-border-strong);
+}
+
+.btn-covenant {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  font-weight: 600;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-bg-dark);
+  padding: 10px var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--duration-fast) ease;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-covenant:hover {
+  background-color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+/* PRD Audit Logs */
+.audit-log-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: var(--space-1);
+}
+
+.audit-log-card {
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.audit-log-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-data);
+  font-size: var(--type-data-xs);
+  color: var(--color-text-muted);
+}
+
+.audit-log-shift {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.audit-log-note {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+/* Performance Timelines & Cards */
+.top-fitreps-list,
+.fitrep-continuity-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.fitrep-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  position: relative;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.fitrep-card--EP { border-left: 4px solid var(--color-status-green-text); }
+.fitrep-card--MP { border-left: 4px solid var(--color-status-amber-text); }
+.fitrep-card--P  { border-left: 4px solid var(--color-status-gray-text); }
+.fitrep-card--PR { border-left: 4px solid var(--color-status-amber-text); }
+.fitrep-card--SP { border-left: 4px solid var(--color-status-red-text); }
+
+.fitrep-card:hover {
+  background-color: var(--color-bg-overlay);
+}
+
+.fitrep-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fitrep-card-dates {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Metrics Row table style */
+.fitrep-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-1);
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+.fitrep-metric-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.fitrep-metric-label {
+  font-family: var(--font-body);
+  font-size: 10px; /* Monospace sub-label */
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  margin-bottom: 2px;
+}
+
+.fitrep-metric-value {
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.fitrep-metric-value--positive {
+  color: var(--color-status-green-text);
+}
+
+.fitrep-metric-value--negative {
+  color: var(--color-status-red-text);
+}
+
+.fitrep-card-narrative {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+}
+
+.fitrep-breakout-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: 2px;
+}
+
+.fitrep-breakout-label {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.fitrep-breakout-input {
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  color: var(--color-text-primary);
+  font-family: var(--font-data);
+  font-size: var(--type-data-sm);
+  flex-grow: 1;
+  outline: none;
+  transition: all var(--duration-fast) ease;
+}
+
+.fitrep-breakout-input:focus {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-bg-void);
+}
+
+.badge-group {
+  display: flex;
+  gap: var(--space-2);
+}
