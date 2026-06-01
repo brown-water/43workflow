@@ -132,6 +132,22 @@ export function parseSupplyData(rawText) {
   const uicIdx = headers.indexOf('AAUIC');
   const prdIdx = headers.indexOf('IPRD');
   const scrnIdx = headers.indexOf('ICOMM.SCRN.RSLT');
+  const bscIdx = headers.indexOf('BBSC');
+  const ygIdx = headers.indexOf('IYR.GRP');
+  const aqdIdx = headers.indexOf('IAQD');
+  const recdIdx = headers.indexOf('IRECD.DT');
+  const btitleIdx = headers.indexOf('BBTITLE');
+  const asnameIdx = headers.indexOf('ASNAME');
+  
+  // Prospective replacement indices
+  const pNameIdx = headers.indexOf('PNAME');
+  const pFillIdx = headers.indexOf('PFILL.DT');
+  const pEddIdx = headers.indexOf('PEDD');
+  const pDesigIdx = headers.indexOf('PDESIG');
+  const pRankIdx = headers.indexOf('PRANK');
+  
+  // Past Command
+  const pastCmdIdx = headers.indexOf('IPAST1.SNAME');
   
   if (ssnIdx === -1) {
     throw new Error('Crucial field "ISSN" missing in SUPPLY file headers.');
@@ -151,6 +167,25 @@ export function parseSupplyData(rawText) {
     const currentUIC = uicIdx !== -1 ? row[uicIdx].trim() : '';
     const oaisPRD = prdIdx !== -1 ? parseDate(row[prdIdx]) : '';
     const scrnResult = scrnIdx !== -1 ? row[scrnIdx].trim() : '';
+    const bsc = bscIdx !== -1 ? row[bscIdx].trim() : '';
+    const yg = ygIdx !== -1 ? row[ygIdx].trim() : '';
+    const aqd = aqdIdx !== -1 ? row[aqdIdx].trim() : '';
+    const reportedDate = recdIdx !== -1 ? parseDate(row[recdIdx]) : '';
+    const billetTitle = btitleIdx !== -1 ? row[btitleIdx].trim() : '';
+    const cmdName = asnameIdx !== -1 ? row[asnameIdx].trim() : '';
+    
+    let prospectiveReplacement = null;
+    if (pNameIdx !== -1 && row[pNameIdx] && row[pNameIdx].trim() !== '') {
+      prospectiveReplacement = {
+        name: row[pNameIdx].trim(),
+        fillDate: pFillIdx !== -1 ? parseDate(row[pFillIdx]) : '',
+        edd: pEddIdx !== -1 ? parseDate(row[pEddIdx]) : '',
+        designator: pDesigIdx !== -1 ? row[pDesigIdx].trim() : '',
+        rank: pRankIdx !== -1 ? row[pRankIdx].trim() : ''
+      };
+    }
+    
+    const pastCommand = pastCmdIdx !== -1 ? row[pastCmdIdx].trim() : '';
     
     officers[ssn] = {
       ssn,
@@ -159,7 +194,15 @@ export function parseSupplyData(rawText) {
       designator,
       currentUIC,
       oaisPRD,
+      reportedDate,
+      prospectiveReplacement,
+      pastCommand,
       scrnResult,
+      bsc,
+      yg,
+      aqd,
+      billetTitle,
+      cmdName,
       fitrepHistory: [],
       recordGrade: null,
       ineligibilityTriggers: [],

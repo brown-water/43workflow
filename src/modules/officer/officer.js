@@ -133,7 +133,7 @@ export class OfficerModule {
    * @param {Object} masterDb In-memory Master Database state
    * @param {Function} onStateChange Callback triggered when state mutations occur
    */
-  static mount(containerSelector, ssn, masterDb, onStateChange) {
+  static mount(containerSelector, ssn, masterDb, fromCmd, onStateChange) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
@@ -191,10 +191,22 @@ export class OfficerModule {
     const isMismatch = officer.oaisPRD && currentIntentPRD !== officer.oaisPRD;
 
     // 4. Bind Career Dossier text fields
+    document.getElementById('opt-header-name').innerText = `Officer Dossier: ${officer.name || 'Unknown'}`;
     document.getElementById('opt-full-name').innerText = officer.name || 'Unknown';
     document.getElementById('opt-rank').innerText = officer.rank || 'N/A';
     document.getElementById('opt-designator').innerText = officer.designator || 'N/A';
     document.getElementById('opt-ssn').innerText = officer.ssn || 'N/A';
+    
+    // Bind Back Button if applicable
+    const backBtn = document.getElementById('btn-profile-back');
+    if (fromCmd) {
+      backBtn.style.display = 'block';
+      backBtn.addEventListener('click', () => {
+        window.location.hash = `#commandTracker/${fromCmd}`;
+      });
+    } else {
+      backBtn.style.display = 'none';
+    }
     
     // Status Badge customization
     const statusBadge = document.getElementById('opt-status-badge');
@@ -214,6 +226,11 @@ export class OfficerModule {
     
     const intentPrdNode = document.getElementById('opt-intent-prd');
     intentPrdNode.innerText = currentIntentPRD || 'N/A';
+    intentPrdNode.style.cursor = 'pointer';
+    intentPrdNode.style.textDecoration = 'underline';
+    intentPrdNode.addEventListener('click', () => {
+      if (window.openPrdModal) window.openPrdModal(ssn);
+    });
     
     // Display discrepancy row and alert state if legal and intent disagree
     const discrepancyRow = document.getElementById('prd-discrepancy-row');
@@ -247,70 +264,5 @@ export class OfficerModule {
     fullGradeBadge.className = `badge badge--${calculatedGrade === 'A' ? 'green' : (calculatedGrade === 'B' ? 'amber' : 'gray')}`;
 
     this.renderFitrepTimeline(fullTimelineContainer, history, ssn, 'full', onStateChange);
-
-    // 8. Bind PRD Shift Overrides card
-    const prdDateInput = document.getElementById('form-new-prd');
-    const prdReasonInput = document.getElementById('form-prd-reason');
-    const submitBtn = document.getElementById('btn-submit-prd');
-
-    prdDateInput.value = currentIntentPRD || '';
-    
-    submitBtn.addEventListener('click', () => {
-      const newPRD = prdDateInput.value.trim();
-      const reason = prdReasonInput.value.trim();
-
-      if (!newPRD || !reason) {
-        alert('Covenant Governance: Both a target PRD and a change justification note are required.');
-        return;
-      }
-
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(newPRD)) {
-        alert('Covenant Governance: Date must match YYYY-MM-DD format.');
-        return;
-      }
-
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-      
-      officer.placementIntent.intentPRD = newPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: newPRD,
-        source: 'Detailer Update',
-        user: 'Detailer',
-        changeNote: reason
-      });
-
-      if (onStateChange) {
-        onStateChange(ssn);
-      }
-    });
-
-    // 9. Draw PRD Governance Audit logs
-    const auditLogsContainer = document.getElementById('prd-audit-logs');
-    auditLogsContainer.innerHTML = '';
-    const logEntries = officer.placementIntent.historicalPRDLog || [];
-    
-    if (logEntries.length === 0) {
-      auditLogsContainer.innerHTML = '<div class="empty-placeholder" style="padding: var(--space-3); font-size: var(--type-data-xs);">No historical changes logged.</div>';
-    } else {
-      logEntries.forEach(log => {
-        const div = document.createElement('div');
-        div.className = 'audit-log-card';
-        div.innerHTML = `
-          <div class="audit-log-meta">
-            <span>👤 ${log.user} (${log.source})</span>
-            <span>📅 ${log.date}</span>
-          </div>
-          <div class="audit-log-shift">
-            ${log.oldPRD} ➔ ${log.newPRD}
-          </div>
-          <div class="audit-log-note">
-            ${log.changeNote}
-          </div>
-        `;
-        auditLogsContainer.appendChild(div);
-      });
-    }
   }
 }

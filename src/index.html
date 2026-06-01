@@ -766,7 +766,7 @@
         <div class="empty-placeholder">Select an officer using the search bar at the top to view their deep profile, historical PRD audit log, and parsed performance timeline.</div>
       </div>
 
-      <!-- View 3: Command Health Panel -->
+      <!-- View 3: Command Health Panel (Dashboard) -->
       <div class="panel-card" id="panel-commands" style="display: none;">
         <div class="panel-header">
           <h2>Command Manning Health</h2>
@@ -774,6 +774,11 @@
         <div class="command-health-grid" id="command-list-container">
           <!-- Command items render here -->
         </div>
+      </div>
+
+      <!-- View 4: Command Tracker (Detailed Waterfall) -->
+      <div class="panel-card" id="panel-command-tracker" style="display: none; padding: 0; border: none;">
+        <!-- Command module mounts here -->
       </div>
 
     </div>
@@ -800,6 +805,42 @@
       <div class="modal-footer">
         <button class="btn btn-sm" style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border: 1px solid var(--color-border-default);" onclick="closeAckModal()">Cancel</button>
         <button class="btn btn-sm btn-primary" id="modal-btn-confirm">Acknowledge & Sync</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historical PRD Shift Modal -->
+  <div class="modal" id="modal-prd">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3>Historical PRD Shift & Governance</h3>
+        <button class="modal-close" onclick="closePrdModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+          <span style="font-weight: 600; color: var(--color-text-primary);" id="prd-modal-officer-name"></span>
+          <span class="badge badge--gray" id="prd-modal-oais-prd"></span>
+        </div>
+        
+        <div class="prd-override-form" style="margin-top: 0; background: var(--color-bg-base); padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--color-border-subtle);">
+          <h4 class="prd-override-title" style="margin-bottom: var(--space-3); font-size: var(--type-body-sm);">Expert-in-the-Loop PRD Shift</h4>
+          <div class="prd-override-grid" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-1);">
+              <span class="form-label" style="font-size: var(--type-data-xs); color: var(--color-text-secondary);">New Target Date (YYYY-MM-DD)</span>
+              <input type="text" class="text-input" id="prd-modal-form-new-prd" placeholder="YYYY-MM-DD" style="padding: 8px; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-1);">
+              <span class="form-label" style="font-size: var(--type-data-xs); color: var(--color-text-secondary);">Justification Note (Required)</span>
+              <input type="text" class="text-input" id="prd-modal-form-reason" placeholder="e.g., CO requested shift / school delay..." style="padding: 8px; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);">
+            </div>
+            <button class="btn btn-sm btn-primary" id="prd-modal-btn-submit" style="align-self: flex-start;">Update & Sync</button>
+          </div>
+        </div>
+
+        <h4 style="margin-top: var(--space-4); margin-bottom: var(--space-2); font-size: var(--type-body-sm); color: var(--color-text-primary);">Historical PRD Shift Log</h4>
+        <div class="audit-log-container" id="prd-modal-audit-logs" style="max-height: 200px; overflow-y: auto; background: var(--color-bg-base); padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--color-border-subtle);">
+          <!-- Logs render here -->
+        </div>
       </div>
     </div>
   </div>
@@ -847,6 +888,7 @@
     import { normalizeSSN, parseDate, calculateDurationMonths, parseSupplyData, parseSubevalData, linkAndReconcile } from './src/core/ingestion.js';
     import { generateSyncAlerts, generateCOIntentAlerts } from './src/core/diffEngine.js';
     import { OfficerModule } from './src/modules/officer/officer.js';
+    import { CommandModule } from './src/modules/command/command.js';
 
     // Roster states
     let intentDb = null;
@@ -969,6 +1011,7 @@
       document.getElementById('panel-ingestion').style.display = 'none';
       document.getElementById('panel-alerts').style.display = 'none';
       document.getElementById('panel-commands').style.display = 'none';
+      document.getElementById('panel-command-tracker').style.display = 'none';
       document.getElementById('panel-profile-container').style.display = 'none';
 
       // Toggle centered search bar and top nav visibility depending on data status
@@ -984,10 +1027,23 @@
       }
 
       if (hash.startsWith('#officer/')) {
-        const ssn = hash.substring('#officer/'.length);
+        let ssn = hash.substring('#officer/'.length);
+        let fromCmd = null;
+        if (ssn.includes('?fromCmd=')) {
+          const parts = ssn.split('?fromCmd=');
+          ssn = parts[0];
+          fromCmd = parts[1];
+        }
         activeOfficerSsn = ssn;
         document.getElementById('panel-profile-container').style.display = 'block';
-        renderOfficerProfile(ssn);
+        renderOfficerProfile(ssn, fromCmd);
+      } else if (hash.startsWith('#commandTracker/')) {
+        const uic = hash.substring('#commandTracker/'.length);
+        document.getElementById('nav-commands-link').classList.add('active');
+        document.getElementById('panel-command-tracker').style.display = 'block';
+        CommandModule.mount('#panel-command-tracker', uic, masterDb, () => {
+          window.location.hash = '#commands';
+        });
       } else if (hash === '#commands') {
         document.getElementById('nav-commands-link').classList.add('active');
         document.getElementById('panel-commands').style.display = 'block';
@@ -1011,6 +1067,7 @@
       input.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
           handler(e.target.files[0]);
+          e.target.value = '';
         }
       });
 
@@ -1176,7 +1233,12 @@
       renderAlerts();
       renderCommandsPanel();
       if (activeOfficerSsn) {
-        renderOfficerProfile(activeOfficerSsn);
+        // Find if we were on a fromCmd hash
+        let fromCmd = null;
+        if (window.location.hash.includes('?fromCmd=')) {
+          fromCmd = window.location.hash.split('?fromCmd=')[1];
+        }
+        renderOfficerProfile(activeOfficerSsn, fromCmd);
       }
     }
 
@@ -1323,8 +1385,8 @@
 
     // --- OFFICER DETAILED PROFILE RENDER (Via OfficerModule) ---
 
-    function renderOfficerProfile(ssn) {
-      OfficerModule.mount('#panel-profile-container', ssn, masterDb, (updatedSsn, isBreakoutOnly) => {
+    function renderOfficerProfile(ssn, fromCmd = null) {
+      OfficerModule.mount('#panel-profile-container', ssn, masterDb, fromCmd, (updatedSsn, isBreakoutOnly) => {
         // Callback handles PRD updates or Hard Breakout overrides
         if (!isBreakoutOnly) {
           // Sync local intent db copy
@@ -1370,6 +1432,7 @@
 
         const card = document.createElement('div');
         card.className = 'command-health-card';
+        card.style.cursor = 'pointer';
         card.innerHTML = `
           <div class="command-h-header">
             <span class="command-h-title">${cmd.name}</span>
@@ -1383,6 +1446,11 @@
             <span>Assigned: <strong>${assignedCount} / ${ba} BA</strong></span>
           </div>
         `;
+        
+        card.addEventListener('click', () => {
+          window.location.hash = `#commandTracker/${uic}`;
+        });
+        
         list.appendChild(card);
       }
     }
@@ -1400,6 +1468,118 @@
       downloadAnchor.click();
       downloadAnchor.remove();
     }
+
+    // --- UNIFIED PRD MODAL HANDLERS ---
+    window._activePrdSsn = null;
+    
+    window.openPrdModal = function(ssn) {
+      if (!masterDb || !masterDb.officers || !masterDb.officers[ssn]) return;
+      const officer = masterDb.officers[ssn];
+      window._activePrdSsn = ssn;
+      
+      const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+      
+      document.getElementById('prd-modal-officer-name').innerText = officer.name || 'Unknown';
+      document.getElementById('prd-modal-oais-prd').innerText = `Legal OAIS PRD: ${officer.oaisPRD || 'N/A'}`;
+      
+      document.getElementById('prd-modal-form-new-prd').value = currentIntentPRD || '';
+      document.getElementById('prd-modal-form-reason').value = '';
+      
+      const logsContainer = document.getElementById('prd-modal-audit-logs');
+      logsContainer.innerHTML = '';
+      
+      const logEntries = officer.placementIntent.historicalPRDLog || [];
+      if (logEntries.length === 0) {
+        logsContainer.innerHTML = '<div class="empty-placeholder" style="padding: var(--space-3); font-size: var(--type-data-xs);">No historical changes logged.</div>';
+      } else {
+        logEntries.forEach(log => {
+          const div = document.createElement('div');
+          div.className = 'audit-log-card';
+          div.style.marginBottom = 'var(--space-2)';
+          div.innerHTML = `
+            <div class="audit-log-meta" style="display: flex; justify-content: space-between; font-size: var(--type-data-xs); color: var(--color-text-secondary); margin-bottom: 4px;">
+              <span>👤 ${log.user} (${log.source})</span>
+              <span>📅 ${log.date}</span>
+            </div>
+            <div class="audit-log-shift" style="font-weight: 600; font-size: var(--type-body-sm); color: var(--color-text-primary); margin-bottom: 4px;">
+              ${log.oldPRD} ➔ ${log.newPRD}
+            </div>
+            <div class="audit-log-note" style="font-size: var(--type-body-sm); color: var(--color-text-secondary); font-style: italic;">
+              "${log.changeNote}"
+            </div>
+          `;
+          logsContainer.appendChild(div);
+        });
+      }
+      
+      document.getElementById('modal-prd').classList.add('active');
+    };
+    
+    window.closePrdModal = function() {
+      document.getElementById('modal-prd').classList.remove('active');
+      window._activePrdSsn = null;
+    };
+    
+    document.getElementById('prd-modal-btn-submit').addEventListener('click', () => {
+      if (!window._activePrdSsn) return;
+      const officer = masterDb.officers[window._activePrdSsn];
+      if (!officer) return;
+      
+      const newPRDInput = document.getElementById('prd-modal-form-new-prd').value.trim();
+      const reason = document.getElementById('prd-modal-form-reason').value.trim();
+
+      if (!newPRDInput || !reason) {
+        alert('Covenant Governance: Both a target PRD and a change justification note are required.');
+        return;
+      }
+
+      function parseFlexibleDate(dateStr) {
+        dateStr = dateStr.trim();
+        if (/^\\d{4}-\\d{2}-\\d{2}$/.test(dateStr)) return dateStr;
+        if (/^\\d{8}$/.test(dateStr)) {
+          return `${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}`;
+        }
+        const cleanStr = dateStr.replace(/(\\d+)(st|nd|rd|th)/ig, '$1');
+        const parsed = new Date(cleanStr);
+        if (!isNaN(parsed.getTime())) {
+          const y = parsed.getFullYear();
+          const m = String(parsed.getMonth() + 1).padStart(2, '0');
+          const d = String(parsed.getDate()).padStart(2, '0');
+          return `${y}-${m}-${d}`;
+        }
+        return null;
+      }
+
+      const newPRD = parseFlexibleDate(newPRDInput);
+
+      if (!newPRD) {
+        alert('Covenant Governance: Date format not recognized. Try YYYY-MM-DD or e.g. "26 January 2027".');
+        return;
+      }
+
+      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+      
+      officer.placementIntent.intentPRD = newPRD;
+      officer.placementIntent.historicalPRDLog.push({
+        date: new Date().toISOString().split('T')[0],
+        oldPRD: oldPRD,
+        newPRD: newPRD,
+        source: 'Detailer Update',
+        user: 'Detailer',
+        changeNote: reason
+      });
+      
+      window.closePrdModal();
+      
+      // Force UI refresh via router
+      if (typeof handleRouting === 'function') {
+        handleRouting();
+      } else {
+        // Fallback
+        window.dispatchEvent(new Event('hashchange'));
+      }
+    });
+    
   </script>
 </body>
 </html>

@@ -1,0 +1,102 @@
+<div class="command-tracker">
+  <div class="ct-header">
+    <div class="ct-header-top">
+      <div class="ct-title-group">
+        <div class="ct-title" id="cmd-header-name">LOADING COMMAND...</div>
+        <div class="ct-subtitle" id="cmd-header-uic">UIC: ---</div>
+      </div>
+      <div class="ct-actions">
+        <button class="btn btn-sm btn-primary" id="ct-btn-info">Command Info</button>
+        <button class="btn btn-sm" id="ct-btn-back" style="background-color: var(--color-bg-base); color: var(--color-text-primary); border: 1px solid var(--color-border-default);">← Back to Dashboard</button>
+      </div>
+    </div>
+    <div class="ct-metrics-bar">
+      <div class="metric-card">
+        <span class="metric-label">PAA (Jets)</span>
+        <span class="metric-value" id="cmd-metric-paa">--</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">BA (Auth Billets)</span>
+        <span class="metric-value" id="cmd-metric-ba">--</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Workup Cycle</span>
+        <span class="metric-value" id="cmd-metric-workup">Not Set</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Deployment</span>
+        <span class="metric-value" id="cmd-metric-deploy">Not Set</span>
+      </div>
+      <div class="metric-card" id="metric-card-pilots" style="display: none;">
+        <span class="metric-label">Assigned Pilots</span>
+        <span class="metric-value" id="cmd-metric-pilots">--</span>
+      </div>
+      <div class="metric-card" id="metric-card-wsos" style="display: none;">
+        <span class="metric-label">Assigned NFO/WSO</span>
+        <span class="metric-value" id="cmd-metric-wsos">--</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="spreadsheet-container" id="ct-spreadsheet">
+    <div class="sheet-table">
+      <div class="sheet-row sheet-header" id="ct-table-header">
+        <div class="cell col-bsc sticky-col">BSC</div>
+        <div class="cell col-rank sticky-col">RANK</div>
+        <div class="cell col-desig sticky-col">DESIG</div>
+        <div class="cell col-name sticky-col">NAME</div>
+        <div class="cell col-callsign sticky-col">CALLSIGN</div>
+        <div class="cell col-yg sticky-col">YG</div>
+        <div class="cell col-qual sticky-col">QUAL</div>
+        <div class="cell col-recd sticky-col">RECD</div>
+        <div class="cell col-tour sticky-col">TOUR</div>
+        <div class="cell col-prd sticky-col">PRD</div>
+      </div>
+      <div class="sheet-body" id="ct-table-body"></div>
+      <div class="sheet-row sheet-footer" id="ct-table-footer" style="background-color: var(--color-bg-surface); font-weight: bold; border-top: 2px solid var(--color-border-subtle);"></div>
+    </div>
+  </div>
+
+  <!-- Command Info Modal -->
+  <div id="ct-info-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="ct-modal-title">Command Info</h3>
+        <button class="btn-close" id="ct-btn-close-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>PAA (Jets)</label>
+          <input type="number" id="ct-input-paa" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>BA (Billets Authorized)</label>
+          <input type="number" id="ct-input-ba" class="form-input" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Workup Start (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-workup-start" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Workup End (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-workup-end" class="form-input" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Deploy Start (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-deploy-start" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Deploy End (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-deploy-end" class="form-input" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="ct-btn-save-modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

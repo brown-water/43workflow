@@ -656,6 +656,511 @@
     }
   
 
+/* Scoped style from: src/modules/command/command.css */
+.command-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.ct-header {
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.ct-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.ct-title-group {
+  display: flex;
+  flex-direction: column;
+}
+.ct-title {
+  font-family: var(--font-display);
+  font-size: var(--type-display-md);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+.ct-subtitle {
+  font-family: var(--font-data);
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+}
+.ct-metrics-bar {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.metric-card {
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border-default);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+.metric-label {
+  font-size: var(--type-data-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.metric-value {
+  font-size: var(--type-body-sm);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-family: var(--font-data);
+}
+.ct-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.spreadsheet-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 600px;
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+
+.sheet-row {
+  display: flex;
+  min-height: 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.presence-extension {
+  background-color: var(--color-status-amber) !important;
+}
+
+.sheet-header {
+  background-color: var(--color-bg-elevated);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border-strong);
+  height: 48px; /* increased to fit year and month */
+  align-items: flex-end;
+  position: sticky;
+  top: 0;
+  z-index: 30; /* Header above all */
+}
+
+.group-header {
+  background-color: #d1d5db; /* gray-300 */
+  font-weight: 700;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  border-bottom: 1px solid #9ca3af;
+  text-transform: uppercase;
+  position: sticky;
+  left: 0;
+  width: max-content;
+  min-width: 620px;
+  z-index: 5;
+}
+
+.cell {
+  padding: 2px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--color-border-subtle);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cell > div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.col-name > div {
+  overflow: visible;
+}
+.p-staff-text {
+  color: #6b7280; /* gray-500 */
+  font-style: italic;
+  font-size: 10px;
+}
+
+/* Fixed column widths & Sticky Positioning */
+.sticky-col {
+  position: sticky;
+  background-color: inherit; /* inherit row background */
+  z-index: 10;
+}
+.sticky-col:hover {
+  z-index: 50; /* Ensure tooltips break out of row stacking contexts and go over header */
+}
+.sheet-header .sticky-col {
+  background-color: var(--color-bg-elevated);
+  z-index: 40; /* highest, sticky top + left */
+}
+
+.col-bsc { width: 50px; min-width: 50px; text-align: center; align-items: center; left: 0; }
+.col-rank { width: 40px; min-width: 40px; left: 50px; }
+.col-desig { width: 50px; min-width: 50px; text-align: center; align-items: center; left: 90px; }
+.col-name { width: 150px; min-width: 150px; font-weight: 500; left: 140px; overflow: visible; }
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.officer-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 100%;
+  top: -10px;
+  transform: translateX(10px);
+  background: #0d1117; /* Deep cinematic black/blue */
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  padding: 12px 16px;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65), 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  width: max-content;
+  min-width: 200px;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+
+.officer-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  right: 100%;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #0d1117 transparent transparent;
+}
+
+.tooltip-container:hover .officer-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.tt-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #58a6ff; /* Cinematic blue accent */
+  font-size: 13px;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.tt-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  gap: 24px;
+}
+.tt-label {
+  color: #8b949e;
+  font-weight: 500;
+}
+.tt-value {
+  font-weight: 600;
+  color: #c9d1d9;
+}
+
+.col-callsign { width: 80px; min-width: 80px; left: 290px; }
+.col-yg { width: 40px; min-width: 40px; text-align: center; align-items: center; left: 370px; }
+.col-qual { width: 40px; min-width: 40px; text-align: center; align-items: center; left: 410px; }
+.col-recd { width: 70px; min-width: 70px; text-align: right; align-items: flex-end; left: 450px; }
+.col-tour { width: 40px; min-width: 40px; text-align: center; align-items: center; left: 520px; }
+.col-prd { width: 70px; min-width: 70px; text-align: right; align-items: flex-end; left: 560px; z-index: 10; border-right: 2px solid var(--color-border-gold); }
+
+.sheet-row {
+  display: flex;
+  min-height: 24px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-surface);
+  width: max-content;
+}
+
+.officer-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+.officer-link:hover {
+  text-decoration: underline;
+}
+
+/* Timeline cells */
+.cell-month {
+  width: 36px;
+  min-width: 36px;
+  text-align: center;
+  justify-content: center;
+  border-right: 1px solid var(--color-border-subtle);
+  position: relative;
+}
+
+.cell-month-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Push month to bottom */
+  align-items: center;
+  position: relative;
+  font-size: 10px;
+  padding-bottom: 2px;
+  height: 48px; /* Give it enough height for year, month, and coc marker */
+}
+.year-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border-subtle);
+  border-right: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-elevated);
+  z-index: 10;
+  height: 16px;
+  line-height: 16px;
+  box-sizing: border-box;
+}
+.month-label {
+  font-weight: bold;
+  z-index: 1;
+}
+
+.coc-marker {
+  position: absolute;
+  bottom: -6px; /* Offset below the month name */
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-primary);
+  font-size: 10px;
+  line-height: 1;
+  z-index: 3;
+}
+
+.cell-deployment {
+  background-color: #bbf7d0; /* green-200 */
+}
+.cell-workup {
+  background-color: #e5e7eb; /* gray-200 */
+}
+
+/* Specific Row Styles */
+.y2-color { background-color: #fca5a5; } /* red-300 */
+.y3-color { background-color: #fdba74; } /* orange-300 */
+
+/* Tooltip Styles */
+.tooltip-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.officer-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  background: rgba(17, 24, 39, 0.95); /* Gray-900 with glassmorphism */
+  backdrop-filter: blur(8px);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  width: max-content;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+
+.officer-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent rgba(17, 24, 39, 0.95) transparent transparent;
+}
+
+.tooltip-container:hover .officer-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-50%) translateX(5px);
+}
+
+.tt-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-primary);
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 4px;
+}
+
+.tt-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  gap: 16px;
+}
+.tt-label {
+  color: #9ca3af; /* Gray-400 */
+}
+.tt-value {
+  font-weight: 500;
+}
+
+.row-posted {
+  background-color: #c084fc; /* purple */
+  color: #000;
+}
+
+/* Timeline presence fill */
+.presence-fill {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  background-color: #86efac; /* green-300 */
+  border-top: 1px solid #22c55e;
+  border-bottom: 1px solid #22c55e;
+  z-index: 1;
+}
+.presence-overlap {
+  background-color: #c084fc; /* purple */
+  border-top: 1px solid #9333ea;
+  border-bottom: 1px solid #9333ea;
+}
+.presence-prospective {
+  background-color: #38bdf8; /* light blue */
+  border-top: 1px solid #0284c7;
+  border-bottom: 1px solid #0284c7;
+}
+/* Connect borders between adjacent filled cells */
+.presence-fill.connect-left {
+  left: -1px;
+}
+.presence-fill.connect-right {
+  right: -1px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal-overlay.hidden {
+  display: none;
+}
+.modal-content {
+  background-color: var(--color-bg-base);
+  border-radius: var(--radius-md);
+  width: 400px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+.modal-header {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-header h3 {
+  margin: 0;
+  font-size: var(--type-body-lg);
+  font-family: var(--font-display);
+}
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+.modal-body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1;
+}
+.form-group label {
+  font-size: var(--type-body-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+.form-input {
+  padding: 6px 8px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+.form-row {
+  display: flex;
+  gap: var(--space-3);
+}
+.modal-footer {
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
 /* Scoped style from: src/modules/officer/officer.css */
 /* 
  * src/modules/officer/officer.css
@@ -1176,7 +1681,7 @@
         <div class="empty-placeholder">Select an officer using the search bar at the top to view their deep profile, historical PRD audit log, and parsed performance timeline.</div>
       </div>
 
-      <!-- View 3: Command Health Panel -->
+      <!-- View 3: Command Health Panel (Dashboard) -->
       <div class="panel-card" id="panel-commands" style="display: none;">
         <div class="panel-header">
           <h2>Command Manning Health</h2>
@@ -1184,6 +1689,11 @@
         <div class="command-health-grid" id="command-list-container">
           <!-- Command items render here -->
         </div>
+      </div>
+
+      <!-- View 4: Command Tracker (Detailed Waterfall) -->
+      <div class="panel-card" id="panel-command-tracker" style="display: none; padding: 0; border: none;">
+        <!-- Command module mounts here -->
       </div>
 
     </div>
@@ -1210,6 +1720,42 @@
       <div class="modal-footer">
         <button class="btn btn-sm" style="background-color: var(--color-bg-surface); color: var(--color-text-primary); border: 1px solid var(--color-border-default);" onclick="closeAckModal()">Cancel</button>
         <button class="btn btn-sm btn-primary" id="modal-btn-confirm">Acknowledge & Sync</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Historical PRD Shift Modal -->
+  <div class="modal" id="modal-prd">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h3>Historical PRD Shift & Governance</h3>
+        <button class="modal-close" onclick="closePrdModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-2);">
+          <span style="font-weight: 600; color: var(--color-text-primary);" id="prd-modal-officer-name"></span>
+          <span class="badge badge--gray" id="prd-modal-oais-prd"></span>
+        </div>
+        
+        <div class="prd-override-form" style="margin-top: 0; background: var(--color-bg-base); padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--color-border-subtle);">
+          <h4 class="prd-override-title" style="margin-bottom: var(--space-3); font-size: var(--type-body-sm);">Expert-in-the-Loop PRD Shift</h4>
+          <div class="prd-override-grid" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-1);">
+              <span class="form-label" style="font-size: var(--type-data-xs); color: var(--color-text-secondary);">New Target Date (YYYY-MM-DD)</span>
+              <input type="text" class="text-input" id="prd-modal-form-new-prd" placeholder="YYYY-MM-DD" style="padding: 8px; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);">
+            </div>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-1);">
+              <span class="form-label" style="font-size: var(--type-data-xs); color: var(--color-text-secondary);">Justification Note (Required)</span>
+              <input type="text" class="text-input" id="prd-modal-form-reason" placeholder="e.g., CO requested shift / school delay..." style="padding: 8px; border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm);">
+            </div>
+            <button class="btn btn-sm btn-primary" id="prd-modal-btn-submit" style="align-self: flex-start;">Update & Sync</button>
+          </div>
+        </div>
+
+        <h4 style="margin-top: var(--space-4); margin-bottom: var(--space-2); font-size: var(--type-body-sm); color: var(--color-text-primary);">Historical PRD Shift Log</h4>
+        <div class="audit-log-container" id="prd-modal-audit-logs" style="max-height: 200px; overflow-y: auto; background: var(--color-bg-base); padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--color-border-subtle);">
+          <!-- Logs render here -->
+        </div>
       </div>
     </div>
   </div>
@@ -1354,8 +1900,11 @@
  * @property {UIC} uic
  * @property {string} name
  * @property {number} billetsAuthorized - BA
+ * @property {number} [paa] - Primary Aircraft Authorization
  * @property {DateString} [deploymentWindowStart]
  * @property {DateString} [deploymentWindowEnd]
+ * @property {DateString} [workupWindowStart]
+ * @property {DateString} [workupWindowEnd]
  * @property {boolean} [tacticalPivotFlag] - Manual override for fill priority
  * @property {BSC[]} [billetsPriority] - Pop-up Vacancies / Senior Slates unfilled seats queue
  * @property {BSC[]} billets - List of BSCs under this command
@@ -1519,6 +2068,22 @@ function parseSupplyData(rawText) {
   const uicIdx = headers.indexOf('AAUIC');
   const prdIdx = headers.indexOf('IPRD');
   const scrnIdx = headers.indexOf('ICOMM.SCRN.RSLT');
+  const bscIdx = headers.indexOf('BBSC');
+  const ygIdx = headers.indexOf('IYR.GRP');
+  const aqdIdx = headers.indexOf('IAQD');
+  const recdIdx = headers.indexOf('IRECD.DT');
+  const btitleIdx = headers.indexOf('BBTITLE');
+  const asnameIdx = headers.indexOf('ASNAME');
+  
+  // Prospective replacement indices
+  const pNameIdx = headers.indexOf('PNAME');
+  const pFillIdx = headers.indexOf('PFILL.DT');
+  const pEddIdx = headers.indexOf('PEDD');
+  const pDesigIdx = headers.indexOf('PDESIG');
+  const pRankIdx = headers.indexOf('PRANK');
+  
+  // Past Command
+  const pastCmdIdx = headers.indexOf('IPAST1.SNAME');
   
   if (ssnIdx === -1) {
     throw new Error('Crucial field "ISSN" missing in SUPPLY file headers.');
@@ -1538,6 +2103,25 @@ function parseSupplyData(rawText) {
     const currentUIC = uicIdx !== -1 ? row[uicIdx].trim() : '';
     const oaisPRD = prdIdx !== -1 ? parseDate(row[prdIdx]) : '';
     const scrnResult = scrnIdx !== -1 ? row[scrnIdx].trim() : '';
+    const bsc = bscIdx !== -1 ? row[bscIdx].trim() : '';
+    const yg = ygIdx !== -1 ? row[ygIdx].trim() : '';
+    const aqd = aqdIdx !== -1 ? row[aqdIdx].trim() : '';
+    const reportedDate = recdIdx !== -1 ? parseDate(row[recdIdx]) : '';
+    const billetTitle = btitleIdx !== -1 ? row[btitleIdx].trim() : '';
+    const cmdName = asnameIdx !== -1 ? row[asnameIdx].trim() : '';
+    
+    let prospectiveReplacement = null;
+    if (pNameIdx !== -1 && row[pNameIdx] && row[pNameIdx].trim() !== '') {
+      prospectiveReplacement = {
+        name: row[pNameIdx].trim(),
+        fillDate: pFillIdx !== -1 ? parseDate(row[pFillIdx]) : '',
+        edd: pEddIdx !== -1 ? parseDate(row[pEddIdx]) : '',
+        designator: pDesigIdx !== -1 ? row[pDesigIdx].trim() : '',
+        rank: pRankIdx !== -1 ? row[pRankIdx].trim() : ''
+      };
+    }
+    
+    const pastCommand = pastCmdIdx !== -1 ? row[pastCmdIdx].trim() : '';
     
     officers[ssn] = {
       ssn,
@@ -1546,7 +2130,15 @@ function parseSupplyData(rawText) {
       designator,
       currentUIC,
       oaisPRD,
+      reportedDate,
+      prospectiveReplacement,
+      pastCommand,
       scrnResult,
+      bsc,
+      yg,
+      aqd,
+      billetTitle,
+      cmdName,
       fitrepHistory: [],
       recordGrade: null,
       ineligibilityTriggers: [],
@@ -1955,6 +2547,457 @@ function generateCOIntentAlerts(coExport, intentDb) {
   return alerts;
 }
 
+// --- Compiled Module: src/modules/command/command.js ---
+/**
+ * src/modules/command/command.js
+ */
+
+class CommandModule {
+  static getMonthLetter(monthIndex) {
+    const letters = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'];
+    return letters[monthIndex];
+  }
+
+  static generateTimelineColumns() {
+    const now = new Date();
+    const cols = [];
+    let currentYear = now.getFullYear();
+    let currentMonth = now.getMonth();
+
+    for (let i = 0; i < 36; i++) {
+      cols.push({
+        year: currentYear,
+        month: currentMonth,
+        label: this.getMonthLetter(currentMonth)
+      });
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+    }
+    return cols;
+  }
+
+  static isDateInMonth(startDate, endDate, year, month) {
+    const cellTime = year * 12 + month;
+    
+    let startTime = 0;
+    if (startDate) {
+      const sy = parseInt(startDate.substring(0, 4));
+      const sm = startDate.includes('-') ? parseInt(startDate.substring(5, 7)) - 1 : parseInt(startDate.substring(4, 6)) - 1;
+      startTime = sy * 12 + sm;
+    } else {
+      startTime = new Date().getFullYear() * 12 + new Date().getMonth();
+    }
+    
+    let endTime = 999999;
+    if (endDate) {
+      const ey = parseInt(endDate.substring(0, 4));
+      const em = endDate.includes('-') ? parseInt(endDate.substring(5, 7)) - 1 : parseInt(endDate.substring(4, 6)) - 1;
+      endTime = ey * 12 + em;
+    }
+    
+    return cellTime >= startTime && cellTime <= endTime;
+  }
+
+  static formatDate(dateStr, format) {
+    if (!dateStr || dateStr.length < 6) return '';
+    let yStr, mStr, dStr;
+    if (dateStr.includes('-')) {
+      yStr = dateStr.substring(0, 4);
+      mStr = dateStr.substring(5, 7);
+      dStr = dateStr.length >= 10 ? dateStr.substring(8, 10) : '15';
+    } else {
+      yStr = dateStr.substring(0, 4);
+      mStr = dateStr.substring(4, 6);
+      dStr = dateStr.length >= 8 ? dateStr.substring(6, 8) : '15';
+    }
+    
+    const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const monthIdx = parseInt(mStr, 10) - 1;
+    if (monthIdx < 0 || monthIdx > 11) return '';
+    const yy = yStr.substring(2, 4);
+    
+    if (format === 'DD MMM YY') {
+      return `${dStr} ${monthNames[monthIdx]} ${yy}`;
+    }
+    if (format === 'MMM YY') {
+      return `${monthNames[monthIdx]} ${yy}`;
+    }
+    return '';
+  }
+
+  static calculateTourLength(startStr, endStr) {
+    if (!startStr || !endStr || startStr.length < 6 || endStr.length < 6) return '';
+    const sy = parseInt(startStr.substring(0, 4));
+    const sm = startStr.includes('-') ? parseInt(startStr.substring(5, 7)) - 1 : parseInt(startStr.substring(4, 6)) - 1;
+    const ey = parseInt(endStr.substring(0, 4));
+    const em = endStr.includes('-') ? parseInt(endStr.substring(5, 7)) - 1 : parseInt(endStr.substring(4, 6)) - 1;
+    const months = (ey - sy) * 12 + (em - sm);
+    return isNaN(months) ? '' : months;
+  }
+
+  static renderOfficerRow(officer, timelineCols, uic) {
+    let rowClass = 'sheet-row';
+    
+    const currentIntentPRD = officer.placementIntent && officer.placementIntent.intentPRD ? officer.placementIntent.intentPRD : officer.oaisPRD;
+    const reported = officer.reportedDate || '';
+    const pStaff = officer.prospectiveReplacement;
+    
+    const reportedFmt = this.formatDate(reported, 'DD MMM YY');
+    const prdFmt = this.formatDate(currentIntentPRD, 'MMM YY');
+    const tourLen = this.calculateTourLength(reported, currentIntentPRD);
+    
+    // Stacked rendering if P-Staff exists
+    const pName = pStaff ? `<div class="p-staff-text">${pStaff.name}</div>` : '';
+    const pRank = pStaff ? `<div class="p-staff-text">${pStaff.rank}</div>` : '';
+    const pDesig = pStaff ? `<div class="p-staff-text">${pStaff.designator}</div>` : '';
+    
+    // Tooltip injection
+    const pastCmd = officer.pastCommand || 'N/A';
+    const nextPromo = 'FY28 LCDR';
+    const nextAdmin = 'DH SCREEN';
+
+    const nameLink = `
+      <div class="tooltip-container">
+        <a href="#officer/${officer.ssn}?fromCmd=${uic}" class="officer-link">${officer.name || ''}</a>
+        <div class="officer-tooltip">
+          <div class="tt-title">Officer Insights</div>
+          <div class="tt-row">
+            <span class="tt-label">Prev Command:</span>
+            <span class="tt-value">${pastCmd}</span>
+          </div>
+          <div class="tt-row">
+            <span class="tt-label">Next Promo:</span>
+            <span class="tt-value">${nextPromo}</span>
+          </div>
+          <div class="tt-row">
+            <span class="tt-label">Next Admin:</span>
+            <span class="tt-value">${nextAdmin}</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Make PRD clickable for modal
+    const prdInteractiveHtml = `
+      <div class="tooltip-container" style="cursor: pointer; text-decoration: underline;" onclick="if(window.openPrdModal) window.openPrdModal('${officer.ssn}')">
+        ${prdFmt}
+        <div class="officer-tooltip" style="left: auto; right: 100%; transform: translateX(-10px);">
+          Click to manage PRD Governance / Extension Log
+        </div>
+      </div>
+    `;
+
+    let html = `
+      <div class="${rowClass}">
+        <div class="cell col-bsc sticky-col"><div>${officer.bsc || ''}</div></div>
+        <div class="cell col-rank sticky-col"><div>${officer.rank || ''}</div>${pRank}</div>
+        <div class="cell col-desig sticky-col"><div>${officer.designator || ''}</div>${pDesig}</div>
+        <div class="cell col-name sticky-col"><div>${nameLink}</div>${pName}</div>
+        <div class="cell col-callsign sticky-col"><div>${officer.callsign || ''}</div></div>
+        <div class="cell col-yg sticky-col"><div>${(officer.yg || '').substring(2,4) || ''}</div></div>
+        <div class="cell col-qual sticky-col"><div>${officer.aqd || ''}</div></div>
+        <div class="cell col-recd sticky-col"><div>${reportedFmt}</div></div>
+        <div class="cell col-tour sticky-col"><div>${tourLen ? tourLen : ''}</div></div>
+        <div class="cell col-prd sticky-col"><div>${prdInteractiveHtml}</div></div>
+    `;
+    
+    for (let i = 0; i < timelineCols.length; i++) {
+      const col = timelineCols[i];
+      
+      const isCurrPresent = this.isDateInMonth(reported, currentIntentPRD, col.year, col.month);
+      const isLegalPresent = this.isDateInMonth(reported, officer.oaisPRD, col.year, col.month);
+      const isExtension = isCurrPresent && !isLegalPresent; // If present legally, it's green. If present outside legal PRD, it's yellow extension.
+
+      const isPPresent = pStaff ? this.isDateInMonth(pStaff.fillDate, pStaff.edd, col.year, col.month) : false;
+      
+      const prevCurrPresent = i > 0 && this.isDateInMonth(reported, currentIntentPRD, timelineCols[i-1].year, timelineCols[i-1].month);
+      const nextCurrPresent = i < timelineCols.length - 1 && this.isDateInMonth(reported, currentIntentPRD, timelineCols[i+1].year, timelineCols[i+1].month);
+      const prevPPresent = pStaff && i > 0 && this.isDateInMonth(pStaff.fillDate, pStaff.edd, timelineCols[i-1].year, timelineCols[i-1].month);
+      const nextPPresent = pStaff && i < timelineCols.length - 1 && this.isDateInMonth(pStaff.fillDate, pStaff.edd, timelineCols[i+1].year, timelineCols[i+1].month);
+      
+      let fillClass = '';
+      let extensionClass = isExtension ? ' presence-extension' : '';
+      
+      if (isCurrPresent && isPPresent) {
+        fillClass = 'presence-fill presence-overlap' + extensionClass;
+        if ((prevCurrPresent && prevPPresent) || prevCurrPresent || prevPPresent) fillClass += ' connect-left';
+        if ((nextCurrPresent && nextPPresent) || nextCurrPresent || nextPPresent) fillClass += ' connect-right';
+      } else if (isCurrPresent) {
+        fillClass = 'presence-fill' + extensionClass;
+        if (prevCurrPresent) fillClass += ' connect-left';
+        if (nextCurrPresent) fillClass += ' connect-right';
+      } else if (isPPresent) {
+        fillClass = 'presence-fill presence-prospective';
+        if (prevPPresent) fillClass += ' connect-left';
+        if (nextPPresent) fillClass += ' connect-right';
+      }
+      
+      const cmd = typeof window !== 'undefined' && window.masterDb ? window.masterDb.commands[uic] : { assignedOfficers: [] }; 
+
+      html += `
+        <div class="cell cell-month">
+          ${fillClass !== '' ? `<div class="${fillClass}"></div>` : ''}
+        </div>
+      `;
+    }
+    html += `</div>`;
+    
+    return html;
+  }
+
+  static mount(containerSelector, uic, masterDb, onBackClick) {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const template = document.getElementById('template-command');
+    if (!template) {
+      container.innerHTML = '<div class="empty-placeholder">Error: Template template-command not found.</div>';
+      return;
+    }
+
+    const cmd = masterDb.commands[uic];
+    if (!cmd) return;
+
+    container.innerHTML = '';
+    const clone = template.content.cloneNode(true);
+    container.appendChild(clone);
+
+    // Header updates
+    document.getElementById('cmd-header-name').innerText = cmd.name;
+    document.getElementById('cmd-header-uic').innerText = `UIC: ${uic}`;
+    
+    // Metrics panel updates
+    document.getElementById('cmd-metric-paa').innerText = cmd.paa || 'N/A';
+    document.getElementById('cmd-metric-ba').innerText = cmd.billetsAuthorized || 'N/A';
+    
+    if (cmd.workupWindowStart && cmd.workupWindowEnd) {
+      document.getElementById('cmd-metric-workup').innerText = `${this.formatDate(cmd.workupWindowStart, 'MMM YY')} - ${this.formatDate(cmd.workupWindowEnd, 'MMM YY')}`;
+    }
+    
+    if (cmd.deploymentWindowStart && cmd.deploymentWindowEnd) {
+      document.getElementById('cmd-metric-deploy').innerText = `${this.formatDate(cmd.deploymentWindowStart, 'MMM YY')} - ${this.formatDate(cmd.deploymentWindowEnd, 'MMM YY')}`;
+    }
+    
+    document.getElementById('ct-btn-back').addEventListener('click', () => {
+      if (onBackClick) onBackClick();
+    });
+
+    const officers = cmd.assignedOfficers.map(ssn => masterDb.officers[ssn]).filter(Boolean);
+    
+    // Sort officers by BSC
+    officers.sort((a, b) => {
+      const bscA = a.bsc || '99999';
+      const bscB = b.bsc || '99999';
+      return bscA.localeCompare(bscB);
+    });
+
+    // Grouping Logic
+    const groups = {
+      'FRONT OFFICE': [],
+      'DEPARTMENT HEADS': [],
+      'TRAINING OFFICER': [],
+      'SUPER JO': [],
+      'PILOTS (131X)': [],
+      'WSO (132X)': [],
+      'POUNDERS': []
+    };
+
+    // F-18F logic: 2 lowest BSC of 1310 and 1320 (excluding Front Office) go to Dept Heads.
+    // We will separate them, extract CO/XO, then apply logic.
+    let remaining = [...officers];
+    
+    // Extract Front Office
+    groups['FRONT OFFICE'] = remaining.filter(o => o.billetTitle === 'SQN CO' || o.billetTitle === 'SQN XO' || o.billetTitle === 'PXO');
+    remaining = remaining.filter(o => !groups['FRONT OFFICE'].includes(o));
+
+    const pilots1310 = remaining.filter(o => o.designator === '1310' || o.designator === '1311');
+    const wso1320 = remaining.filter(o => o.designator === '1320' || o.designator === '1321');
+    const isF18F = pilots1310.length > 0 && wso1320.length > 0;
+    
+    document.getElementById('metric-card-pilots').style.display = 'flex';
+    document.getElementById('cmd-metric-pilots').innerText = pilots1310.length + groups['FRONT OFFICE'].filter(o => o.designator.startsWith('131')).length;
+
+    if (isF18F) {
+      document.getElementById('metric-card-wsos').style.display = 'flex';
+      document.getElementById('cmd-metric-wsos').innerText = wso1320.length + groups['FRONT OFFICE'].filter(o => o.designator.startsWith('132')).length;
+    }
+
+    if (isF18F) {
+      // take top 2 of each for Dept Heads
+      const dhPilots = pilots1310.slice(0, 2);
+      const dhWso = wso1320.slice(0, 2);
+      groups['DEPARTMENT HEADS'].push(...dhPilots, ...dhWso);
+      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+    } else {
+      // standard logic
+      const dhs = remaining.filter(o => o.billetTitle === 'SQN DEPT HD');
+      groups['DEPARTMENT HEADS'].push(...dhs);
+      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+    }
+
+    // Assign rest
+    remaining.forEach(o => {
+      if (o.designator === '1310' || o.designator === '1311') groups['PILOTS (131X)'].push(o);
+      else if (o.designator === '1320' || o.designator === '1321') groups['WSO (132X)'].push(o);
+      else groups['POUNDERS'].push(o);
+    });
+
+    // Find CO's PRD for CoC marker
+    let coPrdYear = -1;
+    let coPrdMonth = -1;
+    const co = cmd.assignedOfficers.map(ssn => masterDb.officers[ssn]).find(o => o && o.billetTitle === 'SQN CO');
+    if (co) {
+      const prd = co.placementIntent && co.placementIntent.intentPRD ? co.placementIntent.intentPRD : co.oaisPRD;
+      if (prd && prd.length >= 6) {
+        coPrdYear = parseInt(prd.substring(0, 4));
+        coPrdMonth = parseInt(prd.substring(4, 6).replace('-', '')) - 1; // handle both YYYY-MM and YYYYMM
+        if (prd.includes('-')) coPrdMonth = parseInt(prd.substring(5, 7)) - 1;
+      }
+    }
+
+    const timelineCols = this.generateTimelineColumns();
+    
+    // Render Timeline Header
+    const tHeader = document.getElementById('ct-table-header');
+    
+    // We want to remove previously appended month headers if any, but since we recreate innerHTML of body we should also reset the header to just the fixed ones
+    // The fixed headers end at col-prd. We can query for them and keep them.
+    const fixedHeaders = Array.from(tHeader.querySelectorAll('.sticky-col'));
+    tHeader.innerHTML = '';
+    fixedHeaders.forEach(el => tHeader.appendChild(el));
+
+    let currentYearSpan = 0;
+    
+    timelineCols.forEach((c, index) => {
+      let cellBgClass = '';
+      const isDeploy = this.isDateInMonth(cmd.deploymentWindowStart, cmd.deploymentWindowEnd, c.year, c.month);
+      const isWorkup = this.isDateInMonth(cmd.workupWindowStart, cmd.workupWindowEnd, c.year, c.month);
+      if (isDeploy) cellBgClass = 'cell-deployment';
+      else if (isWorkup) cellBgClass = 'cell-workup';
+
+      const cell = document.createElement('div');
+      cell.className = 'cell cell-month cell-month-header';
+      cell.title = `${c.year}-${c.month+1}`;
+      
+      const isCoC = (c.year === coPrdYear && c.month === coPrdMonth);
+      const markerHtml = isCoC ? `<div class="coc-marker">▼</div>` : '';
+      
+      // Year logic: display year if it's Jan (month 0) or the first column
+      let yearHtml = '';
+      if (index === 0 || c.month === 0) {
+        // Calculate how many months are left in this year for the span
+        const monthsLeftInYear = 12 - c.month;
+        const totalRemaining = timelineCols.length - index;
+        const span = Math.min(monthsLeftInYear, totalRemaining);
+        const width = span * 36; // 36px per cell
+        yearHtml = `<div class="year-label" style="width: ${width}px;">${c.year}</div>`;
+      }
+      
+      cell.innerHTML = `
+        ${yearHtml}
+        <div class="${cellBgClass}" style="position: absolute; bottom: 0; left: 0; right: 0; height: 32px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 2px;">
+          <span class="month-label">${monthNames[c.month].substring(0, 1)}</span>
+          ${markerHtml}
+        </div>
+      `;
+      tHeader.appendChild(cell);
+    });
+
+    const tableBody = document.getElementById('ct-table-body');
+    tableBody.innerHTML = '';
+
+    // Render groups
+    for (const [groupName, groupOfficers] of Object.entries(groups)) {
+      if (groupOfficers.length === 0) continue;
+
+      // Render group header (covers all columns visually)
+      tableBody.innerHTML += `<div class="sheet-row group-header">${groupName}</div>`;
+
+      // Render officers
+      groupOfficers.forEach(off => {
+        tableBody.innerHTML += this.renderOfficerRow(off, timelineCols, uic, cmd);
+      });
+    }
+
+    // Render footer calculations
+    const footerContainer = document.getElementById('ct-table-footer');
+    footerContainer.innerHTML = '';
+    // empty blocks for fixed headers
+    footerContainer.innerHTML += `
+      <div class="cell col-bsc sticky-col"></div>
+      <div class="cell col-rank sticky-col"></div>
+      <div class="cell col-desig sticky-col"></div>
+      <div class="cell col-name sticky-col" style="justify-content: flex-end; font-weight: bold;">MONTHLY ASSIGNED</div>
+      <div class="cell col-callsign sticky-col"></div>
+      <div class="cell col-yg sticky-col"></div>
+      <div class="cell col-qual sticky-col"></div>
+      <div class="cell col-recd sticky-col"></div>
+      <div class="cell col-tour sticky-col"></div>
+      <div class="cell col-prd sticky-col"></div>
+    `;
+
+    timelineCols.forEach(col => {
+      let pilotsCount = 0;
+      let wsoCount = 0;
+      
+      officers.forEach(off => {
+        const currentIntentPRD = off.placementIntent && off.placementIntent.intentPRD ? off.placementIntent.intentPRD : off.oaisPRD;
+        if (this.isDateInMonth(off.reportedDate, currentIntentPRD, col.year, col.month)) {
+          if (off.designator && off.designator.startsWith('131')) pilotsCount++;
+          if (off.designator && off.designator.startsWith('132')) wsoCount++;
+        }
+      });
+      
+      let content = `P: ${pilotsCount}`;
+      if (isF18F) content = `P: ${pilotsCount}<br/>W: ${wsoCount}`;
+
+      footerContainer.innerHTML += `
+        <div class="cell cell-month" style="font-size: 9px; color: var(--color-text-secondary); line-height: 1.2; flex-direction: column; justify-content: center; overflow: visible;">
+          ${content}
+        </div>
+      `;
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('ct-info-modal');
+    const btnInfo = document.getElementById('ct-btn-info');
+    const btnCloseModal = document.getElementById('ct-btn-close-modal');
+    const btnSaveModal = document.getElementById('ct-btn-save-modal');
+
+    if (btnInfo && modal) {
+      btnInfo.addEventListener('click', () => {
+        document.getElementById('ct-input-paa').value = cmd.paa || '';
+        document.getElementById('ct-input-ba').value = cmd.billetsAuthorized || '';
+        document.getElementById('ct-input-workup-start').value = cmd.workupWindowStart || '';
+        document.getElementById('ct-input-workup-end').value = cmd.workupWindowEnd || '';
+        document.getElementById('ct-input-deploy-start').value = cmd.deploymentWindowStart || '';
+        document.getElementById('ct-input-deploy-end').value = cmd.deploymentWindowEnd || '';
+        modal.classList.remove('hidden');
+      });
+
+      btnCloseModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+
+      btnSaveModal.addEventListener('click', () => {
+        cmd.paa = parseInt(document.getElementById('ct-input-paa').value) || undefined;
+        cmd.billetsAuthorized = parseInt(document.getElementById('ct-input-ba').value) || undefined;
+        cmd.workupWindowStart = document.getElementById('ct-input-workup-start').value || undefined;
+        cmd.workupWindowEnd = document.getElementById('ct-input-workup-end').value || undefined;
+        cmd.deploymentWindowStart = document.getElementById('ct-input-deploy-start').value || undefined;
+        cmd.deploymentWindowEnd = document.getElementById('ct-input-deploy-end').value || undefined;
+        
+        modal.classList.add('hidden');
+        // Re-render to show new timeline shading
+        this.mount(containerSelector, uic, masterDb, onBackClick);
+      });
+    }
+  }
+}
+
 // --- Compiled Module: src/modules/officer/officer.js ---
 /**
  * src/modules/officer/officer.js
@@ -2091,7 +3134,7 @@ class OfficerModule {
    * @param {Object} masterDb In-memory Master Database state
    * @param {Function} onStateChange Callback triggered when state mutations occur
    */
-  static mount(containerSelector, ssn, masterDb, onStateChange) {
+  static mount(containerSelector, ssn, masterDb, fromCmd, onStateChange) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
@@ -2149,10 +3192,22 @@ class OfficerModule {
     const isMismatch = officer.oaisPRD && currentIntentPRD !== officer.oaisPRD;
 
     // 4. Bind Career Dossier text fields
+    document.getElementById('opt-header-name').innerText = `Officer Dossier: ${officer.name || 'Unknown'}`;
     document.getElementById('opt-full-name').innerText = officer.name || 'Unknown';
     document.getElementById('opt-rank').innerText = officer.rank || 'N/A';
     document.getElementById('opt-designator').innerText = officer.designator || 'N/A';
     document.getElementById('opt-ssn').innerText = officer.ssn || 'N/A';
+    
+    // Bind Back Button if applicable
+    const backBtn = document.getElementById('btn-profile-back');
+    if (fromCmd) {
+      backBtn.style.display = 'block';
+      backBtn.addEventListener('click', () => {
+        window.location.hash = `#commandTracker/${fromCmd}`;
+      });
+    } else {
+      backBtn.style.display = 'none';
+    }
     
     // Status Badge customization
     const statusBadge = document.getElementById('opt-status-badge');
@@ -2172,6 +3227,11 @@ class OfficerModule {
     
     const intentPrdNode = document.getElementById('opt-intent-prd');
     intentPrdNode.innerText = currentIntentPRD || 'N/A';
+    intentPrdNode.style.cursor = 'pointer';
+    intentPrdNode.style.textDecoration = 'underline';
+    intentPrdNode.addEventListener('click', () => {
+      if (window.openPrdModal) window.openPrdModal(ssn);
+    });
     
     // Display discrepancy row and alert state if legal and intent disagree
     const discrepancyRow = document.getElementById('prd-discrepancy-row');
@@ -2205,75 +3265,11 @@ class OfficerModule {
     fullGradeBadge.className = `badge badge--${calculatedGrade === 'A' ? 'green' : (calculatedGrade === 'B' ? 'amber' : 'gray')}`;
 
     this.renderFitrepTimeline(fullTimelineContainer, history, ssn, 'full', onStateChange);
-
-    // 8. Bind PRD Shift Overrides card
-    const prdDateInput = document.getElementById('form-new-prd');
-    const prdReasonInput = document.getElementById('form-prd-reason');
-    const submitBtn = document.getElementById('btn-submit-prd');
-
-    prdDateInput.value = currentIntentPRD || '';
-    
-    submitBtn.addEventListener('click', () => {
-      const newPRD = prdDateInput.value.trim();
-      const reason = prdReasonInput.value.trim();
-
-      if (!newPRD || !reason) {
-        alert('Covenant Governance: Both a target PRD and a change justification note are required.');
-        return;
-      }
-
-      if (!/^\d{4}-\d{2}-\d{2}$/.test(newPRD)) {
-        alert('Covenant Governance: Date must match YYYY-MM-DD format.');
-        return;
-      }
-
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-      
-      officer.placementIntent.intentPRD = newPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: newPRD,
-        source: 'Detailer Update',
-        user: 'Detailer',
-        changeNote: reason
-      });
-
-      if (onStateChange) {
-        onStateChange(ssn);
-      }
-    });
-
-    // 9. Draw PRD Governance Audit logs
-    const auditLogsContainer = document.getElementById('prd-audit-logs');
-    auditLogsContainer.innerHTML = '';
-    const logEntries = officer.placementIntent.historicalPRDLog || [];
-    
-    if (logEntries.length === 0) {
-      auditLogsContainer.innerHTML = '<div class="empty-placeholder" style="padding: var(--space-3); font-size: var(--type-data-xs);">No historical changes logged.</div>';
-    } else {
-      logEntries.forEach(log => {
-        const div = document.createElement('div');
-        div.className = 'audit-log-card';
-        div.innerHTML = `
-          <div class="audit-log-meta">
-            <span>👤 ${log.user} (${log.source})</span>
-            <span>📅 ${log.date}</span>
-          </div>
-          <div class="audit-log-shift">
-            ${log.oldPRD} ➔ ${log.newPRD}
-          </div>
-          <div class="audit-log-note">
-            ${log.changeNote}
-          </div>
-        `;
-        auditLogsContainer.appendChild(div);
-      });
-    }
   }
 }
 
 
+    
     
     
     
@@ -2399,6 +3395,7 @@ class OfficerModule {
       document.getElementById('panel-ingestion').style.display = 'none';
       document.getElementById('panel-alerts').style.display = 'none';
       document.getElementById('panel-commands').style.display = 'none';
+      document.getElementById('panel-command-tracker').style.display = 'none';
       document.getElementById('panel-profile-container').style.display = 'none';
 
       // Toggle centered search bar and top nav visibility depending on data status
@@ -2414,10 +3411,23 @@ class OfficerModule {
       }
 
       if (hash.startsWith('#officer/')) {
-        const ssn = hash.substring('#officer/'.length);
+        let ssn = hash.substring('#officer/'.length);
+        let fromCmd = null;
+        if (ssn.includes('?fromCmd=')) {
+          const parts = ssn.split('?fromCmd=');
+          ssn = parts[0];
+          fromCmd = parts[1];
+        }
         activeOfficerSsn = ssn;
         document.getElementById('panel-profile-container').style.display = 'block';
-        renderOfficerProfile(ssn);
+        renderOfficerProfile(ssn, fromCmd);
+      } else if (hash.startsWith('#commandTracker/')) {
+        const uic = hash.substring('#commandTracker/'.length);
+        document.getElementById('nav-commands-link').classList.add('active');
+        document.getElementById('panel-command-tracker').style.display = 'block';
+        CommandModule.mount('#panel-command-tracker', uic, masterDb, () => {
+          window.location.hash = '#commands';
+        });
       } else if (hash === '#commands') {
         document.getElementById('nav-commands-link').classList.add('active');
         document.getElementById('panel-commands').style.display = 'block';
@@ -2441,6 +3451,7 @@ class OfficerModule {
       input.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
           handler(e.target.files[0]);
+          e.target.value = '';
         }
       });
 
@@ -2606,7 +3617,12 @@ class OfficerModule {
       renderAlerts();
       renderCommandsPanel();
       if (activeOfficerSsn) {
-        renderOfficerProfile(activeOfficerSsn);
+        // Find if we were on a fromCmd hash
+        let fromCmd = null;
+        if (window.location.hash.includes('?fromCmd=')) {
+          fromCmd = window.location.hash.split('?fromCmd=')[1];
+        }
+        renderOfficerProfile(activeOfficerSsn, fromCmd);
       }
     }
 
@@ -2753,8 +3769,8 @@ class OfficerModule {
 
     // --- OFFICER DETAILED PROFILE RENDER (Via OfficerModule) ---
 
-    function renderOfficerProfile(ssn) {
-      OfficerModule.mount('#panel-profile-container', ssn, masterDb, (updatedSsn, isBreakoutOnly) => {
+    function renderOfficerProfile(ssn, fromCmd = null) {
+      OfficerModule.mount('#panel-profile-container', ssn, masterDb, fromCmd, (updatedSsn, isBreakoutOnly) => {
         // Callback handles PRD updates or Hard Breakout overrides
         if (!isBreakoutOnly) {
           // Sync local intent db copy
@@ -2800,6 +3816,7 @@ class OfficerModule {
 
         const card = document.createElement('div');
         card.className = 'command-health-card';
+        card.style.cursor = 'pointer';
         card.innerHTML = `
           <div class="command-h-header">
             <span class="command-h-title">${cmd.name}</span>
@@ -2813,6 +3830,11 @@ class OfficerModule {
             <span>Assigned: <strong>${assignedCount} / ${ba} BA</strong></span>
           </div>
         `;
+        
+        card.addEventListener('click', () => {
+          window.location.hash = `#commandTracker/${uic}`;
+        });
+        
         list.appendChild(card);
       }
     }
@@ -2830,12 +3852,234 @@ class OfficerModule {
       downloadAnchor.click();
       downloadAnchor.remove();
     }
+
+    // --- UNIFIED PRD MODAL HANDLERS ---
+    window._activePrdSsn = null;
+    
+    window.openPrdModal = function(ssn) {
+      if (!masterDb || !masterDb.officers || !masterDb.officers[ssn]) return;
+      const officer = masterDb.officers[ssn];
+      window._activePrdSsn = ssn;
+      
+      const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+      
+      document.getElementById('prd-modal-officer-name').innerText = officer.name || 'Unknown';
+      document.getElementById('prd-modal-oais-prd').innerText = `Legal OAIS PRD: ${officer.oaisPRD || 'N/A'}`;
+      
+      document.getElementById('prd-modal-form-new-prd').value = currentIntentPRD || '';
+      document.getElementById('prd-modal-form-reason').value = '';
+      
+      const logsContainer = document.getElementById('prd-modal-audit-logs');
+      logsContainer.innerHTML = '';
+      
+      const logEntries = officer.placementIntent.historicalPRDLog || [];
+      if (logEntries.length === 0) {
+        logsContainer.innerHTML = '<div class="empty-placeholder" style="padding: var(--space-3); font-size: var(--type-data-xs);">No historical changes logged.</div>';
+      } else {
+        logEntries.forEach(log => {
+          const div = document.createElement('div');
+          div.className = 'audit-log-card';
+          div.style.marginBottom = 'var(--space-2)';
+          div.innerHTML = `
+            <div class="audit-log-meta" style="display: flex; justify-content: space-between; font-size: var(--type-data-xs); color: var(--color-text-secondary); margin-bottom: 4px;">
+              <span>👤 ${log.user} (${log.source})</span>
+              <span>📅 ${log.date}</span>
+            </div>
+            <div class="audit-log-shift" style="font-weight: 600; font-size: var(--type-body-sm); color: var(--color-text-primary); margin-bottom: 4px;">
+              ${log.oldPRD} ➔ ${log.newPRD}
+            </div>
+            <div class="audit-log-note" style="font-size: var(--type-body-sm); color: var(--color-text-secondary); font-style: italic;">
+              "${log.changeNote}"
+            </div>
+          `;
+          logsContainer.appendChild(div);
+        });
+      }
+      
+      document.getElementById('modal-prd').classList.add('active');
+    };
+    
+    window.closePrdModal = function() {
+      document.getElementById('modal-prd').classList.remove('active');
+      window._activePrdSsn = null;
+    };
+    
+    document.getElementById('prd-modal-btn-submit').addEventListener('click', () => {
+      if (!window._activePrdSsn) return;
+      const officer = masterDb.officers[window._activePrdSsn];
+      if (!officer) return;
+      
+      const newPRDInput = document.getElementById('prd-modal-form-new-prd').value.trim();
+      const reason = document.getElementById('prd-modal-form-reason').value.trim();
+
+      if (!newPRDInput || !reason) {
+        alert('Covenant Governance: Both a target PRD and a change justification note are required.');
+        return;
+      }
+
+      function parseFlexibleDate(dateStr) {
+        dateStr = dateStr.trim();
+        if (/^\\d{4}-\\d{2}-\\d{2}$/.test(dateStr)) return dateStr;
+        if (/^\\d{8}$/.test(dateStr)) {
+          return `${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}`;
+        }
+        const cleanStr = dateStr.replace(/(\\d+)(st|nd|rd|th)/ig, '$1');
+        const parsed = new Date(cleanStr);
+        if (!isNaN(parsed.getTime())) {
+          const y = parsed.getFullYear();
+          const m = String(parsed.getMonth() + 1).padStart(2, '0');
+          const d = String(parsed.getDate()).padStart(2, '0');
+          return `${y}-${m}-${d}`;
+        }
+        return null;
+      }
+
+      const newPRD = parseFlexibleDate(newPRDInput);
+
+      if (!newPRD) {
+        alert('Covenant Governance: Date format not recognized. Try YYYY-MM-DD or e.g. "26 January 2027".');
+        return;
+      }
+
+      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+      
+      officer.placementIntent.intentPRD = newPRD;
+      officer.placementIntent.historicalPRDLog.push({
+        date: new Date().toISOString().split('T')[0],
+        oldPRD: oldPRD,
+        newPRD: newPRD,
+        source: 'Detailer Update',
+        user: 'Detailer',
+        changeNote: reason
+      });
+      
+      window.closePrdModal();
+      
+      // Force UI refresh via router
+      if (typeof handleRouting === 'function') {
+        handleRouting();
+      } else {
+        // Fallback
+        window.dispatchEvent(new Event('hashchange'));
+      }
+    });
+    
   
 </script>
 
 <!-- --- Compiled Component Templates --- -->
+<template id="template-command">
+<div class="command-tracker">
+  <div class="ct-header">
+    <div class="ct-header-top">
+      <div class="ct-title-group">
+        <div class="ct-title" id="cmd-header-name">LOADING COMMAND...</div>
+        <div class="ct-subtitle" id="cmd-header-uic">UIC: ---</div>
+      </div>
+      <div class="ct-actions">
+        <button class="btn btn-sm btn-primary" id="ct-btn-info">Command Info</button>
+        <button class="btn btn-sm" id="ct-btn-back" style="background-color: var(--color-bg-base); color: var(--color-text-primary); border: 1px solid var(--color-border-default);">← Back to Dashboard</button>
+      </div>
+    </div>
+    <div class="ct-metrics-bar">
+      <div class="metric-card">
+        <span class="metric-label">PAA (Jets)</span>
+        <span class="metric-value" id="cmd-metric-paa">--</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">BA (Auth Billets)</span>
+        <span class="metric-value" id="cmd-metric-ba">--</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Workup Cycle</span>
+        <span class="metric-value" id="cmd-metric-workup">Not Set</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Deployment</span>
+        <span class="metric-value" id="cmd-metric-deploy">Not Set</span>
+      </div>
+      <div class="metric-card" id="metric-card-pilots" style="display: none;">
+        <span class="metric-label">Assigned Pilots</span>
+        <span class="metric-value" id="cmd-metric-pilots">--</span>
+      </div>
+      <div class="metric-card" id="metric-card-wsos" style="display: none;">
+        <span class="metric-label">Assigned NFO/WSO</span>
+        <span class="metric-value" id="cmd-metric-wsos">--</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="spreadsheet-container" id="ct-spreadsheet">
+    <div class="sheet-table">
+      <div class="sheet-row sheet-header" id="ct-table-header">
+        <div class="cell col-bsc sticky-col">BSC</div>
+        <div class="cell col-rank sticky-col">RANK</div>
+        <div class="cell col-desig sticky-col">DESIG</div>
+        <div class="cell col-name sticky-col">NAME</div>
+        <div class="cell col-callsign sticky-col">CALLSIGN</div>
+        <div class="cell col-yg sticky-col">YG</div>
+        <div class="cell col-qual sticky-col">QUAL</div>
+        <div class="cell col-recd sticky-col">RECD</div>
+        <div class="cell col-tour sticky-col">TOUR</div>
+        <div class="cell col-prd sticky-col">PRD</div>
+      </div>
+      <div class="sheet-body" id="ct-table-body"></div>
+      <div class="sheet-row sheet-footer" id="ct-table-footer" style="background-color: var(--color-bg-surface); font-weight: bold; border-top: 2px solid var(--color-border-subtle);"></div>
+    </div>
+  </div>
+
+  <!-- Command Info Modal -->
+  <div id="ct-info-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="ct-modal-title">Command Info</h3>
+        <button class="btn-close" id="ct-btn-close-modal">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>PAA (Jets)</label>
+          <input type="number" id="ct-input-paa" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>BA (Billets Authorized)</label>
+          <input type="number" id="ct-input-ba" class="form-input" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Workup Start (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-workup-start" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Workup End (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-workup-end" class="form-input" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Deploy Start (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-deploy-start" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Deploy End (YYYY-MM-DD)</label>
+            <input type="date" id="ct-input-deploy-end" class="form-input" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="ct-btn-save-modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
+
 <template id="template-officer">
 <div class="profile-container">
+  <div class="officer-profile-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4);">
+    <h2 style="margin:0; font-family: var(--font-display); color: var(--color-text-primary);" id="opt-header-name">Officer Dossier</h2>
+    <button class="btn btn-sm" id="btn-profile-back" style="display: none;">← Back to Command</button>
+  </div>
   <!-- ZONE 1: TACTICAL HERO NAVIGATION BAR -->
   <div class="officer-hero-nav">
     <button class="hero-nav-btn active" data-tab="overview">
@@ -2843,9 +4087,6 @@ class OfficerModule {
     </button>
     <button class="hero-nav-btn" data-tab="performance">
       <span class="hero-nav-icon">📊</span> Comprehensive Performance
-    </button>
-    <button class="hero-nav-btn" data-tab="prd">
-      <span class="hero-nav-icon">🛡️</span> PRD Governance & Logs
     </button>
   </div>
 
@@ -2939,38 +4180,8 @@ class OfficerModule {
     </div>
   </div>
 
-  <!-- TAB C: PRD GOVERNANCE & AUDITS -->
-  <div class="officer-tab-panel" id="officer-tab-prd" style="display: none;">
-    <div class="profile-grid-layout">
-      <!-- Left Card: Override Form -->
-      <div class="officer-card officer-card--accented">
-        <h3 class="officer-card-title">Expert-in-the-Loop PRD Shift</h3>
-        <div class="prd-override-form" style="margin-top: 0;">
-          <h4 class="prd-override-title">Covenant Governance Validation</h4>
-          <div class="prd-override-grid">
-            <div class="form-group">
-              <span class="form-label">New Target Date</span>
-              <input type="text" class="text-input" id="form-new-prd" placeholder="YYYY-MM-DD">
-            </div>
-            <div class="form-group">
-              <span class="form-label">Justification Note (Required)</span>
-              <input type="text" class="text-input" id="form-prd-reason" placeholder="e.g., CO requested shift / school delay...">
-            </div>
-            <button class="btn-covenant" id="btn-submit-prd">Update & Sync</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Card: Audit Trail -->
-      <div class="officer-card">
-        <h3 class="officer-card-title officer-card-title--secondary">Historical PRD Shift Log</h3>
-        <div class="audit-log-container" id="prd-audit-logs">
-          <!-- Audit log items render here dynamically -->
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
 
 </template>
 
