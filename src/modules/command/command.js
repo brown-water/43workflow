@@ -368,7 +368,7 @@ export class CommandModule {
 
       // Render officers
       groupOfficers.forEach(off => {
-        tableBody.innerHTML += this.renderOfficerRow(off, timelineCols, uic, cmd);
+        tableBody.innerHTML += this.renderOfficerRow(off, timelineCols, uic);
       });
     }
 
