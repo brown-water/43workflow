@@ -96,8 +96,11 @@
  * @property {UIC} uic
  * @property {string} name
  * @property {number} billetsAuthorized - BA
+ * @property {number} [paa] - Primary Aircraft Authorization
  * @property {DateString} [deploymentWindowStart]
  * @property {DateString} [deploymentWindowEnd]
+ * @property {DateString} [workupWindowStart]
+ * @property {DateString} [workupWindowEnd]
  * @property {boolean} [tacticalPivotFlag] - Manual override for fill priority
  * @property {BSC[]} [billetsPriority] - Pop-up Vacancies / Senior Slates unfilled seats queue
  * @property {BSC[]} billets - List of BSCs under this command

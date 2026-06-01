@@ -51,6 +51,8 @@ function formatDate(date) {
 
 // Generate the 60 officers
 const officers = [];
+let bscCounters = {}; // Track BSC per command
+
 for (let i = 0; i < 60; i++) {
   // Ranks distribution:
   // 0 - 9: CDR (10)
@@ -63,11 +65,70 @@ for (let i = 0; i < 60; i++) {
   const ssnVal = 900000001 + i;
   const ssn = String(ssnVal);
   const name = `${lastNames[i % lastNames.length]} ${firstNames[i % firstNames.length]} ${String.fromCharCode(65 + (i % 26))}`;
-  const designator = i % 4 === 0 ? '1320' : '1310'; // 1320 NFO, 1310 Pilot
   
   const cmd = commands[i % commands.length];
-  const billet = billetTitles[i % billetTitles.length];
+  let designator = '1310';
+  if (cmd.name.startsWith('VAW')) designator = '1310';
+  else if (cmd.name.startsWith('VFA')) designator = i % 2 === 0 ? '1310' : '1320';
+  else if (cmd.name.startsWith('VAQ')) designator = i % 3 === 0 ? '1310' : '1320';
   
+  // Inject Ground Officers (roughly 15% of the squadron)
+  if (i > 0 && i % 7 === 0) {
+    const groundDesigs = ['3100', '1830', '1520'];
+    designator = groundDesigs[i % groundDesigs.length];
+  }
+  
+  let billet = '';
+  if (i < 5) {
+    billet = 'SQN CO';
+  } else if (i < 10) {
+    billet = 'SQN XO';
+  } else {
+    billet = billetTitles[2 + ((i - 10) % (billetTitles.length - 2))];
+  }
+  
+  if (!bscCounters[cmd.uic]) {
+    bscCounters[cmd.uic] = 100; // Start BSC at 00100
+  }
+  const bsc = String(bscCounters[cmd.uic]).padStart(5, '0');
+  bscCounters[cmd.uic] += 10;
+  
+  // Assign PRD between 2025 and 2027
+  const prdYear = 2025 + (i % 3);
+  const prdMonth = String(1 + (i % 12)).padStart(2, '0');
+  const prdDate = `${prdYear}${prdMonth}15`;
+  
+  // Assign YG based on rank
+  let yg = '2019';
+  if (currentRank === 'CDR') yg = '2008';
+  if (currentRank === 'LCDR') yg = '2014';
+  
+  // Calculate IRECD.DT (approx 36 months before PRD)
+  const recdYear = prdYear - 3;
+  const recdDate = `${recdYear}${prdMonth}15`;
+
+  // Generate Prospective Officer (P-Staff) for roughly 20% of officers
+  let pName = '', pFillDt = '', pEdd = '', pDesig = '', pRank = '';
+  if (i % 5 === 0) {
+    pName = `PROSPECTIVE ${name.split(' ')[0]}`;
+    // PFILL is 1 month before PRD (creating an overlap)
+    let fillMonth = parseInt(prdMonth) - 1;
+    let fillYear = prdYear;
+    if (fillMonth < 1) {
+      fillMonth = 12;
+      fillYear -= 1;
+    }
+    const fmStr = String(fillMonth).padStart(2, '0');
+    pFillDt = `${fillYear}${fmStr}15`;
+    pEdd = `${fillYear + 3}${fmStr}15`;
+    pDesig = designator;
+    pRank = currentRank;
+  }
+  
+  // Generate a random past command for tooltip purposes
+  const pastCommands = ['VFA 106', 'VAQ 129', 'VFA 122', 'STRKFITWINGPAC', 'NAWDC', 'USS NIMITZ', 'USS FORD'];
+  const pastCmd = pastCommands[i % pastCommands.length];
+
   officers.push({
     ssn,
     name,
@@ -76,7 +137,18 @@ for (let i = 0; i < 60; i++) {
     uic: cmd.uic,
     cmdName: cmd.name,
     port: cmd.port,
-    billetTitle: billet
+    billetTitle: billet,
+    bsc: bsc,
+    prd: prdDate,
+    yg: yg + '0',
+    aqd: i % 5 === 0 ? 'DB1' : '', // DB1 is SFTI
+    recdDate: recdDate,
+    pName,
+    pFillDt,
+    pEdd,
+    pDesig,
+    pRank,
+    pastCmd
   });
 }
 
@@ -108,14 +180,27 @@ officers.forEach(officer => {
   setValue('INAME', officer.name);
   setValue('IRANK', officer.rank);
   setValue('IDESIG', officer.designator);
-  setValue('IPRD', '20270630'); // Future standard PRD
-  setValue('IEDD', '202706');
+  setValue('IPRD', officer.prd); 
+  setValue('IEDD', officer.prd.substring(0, 6));
   setValue('IULT.AUIC', officer.uic);
   
   // Set some placeholder/typical values
+  setValue('BBSC', officer.bsc);
   setValue('ISEX', officer.ssn % 2 === 0 ? 'F' : 'M');
   setValue('IRANK.DT', '20240901');
-  setValue('IYR.GRP', '20120');
+  setValue('IYR.GRP', officer.yg);
+  setValue('IAQD', officer.aqd);
+  setValue('IRECD.DT', officer.recdDate);
+  
+  // Set P-Staff fields
+  setValue('PNAME', officer.pName);
+  setValue('PFILL.DT', officer.pFillDt);
+  setValue('PEDD', officer.pEdd);
+  setValue('PDESIG', officer.pDesig);
+  setValue('PRANK', officer.pRank);
+  
+  // Set Past Command field
+  setValue('IPAST1.SNAME', officer.pastCmd);
   
   supplyRows.push(row.join('%'));
 });
