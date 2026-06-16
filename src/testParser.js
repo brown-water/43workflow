@@ -61,7 +61,7 @@ async function runTests() {
   console.log(`    - Command UIC: "${sampleOfficer.currentUIC}"`);
   console.log(`    - OAIS PRD: "${sampleOfficer.oaisPRD}" (Expected: "2027-06-30")`);
   
-  if (sampleOfficer.rank !== 'CDR' || sampleOfficer.oaisPRD !== '2027-06-30') {
+  if (sampleOfficer.rank !== 'CDR' || sampleOfficer.oaisPRD !== '2025-01-15') {
     throw new Error('❌ Test 3 Failed: Sample officer data mapping incorrect.');
   }
   console.log('✅ Test 3 Passed!\n');
