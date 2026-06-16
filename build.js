@@ -22,7 +22,9 @@ const coreFiles = [
   path.join(SRC_DIR, 'core', 'ingestion.js'),
   path.join(SRC_DIR, 'ingestion.js'),
   path.join(SRC_DIR, 'core', 'diffEngine.js'),
-  path.join(SRC_DIR, 'diffEngine.js')
+  path.join(SRC_DIR, 'diffEngine.js'),
+  path.join(SRC_DIR, 'core', 'store.js'),
+  path.join(SRC_DIR, 'core', 'assessment.js')
 ];
 
 /**

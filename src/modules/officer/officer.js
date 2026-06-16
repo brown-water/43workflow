@@ -1,52 +1,6 @@
-/**
- * src/modules/officer/officer.js
- * 
- * Modular JavaScript controller for the Officer View Module.
- * Adheres strictly to the PERS-43 Light Mode Covenant Design System.
- */
+import { AssessmentEngine } from '../../core/assessment.js';
 
 export class OfficerModule {
-  /**
-   * Calculates the Record Grade (A/B/C) of an officer based on continuous FITREP history.
-   * 
-   * @param {Object[]} history Fitrep history records
-   * @returns {'A' | 'B' | 'C'}
-   */
-  static calculateRecordGrade(history) {
-    if (!history || history.length === 0) return 'C';
-    
-    const rvs = history.map(f => f.relativeValue || 0);
-    const avgRV = rvs.reduce((a, b) => a + b, 0) / rvs.length;
-    const eps = history.filter(f => f.recommendation === 'EP').length;
-    const epRatio = eps / history.length;
-
-    if (avgRV > 0.4 && epRatio > 0.25) {
-      return 'A';
-    } else if (avgRV >= 0 || epRatio > 0.1) {
-      return 'B';
-    }
-    return 'C';
-  }
-
-  /**
-   * Filter and retrieve the Top 3 competitive FITREPs sorted by Relative Value descending.
-   * 
-   * @param {Object[]} history Complete Fitrep history
-   * @returns {Object[]} Top 3 Fitreps
-   */
-  static getTop3FITREPs(history) {
-    if (!history || history.length === 0) return [];
-    
-    // Sort a copy of the history by Relative Value (descending), then chronologically (descending)
-    return [...history]
-      .sort((a, b) => {
-        if (b.relativeValue !== a.relativeValue) {
-          return b.relativeValue - a.relativeValue;
-        }
-        return new Date(b.fromDate) - new Date(a.fromDate);
-      })
-      .slice(0, 3);
-  }
 
   /**
    * Renders a custom list of FITREPs to a specified target container in the DOM.
@@ -184,7 +138,7 @@ export class OfficerModule {
       f.originalHistoryIndex = idx;
     });
 
-    const calculatedGrade = this.calculateRecordGrade(history);
+    const calculatedGrade = AssessmentEngine.calculateRecordGrade(history);
     officer.recordGrade = calculatedGrade;
 
     const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
@@ -245,7 +199,7 @@ export class OfficerModule {
     }
 
     // 6. Draw Top 3 FITREPs view (mathematically-sorted)
-    const top3List = this.getTop3FITREPs(history);
+    const top3List = AssessmentEngine.getTop3FITREPs(history);
     const top3Container = document.getElementById('overview-top-fitreps');
     
     const recordGradeBadge = document.getElementById('overview-record-grade');
