@@ -14,112 +14,90 @@ This document provides display-optimized short titles for Additional Qualificati
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `BA1` | **ASW QUAL QUAL Non-Towed Array** | ASW Qualified - Qualified Non-Towed Array |
-| `BA2` | **ASW QUAL QUAL Towed Array** | ASW Qualified - Qualified Towed Array |
-| `BA3` | **ASW QUAL Key Manager** | ASW Qualified - Key Manager |
-| `BA4` | **ASW QUAL IUSS** | ASW Qualified - IUSS |
-| `BA5` | **ASW QUAL IUSS Experienced** | ASW Qualified - IUSS Experienced |
-| `BA6` | **ASW QUAL Theater Anti-Submarine Warfare Watch OFF (TASWWO)** | ASW Qualified - Theater Anti-Submarine Warfare Watch Officer (TASWWO) |
-| `BA7` | **ASW QUAL Theater Anti-Submarine Warfare Battle Watch Captain (TASW BWC)** | ASW Qualified - Theater Anti-Submarine Warfare Battle Watch Captain (TASW BWC) |
-| `BA8` | **ASW QUAL Undersea Combat Systems QUAL** | ASW Qualified - Undersea Combat Systems Qualified |
-| `BA9` | **ASW QUAL IUSS SURTASS Mission Commander** | ASW Qualified - IUSS SURTASS Mission Commander |
-| `BAA` | **ASW QUAL Acoustic Watch OFF** | ASW Qualified - Acoustic Watch Officer |
-| `BAB` | **ASW QUAL IUSS Master** | ASW Qualified - IUSS Master |
-| `BB0` | **Staff OFF Battle Watch Captain** | Staff Officer - Battle Watch Captain |
-| `BB1` | **Staff OFF Battle Watch Captain – C10F** | Staff Officer - Battle Watch Captain – C10F |
-| `BB2` | **Staff OFF Battle Watch Captain – C2F** | Staff Officer - Battle Watch Captain – C2F |
-| `BB3` | **Staff OFF Battle Watch Captain – C3F** | Staff Officer - Battle Watch Captain – C3F |
-| `BB4` | **Staff OFF Battle Watch Captain – C4F** | Staff Officer - Battle Watch Captain – C4F |
-| `BB5` | **Staff OFF Battle Watch Captain – C5F** | Staff Officer - Battle Watch Captain – C5F |
-| `BB6` | **Staff OFF Battle Watch Captain – C6F** | Staff Officer - Battle Watch Captain – C6F |
-| `BB7` | **Staff OFF Battle Watch Captain – C7F** | Staff Officer - Battle Watch Captain – C7F |
-| `BBF` | **Staff OFF Battle Watch Captain – USFF** | Staff Officer - Battle Watch Captain – USFF |
-| `BBP` | **Staff OFF Battle Watch Captain – CPF** | Staff Officer - Battle Watch Captain – CPF |
+| `BA1` | **ASW Non-Towed** | ASW Qualified - Qualified Non-Towed Array |
+| `BA2` | **ASW Towed** | ASW Qualified - Qualified Towed Array |
+| `BA3` | **ASW Key Mgr** | ASW Qualified - Key Manager |
+| `BA4` | **ASW IUSS** | ASW Qualified - IUSS |
+| `BA5` | **ASW IUSS Exp** | ASW Qualified - IUSS Experienced |
+| `BA6` | **ASW TASWWO** | ASW Qualified - Theater Anti-Submarine Warfare Watch Officer (TASWWO) |
+| `BA7` | **ASW TASW BWC** | ASW Qualified - Theater Anti-Submarine Warfare Battle Watch Captain (TASW BWC) |
+| `BA8` | **ASW UCS** | ASW Qualified - Undersea Combat Systems Qualified |
+| `BA9` | **IUSS SURTASS** | ASW Qualified - IUSS SURTASS Mission Commander |
+| `BAA` | **ASW Acoustic** | ASW Qualified - Acoustic Watch Officer |
+| `BAB` | **ASW IUSS Mstr** | ASW Qualified - IUSS Master |
+| `BB0` | **BWC** | Staff Officer - Battle Watch Captain |
+| `BB1` | **BWC – C10F** | Staff Officer - Battle Watch Captain – C10F |
+| `BB2` | **BWC – C2F** | Staff Officer - Battle Watch Captain – C2F |
+| `BB3` | **BWC – C3F** | Staff Officer - Battle Watch Captain – C3F |
+| `BB4` | **BWC – C4F** | Staff Officer - Battle Watch Captain – C4F |
+| `BB5` | **BWC – C5F** | Staff Officer - Battle Watch Captain – C5F |
+| `BB6` | **BWC – C6F** | Staff Officer - Battle Watch Captain – C6F |
+| `BB7` | **BWC – C7F** | Staff Officer - Battle Watch Captain – C7F |
+| `BBF` | **BWC – USFF** | Staff Officer - Battle Watch Captain – USFF |
+| `BBP` | **BWC – CPF** | Staff Officer - Battle Watch Captain – CPF |
 | `BBZ` | **Staff OFF Maritime** | Staff Officer - Maritime |
 | `BC8` | **Naval Aviation Supply OFF QUAL** | Naval Aviation Supply Officer - Qualified |
 | `BD1` | **Naval Aviation Observer QUAL** | Naval Aviation Observer - Qualified |
-| `BE1` | **Anti-Air Warfare QUAL** | Anti-Air Warfare - Qualified |
-| `BF1` | **Anti-Air Warfare (Supersedes BE) Technical Expert** | Anti-Air Warfare
-(Supersedes BE)
- - Technical Expert |
-| `BG1` | **Anti-Air Warfare (Supersedes BE) Operational Expert** | Anti-Air Warfare
-(Supersedes BE)
- - Operational Expert |
+| `BE1` | **AAW QUAL** | Anti-Air Warfare - Qualified |
+| `BF1` | **AAW Technical Expert** | Anti-Air Warfare (Supersedes BE) - Technical Expert |
+| `BG1` | **AAW Operational Expert** | Anti-Air Warfare (Supersedes BE) - Operational Expert |
 | `BH0` | **Military Deception Planner** | Military Deception - Planner |
-| `BI1` | **Cryptologic Warfare (CW) Basic** | Cryptologic Warfare (CW) - Basic |
-| `BI3` | **Crytologic Warfare (IW) IO Coordinator/ Planner** | Crytologic Warfare (IW) - IO Coordinator/
-Planner
- |
-| `BI4` | **Information Warfare (IW) NIOC OPS Director** | Information Warfare (IW) - NIOC Operations Director |
-| `BIA` | **Cryptologic Warfare (CW) Tactical Airborne** | Cryptologic Warfare (CW) - Tactical Airborne |
-| `BIS` | **Cryptologic Warfare (CW) Tactical Surface** | Cryptologic Warfare (CW) - Tactical Surface |
-| `BIU` | **Cryptologic Warfare (CW) Tactical Subsurface** | Cryptologic Warfare (CW) - Tactical Subsurface |
-| `BIW` | **Cryptologic Warfare (CW) Tactical Naval Special Warfare Support** | Cryptologic Warfare (CW) - Tactical Naval Special Warfare Support |
+| `BI1` | **CW Basic** | Cryptologic Warfare (CW) - Basic |
+| `BI3` | **CW/IW IO Coordinator/ Planner** | Crytologic Warfare (IW) - IO Coordinator/Planner |
+| `BI4` | **IW NIOC OPS Director** | Information Warfare (IW) - NIOC Operations Director |
+| `BIA` | **CW Tactical Airborne** | Cryptologic Warfare (CW) - Tactical Airborne |
+| `BIS` | **CW Tactical Surface** | Cryptologic Warfare (CW) - Tactical Surface |
+| `BIU` | **CW Tactical Subsurface** | Cryptologic Warfare (CW) - Tactical Subsurface |
+| `BIW` | **CW Tactical NSW Spt** | Cryptologic Warfare (CW) - Tactical Naval Special Warfare Support |
 | `BK1` | **Reserve Director (RPD) QUAL** | Reserve Program Director (RPD) - Qualified |
-| `BL1` | **Electromagnetic Warfare Apprentice** | Electromagnetic Warfare - Apprentice |
-| `BL2` | **Electromagnetic Warfare Journeyman** | Electromagnetic Warfare - Journeyman |
-| `BL3` | **Electronic Warfare Expert** | Electronic Warfare - Expert |
-| `BM1` | **Missile Defense Basic LVL BMD** | Missile Defense - Basic Level BMD |
-| `BM2` | **Missile Defense Senior LVL BMD** | Missile Defense - Senior Level BMD |
-| `BM3` | **Missile Defense MIPS course completion** | Missile Defense - MIPS course completion |
-| `BM4` | **Missile Defense Junior Technical Engineer Supervisor** | Missile Defense - Junior Technical Engineer Supervisor |
-| `BM5` | **Missile Defense Senior Technical Engineer Supervisor** | Missile Defense - Senior Technical Engineer Supervisor |
-| `BN1` | **Mine Warfare Basic** | Mine Warfare - Basic  |
-| `BN2` | **Mine Warfare QUAL Tactical Planner (Mining)** | Mine Warfare - Qualified Tactical Planner (Mining) |
-| `BN3` | **Mine Warfare Basic LVL (Counter Measures)** | Mine Warfare - Basic Level (Counter Measures) |
-| `BN4` | **Mine Warfare QUAL Tactical Planner (Counter Measures)** | Mine Warfare - Qualified Tactical Planner (Counter Measures) |
-| `BN5` | **Mine Warfare QUAL Operational** | Mine Warfare - Qualified Operational |
-| `BO2` | **Computer Network OPS (CNO) Cyber Mission Leader** | Computer Network Operations
-(CNO)
- - Cyber Mission Leader |
-| `BO3` | **Computer Network OPS (CNO) Cyber Service Planner** | Computer Network Operations
-(CNO)
- - Cyber Service Planner |
-| `BO4` | **Computer Network OPS (CNO) Cyber Joint Planner** | Computer Network Operations
-(CNO)
- - Cyber Joint Planner |
-| `BOC` | **Computer Network OPS (CNO) Technical Integration OFF – Capability Development** | Computer Network Operations
-(CNO)
- - Technical Integration Officer – Capability Development |
-| `BOD` | **Computer Network OPS (CNO) Technical Integration OFF – Defensive Cyberspace OPS (DCO)** | Computer Network Operations
-(CNO)
- - Technical Integration Officer – Defensive Cyberspace Operations (DCO) |
-| `BOO` | **Computer Network OPS (CNO) Technical Integration OFF – Offensive Cyberspace OPS (OCO)** | Computer Network Operations
-(CNO)
- - Technical Integration Officer – Offensive Cyberspace Operations (OCO) |
-| `BQ1` | **Navy Reserve Science and Technology OFF LVL 1** | Navy Reserve Science and Technology Officer - Level 1 |
-| `BQ2` | **Navy Reserve Science and Technology OFF LVL 2** | Navy Reserve Science and Technology Officer - Level 2 |
-| `BR0` | **Regional Cadre Indo-Pacific Cadre Entry QUAL** | Regional Cadre - Indo-Pacific Cadre Entry Qualified |
-| `BR1` | **Regional Cadre Indo-Pacific Cadre Basic QUAL** | Regional Cadre - Indo-Pacific Cadre Basic Qualified |
-| `BR2` | **Regional Cadre Indo-Pacific Cadre Fully Proficient QUAL** | Regional Cadre - Indo-Pacific Cadre Fully Proficient Qualified |
-| `BR3` | **Regional Cadre Indo-Pacific Cadre Master** | Regional Cadre - Indo-Pacific Cadre Master  |
-| `BR4` | **Regional Cadre Indo-Pacific Cadre Expert** | Regional Cadre - Indo-Pacific Cadre Expert |
-| `BR5` | **Regional Cadre Indo-Pacific Cadre in Abeyance** | Regional Cadre - Indo-Pacific Cadre in  Abeyance  |
-| `BS1` | **TLAM Shipboard Engagement Control OFF** | TLAM - Shipboard Engagement Control Officer |
-| `BS2` | **TLAM Shipboard Strike OFF QUAL** | TLAM - Shipboard Strike Officer 
-Qualified
- |
-| `BS3` | **TLAM Strike Execution OFF** | TLAM - Strike Execution Officer |
-| `BS4` | **TLAM Senior Strike OFF TLAM OIC** | TLAM - Senior Strike Officer TLAM OIC |
-| `BS5` | **TLAM Mission Planner** | TLAM - Mission Planner |
-| `BS6` | **TLAM Liaison OFF** | TLAM - Liaison Officer |
+| `BL1` | **EW Apprentice** | Electromagnetic Warfare - Apprentice |
+| `BL2` | **EW Journeyman** | Electromagnetic Warfare - Journeyman |
+| `BL3` | **EW Expert** | Electronic Warfare - Expert |
+| `BM1` | **MD Basic LVL BMD** | Missile Defense - Basic Level BMD |
+| `BM2` | **MD Senior LVL BMD** | Missile Defense - Senior Level BMD |
+| `BM3` | **MD MIPS course completion** | Missile Defense - MIPS course completion |
+| `BM4` | **MD Junior Technical Engineer Supervisor** | Missile Defense - Junior Technical Engineer Supervisor |
+| `BM5` | **MD Senior Technical Engineer Supervisor** | Missile Defense - Senior Technical Engineer Supervisor |
+| `BN1` | **MW Basic** | Mine Warfare - Basic  |
+| `BN2` | **MW QUAL Tactical Planner (Mining)** | Mine Warfare - Qualified Tactical Planner (Mining) |
+| `BN3` | **MW Basic LVL (Counter Measures)** | Mine Warfare - Basic Level (Counter Measures) |
+| `BN4` | **MW QUAL Tactical Planner (Counter Measures)** | Mine Warfare - Qualified Tactical Planner (Counter Measures) |
+| `BN5` | **MW QUAL Operational** | Mine Warfare - Qualified Operational |
+| `BO2` | **CNO Cyber Mission Leader** | Computer Network Operations (CNO) - Cyber Mission Leader |
+| `BO3` | **CNO Cyber Service Planner** | Computer Network Operations (CNO) - Cyber Service Planner |
+| `BO4` | **CNO Cyber Joint Planner** | Computer Network Operations (CNO) - Cyber Joint Planner |
+| `BOC` | **CNO TI Cap Dev** | Computer Network Operations (CNO) - Technical Integration Officer – Capability Development |
+| `BOD` | **CNO TI DCO** | Computer Network Operations (CNO) - Technical Integration Officer – Defensive Cyberspace Operations (DCO) |
+| `BOO` | **CNO TI OCO** | Computer Network Operations (CNO) - Technical Integration Officer – Offensive Cyberspace Operations (OCO) |
+| `BQ1` | **NRST LVL 1** | Navy Reserve Science and Technology Officer - Level 1 |
+| `BQ2` | **NRST LVL 2** | Navy Reserve Science and Technology Officer - Level 2 |
+| `BR0` | **Indo-Pac Cadre Entry QUAL** | Regional Cadre - Indo-Pacific Cadre Entry Qualified |
+| `BR1` | **Indo-Pac Cadre Basic QUAL** | Regional Cadre - Indo-Pacific Cadre Basic Qualified |
+| `BR2` | **Indo-Pac Cadre Fully Proficient QUAL** | Regional Cadre - Indo-Pacific Cadre Fully Proficient Qualified |
+| `BR3` | **Indo-Pac Cadre Master** | Regional Cadre - Indo-Pacific Cadre Master  |
+| `BR4` | **Indo-Pac Cadre Expert** | Regional Cadre - Indo-Pacific Cadre Expert |
+| `BR5` | **Indo-Pac Cadre in Abeyance** | Regional Cadre - Indo-Pacific Cadre in  Abeyance  |
+| `BS1` | **TLAM SEC OFF** | TLAM - Shipboard Engagement Control Officer |
+| `BS2` | **TLAM Strike OFF** | TLAM - Shipboard Strike Officer Qualified |
+| `BS3` | **TLAM Strike Exec** | TLAM - Strike Execution Officer |
+| `BS4` | **TLAM Sr Strike** | TLAM - Senior Strike Officer TLAM OIC |
+| `BS5` | **TLAM Planner** | TLAM - Mission Planner |
+| `BS6` | **TLAM LNO** | TLAM - Liaison Officer |
 | `BT1` | **Parachutist Static-line QUAL** | Parachutist - Static-line Qualified  |
 | `BT2` | **Parachutist Freefall QUAL** | Parachutist - Freefall Qualified |
-| `BU1` | **Special Technical OPS QUAL** | Special Technical Operations - Qualified |
-| `BV1` | **Special Access Programs (SAP) Experienced Administrator** | Special Access Programs (SAP) - Experienced Administrator |
-| `BV2` | **Special Access Programs (SAP) Experienced End User** | Special Access Programs (SAP) - Experienced End User |
-| `BV3` | **Special Access Programs (SAP) Eligible** | Special Access Programs (SAP) - Eligible |
-| `BX1` | **Expeditionary Warfare** | Expeditionary Warfare -  |
-| `BX2` | **Expeditionary Warfare Fleet Marine Force (FMF) Warfare OFF** | Expeditionary Warfare - Fleet Marine Force (FMF)
-Warfare Officer
- |
-| `BX3` | **Expeditionary Warfare Basic** | Expeditionary Warfare - Basic |
-| `BYB` | **Requirements MGMT Certification Training (RMCT) LVL B** | Requirements Management Certification Training (RMCT) - Level B |
-| `BYC` | **Requirements MGMT Certification Training (RMCT) LVL C** | Requirements Management Certification Training (RMCT) - Level C |
-| `BZ1` | **Staff Fires OFF Staff Fires LVL 1** | Staff Fires Officer - Staff Fires Level 1 |
-| `BZ2` | **Staff Fires OFF Staff Fires LVL 2** | Staff Fires Officer - Staff Fires Level 2 |
-| `BZ3` | **Staff Fires OFF Staff Fires LVL 3** | Staff Fires Officer - Staff Fires Level 3 |
-| `BZA` | **Staff FIRES GRAD – Joint Operational Fires and Effects Course** | Staff FIRES - Graduate – Joint Operational Fires and Effects Course |
+| `BU1` | **STO QUAL** | Special Technical Operations - Qualified |
+| `BV1` | **SAP (SAP) Experienced Administrator** | Special Access Programs (SAP) - Experienced Administrator |
+| `BV2` | **SAP (SAP) Experienced End User** | Special Access Programs (SAP) - Experienced End User |
+| `BV3` | **SAP (SAP) Eligible** | Special Access Programs (SAP) - Eligible |
+| `BX1` | **ExpW** | Expeditionary Warfare -  |
+| `BX2` | **ExpW Fleet Marine Force (FMF) Warfare OFF** | Expeditionary Warfare - Fleet Marine Force (FMF) Warfare Officer |
+| `BX3` | **ExpW Basic** | Expeditionary Warfare - Basic |
+| `BYB` | **RMCT LVL B** | Requirements Management Certification Training (RMCT) - Level B |
+| `BYC` | **RMCT LVL C** | Requirements Management Certification Training (RMCT) - Level C |
+| `BZ1` | **Staff Fires LVL 1** | Staff Fires Officer - Staff Fires Level 1 |
+| `BZ2` | **Staff Fires LVL 2** | Staff Fires Officer - Staff Fires Level 2 |
+| `BZ3` | **Staff Fires LVL 3** | Staff Fires Officer - Staff Fires Level 3 |
+| `BZA` | **Staff FIRES JOFE GRAD** | Staff FIRES - Graduate – Joint Operational Fires and Effects Course |
 | `BZB` | **Staff FIRES Experienced** | Staff FIRES - Experienced |
 | `BZC` | **Staff FIRES Advanced** | Staff FIRES - Advanced |
 
@@ -127,45 +105,43 @@ Warfare Officer
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `A2E` | **Major Manager Eligible** | Major Program Manager - Eligible |
-| `A31` | **Acquisition Line Community Flag Eligible** | Acquisition Line Community - Flag Eligible |
+| `A2E` | **Maj Mgr Elig** | Major Program Manager - Eligible |
+| `A31` | **Acq Flag Elig** | Acquisition Line Community - Flag Eligible |
 | `AA2` | **MGMT LVL 2** | Program Management - Level 2 Functional Area Certified |
 | `AA4` | **MGMT LVL 4** | Program Management - Level 4 Functional Area Certified |
-| `AAC` | **MGMT CAP** | Program Management - Critical Acquisition Position (CAP) |
 | `AAK` | **MGMT KLP** | Program Management - Key Leadership Position (KLP) |
 | `AAN` | **MGMT Non-Crit** | Program Management - Non-Critical Acquisition Billet |
-| `AB2` | **Business - Cost Estimating LVL 2** | Business - Cost Estimating - Level 2 Functional Area  Certified |
-| `AB3` | **Business - Cost Estimating LVL 3** | Business - Cost Estimating - Level 3 Functional Area Certified |
-| `ABC` | **Business - Cost Estimating CAP** | Business - Cost Estimating - Critical Acquisition Position (CAP) |
-| `ABK` | **Business - Cost Estimating KLP** | Business - Cost Estimating - Key Leadership Position (KLP) |
-| `ABN` | **Business - Cost Estimating Non-Crit** | Business - Cost Estimating - Non-Critical Acquisition Billet |
-| `ACA` | **Contracting Contracting PROF Certified** | Contracting - Contracting Professional Certified |
+| `AAC` | **MGMT CAP** | Program Management - Critical Acquisition Position (CAP) |
+| `AB2` | **Biz Cost Est LVL 2** | Business - Cost Estimating - Level 2 Functional Area  Certified |
+| `AB3` | **Biz Cost Est LVL 3** | Business - Cost Estimating - Level 3 Functional Area Certified |
+| `ABK` | **Biz Cost Est KLP** | Business - Cost Estimating - Key Leadership Position (KLP) |
+| `ABN` | **Biz Cost Est Non-Crit** | Business - Cost Estimating - Non-Critical Acquisition Billet |
+| `ACA` | **Contracting Cert** | Contracting - Contracting Professional Certified |
 | `ACC` | **Contracting CAP** | Contracting - Critical Acquisition Position (CAP) |
 | `ACK` | **Contracting KLP** | Contracting - Key Leadership Position (KLP) |
 | `ACN` | **Contracting Non-Crit** | Contracting - Non-Critical Acquisition Billet |
-| `ACQUISITION` | ** Non-Crit** |  -  |
-| `AK2` | **Business -Financial MGMT LVL 2** | Business -Financial Management - Level 2 Functional Area Certified |
-| `AK4` | **Business -Financial MGMT LVL 4** | Business -Financial Management - Level 4 Functional Area Certified |
-| `AKC` | **Business -Financial MGMT CAP** | Business -Financial Management - Critical Acquisition Position (CAP)  |
-| `AKK` | **Business -Financial MGMT KLP** | Business -Financial Management - Key Leadership Position (KLP) |
-| `AKN` | **Business -Financial MGMT Non-Crit** | Business -Financial Management - Non-Critical Acquisition Billet |
-| `AL1` | **Life Cycle Logistics LVL 1** | Life Cycle Logistics - Level 1 Functional Area Certified |
-| `AL3` | **Life Cycle Logistics LVL 3** | Life Cycle Logistics - Level 3 Functional Area Certified |
-| `ALC` | **Life Cycle Logistics CAP** | Life Cycle Logistics - Critical Acquisition Position (CAP) |
-| `ALK` | **Life Cycle Logistics KLP** | Life Cycle Logistics - Key Leadership Position (KLP) |
-| `ALN` | **Life Cycle Logistics Non-Crit** | Life Cycle Logistics - Non-Critical Acquisition Billet |
-| `AN1` | **Engineering and Technical MGMT LVL 1** | Engineering and Technical Management - Level 1 Functional Area Certified |
-| `AN2` | **Engineering and Technical MGMT LVL 2** | Engineering and Technical Management - Level 2 Functional Area Certified |
-| `ANC` | **Engineering and Technical MGMT CAP** | Engineering and Technical Management - Critical Acquisition Position (CAP) |
-| `ANK` | **Engineering and Technical MGMT KLP** | Engineering and Technical Management - Key Leadership Position (KLP) |
-| `ANN` | **Engineering and Technical MGMT Non-Crit** | Engineering and Technical Management - Non-Critical Acquisition Billet |
-| `APM` | **DoN Acquisition PROF Member Fully QUAL** | DoN Acquisition Professional Member - Fully Qualified |
-| `AT1` | **Test & Evaluation LVL 1** | Test & Evaluation - Level 1 Functional Area Certified |
-| `AT2` | **Test & Evaluation LVL 2** | Test & Evaluation - Level 2 Functional Area Certified |
-| `ATC` | **Test & Evaluation CAP** | Test & Evaluation - Critical Acquisition Billet |
-| `ATK` | **Test & Evaluation KLP** | Test & Evaluation - Key Leadership Position (KLP) |
-| `ATN` | **Test & Evaluation Non-Crit** | Test & Evaluation - Non-Critical Acquisition Billet |
-| `AVIATION WARFARE` | ** ** |  -  |
+| `ABC` | **Biz Cost Est CAP** | Business - Cost Estimating - Critical Acquisition Position (CAP) |
+| `AK2` | **Biz Fin MGMT LVL 2** | Business -Financial Management - Level 2 Functional Area Certified |
+| `AK4` | **Biz Fin MGMT LVL 4** | Business -Financial Management - Level 4 Functional Area Certified |
+| `AKK` | **Biz Fin MGMT KLP** | Business - Financial Management - Key Leadership Position (KLP) |
+| `AKN` | **Biz Fin MGMT Non-Crit** | Business - Financial Management - Non-Critical Acquisition Billet |
+| `AKC` | **Biz Fin MGMT CAP** | Business - Financial Management - Critical Acquisition Position (CAP) |
+| `AL1` | **LCL LVL 1** | Life Cycle Logistics - Level 1 Functional Area Certified |
+| `AL3` | **LCL LVL 3** | Life Cycle Logistics - Level 3 Functional Area Certified |
+| `ALK` | **LCL KLP** | Life Cycle Logistics - Key Leadership Position (KLP) |
+| `ALN` | **LCL Non-Crit** | Life Cycle Logistics - Non-Critical Acquisition Billet |
+| `ALC` | **LCL CAP** | Life Cycle Logistics - Critical Acquisition Position (CAP) |
+| `AN1` | **Eng & Tech MGMT LVL 1** | Engineering and Technical Management - Level 1 Functional Area Certified |
+| `AN2` | **Eng & Tech MGMT LVL 2** | Engineering and Technical Management - Level 2 Functional Area Certified |
+| `ANK` | **Eng & Tech MGMT KLP** | Engineering and Technical Management - Key Leadership Position (KLP) |
+| `ANN` | **Eng & Tech MGMT Non-Crit** | Engineering and Technical Management - Non-Critical Acquisition Billet |
+| `APM` | **DoN Acq Prof** | DoN Acquisition Professional Member - Fully Qualified |
+| `ANC` | **Eng & Tech MGMT CAP** | Engineering and Technical Management - Critical Acquisition Position (CAP) |
+| `AT1` | **T&E LVL 1** | Test & Evaluation - Level 1 Functional Area Certified |
+| `AT2` | **T&E LVL 2** | Test & Evaluation - Level 2 Functional Area Certified |
+| `ATK` | **T&E KLP** | Test & Evaluation - Key Leadership Position (KLP) |
+| `ATN` | **T&E Non-Crit** | Test & Evaluation - Non-Critical Acquisition Billet |
+| `ATC` | **T&E CAP** | Test & Evaluation - Critical Acquisition Billet |
 
 ### Aviation (Fixed Wing)
 
@@ -186,24 +162,18 @@ Warfare Officer
 | `DB8` | **F-18E Adversary GRAD** | Fighter/Strike - Adversary Graduate |
 | `DB9` | **F-18E LVL V** | Fighter/Strike - TOPGUN Instructor |
 | `DBA` | **F-16 Pilot/NFO** | Fighter - Pilot/NFO |
-| `DBB` | **F-35C LVL IV** | Fighter - F-35 Package
-Commander/Team
-Lead |
+| `DBB` | **F-35C LVL IV** | Fighter - F-35 Package Commander/Team Lead |
 | `DC5` | **MQ-4C LVL III** | Combat Support - ISR Patrol |
 | `DC6` | **MQ-4C LVL IV** | Combat Support - Instructor ISR Patrol |
-| `DCF` | **FA-18F Forward Air Controller (Airborne)/ FAC(A)** | Combat Support - Forward Air Controller (Airborne)/ FAC(A)  |
+| `DCF` | **FA-18F FAC(A)** | Combat Support - Forward Air Controller (Airborne)/ FAC(A) |
 | `DD1` | **E LVL I** | Combat Support - ECM Recon |
 | `DD8` | **E-6B LVL I** | Combat Support - COMM |
-| `DDA` | **E-6B Mercury Tactics Instructor** | Combat Support - Mercury Tactics Instructor |
+| `DDA` | **E-6B Mercury Tactics** | Combat Support - Mercury Tactics Instructor |
 | `DDB` | **EA-18G LVL V** | Combat Support - Growler Tactics Instructor |
 | `DDC` | **EA-18G LVL IV** | Combat Support - Growler SEAD Lead |
 | `DDD` | **EA-18G LVL III** | Combat Support - Growler Element Lead |
-| `DE4` | **C-20 or C-37 Medium Jet Pilot** | Transport - Medium
-Jet Pilot
- |
-| `DE5` | **C-40 Heavy Jet Pilot** | Transport - Heavy
-Jet Pilot
- |
+| `DE4` | **C-20 or C-37 Medium Jet Pilot** | Transport - Medium Jet Pilot |
+| `DE5` | **C-40 Heavy Jet Pilot** | Transport - Heavy Jet Pilot |
 | `DF0` | **Any ASW Aviator Training** | CNATRA - ASW Aviator Training |
 | `DF5` | **P-8A LVL I** | Patrol - ASW Aviator |
 | `DF6` | **P-8A LVL IV** | Patrol - ASW Instructor |
@@ -218,7 +188,7 @@ Jet Pilot
 | `DG7` | **Any NFO Training-AJN** | CNATRA - NFO Training-AJN |
 | `DG8` | **All. ASW NFO Instructor** | CNATRA - ASW NFO Instructor |
 | `DG9` | **Any jet ASW NFO Instructor** | CNATRA - ASW NFO Instructor |
-| `DGA` | **E-6B. LVL IV** | CNATRA - TACOMO COMM NFO Instructor |
+| `DGA` | **E-6B LVL IV** | CNATRA - TACOMO COMM NFO Instructor |
 | `DH3` | **E-2D LVL I** | Airborne Command & Control - Pilot/NFO |
 | `DH4` | **E-2D INSTR** | E-2D - CAPC Instructor/ CICO Instructor |
 | `DH5` | **E-2D LVL V** | Airborne Command & Control - Hawkeye Weapons & Tactics Instructor (WTI) |
@@ -237,14 +207,11 @@ Jet Pilot
 | `DL3` | **E-2C LVL I** | VAW - Airborne Command & Control Pilot |
 | `DL4` | **E-2C LVL IV** | Airborne Early Warning - CAPC Instructor/ CICO Instructor Pilot |
 | `DL5` | **E-2C LVL V** | Airborne Early Warning - Hawkeye Weapons and Tactics Instructor (WTI) Pilot |
-| `DPI` | **UC-12 Utility Pilot** | Combat Support  - Utility Pilot |
+| `DPI` | **UC-12 Utility Pilot** | Combat Support - Utility Pilot |
 | `DQ4` | **C-130 Pilot** | Transport Heavy - Pilot |
 | `DR0` | **Any Medium Transport LVL II** | Transport - Pilot |
 | `DS0` | **Any (Carrier Trans) Pilot** | Carrier Transport - Pilot |
-| `DS2` | **C-2A LVL I** | CVN Transport - Carrier
-Onboard  Delivery (COD)
-Pilot
- |
+| `DS2` | **C-2A LVL I** | CVN Transport - Carrier Onboard  Delivery (COD) Pilot |
 | `DS3` | **C-2A LVL IV** | CVN Transport - Carrier Transport Plane Commander (CTPC) Instructor Pilot |
 | `DS4` | **C-2A LVL V** | CVN Transport - Logistics Tactics Instructor (LTI) Pilot |
 | `DT0` | **Any Pilot** | General Prop - Pilot |
@@ -256,39 +223,27 @@ Pilot
 | `DT6` | **Any Prop LVL III** | CNATRA - NFO NAV Training |
 | `DT7` | **Any Prop LVL III** | CNATRA - NFO ATDS Training |
 | `DT8` | **Any Prop LVL III** | CNATRA - NFO AEW Training |
-| `DU1` | **All Commander CMD** | Command
-(Unit)
- - Commander
-Command
- |
-| `DU2` | **All Second Commander CMD** | Command
-(Unit)
- - Second Commander Command |
-| `DU3` | **All Captain CMD** | Command
-(Unit)
- - Captain Command |
-| `DUT` | **P-8A, MQ-4C, P-3C, EP-3E LVL 300** | Combat Support - Maritime Patrol Mission Commander |
-| `DUV` | **F-18 Series, F-35C LVL III** | Combat Support - Air Interdiction Mission Commander |
-| `DUW` | **F-18, MH-60 Series LVL III** | Combat Support - Rescue Mission Commander |
-| `DUX` | **EA-18G LVL III** | Combat Support - SEAD Mission Commander |
-| `DUY` | **E2C LVL III** | Combat Support - TAC C2 Mission Commander |
-| `DUZ` | **MH-60 Series LVL III** | Combat Support - Maritime Rotary Wing Mission Commander |
+| `DU1` | **All Commander CMD** | Command (Unit) - Commander Command |
+| `DU2` | **All Second Commander CMD** | Command (Unit) - Second Commander Command |
+| `DU3` | **All Captain CMD** | Command (Unit) - Captain Command |
+| `DUT` | **P-8A/MQ-4C LVL 300** | Combat Support - Maritime Patrol Mission Commander |
+| `DUV` | **F-18/F-35C LVL III** | Combat Support - Air Interdiction Mission Commander |
+| `DUW` | **F-18/MH-60 LVL III** | Combat Support - Rescue Mission Commander |
+| `DUX` | **EA-18G LVL III SEAD** | Combat Support - SEAD Mission Commander |
+| `DUY` | **E2C LVL III TAC C2** | Combat Support - TAC C2 Mission Commander |
+| `DUZ` | **MH-60 LVL III MRW** | Combat Support - Maritime Rotary Wing Mission Commander |
 | `DV0` | **Any Helicopter LVL II** | ASW - Pilot |
-| `DV5` | **MH-60R LVL I** | Anti-Submarine
-Warfare
- - Pilot |
+| `DV5` | **MH-60R LVL I** | Anti-Submarine Warfare - Pilot |
 | `DW0` | **Any helicopter LVL I** | Combat Support - SAR/MCM/Logistics Pilot |
-| `DW1` | **UH-3 Attack/SAR/ Logistics Pilot** | Combat Support - Attack/SAR/
-Logistics Pilot
- |
+| `DW1` | **UH-3 Attack/SAR/ Logistics Pilot** | Combat Support - Attack/SAR/Logistics Pilot |
 | `DW4` | **A SAR/Logistics Pilot** | Combat Support - SAR/Logistics Pilot |
 | `DW7` | **CH-53 LVL II** | Combat Support - SAR/Logistics |
 | `DW8` | **MH-53 LVL I** | Combat Support - SAR/MCM/Logistics Pilot |
 | `DWA` | **MH-60S LVL I** | Combat Support - BASIC/PQM Pilot |
-| `DWB` | **MH-60S LVL II** | Combat Support - SAR/Logistics Pilot |
-| `DWC` | **MH-60S LVL II** | Combat Support - Combat SAR Pilot |
-| `DWD` | **MH-60S LVL II** | Combat Support - Mine Warfare Pilot |
-| `DWE` | **MH-60S LVL III** | Combat Support - Special Warfare Pilot |
+| `DWB` | **MH-60S LVL II SAR** | Combat Support - SAR/Logistics Pilot |
+| `DWC` | **MH-60S LVL II CSAR** | Combat Support - Combat SAR Pilot |
+| `DWD` | **MH-60S LVL II MW** | Combat Support - Mine Warfare Pilot |
+| `DWE` | **MH-60S LVL III SpW** | Combat Support - Special Warfare Pilot |
 | `DY0` | **Any Helicopter Helo Instructor Pilot (Fleet Experience)** | General - Helo Instructor Pilot (Fleet Experience) |
 | `DY1` | **Any Helicopter Helo Instructor Pilot (Fleet Experience)** | Rotary Wing - Helo Instructor Pilot (Fleet Experience) |
 | `DY2` | **H-60 LVL V** | Rotary Wing - Seahawk Weapons & Tactics Instructor (WTI) Pilot |
@@ -297,124 +252,59 @@ Logistics Pilot
 | `DY8` | **MQ-8 LVL 1** | Rotary Wing - MQ-8 Air Vehicle Operator (AVO) |
 | `DY9` | **Helo INSTR** | Helo - MQ-8 Air Vehicle Operator (AVO) Instructor |
 | `DZ2` | **Any UAV Vehicle** | Unspecified - Vehicle |
-| `DZ3` | **Any UAS Vehicle** | Training/
-Experience
- - Vehicle |
-| `DZ7` | **Any UAS Non-Fleet Experienced UAS** | Training/
-Experience
- - Non-Fleet Experienced UAS |
+| `DZ3` | **Any UAS Vehicle** | Training/Experience - Vehicle |
+| `DZ7` | **Any UAS Non-Fleet Experienced UAS** | Training/Experience - Non-Fleet Experienced UAS |
 | `DZ8` | **Any UAV Vehicle** | Unmanned Air - Vehicle |
-| `DZ9` | **Training/ Experience F-35 Mission Planning OFF** | Training/
-Experience - F-35 Mission
-Planning Officer |
-| `DZA` | **N GRAD – Joint Air OPS CMD and Control Course (JAOC2C GRAD)** | Training/
-Experience
- - Graduate – Joint Air Operations Command and Control Course
-(JAOC2C GRAD)
- |
-| `DZB` | **N AOC experience – Exercise Only (AOC EXER)** | Training/
-Experience
- - AOC experience – Exercise Only (AOC EXER) |
-| `DZC` | **N AOC QUAL (AOC QUAL)** | Training/
-Experience
- - AOC Qualified (AOC QUAL) |
-| `DZD` | **N AOC Operational Experience (AOC OP EXP)** | Training/
-Experience
- - AOC Operational Experience
-(AOC OP EXP)
- |
-| `DZE` | **N Naval and Amphibious Liaison Element (NALE) Liaison OFF, Embarked (NALE LNO EMB)** | Training/
-Experience
- - Naval and Amphibious Liaison Element (NALE) Liaison Officer, Embarked
-(NALE LNO EMB)
- |
-| `DZF` | **N GRAD – AOC Combat OPS Initial Qualification Training (IQT) course (AOC OPS)** | Training/
-Experience
- - Graduate – AOC Combat Operations Initial Qualification Training (IQT) course
-(AOC OPS)
- |
-| `DZG` | **N GRAD – AOC Combat Plans Initial Qualification Training (IQT) course (AOC PLANS)** | Training/
-Experience
- - Graduate – AOC Combat Plans Initial Qualification Training (IQT) course
-(AOC PLANS)
- |
-| `DZH` | **N GRAD – AOC Airspace Initial Qualification Training (IQT) course (AOC AIRSPACE)** | Training/
-Experience
- - Graduate – AOC Airspace Initial Qualification Training (IQT) course
-(AOC AIRSPACE)
- |
-| `DZI` | **N GRAD – AOC Strategy Initial Qualification Training (IQT) course (AOC STRAT)** | Training/
-Experience
- - Graduate – AOC Strategy Initial Qualification Training (IQT) course
-(AOC STRAT)
- |
-| `DZJ` | **N GRAD – AOC Intelligence, Surveillance and Reconnaissance (ISR) Initial Qualification Training (IQT) course (AOC ISR)** | Training/
-Experience
- - Graduate – AOC Intelligence, Surveillance and Reconnaissance (ISR) Initial Qualification Training (IQT) course
-(AOC ISR)
- |
-| `DZK` | **N GRAD – AOC Personnel Recovery (PR) Initial Qualification Training (IQT) course (AOC PR)** | Training/
-Experience
- - Graduate – AOC Personnel Recovery (PR) Initial Qualification Training (IQT) course
-(AOC PR)
- |
-| `DZL` | **N GRAD – AOC Interface Control OFF (ICO) Initial Qualification Training (IQT) course (AOC ICO)** | Training/
-Experience
- - Graduate – AOC Interface Control Officer (ICO) Initial Qualification Training (IQT) course
-(AOC ICO)
- |
-| `DZM` | **Joint Air OPS GRAD – CMD & Control Warrior Advanced Course (C2WAC) (C2WAC GRAD)** | Joint Air Operations - Graduate – Command & Control Warrior Advanced Course (C2WAC) (C2WAC GRAD) |
-| `DZN` | **N GRAD – Joint or Combined Senior Staff Course (J/CSSC) Or Air Component Senior leader Course (ACSLC) (ACSLC GRAD)** | Training/
-Experience
- - Graduate – Joint or Combined Senior Staff Course (J/CSSC) Or Air Component Senior leader Course (ACSLC) (ACSLC GRAD) |
-| `DZP` | **N TacMobile** | Training/
-Experience
- - TacMobile |
-| `DZQ` | **N GRAD – Aviation Safety OFF course (ASO GRAD)** | Training/
-Experience
- - Graduate – Aviation Safety Officer course
-(ASO GRAD)
- |
-| `DZR` | **N Avionics** | Training/
-Experience
- - Avionics |
-| `DZS` | **N MISR WTI GRAD** | Training/
-Experience
- - MISR
-WTI GRAD
- |
-| `DZT` | **Training/Experience INSTR** | Training/Experience - Graduate -Crew Resource Management Instructor (CRMI GRAD) |
+| `DZ9` | **Training/ Experience F-35 Mission Planning OFF** | Training/Experience - F-35 Mission Planning Officer |
+| `DZA` | **JAOC2C GRAD** | Training/Experience - Graduate – Joint Air Operations Command and Control Course (JAOC2C GRAD) |
+| `DZB` | **AOC EXER** | Training/Experience - AOC experience – Exercise Only (AOC EXER) |
+| `DZC` | **AOC QUAL** | Training/Experience - AOC Qualified (AOC QUAL) |
+| `DZD` | **AOC OP EXP** | Training/Experience - AOC Operational Experience (AOC OP EXP) |
+| `DZE` | **NALE LNO EMB** | Training/Experience - Naval and Amphibious Liaison Element (NALE) Liaison Officer, Embarked (NALE LNO EMB) |
+| `DZF` | **AOC OPS IQT GRAD** | Training/Experience - Graduate – AOC Combat Operations IQT course (AOC OPS) |
+| `DZG` | **AOC PLANS IQT GRAD** | Training/Experience - Graduate – AOC Combat Plans IQT course (AOC PLANS) |
+| `DZH` | **AOC AIRSPACE GRAD** | Training/Experience - Graduate – AOC Airspace IQT course (AOC AIRSPACE) |
+| `DZI` | **AOC STRAT GRAD** | Training/Experience - Graduate – AOC Strategy IQT course (AOC STRAT) |
+| `DZJ` | **AOC ISR GRAD** | Training/Experience - Graduate – AOC ISR IQT course (AOC ISR) |
+| `DZK` | **AOC PR GRAD** | Training/Experience - Graduate – AOC Personnel Recovery IQT course (AOC PR) |
+| `DZL` | **AOC ICO GRAD** | Training/Experience - Graduate – AOC ICO IQT course (AOC ICO) |
+| `DZM` | **C2WAC GRAD** | Joint Air Operations - Graduate – Command & Control Warrior Advanced Course (C2WAC GRAD) |
+| `DZN` | **J/CSSC or ACSLC GRAD** | Training/Experience - Graduate – Joint or Combined Senior Staff Course (J/CSSC) Or Air Component Senior leader Course (ACSLC) |
+| `DZP` | **TacMobile** | Training/Experience - TacMobile |
+| `DZQ` | **ASO GRAD** | Training/Experience - Graduate – Aviation Safety Officer course (ASO GRAD) |
+| `DZR` | **Avionics** | Training/Experience - Avionics |
+| `DZS` | **MISR WTI GRAD** | Training/Experience - MISR WTI GRAD |
+| `DZT` | **CRMI GRAD** | Training/Experience - Graduate - Crew Resource Management Instructor (CRMI GRAD) |
 
 ### Aviation (Rotary/LSO)
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
 | `EA5` | **E Field QUAL** | LSO - Field Qualified |
+| `EAU` | **F-35C Field LSO** | Field Qualified - Landing Signal Officer |
+| `EAY` | **F-18 Field LSO** | Field Qualified - Landing Signal Officer |
 | `EA8` | **C-2 Landing Signal OFF** | Field Qualified - Landing Signal Officer |
-| `EAU` | **F-35C Landing Signal OFF** | Field Qualified - Landing Signal Officer |
-| `EAY` | **F-18 Landing Signal OFF** | Field Qualified - Landing Signal Officer |
 | `EB8` | **C-2 Landing Signal OFF** | Squadron - Landing Signal Officer |
-| `EBU` | **F-35C Landing Signal OFF** | Squadron - Landing Signal Officer |
-| `EBY` | **F-18 Landing Signal OFF** | Squadron - Landing Signal Officer |
+| `EBU` | **F-35C Sqdn LSO** | Squadron - Landing Signal Officer |
+| `EBY` | **F-18 Sqdn LSO** | Squadron - Landing Signal Officer |
 | `EC8` | **C-2 Landing Signal OFF** | Wing - Landing Signal Officer |
-| `ECG` | **Training Jet WING LSO CVN** | LSO - WING LSO CVN |
-| `ECU` | **F-35C Landing Signal OFF** | Wing - Landing Signal Officer |
-| `ECY` | **F-18 Landing Signal OFF** | Wing - Landing Signal Officer |
+| `ECG` | **Training Jet WING LSO** | LSO - WING LSO CVN |
+| `ECU` | **F-35C Wing LSO** | Wing - Landing Signal Officer |
+| `ECY` | **F-18 Wing LSO** | Wing - Landing Signal Officer |
 | `ED2` | **Training Jet TRV LSO CVN** | LSO - TRV LSO CVN |
-| `EDU` | **F-35C Landing Signal OFF** | Training - Landing Signal Officer |
-| `EDY` | **F-18 Landing Signal OFF** | Training - Landing Signal Officer |
+| `EDU` | **F-35C Train LSO** | Training - Landing Signal Officer |
+| `EDY` | **F-18 Train LSO** | Training - Landing Signal Officer |
 | `EF5` | **E SFV LSO CVN** | LSO - SFV LSO CVN |
 | `EF8` | **C-2 Landing Signal OFF** | Staff - Landing Signal Officer |
-| `EFU` | **F-35C Landing Signal OFF** | Staff - Landing Signal Officer |
-| `EFY` | **F-18 Landing Signal OFF** | Staff - Landing Signal Officer |
-| `ENGINEERING DUTY` | ** ** |  |
+| `EFU` | **F-35C Staff LSO** | Staff - Landing Signal Officer |
+| `EFY` | **F-18 Staff LSO** | Staff - Landing Signal Officer |
 | `ER8` | **Training C-2 Landing Signal OFF** | Training - Landing Signal Officer |
 | `EY8` | **C-2 Landing Signal OFF** | Graduate - Landing Signal Officer |
-| `EYU` | **OTHER or F-35C School GRAD** | LSO - School Graduate |
+| `EYU` | **OTHER/F-35C Schl GRAD** | LSO - School Graduate |
 | `EYY` | **F-18 School GRAD** | LSO - School Graduate |
 | `EZ5` | **E School GRAD** | LSO - School Graduate |
 | `EZ8` | **C-2 School GRAD** | LSO - School Graduate |
-| `EZU` | **OTHER or F-35C School GRAD** | LSO - School Graduate |
+| `EZU` | **OTHER/F-35C Schl GRAD** | LSO - School Graduate |
 | `EZY` | **F-18 School GRAD** | LSO - School Graduate |
 
 ### Category F
@@ -428,16 +318,14 @@ WTI GRAD
 | `FA5` | **QUAL Africa (AFRICOM)** | Qualified - Africa (AFRICOM) |
 | `FE1` | **Foreign Expertise Foreign Generalist** | Foreign Expertise - Foreign Generalist |
 | `FFQ` | **Flying QUAL** | Flying - Qualified |
-| `FINANCIAL MANAGEMENT` | **** |  -  |
 | `FM1` | **Milestone Selected** | Milestone - Selected |
 | `FM2` | **Milestone Completed** | Milestone - Completed |
 | `FM3` | **Milestone Major Selected** | Milestone - Major Selected |
 | `FM4` | **Milestone Major Completed** | Milestone - Major Completed |
-| `FOREIGN AREA OFFICER PROGRAM` | **** |  -  |
-| `FS1` | **Security Cooperation Workforce Development (SCWDP) 2.0 Awareness/ Foundational** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Awareness/ Foundational |
-| `FS2` | **Security Cooperation Workforce Development (SCWDP) 2.0 Practitioner** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Practitioner |
-| `FS3` | **Security Cooperation Workforce Development (SCWDP) 2.0 Expert** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Expert |
-| `FS4` | **Security Cooperation Workforce Development (SCWDP) 2.0 Executive** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Executive |
+| `FS1` | **SCWDP 2.0 Awareness/ Foundational** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Awareness/ Foundational |
+| `FS2` | **SCWDP 2.0 Practitioner** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Practitioner |
+| `FS3` | **SCWDP 2.0 Expert** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Expert |
+| `FS4` | **SCWDP 2.0 Executive** | Security Cooperation Workforce Development Program (SCWDP) 2.0 - Executive |
 | `FT1` | **In Training Middle East, South Asia Region (CENTCOM)** | In Training - Middle East, South Asia Region (CENTCOM) |
 | `FT2` | **In Training East Asia, Pacific Region (INDOPACOM)** | In Training - East Asia, Pacific Region (INDOPACOM) |
 | `FT3` | **In Training Western Hemisphere Region (SOUTHCOM)** | In Training - Western Hemisphere Region (SOUTHCOM) |
@@ -454,16 +342,12 @@ WTI GRAD
 | `IL4` | **Logistics Depot** | Logistics - Depot |
 | `IL5` | **Logistics Major FRC** | Logistics - Major FRC |
 | `IL6` | **Logistics PAMO PQS** | Logistics - PAMO PQS |
-| `INFORMATION WARFARE COMMUNITY` | **** |  -  |
-| `INTELLIGENCE` | **** |  -  |
-| `INTRA SERVICE SPECIALTY` | **** |  -  |
 
 ### Category N
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
 | `NAVAL WARFARE (GENERAL)` | **** |  -  |
-| `NAVY SECURITY FORCE` | **** |  -  |
 | `NR1` | **Financial MGMT CDFM** | Financial Management - CDFM |
 | `NR2` | **Financial MGMT CDFM-A** | Financial Management - CDFM-A |
 | `NS1` | **DoD Financial MGMT Certification LVL 1** | DoD Financial Management Certification - Level 1 |
@@ -482,107 +366,106 @@ WTI GRAD
 |:---|:---|:---|
 | `CA1-6` | **Grade LVL* CMD** | Division Officer - Grade level* |
 | `CB1-6` | **Grade LVL* CMD** | Department Head - Grade level* |
-| `CBB` | **Head CMD** | Shore Installation Management - Department Head |
-| `CBC` | **Executive OFF CMD** | Shore Installation Management - Executive Officer |
-| `CBD` | **OFF in Charge CMD** | Shore Installation Management - Officer in Charge |
-| `CBE` | **Shore CMD** | Shore Installation Management - Shore Command |
-| `CBF` | **Major Shore CMD** | Shore Installation Management - Major Shore Command |
-| `CBJ` | **Post-Major Shore CMD** | Shore Installation Management - Post-Major Shore Command |
+| `CBB` | **SIM Dept Head** | Shore Installation Management - Department Head |
+| `CBC` | **SIM XO** | Shore Installation Management - Executive Officer |
+| `CBD` | **SIM OIC** | Shore Installation Management - Officer in Charge |
+| `CBE` | **SIM Shore CMD** | Shore Installation Management - Shore Command |
+| `CBF` | **SIM Maj Shore CMD** | Shore Installation Management - Major Shore Command |
+| `CBJ` | **SIM Post-Maj Shore CMD** | Shore Installation Management - Post-Major Shore Command |
 | `CC1-6` | **Grade LVL* CMD** | Executive Officer - Grade level* |
 | `CD1-6` | **Grade LVL* CMD** | Officer-in-charge - Grade level* |
 | `CE1-6` | **Grade LVL* CMD** | Shore Command - Grade level* |
 | `CF1-6` | **Grade LVL* CMD** | Major Shore Command - Grade level* |
 | `CG1-6` | **Grade LVL* CMD** | Deputy Project Manager - Grade level* |
 | `CH1-6` | **Grade LVL* CMD** | Major Project Manager - Grade level* |
-| `CHAPLAIN CORPS (CHC)` | ** CMD** |  -  |
-| `CIVIL ENGINEER CORPS` | ** CMD** |  |
+| `CHAPLAIN CORPS (CHC)` | **CMD** |  -  |
 
 ### Education & Scholarships
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `211` | **Scholarship Burke Scholar** | Scholarship - Burke Scholar |
-| `213` | **Scholarship Daedalian Scholar** | Scholarship - Daedalian Scholar |
-| `214` | **Scholarship Fulbright Scholar** | Scholarship - Fulbright Scholar |
-| `215` | **Scholarship Guggenheim Scholar** | Scholarship - Guggenheim Scholar |
-| `216` | **Scholarship Hertz Scholar** | Scholarship - Hertz Scholar |
-| `217` | **Scholarship Morrison Scholar** | Scholarship - Morrison Scholar |
-| `218` | **Scholarship National Science Foundation** | Scholarship - National Science Foundation Program |
-| `219` | **Scholarship Olmsted Scholar** | Scholarship - Olmsted Scholar |
-| `221` | **Scholarship Rhodes Scholar** | Scholarship - Rhodes Scholar |
+| `211` | **Burke Scholar** | Scholarship - Burke Scholar |
+| `213` | **Daedalian Sch** | Scholarship - Daedalian Scholar |
+| `214` | **Fulbright Sch** | Scholarship - Fulbright Scholar |
+| `215` | **Guggenheim Sch** | Scholarship - Guggenheim Scholar |
+| `216` | **Hertz Scholar** | Scholarship - Hertz Scholar |
+| `217` | **Morrison Scholar** | Scholarship - Morrison Scholar |
+| `218` | **NSF Scholar** | Scholarship - National Science Foundation Program |
+| `219` | **Olmsted Scholar** | Scholarship - Olmsted Scholar |
+| `221` | **Rhodes Scholar** | Scholarship - Rhodes Scholar |
 | `222` | **Scholarship Winston Churchill Foundation** | Scholarship - Winston Churchill Foundation |
-| `223` | **Scholarship Other Scholarship** | Scholarship - Other Scholarship |
-| `224` | **Scholarship Faculty** | Scholarship - Faculty |
-| `225` | **Scholarship Physical Education Staff** | Scholarship - Physical Education Staff |
-| `226` | **Scholarship Conrad Scholar** | Scholarship - Conrad Scholar |
-| `227` | **Scholarship Executive Analysis for the Warfare Commander Certificate** | Scholarship - Executive Analysis for the Warfare Commander Certificate |
-| `229` | **Scholarship Operational Law GRAD** | Scholarship - Operational Law Graduate |
-| `231` | **Scholarship JCS Intern** | Scholarship - JCS Intern |
-| `233` | **Scholarship White House Fellowship** | Scholarship - White House Fellowship |
-| `234` | **Scholarship Legislative Fellowship** | Scholarship - Legislative Fellowship |
+| `223` | **Other Scholar** | Scholarship - Other Scholarship |
+| `224` | **Faculty Scholar** | Scholarship - Faculty |
+| `225` | **PE Staff Sch** | Scholarship - Physical Education Staff |
+| `226` | **Conrad Scholar** | Scholarship - Conrad Scholar |
+| `227` | **ExecAnal/WC Cert** | Scholarship - Executive Analysis for the Warfare Commander Certificate |
+| `229` | **Op Law GRAD** | Scholarship - Operational Law Graduate |
+| `231` | **JCS Intern** | Scholarship - JCS Intern |
+| `233` | **WH Fellowship** | Scholarship - White House Fellowship |
+| `234` | **Legislative Flwp** | Scholarship - Legislative Fellowship |
 | `235` | **Legislative Assignment** | Legislative - Assignment |
-| `241` | **Scholarship Asia –Pacific** | Scholarship - Asia –Pacific |
-| `242` | **Scholarship Western Hemisphere** | Scholarship - Western Hemisphere |
-| `243` | **Scholarship Africa Studies Concentration** | Scholarship - Africa Studies Concentration |
-| `244` | **Scholarship Middle East Studies Concentration** | Scholarship - Middle East Studies Concentration |
-| `245` | **Scholarship Corporate Strategic Planning** | Scholarship - Corporate Strategic Planning |
-| `246` | **Scholarship EURASIA Studies Concentration** | Scholarship - EURASIA Studies Concentration |
-| `247` | **Scholarship Theater/ National Strategic Planner** | Scholarship - Theater/ National Strategic Planner |
-| `248` | **Scholarship Insurgency and Terrorism** | Scholarship - Insurgency and Terrorism |
-| `249` | **Scholarship Information OPS, CMD and Control and Battle Space Awareness** | Scholarship - Information Operations, Command and Control and Battle Space Awareness |
-| `24A` | **Scholarship Politico-Military Masters Scholar** | Scholarship - Politico-Military Masters Scholar |
-| `24B` | **Scholarship Arthur S Moreau Scholar** | Scholarship - Arthur S Moreau Scholar |
-| `24C` | **Scholarship Federal Executive Fellow** | Scholarship - Federal Executive Fellow |
-| `24D` | **Scholarship Hudson Fellow** | Scholarship - Hudson Fellow |
-| `24E` | **Scholarship CFR Navy Fellow** | Scholarship - CFR Navy Fellow |
-| `24F` | **Scholarship SECDEF Executive Fellow** | Scholarship - SECDEF Executive Fellow |
-| `24G` | **Scholarship SECNAV Tours with Industry** | Scholarship - SECNAV Tours with Industry |
-| `24H` | **Scholarship Fleet Scholars Education (FSEP)** | Scholarship - Fleet Scholars Education Program (FSEP) |
+| `241` | **Asia-Pac Sch** | Scholarship - Asia –Pacific |
+| `242` | **W Hemisphere Sch** | Scholarship - Western Hemisphere |
+| `243` | **Africa Studies** | Scholarship - Africa Studies Concentration |
+| `244` | **Mid East Studies** | Scholarship - Middle East Studies Concentration |
+| `245` | **Corp Strat Plan** | Scholarship - Corporate Strategic Planning |
+| `246` | **EURASIA Studies** | Scholarship - EURASIA Studies Concentration |
+| `247` | **Theater/Natl Strat** | Scholarship - Theater/ National Strategic Planner |
+| `248` | **Insur & Terror** | Scholarship - Insurgency and Terrorism |
+| `249` | **IO/C2/BSA Sch** | Scholarship - Information Operations, Command and Control and Battle Space Awareness |
+| `24A` | **PolMil Scholar** | Scholarship - Politico-Military Masters Scholar |
+| `24B` | **Moreau Scholar** | Scholarship - Arthur S Moreau Scholar |
+| `24C` | **Fed Exec Fellow** | Scholarship - Federal Executive Fellow |
+| `24D` | **Hudson Fellow** | Scholarship - Hudson Fellow |
+| `24E` | **CFR Fellow** | Scholarship - CFR Navy Fellow |
+| `24F` | **SECDEF Exec Flw** | Scholarship - SECDEF Executive Fellow |
+| `24G` | **SECNAV TwI** | Scholarship - SECNAV Tours with Industry |
+| `24H` | **FSEP Scholar** | Scholarship - Fleet Scholars Education Program (FSEP) |
 | `24I` | **AFVentures Fellowship** | AFVentures - Fellowship |
 | `24J` | **Defense Advanced Research Projects Agency (DARPA) Fellowship** | Defense Advanced Research Projects Agency (DARPA) - Fellowship |
 | `261` | **Leadership Training Courses Instructor** | Leadership Training Courses - Instructor |
-| `271` | **Scholarship Halsey Group Alfa** | Scholarship - Halsey Group Alfa |
-| `272` | **Scholarship Halsey Group Bravo** | Scholarship - Halsey Group Bravo |
-| `273` | **Scholarship Gravely Group** | Scholarship - Gravely Group |
-| `275` | **Scholarship Mahan Scholars** | Scholarship - Mahan Scholars |
-| `276` | **Scholarship Homeland Security / Homeland Defense (HS/HD)** | Scholarship - Homeland Security / Homeland Defense (HS/HD) |
-| `278` | **Scholarship Holloway Group** | Scholarship - Holloway Group |
+| `271` | **Halsey Alpha** | Scholarship - Halsey Group Alfa |
+| `272` | **Halsey Bravo** | Scholarship - Halsey Group Bravo |
+| `273` | **Gravely Group** | Scholarship - Gravely Group |
+| `275` | **Mahan Scholar** | Scholarship - Mahan Scholars |
+| `276` | **HS/HD Scholar** | Scholarship - Homeland Security / Homeland Defense (HS/HD) |
+| `278` | **Holloway Group** | Scholarship - Holloway Group |
 | `279` | **Humanitarian Assistance Disaster Relief** | Humanitarian Assistance - Disaster Relief |
-| `282` | **Education Junior In-residence GRAD Education (IRGE) Screened** | Education - Junior In-residence Graduate Education (IRGE) Screened |
-| `283` | **Education Senior In-residence GRAD Education (IRGE) Screened** | Education - Senior In-residence Graduate Education (IRGE) Screened |
-| `284` | **Education Immediate GRAD Education /Voluntary GRAD Education (IGEP/VGEP)** | Education - Immediate Graduate Education Program/Voluntary Graduate Education Program (IGEP/VGEP) |
-| `285` | **Education In-residence GRAD Education (IRGE) Completed** | Education - In-residence Graduate Education (IRGE) Completed |
+| `282` | **Jr IRGE Screened** | Education - Junior In-residence Graduate Education (IRGE) Screened |
+| `283` | **Sr IRGE Screened** | Education - Senior In-residence Graduate Education (IRGE) Screened |
+| `284` | **IGEP/VGEP** | Education - Immediate Graduate Education Program/Voluntary Graduate Education Program (IGEP/VGEP) |
+| `285` | **IRGE Complete** | Education - In-residence Graduate Education (IRGE) Completed |
 | `286` | **Human Factor/Primary Prevention Analysis** | Human Factor/Primary Prevention - Analysis |
-| `287` | **OPS Analysis Computational OPS Research** | Operations Analysis  - Computational Operations Research |
-| `288` | **OPS Analysis Warfare Analysis** | Operations Analysis  - Warfare Analysis |
-| `289` | **OPS Analysis Manpower Analysis** | Operations Analysis  - Manpower Analysis |
-| `290` | **OPS Analysis Data Science** | Operations Analysis  - Data Science |
-| `291` | **Strategic Warfighting Innovation Cell (SWIC) Fellow** | Strategic Warfighting Innovation Cell (SWIC) - Fellow |
-| `292` | **Warrior Toughness CMD Advisor** | Warrior Toughness - Command Advisor |
-| `293` | **Certified Navy Coach LVL 1** | Certified Navy Coach - Level 1 |
-| `294` | **Certified Navy Coach LVL 2** | Certified Navy Coach - Level 2 |
-| `295` | **Credentialed Navy Coach LVL 2** | Credentialed Navy Coach - Level 2 |
-| `296` | **Certified Navy Coach LVL 3** | Certified Navy Coach - Level 3 |
-| `297` | **Credentialed Navy Coach LVL 3** | Credentialed Navy Coach - Level 3 |
-| `298` | **Certified Navy Coach LVL 4** | Certified Navy Coach - Level 4 |
-| `299` | **Credentialed Navy Coach LVL 4** | Credentialed Navy Coach - Level 4 |
-| `29A` | **Certified Navy Coach LVL 5** | Certified Navy Coach - Level 5 |
-| `29B` | **Credentialed Navy Coach LVL 5** | Credentialed Navy Coach - Level 5 |
-| `29D` | **Advanced Warrior Toughness Trainer** | Advanced Warrior Toughness - Trainer |
-| `29E` | **Advanced Warrior Toughness Master Trainer** | Advanced Warrior Toughness - Master Trainer |
-| `29H` | **Mass Casualty OPS** | Mass - Casualty Operations |
+| `287` | **Ops Anal Computational OPS Research** | Operations Analysis  - Computational Operations Research |
+| `288` | **Ops Anal Warfare Analysis** | Operations Analysis  - Warfare Analysis |
+| `289` | **Ops Anal Manpower Analysis** | Operations Analysis  - Manpower Analysis |
+| `290` | **Ops Anal Data Science** | Operations Analysis  - Data Science |
+| `291` | **SWIC Fellow** | Strategic Warfighting Innovation Cell (SWIC) - Fellow |
+| `292` | **Warrior Toughness** | Warrior Toughness - Command Advisor |
+| `293` | **Cert Coach LVL 1** | Certified Navy Coach - Level 1 |
+| `294` | **Cert Coach LVL 2** | Certified Navy Coach - Level 2 |
+| `295` | **Cred Coach LVL 2** | Credentialed Navy Coach - Level 2 |
+| `296` | **Cert Coach LVL 3** | Certified Navy Coach - Level 3 |
+| `297` | **Cred Coach LVL 3** | Credentialed Navy Coach - Level 3 |
+| `298` | **Cert Coach LVL 4** | Certified Navy Coach - Level 4 |
+| `299` | **Cred Coach LVL 4** | Credentialed Navy Coach - Level 4 |
+| `29A` | **Cert Coach LVL 5** | Certified Navy Coach - Level 5 |
+| `29B` | **Cred Coach LVL 5** | Credentialed Navy Coach - Level 5 |
+| `29D` | **Adv Warrior T Trainer** | Advanced Warrior Toughness - Trainer |
+| `29E` | **Adv Warrior T Master Trainer** | Advanced Warrior Toughness - Master Trainer |
+| `29H` | **MASCAL** | Mass - Casualty Operations |
 | `29I` | **Reintegration Phase III** | Reintegration - Phase III |
-| `29L` | **OPS Analysis Warfare Analysis - Intermediate** | Operations Analysis - Warfare Analysis - Intermediate |
-| `29M` | **OPS Analysis Manpower Analysis - Intermediate** | Operations Analysis - Manpower Analysis - Intermediate |
-| `29N` | **OPS Analysis Warfare Analysis - Advanced** | Operations Analysis - Warfare Analysis - Advanced |
-| `29P` | **OPS Analysis Manpower Analysis - Advanced** | Operations Analysis - Manpower Analysis - Advanced |
-| `29Q` | **OPS Analysis Cross- Disciplinary Advanced** | Operations Analysis - Cross- Disciplinary Advanced |
-| `29R` | **White House Military Office Presidential Service Badge QUAL** | White House Military Office - Presidential Service Badge Qualified |
+| `29L` | **Ops Anal Warfare Analysis - Intermediate** | Operations Analysis - Warfare Analysis - Intermediate |
+| `29M` | **Ops Anal Manpower Analysis - Intermediate** | Operations Analysis - Manpower Analysis - Intermediate |
+| `29N` | **Ops Anal Warfare Analysis - Advanced** | Operations Analysis - Warfare Analysis - Advanced |
+| `29P` | **Ops Anal Manpower Analysis - Advanced** | Operations Analysis - Manpower Analysis - Advanced |
+| `29Q` | **Ops Anal Cross- Disciplinary Advanced** | Operations Analysis - Cross- Disciplinary Advanced |
+| `29R` | **WH Presid Badge** | White House Military Office - Presidential Service Badge Qualified |
 | `29S` | **Safety PROF** | Safety - Professional |
-| `2A1` | **Permanent Military Professor PMP Select** | Permanent Military Professor - PMP Select |
-| `2A2` | **Permanent Military Professor PMP QUAL** | Permanent Military Professor - PMP Qualified |
-| `2A3` | **Permanent Military Instructor PMI Select** | Permanent Military Instructor - PMI Select |
-| `2A4` | **Permanent Military Instructor PMI QUAL** | Permanent Military Instructor - PMI Qualified |
+| `2A1` | **PMP PMP Select** | Permanent Military Professor - PMP Select |
+| `2A2` | **PMP PMP QUAL** | Permanent Military Professor - PMP Qualified |
+| `2A3` | **PMI PMI Select** | Permanent Military Instructor - PMI Select |
+| `2A4` | **PMI PMI QUAL** | Permanent Military Instructor - PMI Qualified |
 | `2B1` | **Eisenhower School Supply Chain MGMT Concentration** | Eisenhower School - Supply Chain Management Concentration Program |
 | `2C1` | **Continuous Process Improvement (CPI) Green Belt Certified** | Continuous Process Improvement (CPI) - Green Belt Certified |
 | `2C2` | **Continuous Process Improvement (CPI) Black Belt Certified** | Continuous Process Improvement (CPI) - Black Belt Certified |
@@ -596,21 +479,21 @@ WTI GRAD
 | `2GI` | **NAVIG Inspector** | NAVIG - Inspector |
 | `2GV` | **NAVIG Investigator** | NAVIG - Investigator |
 | `2II` | **INSURV Inspector** | INSURV - Inspector |
-| `2MT` | **Master Training SPEC** | Master - Training Specialist |
-| `2N1` | **Navy Reserve Augment Unit Commanding OFF/OFF In Charge Qualification Eligible** | Navy Reserve Augment Unit Commanding Officer/Officer In Charge Qualification - Eligible |
-| `2N2` | **Navy Reserve Augment Unit CMD Qualification CMD Complete** | Navy Reserve Augment Unit Command Qualification - Command Complete |
+| `2MT` | **MTS** | Master - Training Specialist |
+| `2N1` | **NR Augm CO/OIC Eligible** | Navy Reserve Augment Unit Commanding Officer/Officer In Charge Qualification - Eligible |
+| `2N2` | **NR Augm CMD Qual CMD Complete** | Navy Reserve Augment Unit Command Qualification - Command Complete |
 | `2N3` | **** |  -  |
 | `2N4` | **** |  -  |
 | `2N5` | **CMD Qualification Junior Strategic Weapons CMD Qualification** | Command Qualification  - Junior Strategic Weapons Command Qualification |
 | `2N6` | **CMD Qualification Senior Strategic Weapons CMD Qualification** | Command Qualification  - Senior Strategic Weapons Command Qualification |
-| `2P2` | **Project MGMT Certified Project MGMT PROF (PMP)** | Project Management - Certified Project Management Professional (PMP) |
-| `2PT` | **Physical Readiness CMD Fitness Leader** | Physical Readiness Program - Command Fitness Leader |
+| `2P2` | **PMP Cert** | Project Management - Certified Project Management Professional (PMP) |
+| `2PT` | **CFL** | Physical Readiness Program - Command Fitness Leader |
 
 ### Engineering Duty
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `800` | **Registered PROF Engineer (PROENG)** | Registered Professional Engineer (PROENG) |
+| `800` | **Reg Prof Engr** | Registered Professional Engineer (PROENG) |
 | `801` | **SWO-EDO TCT Candidate** | SWO-EDO TCT Program Candidate |
 
 ### Expeditionary/Naval Construction
@@ -622,12 +505,12 @@ WTI GRAD
 | `LA7` | **QUAL Medical** | Qualified - Medical Department |
 | `LA8` | **QUAL Supply Corps** | Qualified - Supply Corps |
 | `LA9` | **QUAL Surface Warfare** | Qualified - Surface Warfare |
-| `LAB` | **Advanced Engineering Instructors (AEI) Completed Steam Speciality Training** | Advanced Engineering Instructors (AEI) - Completed Steam Speciality Training |
-| `LAC` | **Advanced Engineering Instructors (AEI) Certified AEI** | Advanced Engineering Instructors (AEI) - Certified AEI |
-| `LAD` | **Advanced Engineering Instructors (AEI) Completed Diesel Speciality Training** | Advanced Engineering Instructors (AEI) - Completed Diesel Speciality Training |
-| `LAG` | **Advanced Engineering Instructors (AEI) Completed Gas Turbine Specialty Training** | Advanced Engineering Instructors (AEI) - Completed Gas Turbine Specialty Training |
-| `LAH` | **Advanced Engineering Instructors (AEI) Completed Hybrid Specialty Training** | Advanced Engineering Instructors (AEI) - Completed Hybrid Specialty Training |
-| `LAS` | **Advanced Engineering Instructors (AEI) Selected AEI** | Advanced Engineering Instructors (AEI) - Selected AEI |
+| `LAB` | **AEI Steam Cert** | Advanced Engineering Instructors (AEI) - Completed Steam Specialty Training |
+| `LAC` | **AEI Certified** | Advanced Engineering Instructors (AEI) - Certified AEI |
+| `LAD` | **AEI Diesel Cert** | Advanced Engineering Instructors (AEI) - Completed Diesel Specialty Training |
+| `LAG` | **AEI Gas Turbine Cert** | Advanced Engineering Instructors (AEI) - Completed Gas Turbine Specialty Training |
+| `LAH` | **AEI Hybrid Cert** | Advanced Engineering Instructors (AEI) - Completed Hybrid Specialty Training |
+| `LAS` | **AEI Selected** | Advanced Engineering Instructors (AEI) - Selected AEI |
 | `LB2` | **QUAL OOD Fleet Maneuvers Task Group/Force OPS** | Qualified OOD - Fleet Maneuvers Task Group/Force Operations |
 | `LB3` | **QUAL OOD CDO Underway** | Qualified OOD - CDO Underway |
 | `LC1` | **Engineering EOOW (Steam)** | Engineering - EOOW (Steam) |
@@ -639,18 +522,11 @@ WTI GRAD
 | `LC8` | **Engineering EOOW (ZUMWALT Class DDG Gas Turbine Electric)** | Engineering - EOOW (ZUMWALT Class DDG Gas Turbine Electric) |
 | `LC9` | **Engineering EOOW (LCS, General Dynamics Hull)** | Engineering - EOOW (LCS, General Dynamics Hull) |
 | `LD9` | **Weapons Control QUAL** | Weapons Control - Qualified |
-| `LEGAL SERVICES` | **** |  -  |
 | `LF6` | **Evaluator/ Tactical Action OFF QUAL in Non-NTDS equipped unit** | Evaluator/ Tactical Action Officer - Qualified in Non-NTDS equipped unit |
 | `LF7` | **Evaluator/ Tactical Action OFF QUAL in NTDS equipped unit** | Evaluator/ Tactical Action Officer - Qualified in NTDS equipped unit |
-| `LF9` | **Weapons Systems Employment Hostile Engagement/Combat** | Weapons
-Systems
-Employment
- - Hostile
-Engagement/Combat
- |
+| `LF9` | **Weapons Systems Employment Hostile Engagement/Combat** | Weapons Systems Employment - Hostile Engagement/Combat |
 | `LG1` | **Navigation Expert Surface Ship** | Navigation Expert - Surface Ship |
 | `LG2` | **Navigation Expert Navigator/ Assistant Navigator, CVN** | Navigation Expert - Navigator/ Assistant Navigator, CVN |
-| `LINE OFFICER SHORE ASSIGNMENT` | **** |  -  |
 | `LK8` | **Executive OFF Afloat Surface Screened** | Executive Officer Afloat - Surface Screened |
 | `LK9` | **Executive OFF Afloat (LCDR and above) Unspecified** | Executive Officer Afloat (LCDR and above) - Unspecified |
 | `LN1` | **CMD LT CMD** | Command - LT Command |
@@ -660,36 +536,33 @@ Engagement/Combat
 | `LN7` | **CMD QUAL Surface CMD Commander** | Command - Qualified Surface Command Commander |
 | `LN8` | **CMD Sequential CMD Captain** | Command - Sequential Command Captain |
 | `LN9` | **Combat Air Controller** | Combat - Air Controller |
-| `LOA` | **Option OFF ED Option** | Option Officer - ED Option |
-| `LOB` | **Option OFF IP Option** | Option Officer - IP Option |
-| `LOC` | **Option OFF IW Option** | Option Officer - IW Option |
-| `LOD` | **Option OFF OCN Option** | Option Officer - OCN Option |
-| `LOE` | **Option OFF Intelligence Option** | Option Officer - Intelligence Option |
-| `LOGISTIC SUPORT` | **** |  -  |
+| `LOA` | **OFF ED Option** | Option Officer - ED Option |
+| `LOB` | **OFF IP Option** | Option Officer - IP Option |
+| `LOC` | **OFF IW Option** | Option Officer - IW Option |
+| `LOD` | **OFF OCN Option** | Option Officer - OCN Option |
+| `LOE` | **OFF Intel Option** | Option Officer - Intelligence Option |
 | `LQ1` | **NCAGS Basic LVL 1** | NCAGS - Basic Level 1 |
 | `LQ2` | **NCAGS Basic LVL 2** | NCAGS - Basic Level 2 |
-| `LQA` | **NCAGS Shipping Coordination Team (SCT) Afloat** | NCAGS - Shipping Coordination Team (SCT) Afloat |
-| `LQN` | **NCAGS Convoy Navigator** | NCAGS - Convoy Navigator |
-| `LQP` | **NCAGS Convoy Planner** | NCAGS - Convoy Planner |
-| `LQW` | **NCAGS Maritime Security Center Augmentation Teams (MSCAT) Watch OFF** | NCAGS - Maritime Security Center Augmentation Teams (MSCAT) Watch Officer |
-| `LS0` | **Specialty Career Path Education and Training MGMT** | Specialty Career Path - Education and Training Management |
-| `LS1` | **Specialty Career Path Missile Defense** | Specialty Career Path - Missile Defense |
-| `LS2` | **Specialty Career Path AT/FP** | Specialty Career Path - AT/FP |
-| `LS3` | **Specialty Career Path Anti-Submarine Warfare** | Specialty Career Path - Anti-Submarine Warfare |
-| `LS4` | **Specialty Career Path Mine Warfare** | Specialty Career Path - Mine Warfare |
-| `LS5` | **Specialty Career Path Shore Installation MGMT** | Specialty Career Path - Shore Installation Management |
-| `LS6` | **Specialty Career Path Strategic Sealift** | Specialty Career Path - Strategic Sealift |
-| `LS7` | **Specialty Career Path Financial MGMT** | Specialty Career Path - Financial Management |
-| `LS8` | **Specialty Career Path Naval Operational Planner** | Specialty Career Path - Naval Operational Planner |
-| `LS9` | **Specialty Career Path OPS Analysis** | Specialty Career Path - Operations Analysis |
-| `LT1` | **Tactical Digital Information Link (TDL) OFF QUAL Interface Control OFF (ICO)** | Tactical Digital Information Link (TDL) Officer - Qualified  Interface Control Officer (ICO) |
-| `LT2` | **Tactical Digital Information Link (TDL) OFF QUAL Joint Interface Control OFF (JICO)** | Tactical Digital Information Link (TDL) Officer - Qualified Joint Interface Control Officer (JICO) |
-| `LT3` | **Joint Interface Control OFF (JICO) Tour Complete** | Joint Interface Control Officer (JICO)  - Tour Complete |
-| `LTS` | **Joint Interface Control OFF (JICO) Screened** | Joint Interface Control Officer (JICO)  - Screened |
+| `LQA` | **NCAGS SCT Afloat** | NCAGS - Shipping Coordination Team (SCT) Afloat |
+| `LQN` | **NCAGS Convoy Nav** | NCAGS - Convoy Navigator |
+| `LQP` | **NCAGS Convoy Plan** | NCAGS - Convoy Planner |
+| `LQW` | **NCAGS MSCAT WO** | NCAGS - Maritime Security Center Augmentation Teams (MSCAT) Watch Officer |
+| `LS0` | **Spec Career Path Education and Training MGMT** | Specialty Career Path - Education and Training Management |
+| `LS1` | **Spec Career Path MD** | Specialty Career Path - Missile Defense |
+| `LS2` | **Spec Career Path AT/FP** | Specialty Career Path - AT/FP |
+| `LS3` | **Spec Career Path Anti-Submarine Warfare** | Specialty Career Path - Anti-Submarine Warfare |
+| `LS4` | **Spec Career Path MW** | Specialty Career Path - Mine Warfare |
+| `LS5` | **Spec Career Path Shore Installation MGMT** | Specialty Career Path - Shore Installation Management |
+| `LS6` | **Spec Career Path Strategic Sealift** | Specialty Career Path - Strategic Sealift |
+| `LS7` | **Spec Career Path Financial MGMT** | Specialty Career Path - Financial Management |
+| `LS8` | **Spec Career Path Naval Operational Planner** | Specialty Career Path - Naval Operational Planner |
+| `LS9` | **Spec Career Path Ops Anal** | Specialty Career Path - Operations Analysis |
+| `LT1` | **TDL ICO QUAL** | Tactical Digital Information Link (TDL) Officer - Qualified  Interface Control Officer (ICO) |
+| `LT2` | **TDL JICO QUAL** | Tactical Digital Information Link (TDL) Officer - Qualified Joint Interface Control Officer (JICO) |
+| `LT3` | **JICO Tour Cmplt** | Joint Interface Control Officer (JICO)  - Tour Complete |
+| `LTS` | **JICO Screened** | Joint Interface Control Officer (JICO) - Screened |
 | `LV1` | **Naval Culture Workshop (NCW) Facilitator** | Naval Culture Workshop (NCW) - Facilitator |
-| `LV2` | **Naval Culture Workshop (NCW) Lead Facilitator** | Naval Culture Workshop (NCW) - Lead
-Facilitator
- |
+| `LV2` | **Naval Culture Workshop (NCW) Lead Facilitator** | Naval Culture Workshop (NCW) - Lead Facilitator |
 
 ### Human Resources
 
@@ -699,41 +572,34 @@ Facilitator
 | `RA2` | **Human Resource OFF SPHR** | Human Resource Officer - SPHR |
 | `RA3` | **Human Resource OFF GPHR** | Human Resource Officer - GPHR |
 | `RA4` | **Human Resource OFF CPT** | Human Resource Officer - CPT |
-| `RB4` | **HR Milestone Assignment Lieutenant Commander** | HR 
-Milestone Assignment
- - Lieutenant Commander |
-| `RB5` | **HR Milestone Assignment Commander** | HR 
-Milestone Assignment
- - Commander |
-| `RB6` | **HR Milestone Assignment Captain** | HR 
-Milestone Assignment
- - Captain |
+| `RB4` | **HR Milestone Assignment Lieutenant Commander** | HR Milestone Assignment - Lieutenant Commander |
+| `RB5` | **HR Milestone Assignment Commander** | HR Milestone Assignment - Commander |
+| `RB6` | **HR Milestone Assignment Captain** | HR Milestone Assignment - Captain |
 | `RDX*` | **Development Relative experience indicated by code.** | Development - Relative experience indicated by code. |
-| `RECRUITING` | **** |  -  |
 | `REX*` | **MGMT Relative experience indicated by code.** | Management - Relative experience indicated by code. |
 | `RFX*` | **Recruiting Relative experience indicated by code.** | Recruiting - Relative experience indicated by code. |
 | `RGX*` | **Requirements Relative experience indicated by code.** | Requirements - Relative experience indicated by code. |
 | `RH4` | **HR Headquarters Lieutenant Commander** | HR Headquarters - Lieutenant Commander |
 | `RH5` | **HR Headquarters Commander** | HR Headquarters - Commander |
-| `RIA` | **Force Development Novice** | Force Development - Novice |
-| `RIB` | **Force Development Intermediate** | Force Development - Intermediate |
-| `RIC` | **Force Development Advanced** | Force Development - Advanced |
-| `RID` | **Force Development Expert** | Force Development - Expert |
-| `RIX*` | **Force Development Relative experience indicated by code** | Force Development - Relative experience indicated by code |
-| `RJA` | **Force MGMT Novice** | Force Management - Novice |
-| `RJB` | **Force MGMT Intermediate** | Force Management - Intermediate |
-| `RJC` | **Force MGMT Advanced** | Force Management - Advanced |
-| `RJD` | **Force MGMT Expert** | Force Management - Expert |
-| `RJX*` | **Force MGMT Relative experience indicated by code** | Force Management - Relative experience indicated by code |
-| `RKA` | **Force Requirements and Resourcing Novice** | Force Requirements and Resourcing - Novice |
-| `RKB` | **Force Requirements and Resourcing Intermediate** | Force Requirements and Resourcing - Intermediate |
-| `RKC` | **Force Requirements and Resourcing Advanced** | Force Requirements and Resourcing - Advanced |
-| `RKD` | **Force Requirements and Resourcing Expert** | Force Requirements and Resourcing - Expert |
-| `RKX*` | **Force Requirements and Resourcing Relative experience indicated by code** | Force Requirements and Resourcing - Relative experience indicated by code |
+| `RIA` | **Force Dev Novice** | Force Development - Novice |
+| `RIB` | **Force Dev Interm** | Force Development - Intermediate |
+| `RIC` | **Force Dev Advanced** | Force Development - Advanced |
+| `RID` | **Force Dev Expert** | Force Development - Expert |
+| `RJA` | **Force Mgmt Novice** | Force Management - Novice |
+| `RJB` | **Force Mgmt Interm** | Force Management - Intermediate |
+| `RJC` | **Force Mgmt Advanced** | Force Management - Advanced |
+| `RJD` | **Force Mgmt Expert** | Force Management - Expert |
+| `RKA` | **Force Req&Res Novice** | Force Requirements and Resourcing - Novice |
+| `RKB` | **Force Req&Res Interm** | Force Requirements and Resourcing - Intermediate |
+| `RKC` | **Force Req&Res Adv** | Force Requirements and Resourcing - Advanced |
+| `RKD` | **Force Req&Res Expert** | Force Requirements and Resourcing - Expert |
+| `RIX*` | **Force Dev Relative experience indicated by code** | Force Development - Relative experience indicated by code |
+| `RJX*` | **Force Mgmt Relative experience indicated by code** | Force Management - Relative experience indicated by code |
+| `RKX*` | **Force Req & Res Relative experience indicated by code** | Force Requirements and Resourcing - Relative experience indicated by code |
 | `RL4` | **HR Leadership Lieutenant Commander** | HR Leadership - Lieutenant Commander |
 | `RL5` | **HR Leadership Commander** | HR Leadership - Commander |
-| `RLC` | **HR Leadership Major CMD Eligible** | HR Leadership - Major Command Eligible |
-| `RLS` | **HR Leadership HR Sea Duty** | HR Leadership - HR Sea Duty |
+| `RLC` | **HR Lead Maj CMD Elig** | HR Leadership - Major Command Eligible |
+| `RLS` | **HR Lead Sea Duty** | HR Leadership - HR Sea Duty |
 | `RMX*` | **Manpower Requirements Relative experience indicated by code** | Manpower Requirements - Relative experience indicated by code |
 | `RNX*` | **N1 Relative experience indicated by code** | N1 - Relative experience indicated by code |
 | `ROX*` | **Financial MGMT Relative experience indicated by code** | Financial Management - Relative experience indicated by code |
@@ -751,111 +617,99 @@ Milestone Assignment
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `GA1` | **Information PROF Basic Qualification** | Information Professional - Basic Qualification |
-| `GA2` | **Information PROF Intermediate Qualification** | Information Professional - Intermediate Qualification |
-| `GA3` | **Information PROF Advanced Qualification** | Information Professional - Advanced Qualification |
-| `GA5` | **Information Warfare Strike Group Staff Tactical Action OFF (SGSTAO)** | Information Warfare - Strike Group Staff Tactical Action Officer
-(SGSTAO)
- |
-| `GA6` | **Information PROF Knowledge MGMT OFF (KM)** | Information Professional - Knowledge Management Officer
-(KM)
- |
-| `GA7` | **Information Warfare Information Assurance OFF (IA)** | Information Warfare - Information Assurance Officer
-(IA)
- |
-| `GA8` | **Information Warfare Chief Information OFF (CIO)** | Information Warfare - Chief Information Officer
-(CIO)
- |
-| `GA9` | **Information Warfare Individual Augmentee** | Information Warfare - Individual Augmentee |
+| `GA1` | **IP Basic Qualification** | Information Professional - Basic Qualification |
+| `GA2` | **IP Intermediate Qualification** | Information Professional - Intermediate Qualification |
+| `GA3` | **IP Advanced Qualification** | Information Professional - Advanced Qualification |
+| `GA5` | **IW Strike Group Staff Tactical Action OFF (SGSTAO)** | Information Warfare - Strike Group Staff Tactical Action Officer (SGSTAO) |
+| `GA6` | **IP Knowledge MGMT OFF (KM)** | Information Professional - Knowledge Management Officer (KM) |
+| `GA7` | **IW Information Assurance OFF (IA)** | Information Warfare - Information Assurance Officer (IA) |
+| `GA8` | **IW Chief Information OFF (CIO)** | Information Warfare - Chief Information Officer (CIO) |
+| `GA9` | **IW Individual Augmentee** | Information Warfare - Individual Augmentee |
 | `GB1` | **Milestone LCDR** | Milestone - LCDR |
 | `GB2` | **Milestone CDR** | Milestone - CDR |
 | `GB3` | **Milestone CAPT** | Milestone - CAPT |
-| `GB4` | **Milestone Information Warfare Commander Afloat (CDR)** | Milestone - Information Warfare Commander Afloat (CDR) |
-| `GB5` | **Milestone Information Warfare Commander Afloat Captain (CAPT)** | Milestone - Information Warfare Commander Afloat Captain (CAPT) |
-| `GB6` | **Milestone Information Warfare Commander Numbered Fleet Captain (CAPT)** | Milestone - Information Warfare Commander Numbered Fleet Captain (CAPT) |
-| `GC0` | **Information Warfare Community (IWC) Qualification Information Warfare** | Information  Warfare Community (IWC) Qualification Program - Information Warfare |
-| `GC1` | **Information Warfare Community Qualification Information Warfare OFF Intermediate Course** | Information  Warfare Community Qualification Program - Information Warfare Officer Intermediate Course |
-| `GC2` | **IWC Qualification JFTOC Watch OFF** | IWC Qualification Program - JFTOC Watch Officer |
-| `GC3` | **Milestone Information Warfare Community LCDR Leadership** | Milestone - Information Warfare Community LCDR Leadership |
-| `GC4` | **IWC Qualification BCA CWO** | IWC Qualification Program - BCA CWO |
-| `GQ1` | **Quebec Watch Information Warfare Watch OFF (IWWO)** | Quebec Watch - Information Warfare Watch Officer (IWWO) |
-| `GUI` | **Undersea Warfare Support TASW Watch OFF** | Undersea Warfare
-Support
- - TASW
-Watch Officer
- |
-| `GW1` | **Warfare Tactics Instructor (WTI) Electronic Warfare (EW)** | Warfare Tactics Instructor (WTI) - Electronic Warfare (EW) |
-| `GW2` | **Warfare Tactics Instructor (WTI) Intelligence OPS (Intel Ops)** | Warfare Tactics Instructor (WTI) - Intelligence Operations (Intel Ops) |
-| `GW3` | **Warfare Tactics Instructor (WTI) Meteorology / Oceanography (METOC)** | Warfare Tactics Instructor (WTI) - Meteorology / Oceanography (METOC) |
-| `GW4` | **Warfare Tactics Instructor (WTI) Information OPS (Info Ops)** | Warfare Tactics Instructor (WTI) - Information Operations (Info Ops) |
-| `GW5` | **Warfare Tactics Instructor (WTI) Space** | Warfare Tactics Instructor (WTI) - Space |
-| `GW6` | **Warfare Tactics Instructor (WTI) CMD and Control/Cyber Space OPS (C2/CO)** | Warfare Tactics Instructor (WTI) - Command and Control/Cyber Space Operations (C2/CO) |
-| `GWI` | **Warfare Tactics Instructor (WTI) Instructor** | Warfare Tactics Instructor (WTI) - Instructor |
+| `GB4` | **Milestone IW Commander Afloat (CDR)** | Milestone - Information Warfare Commander Afloat (CDR) |
+| `GB5` | **Milestone IW Commander Afloat Captain (CAPT)** | Milestone - Information Warfare Commander Afloat Captain (CAPT) |
+| `GB6` | **Milestone IW Commander Numbered Fleet Captain (CAPT)** | Milestone - Information Warfare Commander Numbered Fleet Captain (CAPT) |
+| `GC0` | **IW Community (IWC) Qualification IW** | Information  Warfare Community (IWC) Qualification Program - Information Warfare |
+| `GC1` | **IW Community Qualification IW OFF Intermediate Course** | Information  Warfare Community Qualification Program - Information Warfare Officer Intermediate Course |
+| `GC2` | **IWC JFTOC WO** | IWC Qualification Program - JFTOC Watch Officer |
+| `GC3` | **Milestone IW Community LCDR Leadership** | Milestone - Information Warfare Community LCDR Leadership |
+| `GC4` | **IWC BCA CWO** | IWC Qualification Program - BCA CWO |
+| `GUI` | **UW Spt TASW WO** | Undersea Warfare Support - TASW Watch Officer |
+| `GQ1` | **Quebec Watch IW Watch OFF (IWWO)** | Quebec Watch - Information Warfare Watch Officer (IWWO) |
+| `GW1` | **WTI (WTI) EW (EW)** | Warfare Tactics Instructor (WTI) - Electronic Warfare (EW) |
+| `GW2` | **WTI Intel Ops** | Warfare Tactics Instructor (WTI) - Intelligence Operations (Intel Ops) |
+| `GW3` | **WTI METOC** | Warfare Tactics Instructor (WTI) - Meteorology / Oceanography (METOC) |
+| `GW4` | **WTI Info Ops** | Warfare Tactics Instructor (WTI) - Information Operations (Info Ops) |
+| `GW5` | **WTI Space** | Warfare Tactics Instructor (WTI) - Space |
+| `GW6` | **WTI C2/CO** | Warfare Tactics Instructor (WTI) - Command and Control/Cyber Space Operations (C2/CO) |
+| `GWI` | **WTI Instructor** | Warfare Tactics Instructor (WTI) - Instructor |
 
 ### Joint/Acquisition Support
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `U1A` | **Joint Staff Acquisition** | Joint Staff  - Acquisition |
-| `U1C` | **Joint Staff Civil Affairs** | Joint Staff  - Civil Affairs |
-| `U1D` | **Joint Staff Detainee OPS** | Joint Staff  - Detainee Operations |
-| `U1F` | **Joint Staff Finance** | Joint Staff  - Finance |
-| `U1H` | **Joint Staff Human Resources** | Joint Staff  - Human Resources |
-| `U1I` | **Joint Staff Intelligence** | Joint Staff  - Intelligence |
-| `U1L` | **Joint Staff Logistics** | Joint Staff  - Logistics |
-| `U1M` | **Joint Staff Medical** | Joint Staff  - Medical |
-| `U1O` | **Joint Staff OPS** | Joint Staff  - Operations |
-| `U1P` | **Joint Staff Planning** | Joint Staff  - Planning |
-| `U1T` | **Joint Staff Training** | Joint Staff  - Training |
-| `U1X` | **Joint Staff Improvised Explosive Device** | Joint Staff  - Improvised Explosive Device |
-| `U2A` | **Multinational HQ Acquisition** | Multinational HQ  - Acquisition |
-| `U2C` | **Multinational HQ Civil Affairs** | Multinational HQ  - Civil Affairs |
-| `U2D` | **Multinational HQ Detainee OPS** | Multinational HQ  - Detainee Operations |
-| `U2F` | **Multinational HQ Finance** | Multinational HQ  - Finance |
-| `U2H` | **Multinational HQ Human Resources** | Multinational HQ  - Human Resources |
-| `U2I` | **Multinational HQ Intelligence** | Multinational HQ  - Intelligence |
-| `U2L` | **Multinational HQ Logistics** | Multinational HQ  - Logistics |
-| `U2M` | **Multinational HQ Medical** | Multinational HQ  - Medical |
-| `U2O` | **Multinational HQ OPS** | Multinational HQ  - Operations |
-| `U2P` | **Multinational HQ Planning** | Multinational HQ  - Planning |
-| `U2T` | **Multinational HQ Training** | Multinational HQ  - Training |
-| `U2X` | **Multinational HQ Improvised Explosive Device** | Multinational HQ  - Improvised Explosive Device |
-| `U3A` | **Combatant Commander LVL Acquisition** | Combatant Commander Level - Acquisition |
-| `U3C` | **Combatant Commander LVL Civil Affairs** | Combatant Commander Level - Civil Affairs |
-| `U3D` | **Combatant Commander LVL Detainee OPS** | Combatant Commander Level - Detainee Operations |
-| `U3F` | **Combatant Commander LVL Finance** | Combatant Commander Level - Finance |
-| `U3H` | **Combatant Commander LVL Human Resources** | Combatant Commander Level - Human Resources |
-| `U3I` | **Combatant Commander LVL Intelligence** | Combatant Commander Level - Intelligence |
-| `U3L` | **Combatant Commander LVL Logistics** | Combatant Commander Level - Logistics |
-| `U3M` | **Combatant Commander LVL Medical** | Combatant Commander Level - Medical |
-| `U3O` | **Combatant Commander LVL OPS** | Combatant Commander Level - Operations |
-| `U3P` | **Combatant Commander LVL Planning** | Combatant Commander Level - Planning |
-| `U3T` | **Combatant Commander LVL Training** | Combatant Commander Level - Training |
-| `U3X` | **Combatant Commander LVL Improvised Explosive Device** | Combatant Commander Level - Improvised Explosive Device |
-| `U4A` | **Fleet/Division Staff Acquisition** | Fleet/Division Staff - Acquisition |
-| `U4C` | **Fleet/Division Staff Civil Affairs** | Fleet/Division Staff - Civil Affairs |
-| `U4D` | **Fleet/Division Staff Detainee OPS** | Fleet/Division Staff - Detainee Operations |
-| `U4F` | **Fleet/Division Staff Finance** | Fleet/Division Staff - Finance |
-| `U4H` | **Fleet/Division Staff Human Resources** | Fleet/Division Staff - Human Resources |
-| `U4I` | **Fleet/Division Staff Intelligence** | Fleet/Division Staff - Intelligence |
-| `U4L` | **Fleet/Division Staff Logistics** | Fleet/Division Staff - Logistics |
-| `U4M` | **Fleet/Division Staff Medical** | Fleet/Division Staff - Medical |
-| `U4O` | **Fleet/Division Staff OPS** | Fleet/Division Staff - Operations |
-| `U4P` | **Fleet/Division Staff Planning** | Fleet/Division Staff - Planning |
-| `U4T` | **Fleet/Division Staff Training** | Fleet/Division Staff - Training |
-| `U4X` | **Fleet/Division Staff Improvised Explosive Device** | Fleet/Division Staff - Improvised Explosive Device |
-| `U5A` | **Joint Task Force Acquisition** | Joint Task Force - Acquisition |
-| `U5C` | **Joint Task Force Civil Affairs** | Joint Task Force - Civil Affairs |
-| `U5D` | **Joint Task Force Detainee OPS** | Joint Task Force - Detainee Operations |
-| `U5F` | **Joint Task Force Finance** | Joint Task Force - Finance |
-| `U5H` | **Joint Task Force Human Resources** | Joint Task Force - Human Resources |
-| `U5I` | **Joint Task Force Intelligence** | Joint Task Force - Intelligence |
-| `U5L` | **Joint Task Force Logistics** | Joint Task Force - Logistics |
-| `U5M` | **Joint Task Force Medical** | Joint Task Force - Medical |
-| `U5O` | **Joint Task Force OPS** | Joint Task Force - Operations |
-| `U5P` | **Joint Task Force Planning** | Joint Task Force - Planning |
-| `U5T` | **Joint Task Force Training** | Joint Task Force - Training |
-| `U5X` | **Joint Task Force Improvised Explosive Device** | Joint Task Force - Improvised Explosive Device |
+| `U1A` | **JS Acquisition** | Joint Staff  - Acquisition |
+| `U1C` | **JS Civil Affairs** | Joint Staff  - Civil Affairs |
+| `U1D` | **JS Detainee OPS** | Joint Staff  - Detainee Operations |
+| `U1F` | **JS Finance** | Joint Staff  - Finance |
+| `U1H` | **JS Human Resources** | Joint Staff  - Human Resources |
+| `U1I` | **JS Intelligence** | Joint Staff  - Intelligence |
+| `U1L` | **JS Logistics** | Joint Staff  - Logistics |
+| `U1M` | **JS Medical** | Joint Staff  - Medical |
+| `U1O` | **JS OPS** | Joint Staff  - Operations |
+| `U1P` | **JS Planning** | Joint Staff  - Planning |
+| `U1T` | **JS Training** | Joint Staff  - Training |
+| `U1X` | **JS Improvised Explosive Device** | Joint Staff  - Improvised Explosive Device |
+| `U2A` | **MNL HQ Acquisition** | Multinational HQ  - Acquisition |
+| `U2C` | **MNL HQ Civil Affairs** | Multinational HQ  - Civil Affairs |
+| `U2D` | **MNL HQ Detainee OPS** | Multinational HQ  - Detainee Operations |
+| `U2F` | **MNL HQ Finance** | Multinational HQ  - Finance |
+| `U2H` | **MNL HQ Human Resources** | Multinational HQ  - Human Resources |
+| `U2I` | **MNL HQ Intelligence** | Multinational HQ  - Intelligence |
+| `U2L` | **MNL HQ Logistics** | Multinational HQ  - Logistics |
+| `U2M` | **MNL HQ Medical** | Multinational HQ  - Medical |
+| `U2O` | **MNL HQ OPS** | Multinational HQ  - Operations |
+| `U2P` | **MNL HQ Planning** | Multinational HQ  - Planning |
+| `U2T` | **MNL HQ Training** | Multinational HQ  - Training |
+| `U2X` | **MNL HQ Improvised Explosive Device** | Multinational HQ  - Improvised Explosive Device |
+| `U3A` | **CCMD LVL Acquisition** | Combatant Commander Level - Acquisition |
+| `U3C` | **CCMD LVL Civil Affairs** | Combatant Commander Level - Civil Affairs |
+| `U3D` | **CCMD LVL Detainee OPS** | Combatant Commander Level - Detainee Operations |
+| `U3F` | **CCMD LVL Finance** | Combatant Commander Level - Finance |
+| `U3H` | **CCMD LVL Human Resources** | Combatant Commander Level - Human Resources |
+| `U3I` | **CCMD LVL Intelligence** | Combatant Commander Level - Intelligence |
+| `U3L` | **CCMD LVL Logistics** | Combatant Commander Level - Logistics |
+| `U3M` | **CCMD LVL Medical** | Combatant Commander Level - Medical |
+| `U3O` | **CCMD LVL OPS** | Combatant Commander Level - Operations |
+| `U3P` | **CCMD LVL Planning** | Combatant Commander Level - Planning |
+| `U3T` | **CCMD LVL Training** | Combatant Commander Level - Training |
+| `U3X` | **CCMD LVL Improvised Explosive Device** | Combatant Commander Level - Improvised Explosive Device |
+| `U4A` | **Flt/Div Staff Acquisition** | Fleet/Division Staff - Acquisition |
+| `U4C` | **Flt/Div Staff Civil Affairs** | Fleet/Division Staff - Civil Affairs |
+| `U4D` | **Flt/Div Staff Detainee OPS** | Fleet/Division Staff - Detainee Operations |
+| `U4F` | **Flt/Div Staff Finance** | Fleet/Division Staff - Finance |
+| `U4H` | **Flt/Div Staff Human Resources** | Fleet/Division Staff - Human Resources |
+| `U4I` | **Flt/Div Staff Intelligence** | Fleet/Division Staff - Intelligence |
+| `U4L` | **Flt/Div Staff Logistics** | Fleet/Division Staff - Logistics |
+| `U4M` | **Flt/Div Staff Medical** | Fleet/Division Staff - Medical |
+| `U4O` | **Flt/Div Staff OPS** | Fleet/Division Staff - Operations |
+| `U4P` | **Flt/Div Staff Planning** | Fleet/Division Staff - Planning |
+| `U4T` | **Flt/Div Staff Training** | Fleet/Division Staff - Training |
+| `U4X` | **Flt/Div Staff Improvised Explosive Device** | Fleet/Division Staff - Improvised Explosive Device |
+| `U5A` | **JTF Acquisition** | Joint Task Force - Acquisition |
+| `U5C` | **JTF Civil Affairs** | Joint Task Force - Civil Affairs |
+| `U5D` | **JTF Detainee OPS** | Joint Task Force - Detainee Operations |
+| `U5F` | **JTF Finance** | Joint Task Force - Finance |
+| `U5H` | **JTF Human Resources** | Joint Task Force - Human Resources |
+| `U5I` | **JTF Intelligence** | Joint Task Force - Intelligence |
+| `U5L` | **JTF Logistics** | Joint Task Force - Logistics |
+| `U5M` | **JTF Medical** | Joint Task Force - Medical |
+| `U5O` | **JTF OPS** | Joint Task Force - Operations |
+| `U5P` | **JTF Planning** | Joint Task Force - Planning |
+| `U5T` | **JTF Training** | Joint Task Force - Training |
+| `U5X` | **JTF Improvised Explosive Device** | Joint Task Force - Improvised Explosive Device |
 | `U6A` | **Other Acquisition** | Other - Acquisition |
 | `U6C` | **Other Civil Affairs** | Other - Civil Affairs |
 | `U6D` | **Other Detainee OPS** | Other - Detainee Operations |
@@ -874,66 +728,66 @@ Watch Officer
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `J1A` | **Joint Staff Acquisition** | Joint Staff - Acquisition |
-| `J1C` | **Joint Staff Civil Affairs** | Joint Staff - Civil Affairs |
-| `J1D` | **Joint Staff Detainee OPS** | Joint Staff - Detainee Operations |
-| `J1F` | **Joint Staff Finance** | Joint Staff - Finance |
-| `J1H` | **Joint Staff Human Resources** | Joint Staff - Human Resources |
-| `J1I` | **Joint Staff Intelligence** | Joint Staff - Intelligence |
-| `J1L` | **Joint Staff Logistics** | Joint Staff - Logistics |
-| `J1M` | **Joint Staff Medical** | Joint Staff - Medical |
-| `J1O` | **Joint Staff OPS** | Joint Staff - Operations |
-| `J1P` | **Joint Staff Planning** | Joint Staff - Planning |
-| `J1T` | **Joint Staff Training** | Joint Staff - Training |
-| `J1X` | **Joint Staff Improvised Explosive Device** | Joint Staff - Improvised Explosive Device |
-| `J2A` | **Multinational HQ Acquisition** | Multinational HQ - Acquisition |
-| `J2C` | **Multinational HQ Civil Affairs** | Multinational HQ - Civil Affairs |
-| `J2D` | **Multinational HQ Detainee OPS** | Multinational HQ - Detainee Operations |
-| `J2F` | **Multinational HQ Finance** | Multinational HQ - Finance |
-| `J2H` | **Multinational HQ Human Resources** | Multinational HQ - Human Resources |
-| `J2I` | **Multinational HQ Intelligence** | Multinational HQ - Intelligence |
-| `J2L` | **Multinational HQ Logistics** | Multinational HQ - Logistics |
-| `J2M` | **Multinational HQ Medical** | Multinational HQ - Medical |
-| `J2O` | **Multinational HQ OPS** | Multinational HQ - Operations |
-| `J2P` | **Multinational HQ Planning** | Multinational HQ - Planning |
-| `J2T` | **Multinational HQ Training** | Multinational HQ - Training |
-| `J2X` | **Multinational HQ Improvised Explosive Device** | Multinational HQ - Improvised Explosive Device |
-| `J3A` | **Combatant Commander LVL Acquisition** | Combatant Commander Level - Acquisition |
-| `J3C` | **Combatant Commander LVL Civil Affairs** | Combatant Commander Level - Civil Affairs |
-| `J3D` | **Combatant Commander LVL Detainee OPS** | Combatant Commander Level - Detainee Operations |
-| `J3F` | **Combatant Commander LVL Finance** | Combatant Commander Level - Finance |
-| `J3H` | **Combatant Commander LVL Human Resources** | Combatant Commander Level - Human Resources |
-| `J3I` | **Combatant Commander LVL Intelligence** | Combatant Commander Level - Intelligence |
-| `J3L` | **Combatant Commander LVL Logistics** | Combatant Commander Level - Logistics |
-| `J3M` | **Combatant Commander LVL Medical** | Combatant Commander Level - Medical |
-| `J3O` | **Combatant Commander LVL OPS** | Combatant Commander Level - Operations |
-| `J3P` | **Combatant Commander LVL Planning** | Combatant Commander Level - Planning |
-| `J3T` | **Combatant Commander LVL Training** | Combatant Commander Level - Training |
-| `J3X` | **Combatant Commander LVL Improvised Explosive Device** | Combatant Commander Level - Improvised Explosive Device |
-| `J4A` | **Fleet/Division Staff Acquisition** | Fleet/Division Staff - Acquisition |
-| `J4C` | **Fleet/Division Staff Civil Affairs** | Fleet/Division Staff - Civil Affairs |
-| `J4D` | **Fleet/Division Staff Detainee OPS** | Fleet/Division Staff - Detainee Operations |
-| `J4F` | **Fleet/Division Staff Finance** | Fleet/Division Staff - Finance |
-| `J4H` | **Fleet/Division Staff Human Resources** | Fleet/Division Staff - Human Resources |
-| `J4I` | **Fleet/Division Staff Intelligence** | Fleet/Division Staff - Intelligence |
-| `J4L` | **Fleet/Division Staff Logistics** | Fleet/Division Staff - Logistics |
-| `J4M` | **Fleet/Division Staff Medical** | Fleet/Division Staff - Medical |
-| `J4O` | **Fleet/Division Staff OPS** | Fleet/Division Staff - Operations |
-| `J4P` | **Fleet/Division Staff Planning** | Fleet/Division Staff - Planning |
-| `J4T` | **Fleet/Division Staff Training** | Fleet/Division Staff - Training |
-| `J4X` | **Fleet/Division Staff Improvised Explosive Device** | Fleet/Division Staff - Improvised Explosive Device |
-| `J5A` | **Joint Task Force Acquisition** | Joint Task Force - Acquisition |
-| `J5C` | **Joint Task Force Civil Affairs** | Joint Task Force - Civil Affairs |
-| `J5D` | **Joint Task Force Detainee OPS** | Joint Task Force - Detainee Operations |
-| `J5F` | **Joint Task Force Finance** | Joint Task Force - Finance |
-| `J5H` | **Joint Task Force Human Resources** | Joint Task Force - Human Resources |
-| `J5I` | **Joint Task Force Intelligence** | Joint Task Force - Intelligence |
-| `J5L` | **Joint Task Force Logistics** | Joint Task Force - Logistics |
-| `J5M` | **Joint Task Force Medical** | Joint Task Force - Medical |
-| `J5O` | **Joint Task Force OPS** | Joint Task Force - Operations |
-| `J5P` | **Joint Task Force Planning** | Joint Task Force - Planning |
-| `J5T` | **Joint Task Force Training** | Joint Task Force - Training |
-| `J5X` | **Joint Task Force Improvised Explosive Device** | Joint Task Force - Improvised Explosive Device |
+| `J1A` | **JS Acquisition** | Joint Staff - Acquisition |
+| `J1C` | **JS Civil Affairs** | Joint Staff - Civil Affairs |
+| `J1D` | **JS Detainee OPS** | Joint Staff - Detainee Operations |
+| `J1F` | **JS Finance** | Joint Staff - Finance |
+| `J1H` | **JS Human Resources** | Joint Staff - Human Resources |
+| `J1I` | **JS Intelligence** | Joint Staff - Intelligence |
+| `J1L` | **JS Logistics** | Joint Staff - Logistics |
+| `J1M` | **JS Medical** | Joint Staff - Medical |
+| `J1O` | **JS OPS** | Joint Staff - Operations |
+| `J1P` | **JS Planning** | Joint Staff - Planning |
+| `J1T` | **JS Training** | Joint Staff - Training |
+| `J1X` | **JS Improvised Explosive Device** | Joint Staff - Improvised Explosive Device |
+| `J2A` | **MNL HQ Acquisition** | Multinational HQ - Acquisition |
+| `J2C` | **MNL HQ Civil Affairs** | Multinational HQ - Civil Affairs |
+| `J2D` | **MNL HQ Detainee OPS** | Multinational HQ - Detainee Operations |
+| `J2F` | **MNL HQ Finance** | Multinational HQ - Finance |
+| `J2H` | **MNL HQ Human Resources** | Multinational HQ - Human Resources |
+| `J2I` | **MNL HQ Intelligence** | Multinational HQ - Intelligence |
+| `J2L` | **MNL HQ Logistics** | Multinational HQ - Logistics |
+| `J2M` | **MNL HQ Medical** | Multinational HQ - Medical |
+| `J2O` | **MNL HQ OPS** | Multinational HQ - Operations |
+| `J2P` | **MNL HQ Planning** | Multinational HQ - Planning |
+| `J2T` | **MNL HQ Training** | Multinational HQ - Training |
+| `J2X` | **MNL HQ Improvised Explosive Device** | Multinational HQ - Improvised Explosive Device |
+| `J3A` | **CCMD LVL Acquisition** | Combatant Commander Level - Acquisition |
+| `J3C` | **CCMD LVL Civil Affairs** | Combatant Commander Level - Civil Affairs |
+| `J3D` | **CCMD LVL Detainee OPS** | Combatant Commander Level - Detainee Operations |
+| `J3F` | **CCMD LVL Finance** | Combatant Commander Level - Finance |
+| `J3H` | **CCMD LVL Human Resources** | Combatant Commander Level - Human Resources |
+| `J3I` | **CCMD LVL Intelligence** | Combatant Commander Level - Intelligence |
+| `J3L` | **CCMD LVL Logistics** | Combatant Commander Level - Logistics |
+| `J3M` | **CCMD LVL Medical** | Combatant Commander Level - Medical |
+| `J3O` | **CCMD LVL OPS** | Combatant Commander Level - Operations |
+| `J3P` | **CCMD LVL Planning** | Combatant Commander Level - Planning |
+| `J3T` | **CCMD LVL Training** | Combatant Commander Level - Training |
+| `J3X` | **CCMD LVL Improvised Explosive Device** | Combatant Commander Level - Improvised Explosive Device |
+| `J4A` | **Flt/Div Staff Acquisition** | Fleet/Division Staff - Acquisition |
+| `J4C` | **Flt/Div Staff Civil Affairs** | Fleet/Division Staff - Civil Affairs |
+| `J4D` | **Flt/Div Staff Detainee OPS** | Fleet/Division Staff - Detainee Operations |
+| `J4F` | **Flt/Div Staff Finance** | Fleet/Division Staff - Finance |
+| `J4H` | **Flt/Div Staff Human Resources** | Fleet/Division Staff - Human Resources |
+| `J4I` | **Flt/Div Staff Intelligence** | Fleet/Division Staff - Intelligence |
+| `J4L` | **Flt/Div Staff Logistics** | Fleet/Division Staff - Logistics |
+| `J4M` | **Flt/Div Staff Medical** | Fleet/Division Staff - Medical |
+| `J4O` | **Flt/Div Staff OPS** | Fleet/Division Staff - Operations |
+| `J4P` | **Flt/Div Staff Planning** | Fleet/Division Staff - Planning |
+| `J4T` | **Flt/Div Staff Training** | Fleet/Division Staff - Training |
+| `J4X` | **Flt/Div Staff Improvised Explosive Device** | Fleet/Division Staff - Improvised Explosive Device |
+| `J5A` | **JTF Acquisition** | Joint Task Force - Acquisition |
+| `J5C` | **JTF Civil Affairs** | Joint Task Force - Civil Affairs |
+| `J5D` | **JTF Detainee OPS** | Joint Task Force - Detainee Operations |
+| `J5F` | **JTF Finance** | Joint Task Force - Finance |
+| `J5H` | **JTF Human Resources** | Joint Task Force - Human Resources |
+| `J5I` | **JTF Intelligence** | Joint Task Force - Intelligence |
+| `J5L` | **JTF Logistics** | Joint Task Force - Logistics |
+| `J5M` | **JTF Medical** | Joint Task Force - Medical |
+| `J5O` | **JTF OPS** | Joint Task Force - Operations |
+| `J5P` | **JTF Planning** | Joint Task Force - Planning |
+| `J5T` | **JTF Training** | Joint Task Force - Training |
+| `J5X` | **JTF Improvised Explosive Device** | Joint Task Force - Improvised Explosive Device |
 | `J6A` | **Other Acquisition** | Other - Acquisition |
 | `J6B` | **Other AFPAK Hands** | Other - AFPAK Hands |
 | `J6C` | **Other Civil Affairs** | Other - Civil Affairs |
@@ -949,37 +803,34 @@ Watch Officer
 | `J6X` | **Other Improvised Explosive Device** | Other - Improvised Explosive Device |
 | `J7A` | **PEP Indo-PACOM** | PEP - Indo-PACOM |
 | `J7B` | **PEP Europe** | PEP - Europe |
-| `J7C` | **PEP Indo-PACOM Follow on Tour** | PEP - Indo-PACOM
-Follow on Tour
- |
+| `J7C` | **PEP Indo-PACOM Follow on Tour** | PEP - Indo-PACOM Follow on Tour |
 | `J7D` | **PEP Europe Follow on Tour** | PEP - Europe Follow on Tour |
-| `JC1` | **Terminal Attack Controller QUAL** | Terminal Attack Controller - Qualified |
-| `JC2` | **Terminal Attack Controller Instructor** | Terminal Attack Controller - Instructor |
-| `JC3` | **Joint Terminal Attack Controller Evaluator JTAC-E** | Joint Terminal Attack Controller Evaluator - JTAC-E |
-| `JD1` | **Joint Billet JDA Billet** | Joint Billet - JDA Billet |
-| `JD2` | **Joint Billet JDA Critical Billet** | Joint Billet - JDA Critical Billet |
-| `JEA` | **Executive LVL Operational LVL of Warfare Course** | Executive Level - Operational Level of Warfare Course |
+| `JC1` | **TAC QUAL** | Terminal Attack Controller - Qualified |
+| `JC2` | **TAC Instructor** | Terminal Attack Controller - Instructor |
+| `JC3` | **Joint TAC Evaluator JTAC-E** | Joint Terminal Attack Controller Evaluator - JTAC-E |
+| `JD1` | **JDA Billet JDA Billet** | Joint Billet - JDA Billet |
+| `JD2` | **JDA Billet JDA Critical Billet** | Joint Billet - JDA Critical Billet |
+| `JEA` | **Exec LVL Op War Crs** | Executive Level - Operational Level of Warfare Course |
 | `JJ1` | **Joint OPS Planning and Execution System (JOPES) JOPES Proficiency** | Joint Operations Planning and Execution System (JOPES) - JOPES Proficiency |
-| `JN1` | **Navy Emergency Preparedness Liaison OFF (NEPLO) QUAL** | Navy Emergency Preparedness Liaison Officer (NEPLO) - Qualified |
-| `JOINT` | **** |  -  |
-| `JOM` | **Operational LVL CMD and Control Maritime** | Operational Level Command and Control - Maritime |
-| `JP1` | **Joint and Maritime Operational Planner Fleet Commander LVL Operational Planner (Education)** | Joint and Maritime Operational Planner - Fleet Commander Level Operational Planner (Education) |
-| `JP2` | **Joint and Maritime Operational Planner Fleet Commander LVL Operational Planner (Experience)** | Joint and Maritime Operational Planner - Fleet Commander Level Operational Planner (Experience) |
-| `JP3` | **Joint and Maritime Operational Planner Fleet Commander LVL Operational Planner (Education and Experience)** | Joint and Maritime Operational Planner - Fleet Commander Level Operational Planner  (Education and Experience) |
-| `JPM` | **Joint Maritime Operational Planner** | Joint - Maritime Operational Planner |
-| `JPN` | **Joint Operational Planner** | Joint - Operational Planner |
-| `JS1` | **Joint Qualification JPME GRAD** | Joint Qualification - JPME Graduate |
-| `JS2` | **Joint Qualification Full Joint Tour Credit** | Joint Qualification - Full Joint Tour Credit |
-| `JS4` | **Joint Qualification JQS LVL II** | Joint Qualification - JQS Level II |
-| `JS5` | **Joint Qualification Joint QUAL OFF (JQO) JQS LVL III** | Joint Qualification - Joint Qualified Officer (JQO) JQS Level III |
-| `JS6` | **Joint Qualification JQS LVL IV** | Joint Qualification - JQS Level IV |
-| `JS7` | **Joint Qualification JPME Phase I GRAD** | Joint Qualification - JPME Phase I Graduate |
-| `JS8` | **Joint Qualification JPME Phase II GRAD** | Joint Qualification - JPME Phase II Graduate |
-| `JS9` | **Joint Qualification COS Takeout JQO JQS LVL III** | Joint Qualification - COS Takeout JQO JQS Level III |
-| `JSA` | **Joint Qualification AJPME** | Joint Qualification - AJPME |
-| `JSF` | **Joint Qualification Joint Duty Assignment (JDA) for Flag** | Joint Qualification - Joint Duty Assignment (JDA) for Flag |
+| `JN1` | **NEPLO QUAL** | Navy Emergency Preparedness Liaison Officer (NEPLO) - Qualified |
+| `JOM` | **OpLvl C2 Maritime** | Operational Level Command and Control - Maritime |
+| `JP1` | **Flt Cdr OpPlnr (Education)** | Joint and Maritime Operational Planner - Fleet Commander Level Operational Planner (Education) |
+| `JP2` | **Flt Cdr OpPlnr (Experience)** | Joint and Maritime Operational Planner - Fleet Commander Level Operational Planner (Experience) |
+| `JP3` | **Flt Cdr OpPlnr (Education and Experience)** | Joint and Maritime Operational Planner - Fleet Commander Level Operational Planner  (Education and Experience) |
+| `JPM` | **Joint Maritime Plnr** | Joint - Maritime Operational Planner |
+| `JPN` | **Joint Ops Planner** | Joint - Operational Planner |
+| `JS1` | **JQual JPME GRAD** | Joint Qualification - JPME Graduate |
+| `JS2` | **JQual Full Joint Tour Credit** | Joint Qualification - Full Joint Tour Credit |
+| `JS4` | **JQual JQS LVL II** | Joint Qualification - JQS Level II |
+| `JS5` | **JQual Joint QUAL OFF (JQO) JQS LVL III** | Joint Qualification - Joint Qualified Officer (JQO) JQS Level III |
+| `JS6` | **JQual JQS LVL IV** | Joint Qualification - JQS Level IV |
+| `JS7` | **JQual JPME Phase I GRAD** | Joint Qualification - JPME Phase I Graduate |
+| `JS8` | **JQual JPME Phase II GRAD** | Joint Qualification - JPME Phase II Graduate |
+| `JS9` | **JQual COS Takeout JQO JQS LVL III** | Joint Qualification - COS Takeout JQO JQS Level III |
+| `JSA` | **JQual AJPME** | Joint Qualification - AJPME |
+| `JSF` | **JQual JDA Flag** | Joint Qualification - Joint Duty Assignment (JDA) for Flag |
 | `JSM` | **Staff Maritime** | Staff - Maritime |
-| `JSR` | **Joint Qualification Joint Duty Assignment required after one tour deferral** | Joint Qualification - Joint Duty Assignment required after one tour deferral |
+| `JSR` | **JQual JDA Deferred** | Joint Qualification - Joint Duty Assignment required after one tour deferral |
 | `JT1` | **Theater Special OPS CMD Staff Preparation Course GRAD** | Theater Special Operations Command Staff Preparation Course - Graduate |
 
 ### Legal & JAG
@@ -1006,16 +857,10 @@ Follow on Tour
 | `4JF` | **Judge Advocate Fleet QUAL** |  - Judge Advocate Fleet Qualified |
 | `4KS` | **Kansas Bar** |  - Lawyer, Kansas Bar |
 | `4KY` | **Kentucky Bar** |  - Lawyer, Kentucky Bar |
-| `4L2` | **Military Justice Litigation SPEC II (LIT SPEC II)** |  - Military Justice Litigation Specialist II
-(LIT SPEC II)
- |
+| `4L2` | **Military Justice Litigation SPEC II (LIT SPEC II)** |  - Military Justice Litigation Specialist II (LIT SPEC II) |
 | `4LA` | **Louisiana Bar** |  - Lawyer, Louisiana Bar |
-| `4LE` | **Military Justice Litigation Expert (LIT EXP)** |  - Military Justice Litigation Expert
-(LIT EXP)
- |
-| `4LS` | **Military Justice Litigation SPEC (LIT SPEC)** |  - Military Justice Litigation Specialist
-(LIT SPEC)
- |
+| `4LE` | **Military Justice Litigation Expert (LIT EXP)** |  - Military Justice Litigation Expert (LIT EXP) |
+| `4LS` | **Military Justice Litigation SPEC (LIT SPEC)** |  - Military Justice Litigation Specialist (LIT SPEC) |
 | `4MA` | **Massachusetts Bar** |  - Lawyer, Massachusetts Bar |
 | `4MD` | **Maryland Bar** |  - Lawyer, Maryland Bar |
 | `4ME` | **Maine Bar** |  - Lawyer, Maine Bar |
@@ -1031,9 +876,7 @@ Follow on Tour
 | `4NI` | **National Security - Intelligence Law (INTEL LAW)** |  - National Security - Intelligence Law (INTEL LAW) |
 | `4NJ` | **New Jersey Bar** |  - Lawyer, New Jersey Bar |
 | `4NM` | **New Mexico Bar** |  - Lawyer, New Mexico Bar |
-| `4NS` | **National Security - Cyberspace Law (CYBERSPACE LAW)** |  - National Security - Cyberspace Law 
-(CYBERSPACE LAW)
- |
+| `4NS` | **National Security - Cyberspace Law (CYBERSPACE LAW)** |  - National Security - Cyberspace Law (CYBERSPACE LAW) |
 | `4NV` | **Nevada Bar** |  - Lawyer, Nevada Bar |
 | `4NY` | **New York Bar** |  - Lawyer, New York Bar |
 | `4OH` | **Ohio Bar** |  - Lawyer, Ohio Bar |
@@ -1061,7 +904,7 @@ Follow on Tour
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `60N` | **Contingency/ Operational: Medical Regulator** | Contingency/ Operational - Medical Regulator |
+| `60N` | **Cont/Ops: Medical Regulator** | Contingency/ Operational - Medical Regulator |
 | `62A` | **Medical: Adolescent Medicine SPEC** | Any Medical Corps Specialty - Adolescent Medicine Specialist |
 | `62B` | **Medical: Allergy/ Immunologist** | Any Medical Corps Specialty - Allergy/ Immunologist |
 | `62C` | **Medical: Critical Care** | Any Medical Corps Specialty - Critical Care |
@@ -1076,56 +919,54 @@ Follow on Tour
 | `64B` | **Dental: General Practice Residency** | Dental - General Practice Residency |
 | `64C` | **Dental: Advanced Clinical (ACP) in Exodontia** | Dental - Advanced Clinical Program (ACP) in Exodontia |
 | `64E` | **Dental: Forensic Dentistry** | Dental - Forensic Dentistry |
-| `67A` | **Executive Medicine Staff: Executive Medicine** | Executive Medicine Staff - Executive Medicine |
-| `67B` | **Executive Medicine Staff: Expeditionary Medicine** | Executive Medicine Staff - Expeditionary Medicine |
-| `67F` | **Executive Medicine Staff: Reserve Liaison OFF** | Executive Medicine Staff - Reserve Liaison Officer |
-| `67G` | **Executive Medicine Staff: Managed Care Coordinator** | Executive Medicine Staff - Managed Care Coordinator |
-| `67H` | **Executive Medicine Staff: Ambulatory Care Administration (ACA) OFF** | Executive Medicine Staff - Ambulatory Care Administration (ACA) Officer |
-| `67I` | **Executive Medicine Staff: Credentialed Health Care Administrator (CHCA)** | Executive Medicine Staff - Credentialed  Health Care Administrator (CHCA) |
+| `67A` | **Exec Med Staff: Executive Medicine** | Executive Medicine Staff - Executive Medicine |
+| `67B` | **Exec Med Staff: Expeditionary Medicine** | Executive Medicine Staff - Expeditionary Medicine |
+| `67F` | **Exec Med Staff: Reserve Liaison OFF** | Executive Medicine Staff - Reserve Liaison Officer |
+| `67G` | **Exec Med Staff: Managed Care Coordinator** | Executive Medicine Staff - Managed Care Coordinator |
+| `67H` | **Exec Med Staff: Ambulatory Care Administration (ACA) OFF** | Executive Medicine Staff - Ambulatory Care Administration (ACA) Officer |
+| `67I` | **Exec Med Staff: Credentialed Health Care Administrator (CHCA)** | Executive Medicine Staff - Credentialed  Health Care Administrator (CHCA) |
 | `68H` | **Any Medical Designator: Health Promotion Coordinator** | Any Medical Department Designator - Health Promotion Coordinator |
 | `68I` | **Any Medical Designator: Health Care MGMT** | Any Medical Department Designator - Health Care Management |
 | `68J` | **Any Medical Designator: Public Health Emergency OFF (PHEO)** | Any Medical Department Designator - Public Health Emergency Officer (PHEO) |
 | `68K` | **Any Medical Designator: Alternate Public Health Emergency OFF (APHEO)** | Any Medical Department Designator - Alternate Public Health Emergency Officer (APHEO) |
 | `68L` | **Any Medical Designator: Clinical Informatics** | Any Medical Department Designator - Clinical Informatics |
-| `68M` | **Executive Medicine Staff: Health Security Cooperation OFF** | Executive Medicine 
-Staff
- - Health Security Cooperation Officer |
+| `68M` | **Exec Med Staff: Health Security Cooperation OFF** | Executive Medicine Staff - Health Security Cooperation Officer |
 | `68N` | **Clinical Informatics: Expert** | Clinical Informatics - Expert |
 | `68O` | **Medical Milestone Qualification: Medical Milestone Eligible** | Medical Milestone Qualification Program - Medical Milestone Eligible |
 | `68P` | **Medical Milestone Qualification: Medical Milestone Eligible** | Medical Milestone Qualification Program - Medical Milestone Eligible |
 | `68R` | **Navy Medicine Quality and Safety Leadership Academy (NMQSLA) Scholar: NMQSLA GRAD** | Navy Medicine Quality and Safety Leadership Academy (NMQSLA) Scholar - NMQSLA Graduate |
 | `68S` | **Any Medical: Sexual Assault Forensic Examiner** | Any Medical Department - Sexual Assault Forensic Examiner |
-| `69F` | **Nursing Health Care Services: Post Anesthesia Care Nursing** | Nursing Health Care Services - Post Anesthesia Care Nursing |
-| `69K` | **Nursing: Pediatric Intensive Care Nursing** | Nursing - Pediatric Intensive Care Nursing |
+| `69F` | **Nursing HCS: Post Anesthesia Care Nursing** | Nursing Health Care Services - Post Anesthesia Care Nursing |
+| `69K` | **Nursing: Peds Intensive Care Nursing** | Nursing - Pediatric Intensive Care Nursing |
 | `69L` | **Nursing: Labor, Delivery and Recovery (LDR) Experienced Nurse** | Nursing - Labor, Delivery and Recovery (LDR) Experienced Nurse |
-| `69O` | **Nursing Health Care Services: Ambulatory Care Nursing** | Nursing Health Care Services - Ambulatory Care Nursing |
-| `69P` | **Nursing Health Care Services: Acute Care Nurse Practitioner/Emergency Nurse Practitioner** | Nursing Health Care Services - Acute Care Nurse Practitioner/Emergency Nurse Practitioner |
-| `69Q` | **Nursing Health Care Services: Wound Care Nursing** | Nursing Health Care Services - Wound Care Nursing |
-| `6AA` | **Aviation Medicine: Aviation Medical Examiner** | Aviation Medicine - Aviation Medical Examiner |
-| `6AB` | **Aviation Medicine: General Flight OFF** | Aviation Medicine - General Flight Officer |
-| `6AC` | **Aviation Medicine: Naval Aviator (Naval Flight OFF (NFO))/ Aeromedical OFF** | Aviation Medicine - Naval Aviator (Naval Flight Officer (NFO))/ Aeromedical Officer |
-| `6AE` | **Aviation Medicine: Naval Aviator (Pilot)/ Aeromedical OFF** | Aviation Medicine - Naval Aviator (Pilot)/ Aeromedical Officer |
-| `6AG` | **Aviation Medicine: Aerospace Medicine (Preventive Medicine)** | Aviation Medicine - Aerospace Medicine (Preventive Medicine) |
-| `6AJ` | **Aviation Medicine: Flight Nurse** | Aviation Medicine - Flight Nurse |
-| `6AM` | **Aviation Medicine: Aeromedical Safety OFF** | Aviation Medicine - Aeromedical Safety Officer |
-| `6AN` | **Aviation Medicine: Aerospace Optometrist** | Aviation Medicine - Aerospace Optometrist |
+| `69O` | **Nursing HCS: Ambulatory Care Nursing** | Nursing Health Care Services - Ambulatory Care Nursing |
+| `69P` | **Nursing HCS: Acute Care Nurse Practitioner/Emergency Nurse Practitioner** | Nursing Health Care Services - Acute Care Nurse Practitioner/Emergency Nurse Practitioner |
+| `69Q` | **Nursing HCS: Wound Care Nursing** | Nursing Health Care Services - Wound Care Nursing |
+| `6AA` | **Aviation Med: Aviation Medical Examiner** | Aviation Medicine - Aviation Medical Examiner |
+| `6AB` | **Aviation Med: General Flight OFF** | Aviation Medicine - General Flight Officer |
+| `6AC` | **Aviation Med: Naval Aviator (Naval Flight OFF (NFO))/ Aeromedical OFF** | Aviation Medicine - Naval Aviator (Naval Flight Officer (NFO))/ Aeromedical Officer |
+| `6AE` | **Aviation Med: Naval Aviator (Pilot)/ Aeromedical OFF** | Aviation Medicine - Naval Aviator (Pilot)/ Aeromedical Officer |
+| `6AG` | **Aviation Med: Aerospace Medicine (Preventive Medicine)** | Aviation Medicine - Aerospace Medicine (Preventive Medicine) |
+| `6AJ` | **Aviation Med: Flight Nurse** | Aviation Medicine - Flight Nurse |
+| `6AM` | **Aviation Med: Aeromedical Safety OFF** | Aviation Medicine - Aeromedical Safety Officer |
+| `6AN` | **Aviation Med: Aerospace Optometrist** | Aviation Medicine - Aerospace Optometrist |
 | `6BG` | **Anesthesia: Cardiothoracic** | Anesthesia - Cardiothoracic |
 | `6BH` | **Anesthesia: Neurosurgical** | Anesthesia - Neurosurgical |
 | `6BI` | **Anesthesia: Obstetrical** | Anesthesia - Obstetrical |
-| `6BK` | **Anesthesia: Pediatric** | Anesthesia - Pediatric |
+| `6BK` | **Anesthesia: Peds** | Anesthesia - Pediatric |
 | `6BL` | **Anesthesia: Regional Anesthesia** | Anesthesia - Regional Anesthesia |
 | `6CD` | **Surgical: Cardiothoracic Surgery** | Surgical - Cardiothoracic Surgery |
 | `6CE` | **Surgical: Colon & Rectal Surgery** | Surgical - Colon & Rectal Surgery |
 | `6CG` | **Surgical: Laparodendoscopic Surgery** | Surgical - Laparodendoscopic Surgery |
-| `6CH` | **Surgical: Pediatric Surgery** | Surgical - Pediatric Surgery |
+| `6CH` | **Surgical: Peds Surgery** | Surgical - Pediatric Surgery |
 | `6CI` | **Surgical: Peripheral Vascular Surgery** | Surgical - Peripheral Vascular Surgery |
 | `6CJ` | **Surgical: Plastic Surgery** | Surgical - Plastic Surgery |
 | `6CL` | **Surgical: Surgical Oncology** | Surgical - Surgical Oncology |
 | `6CM` | **Surgical: Trauma Surgeon** | Surgical - Trauma Surgeon |
-| `6DD` | **Neurological Surgery: Complex Spinal Neurological Surgery** | Neurological Surgery - Complex Spinal Neurological Surgery |
-| `6DE` | **Neurological Surgery: Skull Base Neurological Surgery** | Neurological Surgery - Skull Base Neurological Surgery |
-| `6DF` | **Neurological Surgery: Pediatric Neurosurgery** | Neurological Surgery - Pediatric Neurosurgery |
-| `6DG` | **Neurological Surgery: Neurovascular Neurological Surgery** | Neurological Surgery - Neurovascular Neurological Surgery |
+| `6DD` | **Neuro Surg: Complex Spinal Neuro Surg** | Neurological Surgery - Complex Spinal Neurological Surgery |
+| `6DE` | **Neuro Surg: Skull Base Neuro Surg** | Neurological Surgery - Skull Base Neurological Surgery |
+| `6DF` | **Neuro Surg: Peds Neurosurgery** | Neurological Surgery - Pediatric Neurosurgery |
+| `6DG` | **Neuro Surg: Neurovascular Neuro Surg** | Neurological Surgery - Neurovascular Neurological Surgery |
 | `6EG` | **Obstetrics/Gynecology (OB/GYN): Gynecologic Oncology** | Obstetrics/Gynecology (OB/GYN) - Gynecologic Oncology |
 | `6EH` | **Obstetrics/Gynecology (OB/GYN): Maternal Fetal Medicine** | Obstetrics/Gynecology (OB/GYN) - Maternal Fetal Medicine |
 | `6EI` | **Obstetrics/Gynecology (OB/GYN): Reproductive Endocrinology** | Obstetrics/Gynecology (OB/GYN) - Reproductive Endocrinology |
@@ -1134,40 +975,40 @@ Staff
 | `6FC` | **Field Medicine: Fleet Marine Force Medical Logistics** | Field Medicine - Fleet Marine Force Medical Logistics |
 | `6FD` | **Field Medicine: Surface Experienced Medical OFF** | Field Medicine - Surface Experienced Medical Officer |
 | `6FE` | **Field Medicine: Senior Marine Corps Staff OFF** | Field Medicine - Senior Marine Corps Staff Officer |
-| `6GA` | **Ophthalmology: Aviation Optometry** | Ophthalmology - Aviation Optometry |
-| `6GE` | **Ophthalmology: Cornea and External Disease** | Ophthalmology - Cornea and External Disease |
-| `6GF` | **Ophthalmology: Glaucoma** | Ophthalmology - Glaucoma |
-| `6GG` | **Ophthalmology: Neuro- ophthalmology/ Surgical Neuro- ophthalmology** | Ophthalmology - Neuro- ophthalmology/ Surgical  Neuro- ophthalmology |
-| `6GH` | **Ophthalmology: Oculoplastics** | Ophthalmology - Oculoplastics |
-| `6GI` | **Ophthalmology: Ophthalmic Pathology Surgery** | Ophthalmology - Ophthalmic Pathology Surgery |
-| `6GJ` | **Ophthalmology: Retina Vitreous Surgery** | Ophthalmology - Retina Vitreous Surgery |
-| `6GK` | **Ophthalmology: Strabismus** | Ophthalmology - Strabismus |
-| `6HD` | **Orthopaedic Surgery: Foot and Ankle Surgery** | Orthopaedic Surgery - Foot and Ankle Surgery |
-| `6HF` | **Orthopaedic Surgery: Orthopaedic Oncology** | Orthopaedic Surgery - Orthopaedic Oncology |
-| `6HG` | **Orthopaedic Surgery: Pediatric Orthopaedic Surgery** | Orthopaedic Surgery - Pediatric Orthopaedic Surgery |
-| `6HH` | **Orthopaedic Surgery: Spine Surgery** | Orthopaedic Surgery - Spine Surgery |
-| `6HI` | **Orthopaedic Surgery: Sports Surgery** | Orthopaedic Surgery - Sports Surgery |
-| `6HJ` | **Orthopaedic Surgery: Total Joint** | Orthopaedic Surgery - Total Joint |
-| `6HK` | **Orthopaedic Surgery: Trauma Surgery** | Orthopaedic Surgery - Trauma Surgery |
-| `6HL` | **Orthopaedic Surgery: Orthopaedic Physicians Assistant** | Orthopaedic Surgery - Orthopaedic Physicians Assistant |
-| `6ID` | **Otolaryngology: Facial Plastics and Reconstructive Surgery** | Otolaryngology - Facial Plastics and Reconstructive Surgery |
-| `6IE` | **Otolaryngology: Head and Neck Surgery** | Otolaryngology - Head and Neck Surgery |
-| `6IF` | **Otolaryngology: Neurotology** | Otolaryngology - Neurotology |
-| `6IG` | **Otolaryngology: Pediatric Otolaryngology** | Otolaryngology - Pediatric Otolaryngology |
-| `6IH` | **Otolaryngology: Laryngology** | Otolaryngology - Laryngology |
-| `6II` | **Otolaryngology: Rhinology** | Otolaryngology - Rhinology |
+| `6GA` | **Ophthalm: Aviation Optometry** | Ophthalmology - Aviation Optometry |
+| `6GE` | **Ophthalm: Cornea and External Disease** | Ophthalmology - Cornea and External Disease |
+| `6GF` | **Ophthalm: Glaucoma** | Ophthalmology - Glaucoma |
+| `6GG` | **Ophthalm: Neuro- ophthalmology/ Surgical Neuro- ophthalmology** | Ophthalmology - Neuro- ophthalmology/ Surgical  Neuro- ophthalmology |
+| `6GH` | **Ophthalm: Oculoplastics** | Ophthalmology - Oculoplastics |
+| `6GI` | **Ophthalm: Ophthalmic Pathology Surgery** | Ophthalmology - Ophthalmic Pathology Surgery |
+| `6GJ` | **Ophthalm: Retina Vitreous Surgery** | Ophthalmology - Retina Vitreous Surgery |
+| `6GK` | **Ophthalm: Strabismus** | Ophthalmology - Strabismus |
+| `6HD` | **Ortho Surg: Foot and Ankle Surgery** | Orthopaedic Surgery - Foot and Ankle Surgery |
+| `6HF` | **Ortho Surg: Orthopaedic Oncology** | Orthopaedic Surgery - Orthopaedic Oncology |
+| `6HG` | **Ortho Surg: Peds Ortho Surg** | Orthopaedic Surgery - Pediatric Orthopaedic Surgery |
+| `6HH` | **Ortho Surg: Spine Surgery** | Orthopaedic Surgery - Spine Surgery |
+| `6HI` | **Ortho Surg: Sports Surgery** | Orthopaedic Surgery - Sports Surgery |
+| `6HJ` | **Ortho Surg: Total Joint** | Orthopaedic Surgery - Total Joint |
+| `6HK` | **Ortho Surg: Trauma Surgery** | Orthopaedic Surgery - Trauma Surgery |
+| `6HL` | **Ortho Surg: Orthopaedic Physicians Assistant** | Orthopaedic Surgery - Orthopaedic Physicians Assistant |
+| `6ID` | **ENT: Facial Plastics and Reconstructive Surgery** | Otolaryngology - Facial Plastics and Reconstructive Surgery |
+| `6IE` | **ENT: Head and Neck Surgery** | Otolaryngology - Head and Neck Surgery |
+| `6IF` | **ENT: Neurotology** | Otolaryngology - Neurotology |
+| `6IG` | **ENT: Peds ENT** | Otolaryngology - Pediatric Otolaryngology |
+| `6IH` | **ENT: Laryngology** | Otolaryngology - Laryngology |
+| `6II` | **ENT: Rhinology** | Otolaryngology - Rhinology |
 | `6JD` | **Urologic: Endocrinologic Urologist** | Urologic - Endocrinologic Urologist |
 | `6JE` | **Urologic: Female Urology** | Urologic - Female Urology |
 | `6JF` | **Urologic: Infertility Urology** | Urologic - Infertility Urology |
-| `6JG` | **Urologic: Pediatric Urology** | Urologic - Pediatric Urology |
+| `6JG` | **Urologic: Peds Urology** | Urologic - Pediatric Urology |
 | `6JH` | **Urologic: Urinary Stone Disease** | Urologic - Urinary Stone Disease |
 | `6JI` | **Urologic: Urologic Oncology** | Urologic - Urologic Oncology |
-| `6KL` | **Preventive/ Occupational Medicine: Radiation Safety OFF** | Preventive/ Occupational Medicine - Radiation Safety Officer |
-| `6KM` | **Preventive/ Occupational Medicine: Medical Laser Safety OFF (MLSO)** | Preventive/ Occupational Medicine - Medical Laser Safety Officer (MLSO) |
-| `6LC` | **Physical Medicine and Rehabilitation: Electroneuromyographic SPEC** | Physical Medicine and Rehabilitation - Electroneuromyographic Specialist |
-| `6LD` | **Physical Medicine and Rehabilitation: Musculoskeletal Screener** | Physical Medicine and Rehabilitation - Musculoskeletal Screener |
-| `6LJ` | **Physical Medicine and Rehabilitation: Upper Extremity Neuromusculo-skeletal Evaluator (UENMSE)** | Physical Medicine and Rehabilitation - Upper Extremity Neuromusculo-skeletal Evaluator (UENMSE) |
-| `6LN` | **Physical Medicine and Rehabilitation: Spinal Cord Rehabilitation SPEC** | Physical Medicine and Rehabilitation - Spinal Cord Rehabilitation Specialist |
+| `6KL` | **Prev/Occ Med: Radiation Safety OFF** | Preventive/ Occupational Medicine - Radiation Safety Officer |
+| `6KM` | **Prev/Occ Med: Medical Laser Safety OFF (MLSO)** | Preventive/ Occupational Medicine - Medical Laser Safety Officer (MLSO) |
+| `6LC` | **PM&R: Electroneuromyographic SPEC** | Physical Medicine and Rehabilitation - Electroneuromyographic Specialist |
+| `6LD` | **PM&R: Musculoskeletal Screener** | Physical Medicine and Rehabilitation - Musculoskeletal Screener |
+| `6LJ` | **PM&R: Upper Extremity Neuromusculo-skeletal Evaluator (UENMSE)** | Physical Medicine and Rehabilitation - Upper Extremity Neuromusculo-skeletal Evaluator (UENMSE) |
+| `6LN` | **PM&R: Spinal Cord Rehabilitation SPEC** | Physical Medicine and Rehabilitation - Spinal Cord Rehabilitation Specialist |
 | `6MA` | **Pathology: Anatomic and Clinical** | Pathology - Anatomic and Clinical |
 | `6MD` | **Pathology: Blood Bank Pathologist** | Pathology - Blood Bank Pathologist |
 | `6MF` | **Pathology: Cytopathologist** | Pathology - Cytopathologist |
@@ -1179,82 +1020,81 @@ Staff
 | `6NE` | **Dermatology: Dermatologic Surgery** | Dermatology - Dermatologic Surgery |
 | `6NF` | **Dermatology: Dermato-pathology** | Dermatology - Dermato-pathology |
 | `6NH` | **Dermatology: Photobiologist** | Dermatology - Photobiologist |
-| `6OA` | **Contingency/ Operational: Operational Forces Medical Liaison Services (OFMLS) OFF** | Contingency/ Operational - Operational Forces Medical Liaison Services (OFMLS) Officer |
-| `6OB` | **Contingency/ Operational: Shipboard Assignment** | Contingency/ Operational - Shipboard Assignment |
-| `6OC` | **Contingency/ Operational: Hospital Ship Assignment** | Contingency/ Operational - Hospital Ship Assignment |
-| `6OD` | **Contingency/ Operational: En Route Care – Advanced** | Contingency/ Operational - En Route Care – Advanced  |
-| `6OE` | **Contingency/ Operational: En-route Care** | Contingency/ Operational - En-route Care |
-| `6OF` | **Contingency/ Operational: Forward Deployable Preventive Medicine Unit (FDPMU)** | Contingency/ Operational - Forward Deployable Preventive Medicine Unit (FDPMU) |
-| `6OG` | **Contingency/Operational: Hospitalist** | Contingency/Operational - Hospitalist |
-| `6OH` | **Contingency/ Operational: Humanitarian Assistance/Disaster Response** | Contingency/ Operational - Humanitarian Assistance/Disaster Response |
-| `6OI` | **Contingency/ Operational: PROF Medical CBRN OFF** | Contingency/ Operational - Professional Medical CBRN Officer |
-| `6OJ` | **Contingency/ Operational: Associate Medical CBRN OFF** | Contingency/ Operational - Associate Medical CBRN Officer |
-| `6OK` | **Contingency/ Operational: Human Performance SPEC** | Contingency/ Operational - Human Performance Specialist |
-| `6OL` | **Contingency/ Operational: Navy Expeditionary Medical OFF (NEMDO)** | Contingency/ Operational - Navy Expeditionary Medical Department Officer (NEMDO) |
-| `6OO` | **Operational/Contingency: Emergency Medicine Services Medical Director** | Operational/Contingency - Emergency Medicine Services
-Medical Director |
-| `6OR` | **Contingency/ Operational: CATF Surgeon** | Contingency/ Operational - CATF Surgeon |
-| `6OS` | **Contingency/ Operational: SERE Certified Psychologist** | Contingency/ Operational - SERE Certified Psychologist |
-| `6OT` | **Contingency/ Operational: C4 Trained Plus Ortho Surg Enhancement Module** | Contingency/ Operational - C4 Trained Plus Ortho Surg Enhancement Module |
-| `6OU` | **Contingency/ Operational: Fleet Hospital Assignment** | Contingency/ Operational - Fleet Hospital Assignment |
-| `6OV` | **Contingency/ Operational: SPEC in Blood Banking** | Contingency/ Operational - Specialist in Blood Banking |
-| `6OW` | **Contingency/ Operational: Trauma Team Trained OFF (TTTO)** | Contingency/ Operational - Trauma Team Trained Officer (TTTO) |
-| `6OX` | **Contingency/ Operational: Operational Psychology** | Contingency/ Operational - Operational Psychology |
-| `6OY` | **Operational/Contingency: Trained Trauma Team OFF Advanced** | Operational/Contingency - Trained Trauma Team Officer Advanced |
+| `6OA` | **Cont/Ops: Operational Forces Medical Liaison Services (OFMLS) OFF** | Contingency/ Operational - Operational Forces Medical Liaison Services (OFMLS) Officer |
+| `6OB` | **Cont/Ops: Shipboard Assignment** | Contingency/ Operational - Shipboard Assignment |
+| `6OC` | **Cont/Ops: Hospital Ship Assignment** | Contingency/ Operational - Hospital Ship Assignment |
+| `6OD` | **Cont/Ops: En Route Care – Advanced** | Contingency/ Operational - En Route Care – Advanced  |
+| `6OE` | **Cont/Ops: En-route Care** | Contingency/ Operational - En-route Care |
+| `6OF` | **Cont/Ops: Forward Deployable Preventive Medicine Unit (FDPMU)** | Contingency/ Operational - Forward Deployable Preventive Medicine Unit (FDPMU) |
+| `6OG` | **Cont/Ops: Hospitalist** | Contingency/Operational - Hospitalist |
+| `6OH` | **Cont/Ops: Humanitarian Assistance/Disaster Response** | Contingency/ Operational - Humanitarian Assistance/Disaster Response |
+| `6OI` | **Cont/Ops: PROF Medical CBRN OFF** | Contingency/ Operational - Professional Medical CBRN Officer |
+| `6OJ` | **Cont/Ops: Associate Medical CBRN OFF** | Contingency/ Operational - Associate Medical CBRN Officer |
+| `6OK` | **Cont/Ops: Human Performance SPEC** | Contingency/ Operational - Human Performance Specialist |
+| `6OL` | **Cont/Ops: Navy Expeditionary Medical OFF (NEMDO)** | Contingency/ Operational - Navy Expeditionary Medical Department Officer (NEMDO) |
+| `6OO` | **Ops/Cont: EM Services Medical Director** | Operational/Contingency - Emergency Medicine Services Medical Director |
+| `6OR` | **Cont/Ops: CATF Surgeon** | Contingency/ Operational - CATF Surgeon |
+| `6OS` | **Cont/Ops: SERE Certified Psychologist** | Contingency/ Operational - SERE Certified Psychologist |
+| `6OT` | **Cont/Ops: C4 Trained Plus Ortho Surg Enhancement Module** | Contingency/ Operational - C4 Trained Plus Ortho Surg Enhancement Module |
+| `6OU` | **Cont/Ops: Fleet Hospital Assignment** | Contingency/ Operational - Fleet Hospital Assignment |
+| `6OV` | **Cont/Ops: SPEC in Blood Banking** | Contingency/ Operational - Specialist in Blood Banking |
+| `6OW` | **Cont/Ops: Trauma Team Trained OFF (TTTO)** | Contingency/ Operational - Trauma Team Trained Officer (TTTO) |
+| `6OX` | **Cont/Ops: Operational Psychology** | Contingency/ Operational - Operational Psychology |
+| `6OY` | **Ops/Cont: Trained Trauma Team OFF Advanced** | Operational/Contingency - Trained Trauma Team Officer Advanced |
 | `6OZ` | **Medical: Simulationist** | Medical - Simulationist |
-| `6PD` | **Emergency Medicine: Emergency Medicine Services** | Emergency Medicine - Emergency Medicine Services |
-| `6PE` | **Emergency Medicine: Medical Toxicology** | Emergency Medicine - Medical Toxicology |
-| `6PF` | **Emergency Medicine: Pediatric Emergency Medicine** | Emergency Medicine - Pediatric Emergency Medicine |
-| `6PG` | **Emergency Medicine: Emergency Ultrasound** | Emergency Medicine - Emergency Ultrasound |
-| `6PH` | **Emergency Medicine: Emergency Medicine Physician Assistant** | Emergency Medicine - Emergency Medicine Physician Assistant |
+| `6PD` | **EM: EM Services** | Emergency Medicine - Emergency Medicine Services |
+| `6PE` | **EM: Medical Toxicology** | Emergency Medicine - Medical Toxicology |
+| `6PF` | **EM: Peds EM** | Emergency Medicine - Pediatric Emergency Medicine |
+| `6PG` | **EM: Emergency Ultrasound** | Emergency Medicine - Emergency Ultrasound |
+| `6PH` | **EM: EM Physician Assistant** | Emergency Medicine - Emergency Medicine Physician Assistant |
 | `6QF` | **Family Practice: Obstetrics (Additional Training)** | Family Practice - Obstetrics (Additional Training) |
-| `6RF` | **Internal Medicine: Allergy Immunologist DLI** | Internal Medicine - Allergy Immunologist DLI |
-| `6RG` | **Internal Medicine: Cardiology, General** | Internal Medicine - Cardiology, General |
-| `6RH` | **Internal Medicine: Cardiac Electrophysiologist** | Internal Medicine - Cardiac Electrophysiologist |
-| `6RI` | **Internal Medicine: Interventional Cardiologist** | Internal Medicine - Interventional Cardiologist |
-| `6RK` | **Internal Medicine: Endocrinologist** | Internal Medicine - Endocrinologist |
-| `6RL` | **Internal Medicine: Gastroenterologist** | Internal Medicine - Gastroenterologist |
-| `6RM` | **Internal Medicine: Hepatology** | Internal Medicine - Hepatology |
-| `6RN` | **Internal Medicine: Hematologist** | Internal Medicine - Hematologist |
-| `6RO` | **Internal Medicine: Oncologist** | Internal Medicine - Oncologist |
-| `6RP` | **Internal Medicine: Infectious Diseases SPEC** | Internal Medicine - Infectious Diseases Specialist |
-| `6RQ` | **Internal Medicine: Nephrology** | Internal Medicine - Nephrology |
-| `6RR` | **Internal Medicine: Pulmonologist** | Internal Medicine - Pulmonologist |
-| `6RS` | **Internal Medicine: Rheumatologist** | Internal Medicine - Rheumatologist |
-| `6RT` | **Internal Medicine: Advanced Endoscopic Training** | Internal Medicine - Advanced Endoscopic Training |
-| `6RV` | **Internal Medicine: Tropical Medicine** | Internal Medicine - Tropical Medicine |
-| `6RW` | **Internal Medicine: Interventional Pulmonologist** | Internal Medicine - Interventional Pulmonologist |
+| `6RF` | **Int Med: Allergy Immunologist DLI** | Internal Medicine - Allergy Immunologist DLI |
+| `6RG` | **Int Med: Cardiology, General** | Internal Medicine - Cardiology, General |
+| `6RH` | **Int Med: Cardiac Electrophysiologist** | Internal Medicine - Cardiac Electrophysiologist |
+| `6RI` | **Int Med: Interventional Cardiologist** | Internal Medicine - Interventional Cardiologist |
+| `6RK` | **Int Med: Endocrinologist** | Internal Medicine - Endocrinologist |
+| `6RL` | **Int Med: Gastroenterologist** | Internal Medicine - Gastroenterologist |
+| `6RM` | **Int Med: Hepatology** | Internal Medicine - Hepatology |
+| `6RN` | **Int Med: Hematologist** | Internal Medicine - Hematologist |
+| `6RO` | **Int Med: Oncologist** | Internal Medicine - Oncologist |
+| `6RP` | **Int Med: Infectious Diseases SPEC** | Internal Medicine - Infectious Diseases Specialist |
+| `6RQ` | **Int Med: Nephrology** | Internal Medicine - Nephrology |
+| `6RR` | **Int Med: Pulmonologist** | Internal Medicine - Pulmonologist |
+| `6RS` | **Int Med: Rheumatologist** | Internal Medicine - Rheumatologist |
+| `6RT` | **Int Med: Advanced Endoscopic Training** | Internal Medicine - Advanced Endoscopic Training |
+| `6RV` | **Int Med: Tropical Medicine** | Internal Medicine - Tropical Medicine |
+| `6RW` | **Int Med: Interventional Pulmonologist** | Internal Medicine - Interventional Pulmonologist |
 | `6TG` | **Neurology: Neurophysiologist** | Neurology - Neurophysiologist |
-| `6UA` | **Undersea Medicine: Undersea Medical Examiner** | Undersea Medicine - Undersea Medical Examiner |
-| `6UD` | **Undersea Medicine: Diver** | Undersea Medicine - Diver |
-| `6UE` | **Undersea Medicine: Undersea Occupation Medicine** | Undersea Medicine - Undersea Occupation Medicine |
-| `6UF` | **Undersea Medicine: Hyperbaric Medicine Researcher** | Undersea Medicine - Hyperbaric Medicine Researcher |
-| `6UG` | **Undersea Medicine: Hyperbaric Medicine Clinician** | Undersea Medicine - Hyperbaric Medicine Clinician |
-| `6UM` | **Undersea Medicine: Submarine** | Undersea Medicine - Submarine |
-| `6VG` | **Pediatric: Pediatric Cardiologist** | Pediatric - Pediatric Cardiologist |
-| `6VH` | **Pediatric: Child/Sexual Abuse SPEC** | Pediatric - Child/Sexual Abuse Specialist |
-| `6VI` | **Pediatric: Pediatric Intensivist/ Critical Care** | Pediatric - Pediatric Intensivist/ Critical Care |
-| `6VJ` | **Pediatric: Developmental Pediatrician** | Pediatric - Developmental Pediatrician |
-| `6VK` | **Pediatric: Pediatric Endocrinologist** | Pediatric - Pediatric Endocrinologist |
-| `6VL` | **Pediatric: Pediatric Gastroenterologist** | Pediatric - Pediatric Gastroenterologist |
-| `6VN` | **Pediatric: Pediatric Hematologist-Oncologist** | Pediatric - Pediatric Hematologist-Oncologist |
-| `6VO` | **Pediatric: Genetic Dysmorphology** | Pediatric - Genetic Dysmorphology |
-| `6VP` | **Pediatric: Pediatric Infectious Disease SPEC** | Pediatric - Pediatric Infectious Disease Specialist |
-| `6VQ` | **Pediatric: Pediatric Nephrology** | Pediatric - Pediatric Nephrology |
-| `6VR` | **Pediatric: Pediatric Pulmonologist** | Pediatric - Pediatric Pulmonologist |
-| `6VU` | **Pediatric: Child Neurologist** | Pediatric - Child Neurologist |
-| `6VV` | **Pediatric: Neonatologist** | Pediatric - Neonatologist |
-| `6XD` | **Psychiatry: Addiction Psychiatry** | Psychiatry - Addiction Psychiatry |
-| `6XG` | **Psychiatry: Aviation Psychiatry** | Psychiatry - Aviation Psychiatry |
-| `6XH` | **Psychiatry: Child/Adolescent Psychiatry** | Psychiatry - Child/Adolescent Psychiatry |
-| `6XK` | **Psychiatry: Consultation/ Liaison Psychiatry** | Psychiatry - Consultation/ Liaison Psychiatry |
-| `6XL` | **Psychiatry: Forensic Psychiatry** | Psychiatry - Forensic Psychiatry |
-| `6YD` | **Diagnostic Radiology: Imaging** | Diagnostic Radiology - Imaging |
-| `6YE` | **Diagnostic Radiology: Interventional/ Vascular Radiology** | Diagnostic Radiology - Interventional/ Vascular Radiology |
-| `6YF` | **Diagnostic Radiology: Neuro-Radiology** | Diagnostic Radiology - Neuro-Radiology |
-| `6YG` | **Diagnostic Radiology: Nuclear Radiology** | Diagnostic Radiology - Nuclear Radiology |
-| `6YI` | **Diagnostic Radiology: Pediatric Radiologist** | Diagnostic Radiology - Pediatric Radiologist |
-| `6YK` | **Diagnostic Radiology: Diagnostic Imaging Physicist** | Diagnostic Radiology - Diagnostic Imaging Physicist |
+| `6UA` | **Undersea Med: Undersea Medical Examiner** | Undersea Medicine - Undersea Medical Examiner |
+| `6UD` | **Undersea Med: Diver** | Undersea Medicine - Diver |
+| `6UE` | **Undersea Med: Undersea Occupation Medicine** | Undersea Medicine - Undersea Occupation Medicine |
+| `6UF` | **Undersea Med: Hyperbaric Medicine Researcher** | Undersea Medicine - Hyperbaric Medicine Researcher |
+| `6UG` | **Undersea Med: Hyperbaric Medicine Clinician** | Undersea Medicine - Hyperbaric Medicine Clinician |
+| `6UM` | **Undersea Med: Submarine** | Undersea Medicine - Submarine |
+| `6VG` | **Peds: Peds Cardiologist** | Pediatric - Pediatric Cardiologist |
+| `6VH` | **Peds: Child/Sexual Abuse SPEC** | Pediatric - Child/Sexual Abuse Specialist |
+| `6VI` | **Peds: Peds Intensivist/ Critical Care** | Pediatric - Pediatric Intensivist/ Critical Care |
+| `6VJ` | **Peds: Developmental Pediatrician** | Pediatric - Developmental Pediatrician |
+| `6VK` | **Peds: Peds Endocrinologist** | Pediatric - Pediatric Endocrinologist |
+| `6VL` | **Peds: Peds Gastroenterologist** | Pediatric - Pediatric Gastroenterologist |
+| `6VN` | **Peds: Peds Hematologist-Oncologist** | Pediatric - Pediatric Hematologist-Oncologist |
+| `6VO` | **Peds: Genetic Dysmorphology** | Pediatric - Genetic Dysmorphology |
+| `6VP` | **Peds: Peds Infectious Disease SPEC** | Pediatric - Pediatric Infectious Disease Specialist |
+| `6VQ` | **Peds: Peds Nephrology** | Pediatric - Pediatric Nephrology |
+| `6VR` | **Peds: Peds Pulmonologist** | Pediatric - Pediatric Pulmonologist |
+| `6VU` | **Peds: Child Neurologist** | Pediatric - Child Neurologist |
+| `6VV` | **Peds: Neonatologist** | Pediatric - Neonatologist |
+| `6XD` | **Psych: Addiction Psych** | Psychiatry - Addiction Psychiatry |
+| `6XG` | **Psych: Aviation Psych** | Psychiatry - Aviation Psychiatry |
+| `6XH` | **Psych: Child/Adolescent Psych** | Psychiatry - Child/Adolescent Psychiatry |
+| `6XK` | **Psych: Consultation/ Liaison Psych** | Psychiatry - Consultation/ Liaison Psychiatry |
+| `6XL` | **Psych: Forensic Psych** | Psychiatry - Forensic Psychiatry |
+| `6YD` | **Rad: Imaging** | Diagnostic Radiology - Imaging |
+| `6YE` | **Rad: Interventional/ Vascular Radiology** | Diagnostic Radiology - Interventional/ Vascular Radiology |
+| `6YF` | **Rad: Neuro-Radiology** | Diagnostic Radiology - Neuro-Radiology |
+| `6YG` | **Rad: Nuclear Radiology** | Diagnostic Radiology - Nuclear Radiology |
+| `6YI` | **Rad: Peds Radiologist** | Diagnostic Radiology - Pediatric Radiologist |
+| `6YK` | **Rad: Diagnostic Imaging Physicist** | Diagnostic Radiology - Diagnostic Imaging Physicist |
 | `6ZA*` | **Educational/ Ethics: Instructor** | Educational/ Ethics - Instructor |
 | `6ZB*` | **Educational/ Ethics: Assistant Professor** | Educational/ Ethics - Assistant Professor |
 | `6ZC*` | **Educational/ Ethics: Associate Professor** | Educational/ Ethics - Associate Professor |
@@ -1287,13 +1127,11 @@ Medical Director |
 | `HB3` | **Navy Talent Acquisition Group OFF Recruiter** | Navy Talent Acquisition Group - Officer Recruiter |
 | `HC1` | **Navy Talent Acquisition Group Executive OFF** | Navy Talent Acquisition Group - Executive Officer |
 | `HD1` | **Programs OFF QUAL** | Programs Officer - Qualified |
-| `HEALTH CARE SERVICES` | **** |  -  |
 | `HG1` | **Navy Recruiting CMD General** | Navy Recruiting Command - General |
 | `HG2` | **Navy Recruiting CMD Headquarters Staff OFF** | Navy Recruiting Command - Headquarters Staff Officer |
 | `HG3` | **Navy Recruiting CMD General** | Navy Recruiting Command - General |
 | `HH2` | **United States Naval Academy Blue and Gold OFF LVL 1** | United States Naval Academy Blue and Gold Officer - Level 1 |
 | `HH3` | **United States Naval Academy Blue and Gold OFF LVL 2** | United States Naval Academy Blue and Gold Officer - Level 2 |
-| `HUMAN RESOURCES` | **** |  -  |
 
 ### Religious & Chaplain
 
@@ -1345,9 +1183,7 @@ Medical Director |
 | `5CR` | **Catholic The Roman Catholic Church** | Catholic - The Roman Catholic Church |
 | `5CU` | **Catholic United Catholic Church of America** | Catholic - United Catholic Church of America |
 | `5DL` | **Latter-Day Saints The Church of Jesus Christ of Latter-Day Saints** | Latter-Day Saints - The Church of Jesus Christ of Latter-Day Saints |
-| `5DR` | **Latter-Day Saints Community of Christ (Reorganized Church of Jesus Christ of Latter-Day Saints)** | Latter-Day Saints - Community of Christ
-(Reorganized Church of Jesus Christ of Latter-Day Saints)
- |
+| `5DR` | **Latter-Day Saints Community of Christ (Reorganized Church of Jesus Christ of Latter-Day Saints)** | Latter-Day Saints - Community of Christ (Reorganized Church of Jesus Christ of Latter-Day Saints) |
 | `5EA` | **Episcopalian The Anglican Catholic Church** | Episcopalian - The Anglican Catholic Church |
 | `5EC` | **Episcopalian The Episcopal Church** | Episcopalian - The Episcopal Church |
 | `5ED` | **Episcopalian The Communion of Evangelical Episcopal Churches** | Episcopalian - The Communion of Evangelical Episcopal Churches |
@@ -1455,78 +1291,30 @@ Medical Director |
 | `5OS` | **Orthodox Serbian Orthodox Church in North and South America** | Orthodox - Serbian Orthodox Church in North and South America |
 | `5OU` | **Orthodox Ukrainian Orthodox Church of the USA** | Orthodox - Ukrainian Orthodox Church of the USA |
 | `5OX` | **Orthodox Syrian Eastern Orthodox Exarchate in America** | Orthodox - Syrian Eastern Orthodox Exarchate in America |
-| `5PA` | **Pentecostal/ Charismatic I General Council of Assemblies of God** | Pentecostal/
-Charismatic I
- - General Council of Assemblies of God |
-| `5PB` | **Pentecostal/ Charismatic I Full Gospel Baptist Church Fellowship, Inc.** | Pentecostal/
-Charismatic I
- - Full Gospel Baptist Church Fellowship, Inc. |
-| `5PC` | **Pentecostal/ Charismatic I The Church of God in Christ, Inc.** | Pentecostal/
-Charismatic I
- - The Church of God in Christ, Inc. |
-| `5PD` | **Pentecostal/ Charismatic I Full Gospel** | Pentecostal/
-Charismatic I
- - Full Gospel |
-| `5PE` | **Pentecostal/ Charismatic I Elim Fellowship** | Pentecostal/
-Charismatic I
- - Elim Fellowship |
-| `5PF` | **Pentecostal/ Charismatic I International Church of the Foursquare Gospel** | Pentecostal/
-Charismatic I
- - International Church of the Foursquare Gospel |
-| `5PG` | **Pentecostal/ Charismatic I The Church of God of Prophecy** | Pentecostal/
-Charismatic I
- - The Church of God of Prophecy |
-| `5PH` | **Pentecostal/ Charismatic I Pentecostal Holiness Church, International** | Pentecostal/
-Charismatic I
- - Pentecostal Holiness Church, International |
-| `5PI` | **Pentecostal/ Charismatic I Church of Our Lord Jesus Christ of the Apostolic Faith, Inc.** | Pentecostal/
-Charismatic I
- - Church of Our Lord Jesus Christ of the Apostolic Faith, Inc. |
-| `5PJ` | **Pentecostal/ Charismatic I Pentecostal Church of God, Inc. (Joplin, MO)** | Pentecostal/
-Charismatic I
- - Pentecostal Church of God, Inc. (Joplin, MO) |
-| `5PK` | **Pentecostal/ Charismatic I Grace Churches International** | Pentecostal/
-Charismatic I
- - Grace Churches International |
-| `5PL` | **Pentecostal/ Charismatic I Full Gospel Fellowship of Churches and Ministers International** | Pentecostal/
-Charismatic I
- - Full Gospel Fellowship of Churches and Ministers International |
-| `5PM` | **Pentecostal/ Charismatic I Bethel Ministerial Association, Inc.** | Pentecostal/
-Charismatic I
- - Bethel Ministerial Association, Inc. |
-| `5PO` | **Pentecostal/ Charismatic I Global Network of Christian Ministries** | Pentecostal/
-Charismatic I
- - Global Network of Christian Ministries |
-| `5PP` | **Pentecostal/ Charismatic I Pentecostal Churches** | Pentecostal/
-Charismatic I
- - Pentecostal Churches |
-| `5PQ` | **Pentecostal/ Charismatic I Pentecostal Churches of the Apostolic Faith Association** | Pentecostal/
-Charismatic I
- - Pentecostal Churches of the Apostolic Faith Association |
-| `5PR` | **Pentecostal/ Charismatic I Church On The Rock International** | Pentecostal/
-Charismatic I
- - Church On The Rock International |
-| `5PS` | **Pentecostal/ Charismatic I Open Bible Standard Churches, Inc.** | Pentecostal/
-Charismatic I
- - Open Bible Standard Churches, Inc. |
-| `5PT` | **Pentecostal/ Charismatic I Church of God (Cleveland, TN)** | Pentecostal/
-Charismatic I
- - Church of God (Cleveland, TN) |
-| `5PU` | **Pentecostal/ Charismatic I United Pentecostal Church International** | Pentecostal/
-Charismatic I
- - United Pentecostal Church International |
-| `5PV` | **Pentecostal/ Charismatic I Vineyard Christian Fellowship Church of Cobb County, Inc** | Pentecostal/
-Charismatic I
- - Vineyard Christian Fellowship Church of Cobb County, Inc |
-| `5PW` | **Pentecostal/ Charismatic I Pentecostal Assemblies of the World, Inc.** | Pentecostal/
-Charismatic I
- - Pentecostal Assemblies of the World, Inc. |
-| `5PX` | **Pentecostal/ Charismatic I Calvary Chapel of Costa Mesa** | Pentecostal/
-Charismatic I
- - Calvary Chapel of Costa Mesa |
-| `5PZ` | **Pentecostal/ Charismatic I Association of Evangelical Gospel Assemblies Ministries International, Inc.** | Pentecostal/
-Charismatic I
- - Association of Evangelical Gospel Assemblies Ministries International, Inc. |
+| `5PA` | **Pentecostal/ Charismatic I General Council of Assemblies of God** | Pentecostal/Charismatic I - General Council of Assemblies of God |
+| `5PB` | **Pentecostal/ Charismatic I Full Gospel Baptist Church Fellowship, Inc.** | Pentecostal/Charismatic I - Full Gospel Baptist Church Fellowship, Inc. |
+| `5PC` | **Pentecostal/ Charismatic I The Church of God in Christ, Inc.** | Pentecostal/Charismatic I - The Church of God in Christ, Inc. |
+| `5PD` | **Pentecostal/ Charismatic I Full Gospel** | Pentecostal/Charismatic I - Full Gospel |
+| `5PE` | **Pentecostal/ Charismatic I Elim Fellowship** | Pentecostal/Charismatic I - Elim Fellowship |
+| `5PF` | **Pentecostal/ Charismatic I International Church of the Foursquare Gospel** | Pentecostal/Charismatic I - International Church of the Foursquare Gospel |
+| `5PG` | **Pentecostal/ Charismatic I The Church of God of Prophecy** | Pentecostal/Charismatic I - The Church of God of Prophecy |
+| `5PH` | **Pentecostal/ Charismatic I Pentecostal Holiness Church, International** | Pentecostal/Charismatic I - Pentecostal Holiness Church, International |
+| `5PI` | **Pentecostal/ Charismatic I Church of Our Lord Jesus Christ of the Apostolic Faith, Inc.** | Pentecostal/Charismatic I - Church of Our Lord Jesus Christ of the Apostolic Faith, Inc. |
+| `5PJ` | **Pentecostal/ Charismatic I Pentecostal Church of God, Inc. (Joplin, MO)** | Pentecostal/Charismatic I - Pentecostal Church of God, Inc. (Joplin, MO) |
+| `5PK` | **Pentecostal/ Charismatic I Grace Churches International** | Pentecostal/Charismatic I - Grace Churches International |
+| `5PL` | **Pentecostal/ Charismatic I Full Gospel Fellowship of Churches and Ministers International** | Pentecostal/Charismatic I - Full Gospel Fellowship of Churches and Ministers International |
+| `5PM` | **Pentecostal/ Charismatic I Bethel Ministerial Association, Inc.** | Pentecostal/Charismatic I - Bethel Ministerial Association, Inc. |
+| `5PO` | **Pentecostal/ Charismatic I Global Network of Christian Ministries** | Pentecostal/Charismatic I - Global Network of Christian Ministries |
+| `5PP` | **Pentecostal/ Charismatic I Pentecostal Churches** | Pentecostal/Charismatic I - Pentecostal Churches |
+| `5PQ` | **Pentecostal/ Charismatic I Pentecostal Churches of the Apostolic Faith Association** | Pentecostal/Charismatic I - Pentecostal Churches of the Apostolic Faith Association |
+| `5PR` | **Pentecostal/ Charismatic I Church On The Rock International** | Pentecostal/Charismatic I - Church On The Rock International |
+| `5PS` | **Pentecostal/ Charismatic I Open Bible Standard Churches, Inc.** | Pentecostal/Charismatic I - Open Bible Standard Churches, Inc. |
+| `5PT` | **Pentecostal/ Charismatic I Church of God (Cleveland, TN)** | Pentecostal/Charismatic I - Church of God (Cleveland, TN) |
+| `5PU` | **Pentecostal/ Charismatic I United Pentecostal Church International** | Pentecostal/Charismatic I - United Pentecostal Church International |
+| `5PV` | **Pentecostal/ Charismatic I Vineyard Christian Fellowship Church of Cobb County, Inc** | Pentecostal/Charismatic I - Vineyard Christian Fellowship Church of Cobb County, Inc |
+| `5PW` | **Pentecostal/ Charismatic I Pentecostal Assemblies of the World, Inc.** | Pentecostal/Charismatic I - Pentecostal Assemblies of the World, Inc. |
+| `5PX` | **Pentecostal/ Charismatic I Calvary Chapel of Costa Mesa** | Pentecostal/Charismatic I - Calvary Chapel of Costa Mesa |
+| `5PZ` | **Pentecostal/ Charismatic I Association of Evangelical Gospel Assemblies Ministries International, Inc.** | Pentecostal/Charismatic I - Association of Evangelical Gospel Assemblies Ministries International, Inc. |
 | `5QA` | **Brethren/Quaker The Brethren Church, (Ashland, OH)** | Brethren/Quaker - The Brethren Church, (Ashland, OH) |
 | `5QB` | **Brethren/Quaker Brethren Churches** | Brethren/Quaker - Brethren Churches |
 | `5QE` | **Brethren/Quaker Evangelical Friends Church International** | Brethren/Quaker - Evangelical Friends Church International |
@@ -1560,48 +1348,20 @@ Charismatic I
 | `5SC` | **Scientist The First Church of Christ, Scientist** | Scientist - The First Church of Christ, Scientist |
 | `5SR` | **Scientist United Church of Religious Science** | Scientist - United Church of Religious Science |
 | `5SU` | **Scientist Association of Unity Churches** | Scientist - Association of Unity Churches |
-| `5TA` | **Non-Denominational Independent St Andrews Evangelical Church** | Non-Denominational
-Independent
- - St Andrews Evangelical Church |
-| `5TB` | **Non-Denominational Independent Cedar Mill Bible Church** | Non-Denominational
-Independent
- - Cedar Mill Bible Church |
-| `5TC` | **Non-Denominational Independent Church of the Living God** | Non-Denominational
-Independent
- - Church of the Living God |
-| `5TD` | **Non-Denominational Independent The Woodfield Church** | Non-Denominational
-Independent
- - The Woodfield Church |
-| `5TE` | **Non-Denominational Independent Evangel Fellowship International** | Non-Denominational
-Independent
- - Evangel Fellowship International |
-| `5TF` | **Non-Denominational Independent Central Bible Church** | Non-Denominational
-Independent
- - Central Bible Church |
-| `5TG` | **Non-Denominational Independent Community Church of Greenwood, Inc.** | Non-Denominational
-Independent
- - Community Church of Greenwood, Inc. |
-| `5TK` | **Non-Denominational Independent Columbia Bible Church** | Non-Denominational
-Independent
- - Columbia Bible Church |
-| `5TM` | **Non-Denominational Independent Camelback Bible Church** | Non-Denominational
-Independent
- - Camelback Bible Church |
-| `5TP` | **Non-Denominational Independent Grace Place** | Non-Denominational
-Independent
- - Grace Place |
-| `5TR` | **Non-Denominational Independent Coral Ridge Christian Fellowship** | Non-Denominational
-Independent
- - Coral Ridge Christian Fellowship |
-| `5TU` | **Non-Denominational Independent Westgate Chapel** | Non-Denominational
-Independent
- - Westgate Chapel |
-| `5TW` | **Non-Denominational Independent Westside Christian Family Chapel** | Non-Denominational
-Independent
- - Westside Christian Family Chapel |
-| `5TX` | **Non-Denominational Independent Christ Community Church** | Non-Denominational
-Independent
- - Christ Community Church |
+| `5TA` | **Non-Denominational Independent St Andrews Evangelical Church** | Non-Denominational Independent - St Andrews Evangelical Church |
+| `5TB` | **Non-Denominational Independent Cedar Mill Bible Church** | Non-Denominational Independent - Cedar Mill Bible Church |
+| `5TC` | **Non-Denominational Independent Church of the Living God** | Non-Denominational Independent - Church of the Living God |
+| `5TD` | **Non-Denominational Independent The Woodfield Church** | Non-Denominational Independent - The Woodfield Church |
+| `5TE` | **Non-Denominational Independent Evangel Fellowship International** | Non-Denominational Independent - Evangel Fellowship International |
+| `5TF` | **Non-Denominational Independent Central Bible Church** | Non-Denominational Independent - Central Bible Church |
+| `5TG` | **Non-Denominational Independent Community Church of Greenwood, Inc.** | Non-Denominational Independent - Community Church of Greenwood, Inc. |
+| `5TK` | **Non-Denominational Independent Columbia Bible Church** | Non-Denominational Independent - Columbia Bible Church |
+| `5TM` | **Non-Denominational Independent Camelback Bible Church** | Non-Denominational Independent - Camelback Bible Church |
+| `5TP` | **Non-Denominational Independent Grace Place** | Non-Denominational Independent - Grace Place |
+| `5TR` | **Non-Denominational Independent Coral Ridge Christian Fellowship** | Non-Denominational Independent - Coral Ridge Christian Fellowship |
+| `5TU` | **Non-Denominational Independent Westgate Chapel** | Non-Denominational Independent - Westgate Chapel |
+| `5TW` | **Non-Denominational Independent Westside Christian Family Chapel** | Non-Denominational Independent - Westside Christian Family Chapel |
+| `5TX` | **Non-Denominational Independent Christ Community Church** | Non-Denominational Independent - Christ Community Church |
 | `5UU` | **Unitarian The Unitarian Universalist Association** | Unitarian - The Unitarian Universalist Association |
 | `5VA` | **Evangelical Asbury Bible Churches** | Evangelical - Asbury Bible Churches |
 | `5VB` | **Evangelical Plymouth Brethren** | Evangelical - Plymouth Brethren |
@@ -1611,84 +1371,32 @@ Independent
 | `5VN` | **Evangelical National Association of Evangelicals** | Evangelical - National Association of Evangelicals |
 | `5VP` | **Evangelical Bible Protestant Church** | Evangelical - Bible Protestant Church |
 | `5VV` | **Evangelical Churches** | Evangelical - Evangelical Churches |
-| `5WA` | **Pentecostal/ Charismatic II Assemblies of God, International Fellowship** | Pentecostal/
-Charismatic II
- - Assemblies of God, International Fellowship |
-| `5WB` | **Pentecostal/ Charismatic II Pentecostal Church of God, Inc** | Pentecostal/
-Charismatic II
- - Pentecostal Church of God, Inc |
-| `5WC` | **Pentecostal/ Charismatic II Chaplaincy Full Gospel Churches, Inc.** | Pentecostal/
-Charismatic II
- - Chaplaincy Full Gospel Churches, Inc. |
-| `5WD` | **Pentecostal/ Charismatic II United Evangelical Churches** | Pentecostal/
-Charismatic II
- - United Evangelical Churches |
-| `5WE` | **Pentecostal/ Charismatic II Evangel Fellowship International** | Pentecostal/
-Charismatic II
- - Evangel Fellowship International |
-| `5WF` | **Pentecostal/ Charismatic II Full Faith Church of Love** | Pentecostal/
-Charismatic II
- - Full Faith Church of Love |
-| `5WG` | **Pentecostal/ Charismatic II Association of International Gospel Assemblies, Inc.** | Pentecostal/
-Charismatic II
- - Association of International Gospel Assemblies, Inc. |
-| `5WH` | **Pentecostal/ Charismatic II Harvest Network International** | Pentecostal/
-Charismatic II
- - Harvest Network International |
-| `5WI` | **Pentecostal/ Charismatic II Christ-Immanuel Ministerial Association** | Pentecostal/
-Charismatic II
- - Christ-Immanuel Ministerial Association |
-| `5WJ` | **Pentecostal/ Charismatic II Christ's Church Fellowship** | Pentecostal/
-Charismatic II
- - Christ's Church Fellowship |
-| `5WK` | **Pentecostal/ Charismatic II Kingsway Fellowship International** | Pentecostal/
-Charismatic II
- - Kingsway Fellowship International |
-| `5WL` | **Pentecostal/ Charismatic II Liberty Fellowship of Churches And Ministers, Inc.** | Pentecostal/
-Charismatic II
- - Liberty Fellowship of Churches And Ministers, Inc. |
-| `5WM` | **Pentecostal/ Charismatic II Fellowship of Churches And Ministers International** | Pentecostal/
-Charismatic II
- - Fellowship of Churches And Ministers International |
-| `5WN` | **Pentecostal/ Charismatic II Faith Christian Fellowship International Church, Inc.** | Pentecostal/
-Charismatic II
- - Faith Christian Fellowship International Church, Inc. |
-| `5WO` | **Pentecostal/ Charismatic II Christian Church of North America** | Pentecostal/
-Charismatic II
- - Christian Church of North America |
-| `5WP` | **Pentecostal/ Charismatic II International Ministerial Fellowship** | Pentecostal/
-Charismatic II
- - International Ministerial Fellowship |
-| `5WQ` | **Pentecostal/ Charismatic II Pentecostal Free Will Baptist Church, Inc** | Pentecostal/
-Charismatic II
- - Pentecostal Free Will Baptist Church, Inc |
-| `5WR` | **Pentecostal/ Charismatic II Rhema Bible Church** | Pentecostal/
-Charismatic II
- - Rhema Bible Church |
-| `5WS` | **Pentecostal/ Charismatic II The Coalition of Spirit-Filled Churches** | Pentecostal/
-Charismatic II
- - The Coalition of Spirit-Filled Churches |
-| `5WT` | **Pentecostal/ Charismatic II Trinity Full Gospel Fellowship** | Pentecostal/
-Charismatic II
- - Trinity Full Gospel Fellowship |
-| `5WU` | **Pentecostal/ Charismatic II United Full Gospel Church** | Pentecostal/
-Charismatic II
- - United Full Gospel Church |
-| `5WV` | **Pentecostal/ Charismatic II Victory Christian Center** | Pentecostal/
-Charismatic II
- - Victory Christian Center |
-| `5WW` | **Pentecostal/ Charismatic II International Convention of Faith Ministries, Inc.** | Pentecostal/
-Charismatic II
- - International Convention of Faith Ministries, Inc. |
-| `5WX` | **Pentecostal/ Charismatic II International Christian Church** | Pentecostal/
-Charismatic II
- - International Christian Church |
-| `5WY` | **Pentecostal/ Charismatic II Maranatha Christian Fellowship, Inc.** | Pentecostal/
-Charismatic II
- - Maranatha Christian Fellowship, Inc. |
-| `5WZ` | **Pentecostal/ Charismatic II New Generation Church** | Pentecostal/
-Charismatic II
- - New Generation Church |
+| `5WA` | **Pentecostal/ Charismatic II Assemblies of God, International Fellowship** | Pentecostal/Charismatic II - Assemblies of God, International Fellowship |
+| `5WB` | **Pentecostal/ Charismatic II Pentecostal Church of God, Inc** | Pentecostal/Charismatic II - Pentecostal Church of God, Inc |
+| `5WC` | **Pentecostal/ Charismatic II Chaplaincy Full Gospel Churches, Inc.** | Pentecostal/Charismatic II - Chaplaincy Full Gospel Churches, Inc. |
+| `5WD` | **Pentecostal/ Charismatic II United Evangelical Churches** | Pentecostal/Charismatic II - United Evangelical Churches |
+| `5WE` | **Pentecostal/ Charismatic II Evangel Fellowship International** | Pentecostal/Charismatic II - Evangel Fellowship International |
+| `5WF` | **Pentecostal/ Charismatic II Full Faith Church of Love** | Pentecostal/Charismatic II - Full Faith Church of Love |
+| `5WG` | **Pentecostal/ Charismatic II Association of International Gospel Assemblies, Inc.** | Pentecostal/Charismatic II - Association of International Gospel Assemblies, Inc. |
+| `5WH` | **Pentecostal/ Charismatic II Harvest Network International** | Pentecostal/Charismatic II - Harvest Network International |
+| `5WI` | **Pentecostal/ Charismatic II Christ-Immanuel Ministerial Association** | Pentecostal/Charismatic II - Christ-Immanuel Ministerial Association |
+| `5WJ` | **Pentecostal/ Charismatic II Christ's Church Fellowship** | Pentecostal/Charismatic II - Christ's Church Fellowship |
+| `5WK` | **Pentecostal/ Charismatic II Kingsway Fellowship International** | Pentecostal/Charismatic II - Kingsway Fellowship International |
+| `5WL` | **Pentecostal/ Charismatic II Liberty Fellowship of Churches And Ministers, Inc.** | Pentecostal/Charismatic II - Liberty Fellowship of Churches And Ministers, Inc. |
+| `5WM` | **Pentecostal/ Charismatic II Fellowship of Churches And Ministers International** | Pentecostal/Charismatic II - Fellowship of Churches And Ministers International |
+| `5WN` | **Pentecostal/ Charismatic II Faith Christian Fellowship International Church, Inc.** | Pentecostal/Charismatic II - Faith Christian Fellowship International Church, Inc. |
+| `5WO` | **Pentecostal/ Charismatic II Christian Church of North America** | Pentecostal/Charismatic II - Christian Church of North America |
+| `5WP` | **Pentecostal/ Charismatic II International Ministerial Fellowship** | Pentecostal/Charismatic II - International Ministerial Fellowship |
+| `5WQ` | **Pentecostal/ Charismatic II Pentecostal Free Will Baptist Church, Inc** | Pentecostal/Charismatic II - Pentecostal Free Will Baptist Church, Inc |
+| `5WR` | **Pentecostal/ Charismatic II Rhema Bible Church** | Pentecostal/Charismatic II - Rhema Bible Church |
+| `5WS` | **Pentecostal/ Charismatic II The Coalition of Spirit-Filled Churches** | Pentecostal/Charismatic II - The Coalition of Spirit-Filled Churches |
+| `5WT` | **Pentecostal/ Charismatic II Trinity Full Gospel Fellowship** | Pentecostal/Charismatic II - Trinity Full Gospel Fellowship |
+| `5WU` | **Pentecostal/ Charismatic II United Full Gospel Church** | Pentecostal/Charismatic II - United Full Gospel Church |
+| `5WV` | **Pentecostal/ Charismatic II Victory Christian Center** | Pentecostal/Charismatic II - Victory Christian Center |
+| `5WW` | **Pentecostal/ Charismatic II International Convention of Faith Ministries, Inc.** | Pentecostal/Charismatic II - International Convention of Faith Ministries, Inc. |
+| `5WX` | **Pentecostal/ Charismatic II International Christian Church** | Pentecostal/Charismatic II - International Christian Church |
+| `5WY` | **Pentecostal/ Charismatic II Maranatha Christian Fellowship, Inc.** | Pentecostal/Charismatic II - Maranatha Christian Fellowship, Inc. |
+| `5WZ` | **Pentecostal/ Charismatic II New Generation Church** | Pentecostal/Charismatic II - New Generation Church |
 | `5XC` | **Unclassified Iglesia Ni Christo** | Unclassified - Iglesia Ni Christo |
 | `5XG` | **Unclassified General Church of The New Jerusalem** | Unclassified - General Church of The New Jerusalem |
 | `5XJ` | **Unclassified General Church of the New Jerusalem** | Unclassified - General Church of the New Jerusalem |
@@ -1710,18 +1418,17 @@ Charismatic II
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `PA1` | **Navy Security Force OFF Basic** | Navy Security Force Officer - Basic |
-| `PA2` | **Navy Security Force OFF Advanced** | Navy Security Force Officer - Advanced |
+| `PA1` | **NSF OFF Basic** | Navy Security Force Officer - Basic |
+| `PA2` | **NSF OFF Advanced** | Navy Security Force Officer - Advanced |
 | `PB1` | **Installation Security OFF (ISO) CONUS** | Installation Security Officer (ISO) - CONUS |
 | `PB2` | **Installation Security OFF (ISO) OCONUS** | Installation Security Officer (ISO) - OCONUS |
-| `PC1` | **Force Protection/ Antiterrorism OFF Base or Activity** | Force Protection/ Antiterrorism Officer - Base or Activity |
-| `PC2` | **Force Protection/ Antiterrorism OFF Staff** | Force Protection/ Antiterrorism Officer - Staff |
-| `PD1` | **Strategic Systems Programs Security OFF** | Strategic Systems Programs - Security Officer |
-| `PE1` | **Security Training Assistance and Assessments Team Staff or Activity** | Security Training Assistance and Assessments Team - Staff or Activity |
+| `PC1` | **AT/FP OFF Base or Activity** | Force Protection/ Antiterrorism Officer - Base or Activity |
+| `PC2` | **AT/FP OFF Staff** | Force Protection/ Antiterrorism Officer - Staff |
+| `PD1` | **SSP Sec OFF** | Strategic Systems Programs - Security Officer |
+| `PE1` | **STAAT Staff or Activity** | Security Training Assistance and Assessments Team - Staff or Activity |
 | `PROFESSIONAL DEVELOPMENT (GENERAL)` | **** |  -  |
-| `PS1` | **Afloat Security OFF Staff** | Afloat Security Officer - Staff |
-| `PS2` | **Afloat Security OFF Afloat** | Afloat Security Officer - Afloat |
-| `PUBLIC AFFAIRS OFFICER` | **** |  -  |
+| `PS1` | **Afloat Sec OFF Staff** | Afloat Security Officer - Staff |
+| `PS2` | **Afloat Sec OFF Afloat** | Afloat Security Officer - Afloat |
 
 ### Space & Technical
 
@@ -1787,55 +1494,38 @@ Charismatic II
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `S*N0` | **Nuclear Trained OFF General** | Nuclear Trained Officer - General |
-| `S*N1` | **Nuclear Trained OFF Engineer QUAL** | Nuclear Trained Officer - Engineer Qualified |
-| `S*N2` | **Nuclear Trained OFF Served Engineer** | Nuclear Trained Officer - Served Engineer |
-| `S*N3` | **Nuclear Trained OFF Served Post Engineer** | Nuclear Trained Officer - Served Post Engineer |
+| `S*N0` | **Nuc Trained OFF General** | Nuclear Trained Officer - General |
+| `S*N1` | **Nuc Trained OFF Engineer QUAL** | Nuclear Trained Officer - Engineer Qualified |
+| `S*N2` | **Nuc Trained OFF Served Engineer** | Nuclear Trained Officer - Served Engineer |
+| `S*N3` | **Nuc Trained OFF Served Post Engineer** | Nuclear Trained Officer - Served Post Engineer |
 | `SC2` | **CMD QUAL for Nuclear CMD** | Command - Qualified for Nuclear Command |
 | `SC4` | **CMD Served SSN CMD** | Command - Served SSN Command |
 | `SC5` | **CMD Served SSBN CMD** | Command - Served SSBN Command |
 | `SC6` | **CMD Served Post SSN/SSBN CMD** | Command - Served Post SSN/SSBN Command |
 | `SC7` | **CMD Served ASR CMD** | Command - Served ASR Command |
 | `SC8` | **CMD Served Major CMD** | Command - Served Major Command |
-| `SD7` | **SCUBA Trained OFF QUAL** | SCUBA
-Trained Officer
- - Qualified |
-| `SEP` | **Submarine Embedded Psychiatrist, Psychologist, Social worker, or Other mental health PROF** | Submarine Embedded  - Psychiatrist, Psychologist, Social worker, or Other mental health professional |
-| `SN9` | **Nuclear Trained OFF NR Support Billet** | Nuclear Trained Officer - NR Support Billet |
-| `SP0` | **Nuclear Weapons Strategic Weapons OFF QUAL** | Nuclear Weapons - Strategic Weapons Officer Qualified |
-| `SP1` | **Nuclear Weapons Nuclear CMD and Control (NC2)** | Nuclear Weapons - Nuclear Command and Control (NC2) |
-| `SP2` | **Nuclear Weapons SSBN AWEPS** | Nuclear Weapons - SSBN 
-AWEPS
- |
-| `SP3` | **Nuclear Weapons SSBN WEPS** | Nuclear Weapons - SSBN 
-WEPS 
- |
-| `SP4` | **Nuclear Weapons SSBN NAV** | Nuclear Weapons - SSBN 
-NAV
- |
-| `SP5` | **Nuclear Weapons SSBN XO** | Nuclear Weapons - SSBN 
-XO
- |
-| `SP6` | **Nuclear Weapons Junior Technical Supervisor** | Nuclear Weapons - Nuclear Weapons Junior Technical Supervisor |
-| `SP7` | **Nuclear Weapons Senior Technical Supervisor** | Nuclear Weapons - Nuclear Weapons Senior Technical Supervisor |
-| `SP8` | **Nuclear Weapons General Strategic Policy** | Nuclear Weapons - General Strategic Policy |
-| `SPA` | **Nuclear Weapons Any Strategic Weapons Experience** | Nuclear Weapons - Any Strategic Weapons Experience |
+| `SD7` | **SCUBA Trained OFF QUAL** | SCUBA Trained Officer - Qualified |
+| `SEP` | **Sub Embedded Psych** | Submarine Embedded - Psychiatrist, Psychologist, Social worker, or Other mental health professional |
+| `SN9` | **Nuc Trained OFF NR Support Billet** | Nuclear Trained Officer - NR Support Billet |
+| `SP0` | **Nuc Wpns Strategic Weapons OFF QUAL** | Nuclear Weapons - Strategic Weapons Officer Qualified |
+| `SP1` | **Nuc Wpns Nuclear CMD and Control (NC2)** | Nuclear Weapons - Nuclear Command and Control (NC2) |
+| `SP2` | **Nuc Wpns SSBN AWEPS** | Nuclear Weapons - SSBN AWEPS |
+| `SP3` | **Nuc Wpns SSBN WEPS** | Nuclear Weapons - SSBN WEPS |
+| `SP4` | **Nuc Wpns SSBN NAV** | Nuclear Weapons - SSBN NAV |
+| `SP5` | **Nuc Wpns SSBN XO** | Nuclear Weapons - SSBN XO |
+| `SP6` | **Nuc Wpns Junior Technical Supervisor** | Nuclear Weapons - Nuclear Weapons Junior Technical Supervisor |
+| `SP7` | **Nuc Wpns Senior Technical Supervisor** | Nuclear Weapons - Nuclear Weapons Senior Technical Supervisor |
+| `SP8` | **Nuc Wpns General Strategic Policy** | Nuclear Weapons - General Strategic Policy |
+| `SPA` | **Nuc Wpns Strat Exp** | Nuclear Weapons - Any Strategic Weapons Experience |
+| `SPI` | **Nuc Wpns Int Strat Ed** | Nuclear Weapons - Intermediate Strategic Deterrence Education |
+| `SPS` | **Nuc Wpns Sr Strat Ed** | Nuclear Weapons - Senior Strategic Deterrence Education |
 | `SPACE AND ELECTRONIC WARFARE (SEW)` | **** |  -  |
-| `SPECIAL WARFARE` | **** |  -  |
-| `SPI` | **Nuclear Weapons Intermediate Strategic Deterrence Education** | Nuclear Weapons - Intermediate Strategic Deterrence Education |
-| `SPS` | **Nuclear Weapons Senior Strategic Deterrence Education** | Nuclear Weapons - Senior Strategic Deterrence Education |
 | `SQ1` | **Submarine QUAL SC OFF Supply Corps** | Submarine Qualified SC Officer - Supply Corps |
 | `SR1` | **Submarine Rescue OFF** | Submarine Rescue - Submarine Rescue Officer |
-| `ST0` | **Tactics Undersea Warfare Practitioner** | Tactics - Undersea Warfare Practitioner |
-| `ST1` | **Tactics Undersea Warfare Tactics Instructor** | Tactics - Undersea Warfare Tactics Instructor |
-| `STRATEGIC SEALIFT OFFICER` | **** |  -  |
+| `ST0` | **Tactics UW Practitioner** | Tactics - Undersea Warfare Practitioner |
+| `ST1` | **Tactics UW Tactics Instructor** | Tactics - Undersea Warfare Tactics Instructor |
 | `SU0` | **Submarine QUAL ED OFF General** | Submarine Qualified ED Officer - General |
-| `SUBMARINE WARFARE` | **** |  -  |
-| `SUPPLY CORPS` | **** |  |
-| `SURFACE WARFARE` | **** |  -  |
-| `SV1` | **Submarine QUAL Enlisted Submarine QUAL** | Submarine Qualified - Enlisted Submarine
-Qualified 
- |
+| `SV1` | **Submarine QUAL Enlisted Submarine QUAL** | Submarine Qualified - Enlisted Submarine Qualified |
 | `SV2` | **Submarine QUAL LDO/CWO QUAL in Submarines** | Submarine Qualified - LDO/CWO Qualified in Submarines |
 | `SV3` | **Submarine QUAL IP Officers QUAL in Submarine Communications** | Submarine Qualified - IP Officers Qualified in Submarine Communications |
 | `SW**1` | **Deep Submergence Staff** | Deep Submergence - Staff |
@@ -1846,88 +1536,42 @@ Qualified
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `903` | **Auditing (SC AUDIT)** | Auditing
-(SC AUDIT)
- |
-| `910` | **Food Service OPS (SC FOODSRVOPS)** | Food Service Operations 
-(SC FOODSRVOPS)
- |
-| `918` | **Supply Corps OFF Contingency OPS Assignment (SC JNTTADTOPS)** | Supply Corps Officer Contingency Operations Assignment 
-(SC JNTTADTOPS)
- |
-| `919` | **Supply Corps OFF Contingency OPS Assignment LVL 2 (SC 2JNTTADTOPS)** | Supply Corps Officer Contingency Operations Assignment Level 2 
-(SC 2JNTTADTOPS)
- |
-| `920` | **Transportation MGMT (SC TRNMGT)** | Transportation Management
-(SC TRNMGT)
- |
-| `928` | **Completed First Operational Tour (COMP1 OPTOUR)** | Completed First Operational Tour
-(COMP1 OPTOUR)
- |
-| `929` | **Completed Second Operational Tour (COMP2 OPTOUR)** | Completed Second Operational Tour
-(COMP2 OPTOUR)
- |
-| `92A` | **Assignment Second Operational Tour (ASGN2 OPTOUR)** | Assignment Second Operational Tour
-(ASGN2 OPTOUR)
- |
-| `92B` | **Completed Lieutenant Commander Operational Tour (LCDR OPTOUR)** | Completed Lieutenant Commander Operational Tour (LCDR OPTOUR) |
-| `92E` | **ERP Certificate with SAP (ERP W SAP CERT)** | ERP Certificate with SAP Program
-(ERP W SAP CERT)
- |
-| `935` | **Commander Supply Corps OFF Milestone Completed (SC CDRMLSTNCMP)** | Commander Supply Corps Officer Milestone Completed
-(SC CDRMLSTNCMP)
- |
-| `937` | **Commander Supply Corps OFF Milestone Select (SC CDRMLSTNSEL)** | Commander Supply Corps Officer Milestone Select
-(SC CDRMLSTNSEL)
- |
-| `939` | **Ordnance Logistics Ammo (SC ORDLOG)** | Ordnance Logistics Ammo 
-(SC ORDLOG)
- |
-| `93A` | **Shore CMD Complete (SC CMD COMP)** | Shore Command Complete
-(SC CMD COMP)
- |
-| `93B` | **Major Shore CMD Complete (SC MAJCMD COMP)** | Major Shore Command Complete
-(SC MAJCMD COMP)
- |
-| `93E` | **Navy Expeditionary Supply Corps OFF Warfare Qualification (NESCO)** | Navy Expeditionary Supply Corps Officer Warfare Qualification
-(NESCO)
- |
-| `940` | **Ship Outfitting (SC SHIPOUT)** | Ship Outfitting
-(SC SHIPOUT)
- |
-| `943` | **Joint, Interagency, International, or Multinational OPS (SC JIIMOPS)** | Joint, Interagency, International, or Multinational Operations
-(SC JIIMOPS)
- |
-| `945` | **Naval Reactors Experience (SC NR EXP)** | Naval Reactors Experience
-(SC NR EXP)
- |
-| `949` | **Supply Corps School Instructor (SC INSTRUCTOR)** | Supply Corps School Instructor (SC INSTRUCTOR) |
-| `950` | **Engineer in Training (CEC EIT)** | Engineer in Training
-(CEC EIT)
- |
-| `951` | **Registered PROF Engineer (CEC PE)** | Registered Professional Engineer 
-(CEC PE)
- |
-| `952` | **Registered Architect (CEC RA)** | Registered Architect 
-(CEC RA)
- |
+| `903` | **SC Auditing** | Auditing (SC AUDIT) |
+| `910` | **SC Food Svc Ops** | Food Service Operations (SC FOODSRVOPS) |
+| `918` | **SC Cont Ops** | Supply Corps Officer Contingency Operations Assignment (SC JNTTADTOPS) |
+| `919` | **SC Cont Ops LVL2** | Supply Corps Officer Contingency Operations Assignment Level 2 (SC 2JNTTADTOPS) |
+| `920` | **SC Trans MGMT** | Transportation Management (SC TRNMGT) |
+| `928` | **SC 1st Op Tour** | Completed First Operational Tour (COMP1 OPTOUR) |
+| `929` | **SC 2nd Op Tour** | Completed Second Operational Tour (COMP2 OPTOUR) |
+| `92A` | **SC Asgn 2nd Tur** | Assignment Second Operational Tour (ASGN2 OPTOUR) |
+| `92B` | **SC LCDR Op Tour** | Completed Lieutenant Commander Operational Tour (LCDR OPTOUR) |
+| `92E` | **ERP w/SAP Cert** | ERP Certificate with SAP Program (ERP W SAP CERT) |
+| `935` | **SC CDR Milestone** | Commander Supply Corps Officer Milestone Completed (SC CDRMLSTNCMP) |
+| `937` | **SC CDR Mlstn Sel** | Commander Supply Corps Officer Milestone Select (SC CDRMLSTNSEL) |
+| `939` | **SC Ord Logistics** | Ordnance Logistics Ammo (SC ORDLOG) |
+| `93A` | **SC Shore CMD** | Shore Command Complete (SC CMD COMP) |
+| `93B` | **SC Maj Shore CMD** | Major Shore Command Complete (SC MAJCMD COMP) |
+| `93E` | **NESCO** | Navy Expeditionary Supply Corps Officer Warfare Qualification (NESCO) |
+| `940` | **SC Ship Outfitting** | Ship Outfitting (SC SHIPOUT) |
+| `943` | **SC JIIM Ops** | Joint, Interagency, International, or Multinational Operations (SC JIIMOPS) |
+| `945` | **SC NR Exp** | Naval Reactors Experience (SC NR EXP) |
+| `949` | **SC Instructor** | Supply Corps School Instructor (SC INSTRUCTOR) |
+| `950` | **CEC EIT** | Engineer in Training (CEC EIT) |
+| `951` | **Registered PROF Engineer (CEC PE)** | Registered Professional Engineer (CEC PE) |
+| `952` | **CEC Reg Arch** | Registered Architect (CEC RA) |
 | `953` | **Architect ARE** | Architect ARE |
 | `954` | **Architect AXP** | Architect AXP |
-| `960` | **Seabee Combat Warfare (SCW)** | Seabee Combat  
-Warfare (SCW)
- |
+| `960` | **SCW** | Seabee Combat Warfare (SCW) |
 | `965` | **LCDR CMD** | LCDR Command |
 | `966` | **CDR Expeditionary CMD** | CDR Expeditionary Command |
 | `967` | **Expeditionary Major CMD** | Expeditionary Major Command |
 | `9L1` | **OLW OFF, 1 Tour (OLWOFF1)** | OLW Officer, 1 Tour (OLWOFF1) |
 | `9L2` | **OLW OFF, 2 or more Tours (OLWOFF2)** | OLW Officer, 2 or more Tours (OLWOFF2) |
 | `9L3` | **Operational Contract Support** | Operational Contract Support |
-| `9P1` | **Public Works LVL 1 Career Field Certified** | Public Works Level 1 Career Field Certified |
-| `9P2` | **Public Works LVL 2 Career Field Certified** | Public Works Level 2 Career Field Certified |
-| `9P3` | **Public Works LVL 3 Career Field Certified** | Public Works Level 3 Career Field Certified |
-| `9X1` | **Director, Logistics Readiness Center, Maritime OPS Center (SC LRCMOC DIR)** | Director, Logistics Readiness Center, Maritime Operations Center
-(SC LRCMOC DIR)
- |
+| `9P1` | **PW LVL 1 Cert** | Public Works Level 1 Career Field Certified |
+| `9P2` | **PW LVL 2 Cert** | Public Works Level 2 Career Field Certified |
+| `9P3` | **PW LVL 3 Cert** | Public Works Level 3 Career Field Certified |
+| `9X1` | **SC LRCMOC Dir** | Director, Logistics Readiness Center, Maritime Operations Center (SC LRCMOC DIR) |
 
 ### Surface Warfare (Missile/AEGIS)
 
@@ -1936,49 +1580,47 @@ Warfare (SCW)
 | `KA6` | **QUAL Surface Missile Systems OFF AEGIS** | Qualified Surface Missile Systems Officer - AEGIS |
 | `KA7` | **Littoral Combat Ship Operator LCS, General Dynamics Hull** | Littoral Combat Ship Operator - LCS, General Dynamics Hull |
 | `KA8` | **Littoral Combat Ship Operator LCS, Lockheed Martin Hull** | Littoral Combat Ship Operator - LCS, Lockheed Martin Hull |
-| `KD1` | **Surface Nuclear Power Nuclear Propulsion Operator** | Surface Nuclear Power - Nuclear Propulsion Operator |
-| `KD2` | **Surface Nuclear Power Nuclear Ship Engineer** | Surface Nuclear Power - Nuclear Ship Engineer |
-| `KD4` | **Surface Nuclear Power LDO and WO Nuclear Power Operator** | Surface Nuclear Power - LDO and WO Nuclear Power Operator |
-| `KD6` | **Surface Nuclear Power Trainee** | Surface Nuclear Power - Trainee |
-| `KD7` | **Surface Nuclear Power Naval Reactors QUAL** | Surface Nuclear Power - Naval Reactors Qualified |
-| `KD8` | **Surface Nuclear Power Nuclear Qualifying Assignment Billet** | Surface Nuclear Power - Nuclear Qualifying Assignment Billet |
-| `KD9` | **Surface Nuclear Power NR Support Billet** | Surface Nuclear Power - NR Support Billet |
-| `KG0` | **Explosive Ordnance Disposal Head** | Explosive Ordnance Disposal - Department Head |
-| `KG1` | **Explosive Ordnance Disposal Basic** | Explosive Ordnance Disposal - Basic |
-| `KG5` | **Explosive Ordnance Disposal EOD Warfare** | Explosive Ordnance Disposal - EOD Warfare |
-| `KG6` | **Explosive Ordnance Disposal Executive OFF** | Explosive Ordnance Disposal - Executive Officer |
-| `KG7` | **Explosive Ordnance Disposal CDR CMD** | Explosive Ordnance Disposal - CDR Command |
-| `KG8` | **Explosive Ordnance Disposal Major CMD** | Explosive Ordnance Disposal - Major Command |
+| `KD1` | **Surf Nuc Pwr Nuclear Propulsion Operator** | Surface Nuclear Power - Nuclear Propulsion Operator |
+| `KD2` | **Surf Nuc Pwr Nuclear Ship Engineer** | Surface Nuclear Power - Nuclear Ship Engineer |
+| `KD4` | **Surf Nuc Pwr LDO and WO Nuclear Power Operator** | Surface Nuclear Power - LDO and WO Nuclear Power Operator |
+| `KD6` | **Surf Nuc Pwr Trainee** | Surface Nuclear Power - Trainee |
+| `KD7` | **Surf Nuc Pwr Naval Reactors QUAL** | Surface Nuclear Power - Naval Reactors Qualified |
+| `KD8` | **Surf Nuc Pwr Nuclear Qualifying Assignment Billet** | Surface Nuclear Power - Nuclear Qualifying Assignment Billet |
+| `KD9` | **Surf Nuc Pwr NR Support Billet** | Surface Nuclear Power - NR Support Billet |
+| `KG0` | **EOD Head** | Explosive Ordnance Disposal - Department Head |
+| `KG1` | **EOD Basic** | Explosive Ordnance Disposal - Basic |
+| `KG5` | **EOD EOD Warfare** | Explosive Ordnance Disposal - EOD Warfare |
+| `KG6` | **EOD Executive OFF** | Explosive Ordnance Disposal - Executive Officer |
+| `KG7` | **EOD CDR CMD** | Explosive Ordnance Disposal - CDR Command |
+| `KG8` | **EOD Major CMD** | Explosive Ordnance Disposal - Major Command |
 | `KH9` | **Riverine Warfare Experienced** | Riverine Warfare - Experienced |
 | `KI1` | **River, Coastal, and Combatant Craft Unconventional Warfare Experienced** | River, Coastal, and Combatant Craft Unconventional Warfare - Experienced |
 | `KJ1` | **Drydocking OFF General** | Drydocking Officer - General |
 | `KJ2` | **Drydocking OFF Floating Drydock** | Drydocking Officer - Floating Drydock |
-| `KK1` | **Expendable Ordnance MGMT Basic** | Expendable Ordnance Management - Basic |
-| `KK2` | **Expendable Ordnance MGMT Operational** | Expendable Ordnance Management - Operational |
-| `KK3` | **Expendable Ordnance MGMT Master** | Expendable Ordnance Management - Master |
+| `KK1` | **EO Mgmt Basic** | Expendable Ordnance Management - Basic |
+| `KK2` | **EO Mgmt Operational** | Expendable Ordnance Management - Operational |
+| `KK3` | **EO Mgmt Master** | Expendable Ordnance Management - Master |
 | `KL0` | **QUAL Diving OFF Basic** | Qualified Diving Officer - Basic |
 | `KM1` | **Ship Salvage Diving OFF Basic** | Ship Salvage Diving Officer - Basic |
 | `KM2` | **Ship Salvage Diving OFF Operational** | Ship Salvage Diving Officer - Operational |
 | `KN1` | **Mixed Gas Basic** | Mixed Gas - Basic |
 | `KN2` | **Mixed Gas Operational** | Mixed Gas - Operational |
-| `KP0` | **Shore Based Hyperbaric Facility Saturation Dive Watch OFF QUAL** | Shore Based Hyperbaric Facility Saturation Dive Watch Officer - Qualified |
-| `KP1` | **Shore Based Hyperbaric Facility Saturation Dive Watch OFF Basic** | Shore Based Hyperbaric Facility Saturation Dive Watch Officer - Basic |
-| `KP2` | **Shore Based Hyperbaric Facility Saturation Dive Watch OFF Operational** | Shore Based Hyperbaric Facility Saturation Dive Watch Officer - Operational |
+| `KP0` | **SBHF Sat Dive WO QUAL** | Shore Based Hyperbaric Facility Saturation Dive Watch Officer - Qualified |
+| `KP1` | **SBHF Sat Dive WO Basic** | Shore Based Hyperbaric Facility Saturation Dive Watch Officer - Basic |
+| `KP2` | **SBHF Sat Dive WO Operational** | Shore Based Hyperbaric Facility Saturation Dive Watch Officer - Operational |
 | `KS1` | **Surface Warfare Enterprise SWE OFF** | Surface Warfare Enterprise - SWE Officer |
 | `KV1` | **Heavy Lift Docking Observer** | Heavy Lift - Docking Observer |
 | `KV2` | **Heavy Lift Project OFF** | Heavy Lift - Project Officer |
 | `KV3` | **Software Acquisition Software Project OFF** | Software Acquisition - Software Project Officer |
 | `KV4` | **Software Acquisition Software Manager** | Software Acquisition - Software Program Manager |
-| `KW1` | **Warfare Tactics Instructor (WTI) Surface and Anti-Submarine (ASW/SUW)** | Warfare Tactics Instructor (WTI) - Surface and Anti-Submarine (ASW/SUW) |
-| `KW2` | **Warfare Tactics Instructor Integrated Air Missile Defense (IAMD)** | Warfare Tactics Instructor - Integrated Air Missile Defense (IAMD) |
-| `KW3` | **Warfare Tactics Instructor Amphibious Warfare (AMW)** | Warfare Tactics Instructor - Amphibious Warfare (AMW) |
-| `KW4` | **Warfare Tactics Instructor (WTI) Mine Warfare** | Warfare Tactics Instructor (WTI) - Mine Warfare |
+| `KW1` | **WTI ASW/SUW** | Warfare Tactics Instructor (WTI) - Surface and Anti-Submarine (ASW/SUW) |
+| `KW2` | **WTI Integrated Air MD (IAMD)** | Warfare Tactics Instructor - Integrated Air Missile Defense (IAMD) |
+| `KW3` | **WTI AMW** | Warfare Tactics Instructor - Amphibious Warfare (AMW) |
+| `KW4` | **WTI (WTI) MW** | Warfare Tactics Instructor (WTI) - Mine Warfare |
 | `KW5` | **Adversary Warfare Tactics Lead VARMITT IAMD** | Adversary Warfare Tactics Lead - VARMITT IAMD |
-| `KWC` | **Warfare Tactics Instructor Production Tour Complete** | Warfare Tactics Instructor - Production Tour Complete |
-| `KWS` | **Warfare Tactics Instructor Select** | Warfare Tactics Instructor - Select |
-| `KX1` | **Surface Anti- Submarine Warfare (SuASW) Advanced ASW OFF** | Surface Anti- Submarine Warfare (SuASW) - Advanced
-ASW Officer
- |
+| `KWC` | **WTI Prod Tour Cmplt** | Warfare Tactics Instructor - Production Tour Complete |
+| `KWS` | **WTI Select** | Warfare Tactics Instructor - Select |
+| `KX1` | **SuASW Adv ASW** | Surface Anti- Submarine Warfare (SuASW) - Advanced ASW Officer |
 
 ### Targeting & Intelligence
 
@@ -1998,21 +1640,21 @@ ASW Officer
 | `3K0` | **Chief Warrant OFF Geospatial Interpretation / Targeting (GEOINT/Targeting)** | Chief Warrant Officer - Geospatial Interpretation / Targeting (GEOINT/Targeting) |
 | `3K3` | **Chief Warrant OFF Counterintelligence/Human Intelligence (CI/HUMINT)** | Chief Warrant Officer - Counterintelligence/Human Intelligence (CI/HUMINT) |
 | `3K6` | **Chief Warrant OFF OPINTEL** | Chief Warrant Officer - OPINTEL |
-| `3M1` | **Force MGMT Intelligence MPTE Planning** | Force Management - Intelligence MPTE Planning |
-| `3M2` | **Force MGMT Intelligence Resource MGMT** | Force Management - Intelligence Resource Management |
-| `3M3` | **Force MGMT Intelligence Adaptive/ Campaign Planning** | Force Management - Intelligence Adaptive/ Campaign Planning |
-| `3M4` | **Force MGMT Intelligence Integrated Component OPS** | Force Management - Intelligence Integrated Component Operations |
-| `3M5` | **Force MGMT Senior Intelligence Manager** | Force Management - Senior Intelligence Program Manager |
+| `3M1` | **Force Mgmt Intelligence MPTE Planning** | Force Management - Intelligence MPTE Planning |
+| `3M2` | **Force Mgmt Intelligence Resource MGMT** | Force Management - Intelligence Resource Management |
+| `3M3` | **Force Mgmt Intelligence Adaptive/ Campaign Planning** | Force Management - Intelligence Adaptive/ Campaign Planning |
+| `3M4` | **Force Mgmt Intelligence Integrated Component OPS** | Force Management - Intelligence Integrated Component Operations |
+| `3M5` | **Force Mgmt Senior Intelligence Manager** | Force Management - Senior Intelligence Program Manager |
 | `3O1` | **Operational Fleet Intelligence Watch OFF (FIWO)** | Operational - Fleet Intelligence Watch Officer (FIWO) |
 | `3Q1` | **Special Warfare Support NSW Intelligence** | Special Warfare Support - NSW Intelligence |
 | `3Q2` | **Special Warfare Support NSW Intelligence Experience** | Special Warfare Support - NSW Intelligence Experience |
 | `3Q3` | **Special Warfare Support Special OPS Forces Intelligence** | Special Warfare Support - Special Operations Forces Intelligence |
-| `3R1` | **ISR MGMT Collection Manager** | ISR Management - Collection Manager |
-| `3R2` | **ISR MGMT Collection / ISR Requirements MGMT** | ISR Management - Collection / ISR Requirements Management |
-| `3R3` | **ISR MGMT ISR Architecture MGMT** | ISR Management - ISR  Architecture Management |
-| `3R4` | **ISR MGMT ISR Architecture Resource MGMT** | ISR Management - ISR Architecture Resource Management |
-| `3R8` | **ISR MGMT ISRT Architecture MGMT GRAD** | ISR Management - ISRT Architecture Management Graduate |
-| `3R9` | **ISR MGMT Navy Collection MGMT Course GRAD** | ISR Management - Navy Collection Management Course Graduate |
+| `3R1` | **ISR Mgmt Collection Manager** | ISR Management - Collection Manager |
+| `3R2` | **ISR Mgmt Collection / ISR Requirements MGMT** | ISR Management - Collection / ISR Requirements Management |
+| `3R3` | **ISR Mgmt ISR Architecture MGMT** | ISR Management - ISR  Architecture Management |
+| `3R4` | **ISR Mgmt ISR Architecture Resource MGMT** | ISR Management - ISR Architecture Resource Management |
+| `3R8` | **ISR Mgmt ISRT Architecture MGMT GRAD** | ISR Management - ISRT Architecture Management Graduate |
+| `3R9` | **ISR Mgmt Navy Collection MGMT Course GRAD** | ISR Management - Navy Collection Management Course Graduate |
 | `3W1` | **Aviation Intelligence Weapons and Tactics OFF Course GRAD** | Aviation Intelligence Weapons and Tactics Officer - Course Graduate |
 | `3X1` | **CI/HUMINT OFF** | CI/HUMINT - CI/HUMINT Officer |
 | `3X2` | **CI/HUMINT MGMT** | CI/HUMINT - CI/HUMINT Management |
@@ -2026,26 +1668,17 @@ ASW Officer
 
 | AQD | Display Title | Full Context/Original Title |
 |:---|:---|:---|
-| `TBW` | **Afloat Bridge Resource MGMT Workshop (ABRMW) Facilitator** | Afloat Bridge Resource Management Workshop (ABRMW) - Facilitator |
 | `TC1` | **Afloat Tactical Advisor QUAL** | Afloat Tactical Advisor - Qualified |
 | `TC2` | **Afloat Tactical Advisor Experienced** | Afloat Tactical Advisor - Experienced |
 | `TC3` | **Afloat Tactical Advisor Advanced** | Afloat Tactical Advisor - Advanced |
 | `TD1` | **Deck OFF Chief Mate** | Deck Officer - Chief Mate |
 | `TD2` | **Deck OFF Second Mate** | Deck Officer - Second Mate |
 | `TD3` | **Deck OFF Third Mate** | Deck Officer - Third Mate |
-| `TDL` | **Deck OFF Master, Limited** | Deck Officer - Master,
-Limited
- |
-| `TDM` | **Deck OFF Master** | Deck Officer - Master |
-| `TDP` | **Deck OFF First Class Pilot** | Deck Officer - First Class Pilot |
 | `TE1` | **Engineer OFF, Motor First Assistant Engineer** | Engineer Officer, Motor - First Assistant Engineer |
 | `TE2` | **Engineer OFF, Motor Second Assistant Engineer** | Engineer Officer, Motor - Second Assistant Engineer |
 | `TE3` | **Engineer OFF, Motor Third Assistant Engineer** | Engineer Officer, Motor - Third Assistant Engineer |
-| `TEE` | **Engineer OFF, Steam Chief Engineer** | Engineer Officer, Steam - Chief Engineer |
-| `TFE` | **Engineer OFF, Motor Chief Engineer** | Engineer Officer, Motor - Chief Engineer |
 | `TG1` | **Engineer OFF, Gas Turbine First Assistant Engineer** | Engineer Officer, Gas Turbine - First Assistant Engineer |
 | `TG2` | **Engineer OFF, Gas Turbine Second Assistant Engineer** | Engineer Officer, Gas Turbine - Second Assistant Engineer |
 | `TG3` | **Engineer OFF, Gas Turbine Third Assistant Engineer** | Engineer Officer, Gas Turbine - Third Assistant Engineer |
-| `TGE` | **Engineer OFF, Gas Turbine Chief Engineer** | Engineer Officer, Gas Turbine - Chief Engineer |
 | `TP1` | **Strategic Sealift OFF (SSO) Warfare QUAL** | Strategic Sealift Officer (SSO) - Warfare Qualified |
 

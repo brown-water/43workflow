@@ -1,6 +1,6 @@
-/**
- * src/modules/command/command.js
- */
+import { CommandClassifier } from './classifier.js';
+
+const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
 export class CommandModule {
   static getMonthLetter(monthIndex) {
@@ -62,9 +62,6 @@ export class CommandModule {
       yStr = dateStr.substring(0, 4);
       mStr = dateStr.substring(4, 6);
       dStr = dateStr.length >= 8 ? dateStr.substring(6, 8) : '15';
-    }
-    
-    const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const monthIdx = parseInt(mStr, 10) - 1;
     if (monthIdx < 0 || monthIdx > 11) return '';
     const yy = yStr.substring(2, 4);
@@ -185,8 +182,6 @@ export class CommandModule {
         if (nextPPresent) fillClass += ' connect-right';
       }
       
-      const cmd = typeof window !== 'undefined' && window.masterDb ? window.masterDb.commands[uic] : { assignedOfficers: [] }; 
-
       html += `
         <div class="cell cell-month">
           ${fillClass !== '' ? `<div class="${fillClass}"></div>` : ''}
@@ -244,56 +239,20 @@ export class CommandModule {
       return bscA.localeCompare(bscB);
     });
 
-    // Grouping Logic
-    const groups = {
-      'FRONT OFFICE': [],
-      'DEPARTMENT HEADS': [],
-      'TRAINING OFFICER': [],
-      'SUPER JO': [],
-      'PILOTS (131X)': [],
-      'WSO (132X)': [],
-      'POUNDERS': []
-    };
-
-    // F-18F logic: 2 lowest BSC of 1310 and 1320 (excluding Front Office) go to Dept Heads.
-    // We will separate them, extract CO/XO, then apply logic.
-    let remaining = [...officers];
-    
-    // Extract Front Office
-    groups['FRONT OFFICE'] = remaining.filter(o => o.billetTitle === 'SQN CO' || o.billetTitle === 'SQN XO' || o.billetTitle === 'PXO');
-    remaining = remaining.filter(o => !groups['FRONT OFFICE'].includes(o));
-
-    const pilots1310 = remaining.filter(o => o.designator === '1310' || o.designator === '1311');
-    const wso1320 = remaining.filter(o => o.designator === '1320' || o.designator === '1321');
-    const isF18F = pilots1310.length > 0 && wso1320.length > 0;
+    // Grouping Logic via CommandClassifier Seam
+    const classification = CommandClassifier.classify(officers, cmd);
+    const groups = classification.groups;
+    const isF18F = classification.isF18F;
     
     document.getElementById('metric-card-pilots').style.display = 'flex';
-    document.getElementById('cmd-metric-pilots').innerText = pilots1310.length + groups['FRONT OFFICE'].filter(o => o.designator.startsWith('131')).length;
+    document.getElementById('cmd-metric-pilots').innerText = classification.pilotsCount;
 
     if (isF18F) {
       document.getElementById('metric-card-wsos').style.display = 'flex';
-      document.getElementById('cmd-metric-wsos').innerText = wso1320.length + groups['FRONT OFFICE'].filter(o => o.designator.startsWith('132')).length;
-    }
-
-    if (isF18F) {
-      // take top 2 of each for Dept Heads
-      const dhPilots = pilots1310.slice(0, 2);
-      const dhWso = wso1320.slice(0, 2);
-      groups['DEPARTMENT HEADS'].push(...dhPilots, ...dhWso);
-      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+      document.getElementById('cmd-metric-wsos').innerText = classification.wsosCount;
     } else {
-      // standard logic
-      const dhs = remaining.filter(o => o.billetTitle === 'SQN DEPT HD');
-      groups['DEPARTMENT HEADS'].push(...dhs);
-      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+      document.getElementById('metric-card-wsos').style.display = 'none';
     }
-
-    // Assign rest
-    remaining.forEach(o => {
-      if (o.designator === '1310' || o.designator === '1311') groups['PILOTS (131X)'].push(o);
-      else if (o.designator === '1320' || o.designator === '1321') groups['WSO (132X)'].push(o);
-      else groups['POUNDERS'].push(o);
-    });
 
     // Find CO's PRD for CoC marker
     let coPrdYear = -1;

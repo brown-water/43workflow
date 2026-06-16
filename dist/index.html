@@ -2547,10 +2547,408 @@ function generateCOIntentAlerts(coExport, intentDb) {
   return alerts;
 }
 
-// --- Compiled Module: src/modules/command/command.js ---
+// --- Compiled Module: src/core/store.js ---
 /**
- * src/modules/command/command.js
+ * src/core/store.js
+ * 
+ * Centralized client-side state store for the Master Planner.
+ * Respects strict NMCI zero-install environment constraints.
  */
+
+
+
+
+class StateStore {
+  constructor() {
+    this.state = {
+      intentDb: null,
+      oaisRoster: null,
+      subevalHistory: null,
+      coExport: null,
+      masterDb: null,
+      activeOfficerSsn: null,
+      currentAlerts: []
+    };
+    this.listeners = [];
+  }
+
+  subscribe(listener) {
+    this.listeners.push(listener);
+    // Return unsubscribe function
+    return () => {
+      this.listeners = this.listeners.filter(l => l !== listener);
+    };
+  }
+
+  notify() {
+    this.listeners.forEach(listener => listener(this.state));
+  }
+
+  getState() {
+    return this.state;
+  }
+
+  loadIntent(data) {
+    this.state.intentDb = data;
+    if (!this.state.masterDb) {
+      this.state.masterDb = JSON.parse(JSON.stringify(data));
+    } else {
+      // Merge in intent information
+      for (const ssn in data.officers) {
+        if (this.state.masterDb.officers[ssn]) {
+          this.state.masterDb.officers[ssn].placementIntent = data.officers[ssn].placementIntent;
+          this.state.masterDb.officers[ssn].detailerIntent = data.officers[ssn].detailerIntent;
+        } else {
+          this.state.masterDb.officers[ssn] = data.officers[ssn];
+        }
+      }
+    }
+    this.rebuildMasterDb();
+  }
+
+  loadSupply(roster) {
+    this.state.oaisRoster = roster;
+    this.rebuildMasterDb();
+  }
+
+  loadSubeval(history) {
+    this.state.subevalHistory = history;
+    this.rebuildMasterDb();
+  }
+
+  loadCoExport(coExportData) {
+    this.state.coExport = coExportData;
+    this.notify();
+  }
+
+  rebuildMasterDb() {
+    if (this.state.oaisRoster) {
+      const history = this.state.subevalHistory || {};
+      const compiled = linkAndReconcile(this.state.oaisRoster, history);
+      
+      if (!this.state.masterDb) {
+        this.state.masterDb = compiled;
+      } else {
+        // Merge oais details but preserve placement/detailer intent
+        for (const ssn in compiled.officers) {
+          if (this.state.masterDb.officers[ssn]) {
+            const oldIntent = this.state.masterDb.officers[ssn].placementIntent;
+            const oldDet = this.state.masterDb.officers[ssn].detailerIntent;
+            const oldBreakout = this.state.masterDb.officers[ssn].fitrepHistory.reduce((acc, f) => {
+              if (f.hardBreakout) acc[f.reportId] = f.hardBreakout;
+              return acc;
+            }, {});
+
+            this.state.masterDb.officers[ssn] = compiled.officers[ssn];
+            this.state.masterDb.officers[ssn].placementIntent = oldIntent;
+            this.state.masterDb.officers[ssn].detailerIntent = oldDet;
+            
+            // Restore qualitative overlays
+            this.state.masterDb.officers[ssn].fitrepHistory.forEach(f => {
+              if (oldBreakout[f.reportId]) f.hardBreakout = oldBreakout[f.reportId];
+            });
+          } else {
+            this.state.masterDb.officers[ssn] = compiled.officers[ssn];
+          }
+        }
+        this.state.masterDb.commands = compiled.commands;
+        this.state.masterDb.billets = compiled.billets;
+      }
+
+      if (!this.state.intentDb) {
+        this.state.intentDb = JSON.parse(JSON.stringify(this.state.masterDb));
+      }
+    }
+    this.notify();
+  }
+
+  runDiffEngine() {
+    if (!this.state.intentDb) return;
+    
+    let alerts = [];
+
+    // Case A: Compare against OAIS supply roster
+    if (this.state.oaisRoster) {
+      alerts = alerts.concat(generateSyncAlerts(this.state.oaisRoster, this.state.intentDb));
+    }
+
+    // Case B: Compare against CO Export
+    if (this.state.coExport) {
+      alerts = alerts.concat(generateCOIntentAlerts(this.state.coExport, this.state.intentDb));
+    }
+
+    this.state.currentAlerts = alerts;
+    this.notify();
+  }
+
+  syncPRDToOAIS(ssn, oaisPRD, alertIdx) {
+    if (!this.state.masterDb || !this.state.masterDb.officers[ssn]) return;
+    const officer = this.state.masterDb.officers[ssn];
+    const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+
+    officer.placementIntent.intentPRD = oaisPRD;
+    officer.placementIntent.historicalPRDLog.push({
+      date: new Date().toISOString().split('T')[0],
+      oldPRD: oldPRD,
+      newPRD: oaisPRD,
+      source: 'Detailer Update (OAIS Sync)',
+      user: 'Detailer',
+      changeNote: 'Synced with OAIS Legal Ground Truth.'
+    });
+
+    if (this.state.intentDb && this.state.intentDb.officers[ssn]) {
+      this.state.intentDb.officers[ssn].placementIntent = officer.placementIntent;
+    }
+
+    this.state.currentAlerts.splice(alertIdx, 1);
+    this.notify();
+  }
+
+  acknowledgeCOConflict(ssn, requestedPRD, note, alertIdx) {
+    if (!this.state.masterDb || !this.state.masterDb.officers[ssn]) return;
+    const officer = this.state.masterDb.officers[ssn];
+    const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+
+    officer.placementIntent.intentPRD = requestedPRD;
+    officer.placementIntent.historicalPRDLog.push({
+      date: new Date().toISOString().split('T')[0],
+      oldPRD: oldPRD,
+      newPRD: requestedPRD,
+      source: 'CO Intent Acknowledge',
+      user: 'Detailer',
+      changeNote: note
+    });
+
+    if (this.state.intentDb && this.state.intentDb.officers[ssn]) {
+      this.state.intentDb.officers[ssn].placementIntent = officer.placementIntent;
+    }
+
+    this.state.currentAlerts.splice(alertIdx, 1);
+    this.notify();
+  }
+
+  updateOfficerPRD(ssn, newPRD, reason) {
+    if (!this.state.masterDb || !this.state.masterDb.officers[ssn]) return;
+    const officer = this.state.masterDb.officers[ssn];
+    const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
+
+    officer.placementIntent.intentPRD = newPRD;
+    officer.placementIntent.historicalPRDLog.push({
+      date: new Date().toISOString().split('T')[0],
+      oldPRD: oldPRD,
+      newPRD: newPRD,
+      source: 'Detailer Update',
+      user: 'Detailer',
+      changeNote: reason
+    });
+
+    if (this.state.intentDb && this.state.intentDb.officers[ssn]) {
+      this.state.intentDb.officers[ssn].placementIntent = officer.placementIntent;
+    }
+
+    if (this.state.oaisRoster) {
+      this.runDiffEngine();
+    } else {
+      this.notify();
+    }
+  }
+
+  updateOfficerBreakout(ssn, reportId, hardBreakout) {
+    if (!this.state.masterDb || !this.state.masterDb.officers[ssn]) return;
+    const officer = this.state.masterDb.officers[ssn];
+    
+    officer.fitrepHistory.forEach(f => {
+      if (f.reportId === reportId) {
+        f.hardBreakout = hardBreakout;
+      }
+    });
+
+    if (this.state.intentDb && this.state.intentDb.officers[ssn]) {
+      this.state.intentDb.officers[ssn].fitrepHistory = officer.fitrepHistory;
+    }
+    this.notify();
+  }
+
+  setActiveOfficer(ssn) {
+    this.state.activeOfficerSsn = ssn;
+    this.notify();
+  }
+}
+
+const store = new StateStore();
+
+// --- Compiled Module: src/core/assessment.js ---
+/**
+ * src/core/assessment.js
+ * 
+ * AssessmentEngine encapsulates record grading math and convening order rules.
+ * Respects strict NMCI zero-install environment constraints.
+ */
+
+class AssessmentEngine {
+  /**
+   * Calculates the Record Grade (A/B/C) of an officer based on continuous FITREP history.
+   * 
+   * Invariants:
+   * - Deterministic output.
+   * - Does not mutate input array.
+   * 
+   * @param {Object[]} history Fitrep history records
+   * @returns {'A' | 'B' | 'C'}
+   */
+  static calculateRecordGrade(history) {
+    if (!history || history.length === 0) return 'C';
+    
+    const rvs = history.map(f => f.relativeValue || 0);
+    const avgRV = rvs.reduce((a, b) => a + b, 0) / rvs.length;
+    const eps = history.filter(f => f.recommendation === 'EP').length;
+    const epRatio = eps / history.length;
+
+    if (avgRV > 0.4 && epRatio > 0.25) {
+      return 'A';
+    } else if (avgRV >= 0 || epRatio > 0.1) {
+      return 'B';
+    }
+    return 'C';
+  }
+
+  /**
+   * Filter and retrieve the Top 3 competitive FITREPs sorted by Relative Value descending.
+   * 
+   * @param {Object[]} history Complete Fitrep history
+   * @returns {Object[]} Top 3 Fitreps
+   */
+  static getTop3FITREPs(history) {
+    if (!history || history.length === 0) return [];
+    
+    return [...history]
+      .sort((a, b) => {
+        if (b.relativeValue !== a.relativeValue) {
+          return b.relativeValue - a.relativeValue;
+        }
+        return new Date(b.fromDate) - new Date(a.fromDate);
+      })
+      .slice(0, 3);
+  }
+}
+
+// --- Compiled Module: src/modules/command/classifier.js ---
+/**
+ * src/modules/command/classifier.js
+ * 
+ * CommandClassifier encapsulates command classification, cohort grouping,
+ * and personnel aggregates. It isolates the domain grouping rules
+ * from the CommandModule UI renderer.
+ */
+
+class CommandClassifier {
+  /**
+   * Determines if a command is a double-seat F-18F squadron.
+   * 
+   * @param {Object} command 
+   * @returns {boolean}
+   */
+  static isF18F(command) {
+    const name = (command.name || '').toUpperCase();
+    return name.includes('VFA-122') || name.includes('F-18F') || name.includes('SHARP');
+  }
+
+  /**
+   * Classifies a list of officers assigned to a command into operational cohorts.
+   * 
+   * Invariants:
+   * - Deterministic output: officers are partitioned uniquely.
+   * - No mutations: does not mutate the inputs.
+   * 
+   * @param {Object[]} officers 
+   * @param {Object} command 
+   * @returns {Record<string, Object[]>}
+   */
+  static classifyCohort(officers, command) {
+    const groups = {
+      'FRONT OFFICE': [],
+      'DEPARTMENT HEADS': [],
+      'TRAINING OFFICER': [],
+      'SUPER JO': [],
+      'PILOTS (131X)': [],
+      'WSO (132X)': [],
+      'POUNDERS': []
+    };
+
+    let remaining = [...officers];
+
+    // Extract Front Office (CO, XO, PXO)
+    groups['FRONT OFFICE'] = remaining.filter(o => 
+      o.billetTitle === 'SQN CO' || o.billetTitle === 'SQN XO' || o.billetTitle === 'PXO'
+    );
+    remaining = remaining.filter(o => !groups['FRONT OFFICE'].includes(o));
+
+    // Sort remaining by BSC ascending for stable partition logic
+    remaining.sort((a, b) => {
+      const bscA = a.bsc || '99999';
+      const bscB = b.bsc || '99999';
+      return bscA.localeCompare(bscB);
+    });
+
+    const isF18F = this.isF18F(command);
+
+    if (isF18F) {
+      // F-18F logic: 2 lowest BSC of 1310 and 1320 (excluding Front Office) go to Dept Heads
+      const pilots = remaining.filter(o => o.designator === '1310' || o.designator === '1311');
+      const wsos = remaining.filter(o => o.designator === '1320' || o.designator === '1321');
+      
+      const dhPilots = pilots.slice(0, 2);
+      const dhWsos = wsos.slice(0, 2);
+      
+      groups['DEPARTMENT HEADS'] = [...dhPilots, ...dhWsos];
+      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+    } else {
+      // Standard community logic: SQN DEPT HD go to Department Heads
+      groups['DEPARTMENT HEADS'] = remaining.filter(o => o.billetTitle === 'SQN DEPT HD');
+      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+    }
+
+    // Partition remaining junior officers into designator-based flight cohorts and pounders
+    remaining.forEach(o => {
+      if (o.designator === '1310' || o.designator === '1311') {
+        groups['PILOTS (131X)'].push(o);
+      } else if (o.designator === '1320' || o.designator === '1321') {
+        groups['WSO (132X)'].push(o);
+      } else {
+        groups['POUNDERS'].push(o);
+      }
+    });
+
+    return groups;
+  }
+
+  /**
+   * Fully classifies a list of officers assigned to a command.
+   * 
+   * @param {Object[]} officers 
+   * @param {Object} command 
+   * @returns {Object} Grouped structure along with metadata and counts
+   */
+  static classify(officers, command) {
+    const isF18F = this.isF18F(command);
+    const groups = this.classifyCohort(officers, command);
+
+    const pilotsCount = officers.filter(o => o.designator && o.designator.startsWith('131')).length;
+    const wsosCount = officers.filter(o => o.designator && o.designator.startsWith('132')).length;
+
+    return {
+      groups,
+      isF18F,
+      pilotsCount,
+      wsosCount
+    };
+  }
+}
+
+// --- Compiled Module: src/modules/command/command.js ---
+
+
+const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 
 class CommandModule {
   static getMonthLetter(monthIndex) {
@@ -2612,9 +3010,6 @@ class CommandModule {
       yStr = dateStr.substring(0, 4);
       mStr = dateStr.substring(4, 6);
       dStr = dateStr.length >= 8 ? dateStr.substring(6, 8) : '15';
-    }
-    
-    const monthNames = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     const monthIdx = parseInt(mStr, 10) - 1;
     if (monthIdx < 0 || monthIdx > 11) return '';
     const yy = yStr.substring(2, 4);
@@ -2735,8 +3130,6 @@ class CommandModule {
         if (nextPPresent) fillClass += ' connect-right';
       }
       
-      const cmd = typeof window !== 'undefined' && window.masterDb ? window.masterDb.commands[uic] : { assignedOfficers: [] }; 
-
       html += `
         <div class="cell cell-month">
           ${fillClass !== '' ? `<div class="${fillClass}"></div>` : ''}
@@ -2794,56 +3187,20 @@ class CommandModule {
       return bscA.localeCompare(bscB);
     });
 
-    // Grouping Logic
-    const groups = {
-      'FRONT OFFICE': [],
-      'DEPARTMENT HEADS': [],
-      'TRAINING OFFICER': [],
-      'SUPER JO': [],
-      'PILOTS (131X)': [],
-      'WSO (132X)': [],
-      'POUNDERS': []
-    };
-
-    // F-18F logic: 2 lowest BSC of 1310 and 1320 (excluding Front Office) go to Dept Heads.
-    // We will separate them, extract CO/XO, then apply logic.
-    let remaining = [...officers];
-    
-    // Extract Front Office
-    groups['FRONT OFFICE'] = remaining.filter(o => o.billetTitle === 'SQN CO' || o.billetTitle === 'SQN XO' || o.billetTitle === 'PXO');
-    remaining = remaining.filter(o => !groups['FRONT OFFICE'].includes(o));
-
-    const pilots1310 = remaining.filter(o => o.designator === '1310' || o.designator === '1311');
-    const wso1320 = remaining.filter(o => o.designator === '1320' || o.designator === '1321');
-    const isF18F = pilots1310.length > 0 && wso1320.length > 0;
+    // Grouping Logic via CommandClassifier Seam
+    const classification = CommandClassifier.classify(officers, cmd);
+    const groups = classification.groups;
+    const isF18F = classification.isF18F;
     
     document.getElementById('metric-card-pilots').style.display = 'flex';
-    document.getElementById('cmd-metric-pilots').innerText = pilots1310.length + groups['FRONT OFFICE'].filter(o => o.designator.startsWith('131')).length;
+    document.getElementById('cmd-metric-pilots').innerText = classification.pilotsCount;
 
     if (isF18F) {
       document.getElementById('metric-card-wsos').style.display = 'flex';
-      document.getElementById('cmd-metric-wsos').innerText = wso1320.length + groups['FRONT OFFICE'].filter(o => o.designator.startsWith('132')).length;
-    }
-
-    if (isF18F) {
-      // take top 2 of each for Dept Heads
-      const dhPilots = pilots1310.slice(0, 2);
-      const dhWso = wso1320.slice(0, 2);
-      groups['DEPARTMENT HEADS'].push(...dhPilots, ...dhWso);
-      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+      document.getElementById('cmd-metric-wsos').innerText = classification.wsosCount;
     } else {
-      // standard logic
-      const dhs = remaining.filter(o => o.billetTitle === 'SQN DEPT HD');
-      groups['DEPARTMENT HEADS'].push(...dhs);
-      remaining = remaining.filter(o => !groups['DEPARTMENT HEADS'].includes(o));
+      document.getElementById('metric-card-wsos').style.display = 'none';
     }
-
-    // Assign rest
-    remaining.forEach(o => {
-      if (o.designator === '1310' || o.designator === '1311') groups['PILOTS (131X)'].push(o);
-      else if (o.designator === '1320' || o.designator === '1321') groups['WSO (132X)'].push(o);
-      else groups['POUNDERS'].push(o);
-    });
 
     // Find CO's PRD for CoC marker
     let coPrdYear = -1;
@@ -2999,55 +3356,9 @@ class CommandModule {
 }
 
 // --- Compiled Module: src/modules/officer/officer.js ---
-/**
- * src/modules/officer/officer.js
- * 
- * Modular JavaScript controller for the Officer View Module.
- * Adheres strictly to the PERS-43 Light Mode Covenant Design System.
- */
+
 
 class OfficerModule {
-  /**
-   * Calculates the Record Grade (A/B/C) of an officer based on continuous FITREP history.
-   * 
-   * @param {Object[]} history Fitrep history records
-   * @returns {'A' | 'B' | 'C'}
-   */
-  static calculateRecordGrade(history) {
-    if (!history || history.length === 0) return 'C';
-    
-    const rvs = history.map(f => f.relativeValue || 0);
-    const avgRV = rvs.reduce((a, b) => a + b, 0) / rvs.length;
-    const eps = history.filter(f => f.recommendation === 'EP').length;
-    const epRatio = eps / history.length;
-
-    if (avgRV > 0.4 && epRatio > 0.25) {
-      return 'A';
-    } else if (avgRV >= 0 || epRatio > 0.1) {
-      return 'B';
-    }
-    return 'C';
-  }
-
-  /**
-   * Filter and retrieve the Top 3 competitive FITREPs sorted by Relative Value descending.
-   * 
-   * @param {Object[]} history Complete Fitrep history
-   * @returns {Object[]} Top 3 Fitreps
-   */
-  static getTop3FITREPs(history) {
-    if (!history || history.length === 0) return [];
-    
-    // Sort a copy of the history by Relative Value (descending), then chronologically (descending)
-    return [...history]
-      .sort((a, b) => {
-        if (b.relativeValue !== a.relativeValue) {
-          return b.relativeValue - a.relativeValue;
-        }
-        return new Date(b.fromDate) - new Date(a.fromDate);
-      })
-      .slice(0, 3);
-  }
 
   /**
    * Renders a custom list of FITREPs to a specified target container in the DOM.
@@ -3185,7 +3496,7 @@ class OfficerModule {
       f.originalHistoryIndex = idx;
     });
 
-    const calculatedGrade = this.calculateRecordGrade(history);
+    const calculatedGrade = AssessmentEngine.calculateRecordGrade(history);
     officer.recordGrade = calculatedGrade;
 
     const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
@@ -3246,7 +3557,7 @@ class OfficerModule {
     }
 
     // 6. Draw Top 3 FITREPs view (mathematically-sorted)
-    const top3List = this.getTop3FITREPs(history);
+    const top3List = AssessmentEngine.getTop3FITREPs(history);
     const top3Container = document.getElementById('overview-top-fitreps');
     
     const recordGradeBadge = document.getElementById('overview-record-grade');
@@ -3273,15 +3584,7 @@ class OfficerModule {
     
     
     
-
-    // Roster states
-    let intentDb = null;
-    let oaisRoster = null;
-    let subevalHistory = null;
-    let coExport = null;
-    let masterDb = null;
-    let activeOfficerSsn = null;
-    let currentAlerts = [];
+    
 
     // Initialize UI Handlers
     window.addEventListener('DOMContentLoaded', () => {
@@ -3290,7 +3593,7 @@ class OfficerModule {
       setupDragAndDrop('card-subeval', 'input-subeval', handleSubevalFile);
       setupDragAndDrop('card-coexport', 'input-coexport', handleCoExportFile);
 
-      document.getElementById('btn-run-diff').addEventListener('click', runDiffEngine);
+      document.getElementById('btn-run-diff').addEventListener('click', () => store.runDiffEngine());
       document.getElementById('btn-export-db').addEventListener('click', exportDatabase);
 
       // Setup centered search box event listeners
@@ -3299,14 +3602,15 @@ class OfficerModule {
 
       searchBox.addEventListener('input', (e) => {
         const query = e.target.value.trim().toLowerCase();
-        if (!query || !masterDb) {
+        const state = store.getState();
+        if (!query || !state.masterDb) {
           suggestionsContainer.style.display = 'none';
           return;
         }
 
         const matches = [];
-        for (const ssn in masterDb.officers) {
-          const officer = masterDb.officers[ssn];
+        for (const ssn in state.masterDb.officers) {
+          const officer = state.masterDb.officers[ssn];
           const name = officer.name || '';
           if (name.toLowerCase().includes(query) || ssn.includes(query)) {
             matches.push(officer);
@@ -3363,12 +3667,43 @@ class OfficerModule {
 
       // Router Initialization
       window.addEventListener('hashchange', handleRouting);
+      
+      // Subscribe to store updates for reactive rendering
+      store.subscribe((state) => {
+        const canRunDiff = state.intentDb && (state.oaisRoster || state.coExport);
+        document.getElementById('btn-run-diff').disabled = !canRunDiff;
+        document.getElementById('btn-export-db').disabled = !state.masterDb;
+
+        const dataIngested = state.masterDb || state.oaisRoster;
+        const searchHeader = document.getElementById('centered-search-header');
+        const routerNav = document.getElementById('router-nav');
+        
+        if (dataIngested) {
+          searchHeader.style.display = 'flex';
+          routerNav.style.display = 'flex';
+        } else {
+          searchHeader.style.display = 'none';
+          routerNav.style.display = 'none';
+        }
+
+        renderAlerts(state.currentAlerts);
+        renderCommandsPanel(state.masterDb);
+        if (state.activeOfficerSsn) {
+          let fromCmd = null;
+          if (window.location.hash.includes('?fromCmd=')) {
+            fromCmd = window.location.hash.split('?fromCmd=')[1];
+          }
+          renderOfficerProfile(state.activeOfficerSsn, fromCmd, state.masterDb);
+        }
+      });
+
       handleRouting();
     });
 
     // Hash-Based Routing Engine for Offline Navigation
     function handleRouting() {
-      const dataIngested = masterDb || oaisRoster;
+      const state = store.getState();
+      const dataIngested = state.masterDb || state.oaisRoster;
       let hash = window.location.hash || '#ingestion';
 
       // Intercept and force data ingestion landing page if no data loaded
@@ -3384,7 +3719,7 @@ class OfficerModule {
         return;
       }
 
-      activeOfficerSsn = null;
+      store.setActiveOfficer(null);
 
       // Reset active indicators in Topbar
       document.getElementById('nav-ingestion-link').classList.remove('active');
@@ -3398,18 +3733,6 @@ class OfficerModule {
       document.getElementById('panel-command-tracker').style.display = 'none';
       document.getElementById('panel-profile-container').style.display = 'none';
 
-      // Toggle centered search bar and top nav visibility depending on data status
-      const searchHeader = document.getElementById('centered-search-header');
-      const routerNav = document.getElementById('router-nav');
-      
-      if (dataIngested) {
-        searchHeader.style.display = 'flex';
-        routerNav.style.display = 'flex';
-      } else {
-        searchHeader.style.display = 'none';
-        routerNav.style.display = 'none';
-      }
-
       if (hash.startsWith('#officer/')) {
         let ssn = hash.substring('#officer/'.length);
         let fromCmd = null;
@@ -3418,20 +3741,20 @@ class OfficerModule {
           ssn = parts[0];
           fromCmd = parts[1];
         }
-        activeOfficerSsn = ssn;
+        store.setActiveOfficer(ssn);
         document.getElementById('panel-profile-container').style.display = 'block';
-        renderOfficerProfile(ssn, fromCmd);
+        renderOfficerProfile(ssn, fromCmd, state.masterDb);
       } else if (hash.startsWith('#commandTracker/')) {
         const uic = hash.substring('#commandTracker/'.length);
         document.getElementById('nav-commands-link').classList.add('active');
         document.getElementById('panel-command-tracker').style.display = 'block';
-        CommandModule.mount('#panel-command-tracker', uic, masterDb, () => {
+        CommandModule.mount('#panel-command-tracker', uic, state.masterDb, () => {
           window.location.hash = '#commands';
         });
       } else if (hash === '#commands') {
         document.getElementById('nav-commands-link').classList.add('active');
         document.getElementById('panel-commands').style.display = 'block';
-        renderCommandsPanel();
+        renderCommandsPanel(state.masterDb);
       } else if (hash === '#ingestion') {
         document.getElementById('nav-ingestion-link').classList.add('active');
         document.getElementById('panel-ingestion').style.display = 'block';
@@ -3439,7 +3762,7 @@ class OfficerModule {
         // Fallback to Reconciliation Sync Alerts
         document.getElementById('nav-alerts-link').classList.add('active');
         document.getElementById('panel-alerts').style.display = 'block';
-        renderAlerts();
+        renderAlerts(state.currentAlerts);
       }
     }
 
@@ -3478,26 +3801,11 @@ class OfficerModule {
     async function handleIntentFile(file) {
       try {
         const text = await file.text();
-        intentDb = JSON.parse(text);
-        
-        // Populate masterDb if not loaded
-        if (!masterDb) {
-          masterDb = JSON.parse(JSON.stringify(intentDb));
-        } else {
-          // Merge in intent information
-          for (const ssn in intentDb.officers) {
-            if (masterDb.officers[ssn]) {
-              masterDb.officers[ssn].placementIntent = intentDb.officers[ssn].placementIntent;
-              masterDb.officers[ssn].detailerIntent = intentDb.officers[ssn].detailerIntent;
-            } else {
-              masterDb.officers[ssn] = intentDb.officers[ssn];
-            }
-          }
-        }
+        const intentDb = JSON.parse(text);
+        store.loadIntent(intentDb);
         
         updateCardLoaded('card-intent', 'status-intent', file.name, `${Object.keys(intentDb.officers).length} Records`);
         updateFreshnessIndicator();
-        onStateUpdated();
       } catch (err) {
         alert('Failed to parse Master Intent JSON: ' + err.message);
       }
@@ -3506,12 +3814,12 @@ class OfficerModule {
     async function handleSupplyFile(file) {
       try {
         const text = await file.text();
-        oaisRoster = parseSupplyData(text);
+        const oaisRoster = parseSupplyData(text);
         const count = Object.keys(oaisRoster).length;
         
         updateCardLoaded('card-supply', 'status-supply', file.name, `${count} Officers`);
         updateFreshnessIndicator();
-        rebuildMasterDb();
+        store.loadSupply(oaisRoster);
       } catch (err) {
         alert('Failed to parse SUPPLY txt drop: ' + err.message);
       }
@@ -3520,12 +3828,12 @@ class OfficerModule {
     async function handleSubevalFile(file) {
       try {
         const text = await file.text();
-        subevalHistory = parseSubevalData(text);
+        const subevalHistory = parseSubevalData(text);
         const count = Object.values(subevalHistory).reduce((acc, val) => acc + val.length, 0);
         
         updateCardLoaded('card-subeval', 'status-subeval', file.name, `${count} FITREPs`);
         updateFreshnessIndicator();
-        rebuildMasterDb();
+        store.loadSubeval(subevalHistory);
       } catch (err) {
         alert('Failed to parse SUBEVAL CSV: ' + err.message);
       }
@@ -3534,10 +3842,10 @@ class OfficerModule {
     async function handleCoExportFile(file) {
       try {
         const text = await file.text();
-        coExport = JSON.parse(text);
+        const coExport = JSON.parse(text);
         updateCardLoaded('card-coexport', 'status-coexport', file.name, `${coExport.officers.length} Requests`);
         updateFreshnessIndicator();
-        onStateUpdated();
+        store.loadCoExport(coExport);
       } catch (err) {
         alert('Failed to parse CO Export JSON: ' + err.message);
       }
@@ -3558,104 +3866,14 @@ class OfficerModule {
       document.getElementById('topbar-freshness').innerText = `Data Last Refreshed: ${dateStr}`;
     }
 
-    // Rebuild masterDb dynamically when SUPPLY or SUBEVAL changes
-    function rebuildMasterDb() {
-      if (oaisRoster) {
-        const history = subevalHistory || {};
-        const compiled = linkAndReconcile(oaisRoster, history);
-        
-        if (!masterDb) {
-          masterDb = compiled;
-        } else {
-          // Merge oais details but preserve placement/detailer intent
-          for (const ssn in compiled.officers) {
-            if (masterDb.officers[ssn]) {
-              const oldIntent = masterDb.officers[ssn].placementIntent;
-              const oldDet = masterDb.officers[ssn].detailerIntent;
-              const oldBreakout = masterDb.officers[ssn].fitrepHistory.reduce((acc, f) => {
-                if (f.hardBreakout) acc[f.reportId] = f.hardBreakout;
-                return acc;
-              }, {});
-
-              masterDb.officers[ssn] = compiled.officers[ssn];
-              masterDb.officers[ssn].placementIntent = oldIntent;
-              masterDb.officers[ssn].detailerIntent = oldDet;
-              
-              // Restore qualitative overlays
-              masterDb.officers[ssn].fitrepHistory.forEach(f => {
-                if (oldBreakout[f.reportId]) f.hardBreakout = oldBreakout[f.reportId];
-              });
-            } else {
-              masterDb.officers[ssn] = compiled.officers[ssn];
-            }
-          }
-          masterDb.commands = compiled.commands;
-          masterDb.billets = compiled.billets;
-        }
-
-        // Initialize intentDb if none loaded yet
-        if (!intentDb) {
-          intentDb = JSON.parse(JSON.stringify(masterDb));
-        }
-      }
-      onStateUpdated();
-    }
-
-    function onStateUpdated() {
-      // Toggle button states
-      const canRunDiff = intentDb && (oaisRoster || coExport);
-      document.getElementById('btn-run-diff').disabled = !canRunDiff;
-      document.getElementById('btn-export-db').disabled = !masterDb;
-
-      // Transition from #ingestion landing to #alerts tab automatically on first data ingestion
-      const dataIngested = masterDb || oaisRoster;
-      if (dataIngested && (window.location.hash === '#ingestion' || window.location.hash === '')) {
-        window.location.hash = '#alerts';
-        return;
-      }
-
-      renderAlerts();
-      renderCommandsPanel();
-      if (activeOfficerSsn) {
-        // Find if we were on a fromCmd hash
-        let fromCmd = null;
-        if (window.location.hash.includes('?fromCmd=')) {
-          fromCmd = window.location.hash.split('?fromCmd=')[1];
-        }
-        renderOfficerProfile(activeOfficerSsn, fromCmd);
-      }
-    }
-
-    // --- RECONCILIATION DIFF ENGINE ---
-
-    function runDiffEngine() {
-      if (!intentDb) return;
-      
-      currentAlerts = [];
-
-      // Case A: Compare against OAIS supply roster
-      if (oaisRoster) {
-        const supplyAlerts = generateSyncAlerts(oaisRoster, intentDb);
-        currentAlerts = currentAlerts.concat(supplyAlerts);
-      }
-
-      // Case B: Compare against CO Export
-      if (coExport) {
-        const coAlerts = generateCOIntentAlerts(coExport, intentDb);
-        currentAlerts = currentAlerts.concat(coAlerts);
-      }
-
-      renderAlerts();
-    }
-
-    function renderAlerts() {
+    function renderAlerts(currentAlerts) {
       const panel = document.getElementById('panel-alerts');
       const list = document.getElementById('alerts-list');
       const countBadge = document.getElementById('alerts-count');
 
       list.innerHTML = '';
       
-      if (currentAlerts.length === 0) {
+      if (!currentAlerts || currentAlerts.length === 0) {
         panel.style.display = 'none';
         return;
       }
@@ -3697,7 +3915,8 @@ class OfficerModule {
 
     // Acknowledge CO Conflict Actions
     window.triggerAckCO = function(ssn, requestedPRD, alertIdx) {
-      const officer = masterDb.officers[ssn];
+      const state = store.getState();
+      const officer = state.masterDb.officers[ssn];
       document.getElementById('modal-officer-info').innerText = `Syncing Intent PRD for ${officer.name} (${officer.rank})`;
       document.getElementById('modal-new-prd').value = requestedPRD;
       document.getElementById('modal-change-note').value = `Acknowledged CO extension request for ${requestedPRD}.`;
@@ -3713,28 +3932,8 @@ class OfficerModule {
           return;
         }
 
-        const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-        
-        // Update model
-        officer.placementIntent.intentPRD = requestedPRD;
-        officer.placementIntent.historicalPRDLog.push({
-          date: new Date().toISOString().split('T')[0],
-          oldPRD: oldPRD,
-          newPRD: requestedPRD,
-          source: 'CO Intent Acknowledge',
-          user: 'Detailer',
-          changeNote: note
-        });
-
-        // Sync local intent db copy
-        if (intentDb && intentDb.officers[ssn]) {
-          intentDb.officers[ssn].placementIntent = officer.placementIntent;
-        }
-
+        store.acknowledgeCOConflict(ssn, requestedPRD, note, alertIdx);
         closeAckModal();
-        currentAlerts.splice(alertIdx, 1);
-        renderAlerts();
-        onStateUpdated();
       };
     };
 
@@ -3743,56 +3942,30 @@ class OfficerModule {
     };
 
     window.syncPRDToOAIS = function(ssn, oaisPRD, alertIdx) {
-      const officer = masterDb.officers[ssn];
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-
-      officer.placementIntent.intentPRD = oaisPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: oaisPRD,
-        source: 'Detailer Update (OAIS Sync)',
-        user: 'Detailer',
-        changeNote: 'Synced with OAIS Legal Ground Truth.'
-      });
-
-      if (intentDb && intentDb.officers[ssn]) {
-        intentDb.officers[ssn].placementIntent = officer.placementIntent;
-      }
-
-      currentAlerts.splice(alertIdx, 1);
-      renderAlerts();
-      onStateUpdated();
+      store.syncPRDToOAIS(ssn, oaisPRD, alertIdx);
     };
-
-
 
     // --- OFFICER DETAILED PROFILE RENDER (Via OfficerModule) ---
 
-    function renderOfficerProfile(ssn, fromCmd = null) {
-      OfficerModule.mount('#panel-profile-container', ssn, masterDb, fromCmd, (updatedSsn, isBreakoutOnly) => {
-        // Callback handles PRD updates or Hard Breakout overrides
+    function renderOfficerProfile(ssn, fromCmd = null, masterDbToUse = null) {
+      const db = masterDbToUse || store.getState().masterDb;
+      OfficerModule.mount('#panel-profile-container', ssn, db, fromCmd, (updatedSsn, isBreakoutOnly) => {
         if (!isBreakoutOnly) {
-          // Sync local intent db copy
-          if (intentDb && intentDb.officers[updatedSsn]) {
-            intentDb.officers[updatedSsn].placementIntent = masterDb.officers[updatedSsn].placementIntent;
-          }
-          if (oaisRoster) {
-            runDiffEngine();
-          }
-          onStateUpdated();
+          // Normal PRD updates should be done via store triggers
         } else {
-          // Breakout change does not affect diffs, sync and soft update
-          if (intentDb && intentDb.officers[updatedSsn]) {
-            intentDb.officers[updatedSsn].fitrepHistory = masterDb.officers[updatedSsn].fitrepHistory;
+          // Sync fitrepHistory changes back into intentDb
+          const state = store.getState();
+          if (state.intentDb && state.intentDb.officers[updatedSsn]) {
+            state.intentDb.officers[updatedSsn].fitrepHistory = state.masterDb.officers[updatedSsn].fitrepHistory;
           }
+          store.notify();
         }
       });
     }
 
     // --- COMMAND MANNING HEALTH VIEW ---
 
-    function renderCommandsPanel() {
+    function renderCommandsPanel(masterDb) {
       const container = document.getElementById('panel-commands');
       const list = document.getElementById('command-list-container');
       
@@ -3842,9 +4015,10 @@ class OfficerModule {
     // --- EXPORT MASTER DATABASE ---
 
     function exportDatabase() {
-      if (!masterDb) return;
+      const state = store.getState();
+      if (!state.masterDb) return;
 
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterDb, null, 2));
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state.masterDb, null, 2));
       const downloadAnchor = document.createElement('a');
       downloadAnchor.setAttribute("href", dataStr);
       downloadAnchor.setAttribute("download", "master_database_reconciled.json");
@@ -3857,8 +4031,9 @@ class OfficerModule {
     window._activePrdSsn = null;
     
     window.openPrdModal = function(ssn) {
-      if (!masterDb || !masterDb.officers || !masterDb.officers[ssn]) return;
-      const officer = masterDb.officers[ssn];
+      const state = store.getState();
+      if (!state.masterDb || !state.masterDb.officers || !state.masterDb.officers[ssn]) return;
+      const officer = state.masterDb.officers[ssn];
       window._activePrdSsn = ssn;
       
       const currentIntentPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
@@ -3906,7 +4081,8 @@ class OfficerModule {
     
     document.getElementById('prd-modal-btn-submit').addEventListener('click', () => {
       if (!window._activePrdSsn) return;
-      const officer = masterDb.officers[window._activePrdSsn];
+      const state = store.getState();
+      const officer = state.masterDb.officers[window._activePrdSsn];
       if (!officer) return;
       
       const newPRDInput = document.getElementById('prd-modal-form-new-prd').value.trim();
@@ -3919,11 +4095,11 @@ class OfficerModule {
 
       function parseFlexibleDate(dateStr) {
         dateStr = dateStr.trim();
-        if (/^\\d{4}-\\d{2}-\\d{2}$/.test(dateStr)) return dateStr;
-        if (/^\\d{8}$/.test(dateStr)) {
+        if (/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return dateStr;
+        if (/^\d{8}$/.test(dateStr)) {
           return `${dateStr.substring(0,4)}-${dateStr.substring(4,6)}-${dateStr.substring(6,8)}`;
         }
-        const cleanStr = dateStr.replace(/(\\d+)(st|nd|rd|th)/ig, '$1');
+        const cleanStr = dateStr.replace(/(\d+)(st|nd|rd|th)/ig, '$1');
         const parsed = new Date(cleanStr);
         if (!isNaN(parsed.getTime())) {
           const y = parsed.getFullYear();
@@ -3941,25 +4117,13 @@ class OfficerModule {
         return;
       }
 
-      const oldPRD = officer.placementIntent.intentPRD || officer.oaisPRD;
-      
-      officer.placementIntent.intentPRD = newPRD;
-      officer.placementIntent.historicalPRDLog.push({
-        date: new Date().toISOString().split('T')[0],
-        oldPRD: oldPRD,
-        newPRD: newPRD,
-        source: 'Detailer Update',
-        user: 'Detailer',
-        changeNote: reason
-      });
-      
+      store.updateOfficerPRD(window._activePrdSsn, newPRD, reason);
       window.closePrdModal();
       
       // Force UI refresh via router
       if (typeof handleRouting === 'function') {
         handleRouting();
       } else {
-        // Fallback
         window.dispatchEvent(new Event('hashchange'));
       }
     });
