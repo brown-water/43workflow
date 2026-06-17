@@ -3010,6 +3010,7 @@ class CommandModule {
       yStr = dateStr.substring(0, 4);
       mStr = dateStr.substring(4, 6);
       dStr = dateStr.length >= 8 ? dateStr.substring(6, 8) : '15';
+    }
     const monthIdx = parseInt(mStr, 10) - 1;
     if (monthIdx < 0 || monthIdx > 11) return '';
     const yy = yStr.substring(2, 4);
