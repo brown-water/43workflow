@@ -276,6 +276,7 @@ export function parseSupplyData(rawText) {
   const recdIdx = resolveHeaderIndex(headers, ['IRECD.DT', 'IRECDDT', 'REPORTEDDATE']);
   const btitleIdx = resolveHeaderIndex(headers, ['BBTITLE', 'BTITLE', 'BILLETTITLE']);
   const asnameIdx = resolveHeaderIndex(headers, ['ASNAME', 'COMMANDNAME', 'CMDNAME', 'ACTIVITY']);
+  const ahportIdx = resolveHeaderIndex(headers, ['AHPORT', 'HOMEPORT', 'PORT', 'STATION']);
   
   // Prospective replacement indices
   const pNameIdx = resolveHeaderIndex(headers, ['PNAME', 'PROSPECTIVENAME']);
@@ -311,6 +312,7 @@ export function parseSupplyData(rawText) {
     const reportedDate = recdIdx !== -1 ? parseDate(row[recdIdx]) : '';
     const billetTitle = btitleIdx !== -1 ? row[btitleIdx].trim() : '';
     const cmdName = asnameIdx !== -1 ? row[asnameIdx].trim() : '';
+    const homeport = ahportIdx !== -1 ? row[ahportIdx].trim() : '';
     
     let prospectiveReplacement = null;
     if (pNameIdx !== -1 && row[pNameIdx] && row[pNameIdx].trim() !== '') {
@@ -341,6 +343,7 @@ export function parseSupplyData(rawText) {
       aqd,
       billetTitle,
       cmdName,
+      homeport,
       fitrepHistory: [],
       recordGrade: null,
       ineligibilityTriggers: [],
@@ -648,10 +651,13 @@ export function linkAndReconcile(supplyRoster, subevalHistory) {
         masterDb.commands[uic] = {
           uic,
           name: officer.cmdName || `Command UIC ${uic}`,
+          homeport: officer.homeport || 'Unknown',
           billetsAuthorized: 45, // default
           billets: [],
           assignedOfficers: []
         };
+      } else if (officer.homeport && masterDb.commands[uic].homeport === 'Unknown') {
+        masterDb.commands[uic].homeport = officer.homeport;
       }
       masterDb.commands[uic].assignedOfficers.push(ssn);
     }
