@@ -212,7 +212,7 @@ fs.writeFileSync(supplyOutputPath, supplyFileContent);
 console.log(`Generated SUPPLY dataset with ${officers.length} active duty officers.`);
 
 // 2. Generate SUBEVAL_synthetic.csv
-const subevalHeaders = 'SSN,NAME,PG,RANK,DESIG,ACTY,TITLE,FROM,TO,RS_NAME,RS_PG,RSTITLE,PREXP,EO,MB,TEAM,MISS,LEAD,TACT,AVG,MILESTONE1,MILESTONE2,NUMRATED,RSSUMAVG,RSCUMAVG,IND_NOB,IND_SP,IND_PR,IND_P,IND_MP,IND_EP,SUM_SP,SUM_PR,SUM_P,SUM_MP,SUM_EP,PROMSTAT,PERIODIC,CONCURRENT,OPS_CDR,REGULAR,DET_IND,DET_RS,SPECIAL,NOB,ACTIVE,ADSW,FTS,INACTIVE,PFA,OGLI,AUIC';
+const subevalHeaders = 'SSN,NAME,PG,RANK,DESIG,ACTY,TITLE,FROM,TO,RS_NAME,RS_SSN,RS_PG,RSTITLE,PREXP,EO,MB,TEAM,MISS,LEAD,TACT,AVG,MILESTONE1,MILESTONE2,NUMRATED,RSSUMAVG,RSCUMAVG,IND_NOB,IND_SP,IND_PR,IND_P,IND_MP,IND_EP,SUM_SP,SUM_PR,SUM_P,SUM_MP,SUM_EP,PROMSTAT,PERIODIC,CONCURRENT,OPS_CDR,REGULAR,DET_IND,DET_RS,SPECIAL,NOB,ACTIVE,ADSW,FTS,INACTIVE,PFA,OGLI,AUIC';
 const subevalRows = [subevalHeaders];
 
 // Date generation starting back in time
@@ -280,6 +280,7 @@ officers.forEach(officer => {
       formatDate(fromDate),
       formatDate(toDate),
       `RS_LASTNAME ${f}`,
+      '123456789',
       'O6',
       'CO',
       marks[0], marks[1], marks[2], marks[3], marks[4], marks[5], marks[6],

@@ -228,21 +228,13 @@ export function resolveHeaderIndex(headers, aliases) {
     const cleanAlias = alias.toUpperCase().replace(/[^A-Z0-9_]/g, '');
     const cleanAliasNoUnderscore = cleanAlias.replace(/_/g, '');
     
-    let idx = cleanHeaders.indexOf(cleanAlias);
+    // First, try exact match with underscores
+    let idx = cleanHeaders.findIndex(h => h === cleanAlias);
     if (idx !== -1) return idx;
 
-    idx = cleanHeadersNoUnderscore.indexOf(cleanAliasNoUnderscore);
+    // Second, try exact match without underscores
+    idx = cleanHeadersNoUnderscore.findIndex(h => h === cleanAliasNoUnderscore);
     if (idx !== -1) return idx;
-  }
-  
-  for (const alias of aliases) {
-    const cleanAlias = alias.toUpperCase().replace(/[^A-Z0-9]/g, '');
-    if (!cleanAlias) continue;
-    for (let i = 0; i < cleanHeadersNoUnderscore.length; i++) {
-      if (cleanHeadersNoUnderscore[i].includes(cleanAlias) || cleanAlias.includes(cleanHeadersNoUnderscore[i])) {
-        return i;
-      }
-    }
   }
   
   return -1;
@@ -392,6 +384,7 @@ export function parseSubevalData(rawText) {
   const indPrIdx = resolveHeaderIndex(headers, ['IND_PR', 'INDPR', 'PR']);
   const indSpIdx = resolveHeaderIndex(headers, ['IND_SP', 'INDSP', 'SP']);
   
+
   if (ssnIdx === -1 && nameIdx === -1) {
     throw new Error('Crucial fields "SSN" and "NAME" are both missing in SUBEVAL file headers.');
   }
