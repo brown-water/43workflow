@@ -213,7 +213,7 @@ export class CommandModule {
 
     // Header updates
     document.getElementById('cmd-header-name').innerText = cmd.name;
-    document.getElementById('cmd-header-uic').innerText = `UIC: ${uic}`;
+    document.getElementById('cmd-header-uic').innerText = `UIC: ${uic} | Port: ${cmd.homeport || 'Unknown'}`;
     
     // Metrics panel updates
     document.getElementById('cmd-metric-paa').innerText = cmd.paa || 'N/A';
