@@ -19,48 +19,75 @@ export function normalizeSSN(ssn) {
 }
 
 /**
- * Converts a raw date string in YYYYMMDD format to ISO YYYY-MM-DD standard.
- * If the date is already formatted or invalid, it returns it safely.
+ * Helper to parse a string into a Date object supporting YYYYMMDD, YYYY-MM-DD,
+ * and MM/DD/YYYY or M/D/YYYY formats.
+ * 
+ * @param {string} str 
+ * @returns {Date|null}
+ */
+export function parseStringToDate(str) {
+  if (!str) return null;
+  const clean = String(str).trim();
+  
+  // Case 1: YYYYMMDD
+  if (clean.length === 8 && /^\d+$/.test(clean)) {
+    const y = parseInt(clean.substring(0, 4), 10);
+    const m = parseInt(clean.substring(4, 6), 10) - 1;
+    const d = parseInt(clean.substring(6, 8), 10);
+    return new Date(Date.UTC(y, m, d));
+  }
+  
+  // Case 2: Standard date formats (e.g. YYYY-MM-DD, MM/DD/YYYY)
+  const parts = clean.split(/[-/]/);
+  if (parts.length === 3) {
+    // YYYY-MM-DD
+    if (parts[0].length === 4) {
+      const y = parseInt(parts[0], 10);
+      const m = parseInt(parts[1], 10) - 1;
+      const d = parseInt(parts[2], 10);
+      return new Date(Date.UTC(y, m, d));
+    }
+    // MM/DD/YYYY or DD-MM-YYYY (Navy is MM/DD/YYYY)
+    if (parts[2].length === 4) {
+      const m = parseInt(parts[0], 10) - 1;
+      const d = parseInt(parts[1], 10);
+      const y = parseInt(parts[2], 10);
+      return new Date(Date.UTC(y, m, d));
+    }
+  }
+  
+  const d = new Date(clean);
+  return isNaN(d.getTime()) ? null : d;
+}
+
+/**
+ * Converts a raw date string in YYYYMMDD or other common formats to ISO YYYY-MM-DD standard.
+ * If the date is invalid, it returns the trimmed input safely.
  * 
  * @param {string} dateStr 
  * @returns {string} Standardized date YYYY-MM-DD
  */
 export function parseDate(dateStr) {
-  if (!dateStr) return '';
-  const clean = dateStr.trim();
-  if (clean.length === 8 && /^\d+$/.test(clean)) {
-    return `${clean.substring(0, 4)}-${clean.substring(4, 6)}-${clean.substring(6, 8)}`;
-  }
-  // Return input if already formatted or doesn't match YYYYMMDD
-  return clean;
+  const d = parseStringToDate(dateStr);
+  if (!d) return dateStr ? String(dateStr).trim() : '';
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(d.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 /**
  * Calculates the exact duration in months between two dates inclusive.
  * 
- * @param {string} fromStr Date in YYYYMMDD or YYYY-MM-DD
- * @param {string} toStr Date in YYYYMMDD or YYYY-MM-DD
+ * @param {string} fromStr 
+ * @param {string} toStr 
  * @returns {number} Fractional months, rounded to 1 decimal place
  */
 export function calculateDurationMonths(fromStr, toStr) {
-  if (!fromStr || !toStr) return 0;
+  const date1 = parseStringToDate(fromStr);
+  const date2 = parseStringToDate(toStr);
   
-  // Normalize date formats
-  const cleanFrom = fromStr.replace(/[^\d]/g, '');
-  const cleanTo = toStr.replace(/[^\d]/g, '');
-  
-  if (cleanFrom.length !== 8 || cleanTo.length !== 8) return 0;
-  
-  const y1 = parseInt(cleanFrom.substring(0, 4));
-  const m1 = parseInt(cleanFrom.substring(4, 6)) - 1;
-  const d1 = parseInt(cleanFrom.substring(6, 8));
-  
-  const y2 = parseInt(cleanTo.substring(0, 4));
-  const m2 = parseInt(cleanTo.substring(4, 6)) - 1;
-  const d2 = parseInt(cleanTo.substring(6, 8));
-  
-  const date1 = new Date(Date.UTC(y1, m1, d1));
-  const date2 = new Date(Date.UTC(y2, m2, d2));
+  if (!date1 || !date2) return 0;
   
   const diffTime = date2.getTime() - date1.getTime();
   const diffDays = diffTime / (1000 * 60 * 60 * 24) + 1; // Inclusive
@@ -69,8 +96,41 @@ export function calculateDurationMonths(fromStr, toStr) {
 }
 
 /**
+ * Dynamically detects file delimiter (comma, semicolon, tab, percent) by counting.
+ * 
+ * @param {string} text 
+ * @returns {string} Detected delimiter
+ */
+export function detectDelimiter(text) {
+  if (!text) return ',';
+  const lines = text.split(/\r?\n/).slice(0, 5).filter(line => line.trim().length > 0);
+  if (lines.length === 0) return ',';
+  
+  const delimiters = [',', ';', '\t', '%'];
+  const counts = { ',': 0, ';': 0, '\t': 0, '%': 0 };
+  
+  for (const line of lines) {
+    for (const d of delimiters) {
+      const parts = line.split(d);
+      counts[d] += parts.length - 1;
+    }
+  }
+  
+  let bestDelimiter = ',';
+  let maxCount = 0;
+  for (const d of delimiters) {
+    if (counts[d] > maxCount) {
+      maxCount = counts[d];
+      bestDelimiter = d;
+    }
+  }
+  
+  return bestDelimiter;
+}
+
+/**
  * Parses raw text separated by lines and delimiters.
- * Handles double-quotes in CSV columns robustly.
+ * Handles double-quotes and cell newlines robustly.
  * 
  * @param {string} text 
  * @param {string} delimiter 
@@ -78,76 +138,154 @@ export function calculateDurationMonths(fromStr, toStr) {
  */
 export function parseDelimitedText(text, delimiter) {
   if (!text) return [];
-  const lines = text.split(/\r?\n/);
-  const result = [];
   
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (!line) continue;
+  const result = [];
+  let row = [];
+  let cell = '';
+  let inQuotes = false;
+  
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    const nextChar = text[i+1];
     
-    let parts = [];
-    if (delimiter === ',') {
-      // Robust CSV cell parser handling double-quotes
-      let cell = '';
-      let inQuotes = false;
-      for (let c = 0; c < line.length; c++) {
-        const char = line[c];
-        if (char === '"') {
-          inQuotes = !inQuotes;
-        } else if (char === ',' && !inQuotes) {
-          parts.push(cell.trim());
-          cell = '';
-        } else {
-          cell += char;
-        }
+    if (char === '"') {
+      if (inQuotes && nextChar === '"') {
+        cell += '"';
+        i++; // skip next quote
+      } else {
+        inQuotes = !inQuotes;
       }
-      parts.push(cell.trim());
+    } else if (char === delimiter && !inQuotes) {
+      row.push(cell.trim());
+      cell = '';
+    } else if ((char === '\r' || char === '\n') && !inQuotes) {
+      if (char === '\r' && nextChar === '\n') {
+        i++; // skip \n
+      }
+      row.push(cell.trim());
+      if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+        result.push(row);
+      }
+      row = [];
+      cell = '';
     } else {
-      parts = line.split(delimiter).map(p => p.trim());
+      cell += char;
     }
-    result.push(parts);
+  }
+  
+  if (cell !== '' || row.length > 0) {
+    row.push(cell.trim());
+    if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+      result.push(row);
+    }
   }
   
   return result;
 }
 
 /**
- * Parses raw percent-delimited SUPPLY active duty data.
+ * Parses a trait average score supporting both float representations (e.g. 4.15)
+ * and integer representations (e.g. 415).
  * 
- * @param {string} rawText Percent delimited string
+ * @param {any} val 
+ * @returns {number} Float trait average
+ */
+export function parseFloatOrIntegerPct(val) {
+  if (val === null || val === undefined) return 0;
+  const cleaned = String(val).trim();
+  if (!cleaned) return 0;
+  if (cleaned.includes('.')) {
+    return parseFloat(cleaned) || 0;
+  }
+  const parsedInt = parseInt(cleaned, 10);
+  if (isNaN(parsedInt)) return 0;
+  if (parsedInt > 10) {
+    return parseFloat((parsedInt / 100).toFixed(2));
+  }
+  return parsedInt;
+}
+
+/**
+ * Searches column headers case-insensitively, ignoring spaces, BOM, and symbols.
+ * 
+ * @param {string[]} headers 
+ * @param {string[]} aliases 
+ * @returns {number} Index of matching header, or -1
+ */
+export function resolveHeaderIndex(headers, aliases) {
+  if (!headers || !Array.isArray(headers)) return -1;
+  
+  const cleanHeaders = headers.map(h => 
+    String(h).trim()
+      .replace(/^\ufeff/, '') // Strip BOM
+      .toUpperCase()
+      .replace(/[^A-Z0-9_]/g, '') // Keep alphanumeric and underscore
+  );
+  
+  const cleanHeadersNoUnderscore = cleanHeaders.map(h => h.replace(/_/g, ''));
+
+  for (const alias of aliases) {
+    const cleanAlias = alias.toUpperCase().replace(/[^A-Z0-9_]/g, '');
+    const cleanAliasNoUnderscore = cleanAlias.replace(/_/g, '');
+    
+    let idx = cleanHeaders.indexOf(cleanAlias);
+    if (idx !== -1) return idx;
+
+    idx = cleanHeadersNoUnderscore.indexOf(cleanAliasNoUnderscore);
+    if (idx !== -1) return idx;
+  }
+  
+  for (const alias of aliases) {
+    const cleanAlias = alias.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (!cleanAlias) continue;
+    for (let i = 0; i < cleanHeadersNoUnderscore.length; i++) {
+      if (cleanHeadersNoUnderscore[i].includes(cleanAlias) || cleanAlias.includes(cleanHeadersNoUnderscore[i])) {
+        return i;
+      }
+    }
+  }
+  
+  return -1;
+}
+
+/**
+ * Parses raw percent-delimited or other delimited SUPPLY active duty data.
+ * 
+ * @param {string} rawText Delimited string
  * @returns {Record<string, Object>} A list of active duty officers mapped by normalized SSN
  */
 export function parseSupplyData(rawText) {
-  const rows = parseDelimitedText(rawText, '%');
+  const delimiter = detectDelimiter(rawText);
+  const rows = parseDelimitedText(rawText, delimiter);
   if (rows.length < 2) return {};
   
   const headers = rows[0];
   const officers = {};
   
-  // Find key index indicators
-  const ssnIdx = headers.indexOf('ISSN');
-  const nameIdx = headers.indexOf('INAME');
-  const rankIdx = headers.indexOf('IRANK');
-  const desigIdx = headers.indexOf('IDESIG');
-  const uicIdx = headers.indexOf('AAUIC');
-  const prdIdx = headers.indexOf('IPRD');
-  const scrnIdx = headers.indexOf('ICOMM.SCRN.RSLT');
-  const bscIdx = headers.indexOf('BBSC');
-  const ygIdx = headers.indexOf('IYR.GRP');
-  const aqdIdx = headers.indexOf('IAQD');
-  const recdIdx = headers.indexOf('IRECD.DT');
-  const btitleIdx = headers.indexOf('BBTITLE');
-  const asnameIdx = headers.indexOf('ASNAME');
+  // Find key index indicators with robust resolving
+  const ssnIdx = resolveHeaderIndex(headers, ['ISSN', 'SSN', 'DODID', 'MEMBERSSN', 'SOCIALSECURITY']);
+  const nameIdx = resolveHeaderIndex(headers, ['INAME', 'NAME', 'MEMBERNAME', 'OFFICERNAME', 'FULLNAME']);
+  const rankIdx = resolveHeaderIndex(headers, ['IRANK', 'RANK']);
+  const desigIdx = resolveHeaderIndex(headers, ['IDESIG', 'DESIG', 'DESIGNATOR']);
+  const uicIdx = resolveHeaderIndex(headers, ['AAUIC', 'AUIC', 'UIC', 'COMMANDUIC']);
+  const prdIdx = resolveHeaderIndex(headers, ['IPRD', 'PRD']);
+  const scrnIdx = resolveHeaderIndex(headers, ['ICOMM.SCRN.RSLT', 'ICOMMSCRNRSLT', 'SCREENRESULT', 'SCRN']);
+  const bscIdx = resolveHeaderIndex(headers, ['BBSC', 'BSC', 'BILLETSEQUENCECODE']);
+  const ygIdx = resolveHeaderIndex(headers, ['IYR.GRP', 'IYRGRP', 'YG', 'YEARGROUP']);
+  const aqdIdx = resolveHeaderIndex(headers, ['IAQD', 'AQD']);
+  const recdIdx = resolveHeaderIndex(headers, ['IRECD.DT', 'IRECDDT', 'REPORTEDDATE']);
+  const btitleIdx = resolveHeaderIndex(headers, ['BBTITLE', 'BTITLE', 'BILLETTITLE']);
+  const asnameIdx = resolveHeaderIndex(headers, ['ASNAME', 'COMMANDNAME', 'CMDNAME', 'ACTIVITY']);
   
   // Prospective replacement indices
-  const pNameIdx = headers.indexOf('PNAME');
-  const pFillIdx = headers.indexOf('PFILL.DT');
-  const pEddIdx = headers.indexOf('PEDD');
-  const pDesigIdx = headers.indexOf('PDESIG');
-  const pRankIdx = headers.indexOf('PRANK');
+  const pNameIdx = resolveHeaderIndex(headers, ['PNAME', 'PROSPECTIVENAME']);
+  const pFillIdx = resolveHeaderIndex(headers, ['PFILL.DT', 'PFILLDT', 'FILLDATE']);
+  const pEddIdx = resolveHeaderIndex(headers, ['PEDD', 'EDD']);
+  const pDesigIdx = resolveHeaderIndex(headers, ['PDESIG', 'PDESIGNATOR']);
+  const pRankIdx = resolveHeaderIndex(headers, ['PRANK', 'PROSPECTIVERANK']);
   
   // Past Command
-  const pastCmdIdx = headers.indexOf('IPAST1.SNAME');
+  const pastCmdIdx = resolveHeaderIndex(headers, ['IPAST1.SNAME', 'IPAST1SNAME', 'PASTCOMMAND']);
   
   if (ssnIdx === -1) {
     throw new Error('Crucial field "ISSN" missing in SUPPLY file headers.');
@@ -220,59 +358,75 @@ export function parseSupplyData(rawText) {
 }
 
 /**
- * Parses raw CSV SUBEVAL longitudinal FITREP data.
+ * Parses raw CSV/delimited SUBEVAL longitudinal FITREP data.
  * 
- * @param {string} rawText Standard CSV formatted string
+ * @param {string} rawText Standard CSV/delimited formatted string
  * @returns {Record<string, Object[]>} Mapped lists of FITREPs by normalized SSN
  */
 export function parseSubevalData(rawText) {
-  const rows = parseDelimitedText(rawText, ',');
+  const delimiter = detectDelimiter(rawText);
+  const rows = parseDelimitedText(rawText, delimiter);
   if (rows.length < 2) return {};
   
   const headers = rows[0];
   const fitrepMap = {};
   
-  const ssnIdx = headers.indexOf('SSN');
-  const nameIdx = headers.indexOf('NAME');
-  const fromIdx = headers.indexOf('FROM');
-  const toIdx = headers.indexOf('TO');
-  const rsNameIdx = headers.indexOf('RS_NAME');
-  const rsUicIdx = headers.indexOf('AUIC');
-  const avgIdx = headers.indexOf('AVG');
-  const rscumavgIdx = headers.indexOf('RSCUMAVG');
-  const numratedIdx = headers.indexOf('NUMRATED');
-  const sumEpIdx = headers.indexOf('SUM_EP');
+  const ssnIdx = resolveHeaderIndex(headers, ['SSN', 'ISSN', 'DODID', 'MEMBERSSN', 'SOCIALSECURITY']);
+  const nameIdx = resolveHeaderIndex(headers, ['NAME', 'INAME', 'MEMBERNAME', 'OFFICERNAME', 'FULLNAME']);
+  const fromIdx = resolveHeaderIndex(headers, ['FROM', 'FROMDATE', 'STARTDATE', 'PERIODSTART']);
+  const toIdx = resolveHeaderIndex(headers, ['TO', 'TODATE', 'ENDDATE', 'PERIODEND']);
+  const rsNameIdx = resolveHeaderIndex(headers, ['RS_NAME', 'RSNAME', 'REPORTINGSENIORNAME', 'REPORTINGSENIOR']);
+  const rsUicIdx = resolveHeaderIndex(headers, ['AUIC', 'AAUIC', 'UIC', 'COMMANDUIC', 'ACTY']);
+  const avgIdx = resolveHeaderIndex(headers, ['AVG', 'ITA', 'TRAITAVERAGE']);
+  const rscumavgIdx = resolveHeaderIndex(headers, ['RSCUMAVG', 'RSCA', 'RS CUMULATIVE AVERAGE']);
+  const numratedIdx = resolveHeaderIndex(headers, ['NUMRATED', 'NUMBER RATED', 'SUMMARYGROUPSIZE']);
+  const sumEpIdx = resolveHeaderIndex(headers, ['SUM_EP', 'SUMEP', 'TOTALEP']);
   
   // Recommendation indices
-  const indEpIdx = headers.indexOf('IND_EP');
-  const indMpIdx = headers.indexOf('IND_MP');
-  const indPIdx = headers.indexOf('IND_P');
-  const indPrIdx = headers.indexOf('IND_PR');
-  const indSpIdx = headers.indexOf('IND_SP');
+  const indEpIdx = resolveHeaderIndex(headers, ['IND_EP', 'INDEP', 'EP']);
+  const indMpIdx = resolveHeaderIndex(headers, ['IND_MP', 'INDMP', 'MP']);
+  const indPIdx = resolveHeaderIndex(headers, ['IND_P', 'INDP', 'P']);
+  const indPrIdx = resolveHeaderIndex(headers, ['IND_PR', 'INDPR', 'PR']);
+  const indSpIdx = resolveHeaderIndex(headers, ['IND_SP', 'INDSP', 'SP']);
   
-  if (ssnIdx === -1) {
-    throw new Error('Crucial field "SSN" missing in SUBEVAL file headers.');
+  if (ssnIdx === -1 && nameIdx === -1) {
+    throw new Error('Crucial fields "SSN" and "NAME" are both missing in SUBEVAL file headers.');
   }
+  
+  let dummySsnCounter = 1;
+  const nameToDummySsnMap = {};
   
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
     if (row.length < headers.length) continue;
     
-    const rawSsn = row[ssnIdx];
-    if (!rawSsn) continue;
+    let rawSsn = ssnIdx !== -1 ? row[ssnIdx] : '';
+    let ssn = '';
     
-    const ssn = normalizeSSN(rawSsn);
+    if (rawSsn && rawSsn.trim() !== '') {
+      ssn = normalizeSSN(rawSsn);
+    } else {
+      const name = nameIdx !== -1 ? (row[nameIdx] || '').trim() : '';
+      if (!name) continue;
+      
+      const cleanName = name.toUpperCase();
+      if (!nameToDummySsnMap[cleanName]) {
+        nameToDummySsnMap[cleanName] = `DUMMYSSN_${dummySsnCounter++}`;
+      }
+      ssn = nameToDummySsnMap[cleanName];
+    }
+    
     const fromDate = fromIdx !== -1 ? parseDate(row[fromIdx]) : '';
     const toDate = toIdx !== -1 ? parseDate(row[toIdx]) : '';
     
-    // Parse trait calculations
-    const ita = avgIdx !== -1 ? parseFloat((parseInt(row[avgIdx]) / 100).toFixed(2)) : 0;
-    const rsca = rscumavgIdx !== -1 ? parseFloat((parseInt(row[rscumavgIdx]) / 100).toFixed(2)) : 0;
+    // Parse trait calculations using parseFloatOrIntegerPct
+    const ita = avgIdx !== -1 ? parseFloatOrIntegerPct(row[avgIdx]) : 0;
+    const rsca = rscumavgIdx !== -1 ? parseFloatOrIntegerPct(row[rscumavgIdx]) : 0;
     const relativeValue = parseFloat((ita - rsca).toFixed(2));
     
     const durationMonths = calculateDurationMonths(row[fromIdx], row[toIdx]);
-    const summaryGroupSize = numratedIdx !== -1 ? parseInt(row[numratedIdx]) : 0;
-    const totalEPs = sumEpIdx !== -1 ? parseInt(row[sumEpIdx]) : 0;
+    const summaryGroupSize = numratedIdx !== -1 ? parseInt(row[numratedIdx], 10) || 0 : 0;
+    const totalEPs = sumEpIdx !== -1 ? parseInt(row[sumEpIdx], 10) || 0 : 0;
     
     // Determine recommendation
     let recommendation = 'P'; // Default
@@ -450,38 +604,28 @@ export function linkAndReconcile(supplyRoster, subevalHistory) {
         }
       }
       
-      if (bestCandidate && strength >= 2) {
-        if (strength === 3) {
-          // Strong match: name and partial SSN match (e.g. ends in same 4 digits)
-          // Automatically link it but flag the record
-          bestCandidate.fitrepHistory = fitreps;
-          bestCandidate.isFuzzyLinked = true;
-          bestCandidate.fuzzyLinkDetails = {
-            originalSSN: ssn,
-            originalName: subevalName,
-            matchType: 'STRONG_NAME_AND_SSN'
-          };
-        } else {
-          // Add as suggestion for user confirmation
-          masterDb.fuzzyMatches.push({
-            subevalSSN: ssn,
-            subevalName,
-            activeSSN: bestCandidate.ssn,
-            activeName: bestCandidate.name,
-            matchType: strength === 2 ? 'SSN_ONLY' : 'NAME_ONLY',
-            fitreps: fitreps
-          });
-          
-          masterDb.orphans.push({
-            ssn,
-            officerName: subevalName,
-            fitrepCount: fitreps.length,
-            mostRecentFITREP: fitreps[fitreps.length - 1],
-            suggestedActiveSSN: bestCandidate.ssn,
-            suggestedActiveName: bestCandidate.name,
-            matchType: strength === 2 ? 'SSN_ONLY' : 'NAME_ONLY'
-          });
-        }
+      if (bestCandidate && strength >= 1) {
+        let matchType = '';
+        if (strength === 3) matchType = 'STRONG_NAME_AND_SSN';
+        else if (strength === 2) matchType = 'SSN_ONLY';
+        else if (strength === 1) matchType = 'NAME_ONLY';
+        
+        bestCandidate.fitrepHistory = fitreps;
+        bestCandidate.isFuzzyLinked = true;
+        bestCandidate.fuzzyLinkDetails = {
+          originalSSN: ssn,
+          originalName: subevalName,
+          matchType: matchType
+        };
+        
+        masterDb.fuzzyMatches.push({
+          subevalSSN: ssn,
+          subevalName,
+          activeSSN: bestCandidate.ssn,
+          activeName: bestCandidate.name,
+          matchType: matchType,
+          fitreps: fitreps
+        });
       } else {
         // Complete orphan
         masterDb.orphans.push({
